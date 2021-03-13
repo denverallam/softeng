@@ -26,7 +26,7 @@ export const getAllContent = (category) => async (dispatch) => {
 }
 
 
-export const getContent = (id) =>async (dispatch) => {
+export const getContent = (id) => async (dispatch) => {
     try{
         const {data} = await api.get(`/content/post/${id}`)
 

@@ -9,9 +9,9 @@ const initialState = {
 const content = (state = initialState , action) => {
     switch (action.type) {
         case act.GET_ALL_CONTENT:
-            return {...state, contentList:action.payload};
+            return {...state, contentList: action.payload};
         case act.GET_CONTENT:
-            return {...state, content:action.payload};
+            return {...state, content: action.payload};
         case act.CREATE_CONTENT:
             return {...state, contentList: [action.payload,...state.contentList]}
         case act.UPDATE_CONTENT:

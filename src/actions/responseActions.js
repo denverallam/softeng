@@ -18,6 +18,23 @@ export const getResponses = content_id => async (dispatch) => {
     }
 }
 
+export const getResponse = (response_id) => async (dispatch) => {
+
+    try {
+        const { data } = await api.get(`/response/r/${response_id}`);
+
+        dispatch({
+            type: actions.GET_RESPONSE,
+            payload: data
+        });
+    } catch (error){
+        dispatch({
+            type: actions.REQUEST_ERROR,
+            payload: error
+        })
+    }
+}
+
 export const createResponse = (content_id, response) => async (dispatch) => {
     try {
         const { data } = await api.post(`/response/${content_id}`, response);

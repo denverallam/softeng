@@ -3,50 +3,35 @@ import { useDispatch, useSelector } from 'react-redux'
 import Content from './Content';
 import { ListGroup, ListGroupItem } from 'reactstrap';
 // import ContentForm from './ContentForm';
-import { getAllContent } from '../../actions/contentActions';
+import { getAllContent, deleteContent } from '../../actions/contentActions';
 
 const ContentList = ({ match }) => {
 
-    // const [content, setContent] = useState([]);
-    // const fetchAllData = async (category) => {
-    //     const  result = await api.get(`/content/${category}`)
-    //     setContent(result.data)
-    // }
-    // useEffect(() => {
-    //     setCategory(path.pathname)
-    //     fetchAllData(category);
-    // }, [category,content]);
-    const [category, setCategory] = useState('');
-
     const dispatch = useDispatch()
     const content = useSelector(state => state.content.contentList)
+    const [contentList, setContentList] = useState([])
+    const category = match.params.category
+
+    const deleteItem = (id) => {
+        setContentList(contentList.filter(content => content._id !== id))
+        dispatch(deleteContent(id))
+    }
 
     useEffect(() => {
-
-        let unmounted = false
-
-        setCategory(match.params.category)
-        if (!unmounted) {
-            dispatch(getAllContent(category));
-        }
-
-        return () => {
-            unmounted = true
-        }
-
-    }, [dispatch, category, content])
+        dispatch(getAllContent(category));
+        setContentList(content)
+    }, [dispatch, category, contentList])
 
     return (
 
         <div>
-            {/* {console.log(match)} */}
             {content.length > 0 ?
 
                 <ListGroup>
                     {
                         content.map(content => (
                             <ListGroupItem className="border-0" key={content._id}>
-                                <Content content={content} />
+                                <Content content={content} deleteContent={deleteItem}/>
                             </ListGroupItem>
                         ))
                     }
