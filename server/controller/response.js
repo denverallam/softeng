@@ -11,6 +11,17 @@ export const getAllResponses = async (req, res) => {
     }
 }
 
+export const getResponse = async (req, res) => {
+    const {id} = req.params;
+
+    try{
+        const response = await Response.findById(id);
+        res.status(200).json(response);
+    } catch(error) {
+        res.status(404).json({message: error.message});
+    }
+}
+
 export const createResponse = async (req, res) => {
     const {content_id} = req.params;
     const response = req.body;
