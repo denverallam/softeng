@@ -61,7 +61,7 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
                 </FormGroup>
                 <Button>Publish</Button>
             </Form>
-            <Button onClick={clear}>Cancel</Button>
+            <Button onClick={clear}>Clear</Button>
         </div>
     )
 }

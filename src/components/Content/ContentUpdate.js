@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { getContent } from '../../actions/contentActions';
+import FileBase from 'react-file-base64'
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { updateContent } from '../../actions/contentActions'
 import api from '../../api/server'
@@ -9,7 +10,7 @@ const ContentUpdate = ({ match }) => {
 
   const dispatch = useDispatch()
 
-  const [newContent, setNewContent] = useState({ title:"", author: "", content:""});
+  const [newContent, setNewContent] = useState({ title:"", author: "", content:"", selectedFile:""});
   const contentId = match.params.id
 
   useEffect(() => {
@@ -57,6 +58,9 @@ const ContentUpdate = ({ match }) => {
           <Label for="content">Body</Label>
           <Input type="textarea" name="content" id="content" value={newContent.content} onChange={handleChange} />
         </FormGroup>
+        <div>
+          <FileBase type="file" value={newContent.selectedFile} onDone={({ base64 }) => setNewContent({ ...newContent, selectedFile: base64 })} />
+        </div>
         <Button>Publish</Button>
       </Form>
     </div>

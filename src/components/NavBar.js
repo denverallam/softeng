@@ -9,7 +9,9 @@ import {
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
+const user = JSON.parse(localStorage.getItem("profile"))
 
+console.log(user)
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
