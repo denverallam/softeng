@@ -13,7 +13,7 @@ const contentSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    image: String,
+    selectedFile: String,
     content: {
         type: String,
         required: true
