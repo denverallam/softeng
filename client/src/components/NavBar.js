@@ -3,7 +3,11 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  NavLink,
+  DropdownItem,
   Nav,
   NavItem
 } from 'reactstrap';
@@ -24,46 +28,62 @@ const NavBar = () => {
         <Collapse isOpen={isOpen} navbar>
           <Nav navbar>
             <NavItem className="mx-3">
-              <Link to="/">
+              <NavLink href="/">Home</NavLink>
+            </NavItem>
+            <NavItem className="mx-3">
+              <NavLink href="/news">
                 News
-              </Link>
+              </NavLink>
             </NavItem>
             <NavItem className="mx-3">
-              <Link to="/features">
+              <NavLink href="/features">
                 Features
-              </Link>
+              </NavLink>
             </NavItem>
             <NavItem className="mx-3">
-              <Link to="/literary">
+              <NavLink href="/literary">
                 Literary
-              </Link>
+              </NavLink>
             </NavItem >
             <NavItem className="mx-3">
-              <Link to="/opinion">
-               Opinion
-              </Link>
+              <NavLink href="/opinion">
+                Opinion
+              </NavLink>
             </NavItem>
             <NavItem className="mx-3">
-              <Link to="/beyond-espana">
-               Beyond Espana
-              </Link>
+              <NavLink href="/beyond-espana">
+                Beyond Espana
+              </NavLink>
             </NavItem>
-            {/* <UncontrolledDropdown nav inNavbar>
+            <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
                 About
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem>
-                  Escolario
+                  <NavLink href="/about">
+                    Escolario
+                  </NavLink>
                 </DropdownItem>
                 <DropdownItem>
-                  Becarios de Santo Tomas
+                  <NavLink href="/about-best">
+                    The BeST
+                  </NavLink>
+                </DropdownItem>
+                <DropdownItem>
+                  <NavLink href="/about-best-officers-history">
+                    BeST Officers History
+                  </NavLink>
+                </DropdownItem>
+                <DropdownItem>
+                  <NavLink href="/about-projects">
+                    Projects
+                  </NavLink>
                 </DropdownItem>
               </DropdownMenu>
-            </UncontrolledDropdown> */}
+            </UncontrolledDropdown>
           </Nav>
         </Collapse>
-        <NavbarBrand href="/">Escolario</NavbarBrand>
       </Navbar>
     </div>
   );

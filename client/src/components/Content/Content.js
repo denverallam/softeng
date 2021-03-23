@@ -28,7 +28,7 @@ const Content = ({ content, deleteContent }) => {
 
     return (
         <div className="container">
-                <CardMedia image={content.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} className={classes.media} />
+                {/* <CardMedia image={content.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} className={classes.media} /> */}
 
                 <Card>
                     <CardBody>

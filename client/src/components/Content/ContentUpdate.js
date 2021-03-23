@@ -48,6 +48,7 @@ const ContentUpdate = ({ match }) => {
           <Label for="category">Select</Label>
           <Input type="select" name="category" id="category" value={newContent.category} onChange={handleChange}>
             <option value="">-</option>
+            <option value="features">News</option>
             <option value="features">Features</option>
             <option value="literary">Literary</option>
             <option value="opinion">Opinion</option>
