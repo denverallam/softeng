@@ -4,6 +4,11 @@ import api from '../api/server'
 export const getAllContent = (category) => async (dispatch) => {
     
     try{
+
+        dispatch({
+            type: actions.FETCH_REQUEST
+        })
+
         let link = '/content/'
 
         if (category){
@@ -28,6 +33,11 @@ export const getAllContent = (category) => async (dispatch) => {
 
 export const getContent = (id) => async (dispatch) => {
     try{
+
+        dispatch({
+            type: actions.FETCH_REQUEST
+        })
+
         const {data} = await api.get(`/content/post/${id}`)
 
         dispatch({
@@ -77,7 +87,6 @@ export const updateContent = (id, newContent) => async (dispatch) => {
             payload: error
         })
     }
-
 }
 
 export const deleteContent = (id) =>async (dispatch) => {

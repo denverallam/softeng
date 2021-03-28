@@ -9,7 +9,7 @@ export const getAllContent = async (req, res) => {
 
         res.status(200).json(content);
     } catch(error) {
-        res.status(404).json({message: error.message});
+        res.status(404).json(error);
     }
 }
 
@@ -21,7 +21,7 @@ export const getContentByCategory = async (req, res) => {
 
         res.status(200).json(content);
     } catch(error) {
-        res.status(404).json({message: error.message});
+        res.status(404).json(error);
     }
 }
 
@@ -34,7 +34,7 @@ export const getContent = async (req, res) => {
 
         res.status(200).json(content);
     } catch(error) {
-        res.status(404).json({message: error.message});
+        res.status(404).json(error);
     }
 }
 
@@ -46,19 +46,24 @@ export const createContent = async (req, res) => {
         await newContent.save();
         res.status(201).json(newContent);
     } catch(error) {
-        res.status(409).json({message: error});
+        res.status(409).json(error);
     }
 }
 
 export const updateContent = async (req, res) => {
     const {id} = req.params;
     const content = req.body;
+    // if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('Content not found');
 
-    if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('Content not found');
+    // const updateContent = await Content.findByIdAndUpdate(id, {...content, id}, {new: true});
 
-    const updateContent = await Content.findByIdAndUpdate(id, {...content, id}, {new: true});
-
-    res.json(updateContent);
+    // res.json(updateContent);
+    try{
+        const updateContent = await Content.findByIdAndUpdate(id, {...content, id}, {new: true});
+        res.status(201).json(updateContent);
+    } catch(error) {
+        res.status(409).json(error);
+    }
 }
 
 export const deleteContent = async (req, res) => {

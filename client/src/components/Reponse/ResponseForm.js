@@ -10,9 +10,6 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
         email: "",
         content: ""
     });
-    console.log('Content Id: ' + contentId)
-    console.log('Res Id: '+ responseId)
-    const dispatch = useDispatch()
 
     useEffect(() => {
         const fetchData = async (id) => {
@@ -34,7 +31,6 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(newResponse)
         if (responseId) {
             newResponse.author ? updateResponse(responseId, newResponse) : updateResponse(responseId, { ...newResponse, author: 'Anonymous' })
         }
@@ -45,7 +41,7 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
     }
 
     return (
-        <div className="container mb-5">
+        <div className="container my-5 mt-10">
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label for="content">Comment</Label>
@@ -60,6 +56,7 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
                     <Input type="email" name="email" id="email" placeholder="Email" value={newResponse.email} onChange={(e) => { setNewResponse({ ...newResponse, email: e.target.value }) }} />
                 </FormGroup>
                 <Button>Publish</Button>
+
             </Form>
             <Button onClick={clear}>Clear</Button>
         </div>

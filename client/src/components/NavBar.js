@@ -12,10 +12,6 @@ import {
   NavItem
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
-
-const user = JSON.parse(localStorage.getItem("profile"))
-
-console.log(user)
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -23,37 +19,40 @@ const NavBar = () => {
 
   return (
     <div>
-      <Navbar color="light" light expand="md">
+      <Navbar color="dark" dark expand="sm">
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav navbar>
-            <NavItem className="mx-3">
-              <NavLink href="/">Home</NavLink>
+            <NavItem className="mx-3 my-auto">
+              <Link to="/new">ADD</Link>
             </NavItem>
-            <NavItem className="mx-3">
-              <NavLink href="/news">
+            <NavItem className="mx-3 my-auto">
+              <Link to="/">Home</Link>
+            </NavItem>
+            <NavItem className="mx-3 my-auto">
+              <Link to="/news">
                 News
-              </NavLink>
+              </Link>
             </NavItem>
-            <NavItem className="mx-3">
-              <NavLink href="/features">
+            <NavItem className="mx-3 my-auto">
+              <Link to="/features">
                 Features
-              </NavLink>
+              </Link>
             </NavItem>
-            <NavItem className="mx-3">
-              <NavLink href="/literary">
+            <NavItem className="mx-3 my-auto">
+              <Link to="/literary">
                 Literary
-              </NavLink>
+              </Link>
             </NavItem >
-            <NavItem className="mx-3">
-              <NavLink href="/opinion">
+            <NavItem className="mx-3 my-auto">
+              <Link to="/opinion">
                 Opinion
-              </NavLink>
+              </Link>
             </NavItem>
-            <NavItem className="mx-3">
-              <NavLink href="/beyond-espana">
+            <NavItem className="mx-3 my-auto">
+              <Link to="/beyond-espana">
                 Beyond Espana
-              </NavLink>
+              </Link>
             </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
@@ -61,24 +60,24 @@ const NavBar = () => {
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem>
-                  <NavLink href="/about">
+                  <Link to="/about">
                     Escolario
-                  </NavLink>
+                  </Link>
                 </DropdownItem>
                 <DropdownItem>
-                  <NavLink href="/about-best">
+                  <Link to="/about-best">
                     The BeST
-                  </NavLink>
+                  </Link>
                 </DropdownItem>
                 <DropdownItem>
-                  <NavLink href="/about-best-officers-history">
+                  <Link to="/about-best-officers-history">
                     BeST Officers History
-                  </NavLink>
+                  </Link>
                 </DropdownItem>
                 <DropdownItem>
-                  <NavLink href="/about-projects">
+                  <Link to="/about-projects">
                     Projects
-                  </NavLink>
+                  </Link>
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>

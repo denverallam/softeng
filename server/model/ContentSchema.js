@@ -14,6 +14,10 @@ const contentSchema = mongoose.Schema({
         required: true
     },
     selectedFile: String,
+    views: {
+        type: Number,
+        default: 0
+    },
     content: {
         type: String,
         required: true

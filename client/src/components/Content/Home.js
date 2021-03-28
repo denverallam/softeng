@@ -5,11 +5,11 @@ import {
   Carousel,
   CarouselItem,
   CarouselControl,
-  CarouselIndicators,
   CarouselCaption
 } from 'reactstrap';
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllContent, deleteContent } from '../../actions/contentActions';
+import { getAllContent } from '../../actions/contentActions';
+import Load from './Load';
 
 const items = [
   {
@@ -38,67 +38,48 @@ const Home = (props) => {
 
   const dispatch = useDispatch()
   const content = useSelector(state => state.content.contentList)
-  const [contentList, setContentList] = useState([])
+  const loading = useSelector(state => state.content.loading)
 
-  useEffect(() => {
-    dispatch(getAllContent());
-    setContentList(content)
-  }, [dispatch, content])
 
   const next = () => {
     if (animating) return;
-    const nextIndex = activeIndex === contentList.length - 1 ? 0 : activeIndex + 1;
+    const nextIndex = activeIndex === content.length - 1 ? 0 : activeIndex + 1;
     setActiveIndex(nextIndex);
   }
 
   const previous = () => {
     if (animating) return;
-    const nextIndex = activeIndex === 0 ? contentList.length - 1 : activeIndex - 1;
+    const nextIndex = activeIndex === 0 ? content.length - 1 : activeIndex - 1;
     setActiveIndex(nextIndex);
   }
 
-  const goToIndex = (newIndex) => {
-    if (animating) return;
-    setActiveIndex(newIndex);
-  }
-
-  const slides = items.map((item) => {
-    return (
-      <CarouselItem
-        onExiting={() => setAnimating(true)}
-        onExited={() => setAnimating(false)}
-        key={item.src}
-      >
-        
-        <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
-      </CarouselItem>
-    );
-  });
-
-  const contentSlides = contentList.map((content) => {
+  const contentSlides = content.map((content) => {
     return (
       <CarouselItem onExiting={() => setAnimating(true)} onExited={() => setAnimating(false)} key={content._id} >
-          <CardImg src={content.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'}/>
-          <Link to={`post/${content._id}`}>
-            <CarouselCaption captionText={content.content} captionHeader={content.title} />
-          </Link>
+        <CardImg src={content.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} />
+        <Link to={`post/${content._id}`}>
+          <CarouselCaption captionText={content.title} captionHeader={content.title} />
+        </Link>
       </CarouselItem>
-        )
-      })
+    )
+  })
 
-        return (
-        <div className="container">
-          <Carousel
-            activeIndex={activeIndex}
-            next={next}
-            previous={previous}
-          >
-            {/* <CarouselIndicators items={items} contentList={contentList} activeIndex={activeIndex} onClickHandler={goToIndex} /> */}
-            {contentSlides}
-            <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
-            <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
-          </Carousel>
-        </div>
+  return (
+    <div className="container my-5">
+      {loading ? <Load /> :
+        <Carousel
+          activeIndex={activeIndex}
+          next={next}
+          previous={previous}
+        >
+          {/* <CarouselIndicators items={items} contentList={contentList} activeIndex={activeIndex} onClickHandler={goToIndex} /> */}
+          {contentSlides}
+          <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
+          <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
+        </Carousel>
+      }
+    </div>
+
 
   );
 }
