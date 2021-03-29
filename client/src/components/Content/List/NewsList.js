@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import Content from '../Content';
 import { Button, ButtonGroup, ListGroup, ListGroupItem } from 'reactstrap';
 // import ContentForm from './ContentForm';
-import { getAllContent, deleteContent } from '../../../actions/contentActions';
+import { getAllContent, deleteContent, getContentByCategory } from '../../../actions/contentActions';
 import Load from '../Load';
+import NavBar from '../../NavBar';
 
 const NewsList = () => {
 
@@ -19,12 +20,13 @@ const NewsList = () => {
     }
 
     useEffect(() => {
-        dispatch(getAllContent('news'));
+        dispatch(getContentByCategory('news'));
         setContentList(content)
     }, [dispatch, contentList])
 
     return (
-
+        <>
+        <NavBar/>
         <div>
             <p  className="text-center">News</p>
 
@@ -54,6 +56,7 @@ const NewsList = () => {
                         <p className="text-center">No articles posted</p>
             }
         </div >
+        </>
     )
 }
 

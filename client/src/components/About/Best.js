@@ -1,5 +1,9 @@
+import NavBar from "../NavBar"
+
 const Best = () => {
     return (
+        <>
+        <NavBar/>
         <div className="container my-5">
             <h4>HISTORY OF THE ORGANIZATION</h4>
             <p>Becarios de Santo Tomas, the Sole Thomasian Scholars Association, is a university-wide organization composed of over 800 members duly recognized by the university. Established in 1994 under the provisions of the Office for Student Affairs, the organization works to produce competent and well-equipped Thomasian scholars over the years. Tracing back from its origin, the organization was formerly named as Ugnayang Tomasino na may Angking Kakayahan (U.T.A.K.) in 1994. A few years later, in 1997, it was then renamed into UST Scholars Association (UST SA). But by 2000, it had its name changed to Escolares. The final revision only took place by 2002 when Rev. Fr. Pompeyo De Mesa, O.P. suggested to change the organization’s name into Becarios de Santo Tomas.</p>
@@ -9,6 +13,7 @@ const Best = () => {
             <h4>VISION</h4>
             <p>Becarios de Santo Tomas, the Sole Scholars Association of the University of Santo Tomas, envisions itself to be a formative organization that produces scholars who are competitive and equipped with Thomasian virtues.</p>
         </div>
+        </>
     )
 }
 

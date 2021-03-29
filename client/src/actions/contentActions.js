@@ -1,7 +1,8 @@
 import * as actions from '../constants/contentConstants';
 import api from '../api/server'
+import * as API from '../api/index'
 
-export const getAllContent = (category) => async (dispatch) => {
+export const getContentByCategory = (category) => async (dispatch) => {
     
     try{
 
@@ -9,13 +10,44 @@ export const getAllContent = (category) => async (dispatch) => {
             type: actions.FETCH_REQUEST
         })
 
-        let link = '/content/'
+        const {data} = await API.fetchContentByCategory(category)
+        // let link = '/content/'
 
-        if (category){
-            link = `/content/${category}`
-        }
+        // if (category){
+        //     link = `/content/${category}`
+        // }
 
-        const {data} = await api.get(link)
+        // const {data} = await api.get(link)
+
+        dispatch({
+            type: actions.GET_ALL_CONTENT,
+            payload: data
+        })
+
+    } catch (error){
+        dispatch({
+            type: actions.REQUEST_ERROR,
+            payload: error
+        })
+    }
+}
+
+export const getAllContent = () => async (dispatch) => {
+    
+    try{
+
+        dispatch({
+            type: actions.FETCH_REQUEST
+        })
+
+        const {data} = await API.fetchAllContent()
+        // let link = '/content/'
+
+        // if (category){
+        //     link = `/content/${category}`
+        // }
+
+        // const {data} = await api.get(link)
 
         dispatch({
             type: actions.GET_ALL_CONTENT,
@@ -56,7 +88,8 @@ export const getContent = (id) => async (dispatch) => {
 export const createContent = (newContent) => async (dispatch) => {
 
     try{
-        const {data} = await api.post(`/content/`,newContent)
+        // const {data} = await api.post(`/content/`,newContent)
+        const {data} = await API.createContent(newContent)
 
         dispatch({
             type: actions.CREATE_CONTENT,
@@ -74,7 +107,8 @@ export const createContent = (newContent) => async (dispatch) => {
 export const updateContent = (id, newContent) => async (dispatch) => {
 
     try{
-        const {data} = await api.patch(`/content/${id}`, newContent)
+        // const {data} = await api.patch(`/content/${id}`, newContent)
+        const {data} = await API.updateContent(id, newContent)
 
         dispatch({
             type: actions.UPDATE_CONTENT,

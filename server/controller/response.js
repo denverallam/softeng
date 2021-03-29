@@ -2,6 +2,15 @@ import mongoose from 'mongoose';
 import Response from '../model/ResponseSchema.js';
 
 export const getAllResponses = async (req, res) => {
+    try{
+        const response = await Response.find();
+        res.status(200).json(response);
+    } catch(error) {
+        res.status(404).json({message: error.message});
+    }
+}
+
+export const getResponseByContent = async (req, res) => {
     const {content_id} = req.params;
     try{
         const response = await Response.find({content_id});

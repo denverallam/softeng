@@ -10,6 +10,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllContent } from '../../actions/contentActions';
 import Load from './Load';
+import NavBar from '../NavBar';
 
 const items = [
   {
@@ -65,21 +66,23 @@ const Home = (props) => {
   })
 
   return (
-    <div className="container my-5">
-      {loading ? <Load /> :
-        <Carousel
-          activeIndex={activeIndex}
-          next={next}
-          previous={previous}
-        >
-          {/* <CarouselIndicators items={items} contentList={contentList} activeIndex={activeIndex} onClickHandler={goToIndex} /> */}
-          {contentSlides}
-          <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
-          <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
-        </Carousel>
-      }
-    </div>
-
+    <>
+      <NavBar />
+      <div className="container my-5">
+        {loading ? <Load /> :
+          <Carousel
+            activeIndex={activeIndex}
+            next={next}
+            previous={previous}
+          >
+            {/* <CarouselIndicators items={items} contentList={contentList} activeIndex={activeIndex} onClickHandler={goToIndex} /> */}
+            {contentSlides}
+            <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
+            <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
+          </Carousel>
+        }
+      </div>
+    </>
 
   );
 }

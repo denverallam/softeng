@@ -1,8 +1,14 @@
+import NavBar from "../NavBar"
+
 const Projects = () => {
+
     return (
-        <div>
-            Projects
-        </div>
+        <>
+            <NavBar />
+            <div>
+                Projects
+            </div>
+        </>
     )
 }
 

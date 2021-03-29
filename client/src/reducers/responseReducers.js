@@ -3,13 +3,19 @@ import * as act from '../constants/responseConstants';
 
 const initialState = {
     responseList: [],
-    response: {}
+    allResponses: [],
+    response: {},
+    loading: false
 }
 
 const response = (state = initialState, action) => {
     switch (action.type) {
-        case act.GET_RESPONSES:
-            return { ...state, responseList: action.payload };
+        case act.FETCH_REQUEST:
+            return { ...state, loading: true };
+        case act.GET_CONTENT_RESPONSE:
+            return { ...state, responseList: action.payload, loading: false };
+            case act.GET_ALL_RESPONSES:
+                return { ...state, allResponses: action.payload, loading: false };
         case act.GET_RESPONSE:
             return { ...state, response: action.payload };
         case act.CREATE_RESPONSE:

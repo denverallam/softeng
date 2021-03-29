@@ -1,13 +1,33 @@
 import * as actions from '../constants/responseConstants';
 import api from '../api/server'
 
+export const getAllResponses = () => async (dispatch) => {
+
+    try {
+        
+        const { data } = await api.get(`/response`);
+
+        dispatch({
+            type: actions.GET_ALL_RESPONSES,
+            payload: data
+        });
+        
+    } catch (error){
+        dispatch({
+            type: actions.REQUEST_ERROR,
+            payload: error
+        })
+    }
+}
+
 export const getResponses = content_id => async (dispatch) => {
 
     try {
+        
         const { data } = await api.get(`/response/${content_id}`);
 
         dispatch({
-            type: actions.GET_RESPONSES,
+            type: actions.GET_CONTENT_RESPONSE,
             payload: data
         });
     } catch (error){

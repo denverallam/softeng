@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import api from '../../api/server'
+import api from '../../../api/server'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
@@ -7,7 +7,7 @@ import {
     Card, CardText, CardBody,
     CardTitle, CardSubtitle, Button, CardImg
 } from 'reactstrap';
-import { updateContent } from '../../actions/contentActions'
+import { updateContent } from '../../../actions/contentActions'
 import moment from 'moment';
 
 
@@ -46,17 +46,22 @@ const Content = ({ content, deleteContent }) => {
         dispatch(updateContent(content._id, newContent))
     }
 
+    console.log(user)
     return (
         <div className="container">
             <Card>
                 <CardBody>
-                    <Link to={`/post/${content._id}`} onClick={increaseViews}>
+                    <Button close onClick={() => deleteContent(content._id)} />
+                    <Link to={`post/${content._id}`}>
                         <CardTitle className="display-4" tag="h5">{content.title}</CardTitle>
                     </Link>
                     <CardSubtitle tag="h6" className="mb-2 text-muted">By {content.author}</CardSubtitle>
                     <CardText>{cutContent(content.content)}</CardText>
                     <CardText>{moment(content.date).fromNow()}</CardText>
                     <CardText>{content.views} views</CardText>
+                    <Link to={`/edit/${content._id}`}>
+                        <Button>Edit</Button>
+                    </Link>
                 </CardBody>
             </Card>
         </div >

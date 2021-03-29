@@ -17,6 +17,11 @@ const ResponseList = ({ contentId }) => {
     useEffect(() => {
         setResponseList(response)
         dispatch(getResponses(contentId))
+    },[])
+
+    useEffect(() => {
+        setResponseList(response)
+        dispatch(getResponses(contentId))
     },[responseList])
 
 
@@ -31,7 +36,6 @@ const ResponseList = ({ contentId }) => {
     const updateItem = (id, newItem) => {
         setResponseList(response.map(res => res._id === id ? newItem : res))
         dispatch(updateResponse(id, newItem))
-
     }
 
     const addItem = (id, item) => {

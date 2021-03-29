@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import FileBase from 'react-file-base64'
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import { updateContent } from '../../actions/contentActions'
-import api from '../../api/server'
+import { Button, Form, FormGroup, Label, Input, Nav } from 'reactstrap';
+import { updateContent } from '../../../actions/contentActions'
+import api from '../../../api/server'
+import NavBar from '../../NavBar';
+import Dashboard from '../Dashboard';
 
 const ContentUpdate = ({ match }) => {
 
@@ -37,6 +39,8 @@ const ContentUpdate = ({ match }) => {
   }
 
   return (
+    <>
+    <Dashboard/>
     <div className="container">
       <Form onSubmit={handleSubmit}>
       <FormGroup>
@@ -68,6 +72,7 @@ const ContentUpdate = ({ match }) => {
         <Button>Publish</Button>
       </Form>
     </div>
+    </>
   )
 }
 

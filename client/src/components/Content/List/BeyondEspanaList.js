@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Content from '../Content';
 import { Button, ButtonGroup, ListGroup, ListGroupItem } from 'reactstrap';
-import { getAllContent, deleteContent } from '../../../actions/contentActions';
+import { getAllContent, deleteContent, getContentByCategory } from '../../../actions/contentActions';
 import Load from '../Load';
+import NavBar from '../../NavBar';
 
 const BeyondEspanaList = () => {
 
@@ -18,12 +19,13 @@ const BeyondEspanaList = () => {
     }
 
     useEffect(() => {
-        dispatch(getAllContent('beyond-espana'));
+        dispatch(getContentByCategory('beyond-espana'));
         setContentList(content)
     }, [dispatch, contentList])
 
     return (
-
+        <>
+        <NavBar/>
         <div>
             <p className="text-center">Beyond Espana</p>
 
@@ -53,6 +55,7 @@ const BeyondEspanaList = () => {
                         <p className="text-center">No articles posted</p>
             }
         </div >
+        </>
     )
 }
 

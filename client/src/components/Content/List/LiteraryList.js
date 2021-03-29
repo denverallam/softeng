@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Content from '../Content';
-import { Button, ButtonGroup, ListGroup, ListGroupItem } from 'reactstrap';
-import { getAllContent, deleteContent } from '../../../actions/contentActions';
+import { Button, ButtonGroup, ListGroup, ListGroupItem, Nav } from 'reactstrap';
+import { getAllContent, deleteContent, getContentByCategory } from '../../../actions/contentActions';
 import Load from '../Load';
+import NavBar from '../../NavBar';
 
 const LiteraryList = () => {
 
@@ -18,12 +19,13 @@ const LiteraryList = () => {
     }
 
     useEffect(() => {
-        dispatch(getAllContent('literary'));
+        dispatch(getContentByCategory('literary'));
         setContentList(content)
     }, [dispatch, contentList])
 
     return (
-
+        <>
+        <NavBar/>
         <div>
             <p  className="text-center">Literary</p>
 
@@ -53,6 +55,7 @@ const LiteraryList = () => {
                         <p className="text-center">No articles posted</p>
             }
         </div >
+        </>
     )
 }
 

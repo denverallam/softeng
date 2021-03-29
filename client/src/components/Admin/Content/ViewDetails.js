@@ -1,16 +1,16 @@
 
 
-import {useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import ResponseList from '../Reponse/ResponseList'
-import Load from './Load'
+import Load from '../../Content/Load'
 import { CardImg} from 'reactstrap'
 import moment from 'moment';
-import { getContent } from '../../actions/contentActions';
-import NavBar from '../NavBar';
+import { getContent } from '../../../actions/contentActions';
+import NavBar from '../Dashboard';
+import Dashboard from '../Dashboard';
 
 
-const ContentDetails = ({ match }) => {
+const ViewDetails = ({ match }) => {
 
     const dispatch = useDispatch()
 
@@ -34,7 +34,7 @@ const ContentDetails = ({ match }) => {
 
     return (
         <>
-        <NavBar/>
+        <Dashboard/>
         <div className="container-sm my-5">
             {loading ? <Load /> :
                 <div>
@@ -44,9 +44,7 @@ const ContentDetails = ({ match }) => {
                     <div className="my-4">
                         {printLine(content.content || "")}
                     </div>
-                    <div>
-                        <ResponseList contentId={content._id} />
-                    </div>
+
                 </div>
             }
         </div>
@@ -54,4 +52,4 @@ const ContentDetails = ({ match }) => {
     )
 }
 
-export default ContentDetails
+export default ViewDetails

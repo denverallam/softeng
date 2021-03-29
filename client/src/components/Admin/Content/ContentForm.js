@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import { createContent } from '../../actions/contentActions'
+import { createContent } from '../../../actions/contentActions'
 import FileBase from 'react-file-base64'
+import NavBar from '../../NavBar';
+import Dashboard from '../Dashboard';
 const ContentForm = () => {
 
   const dispatch = useDispatch()
@@ -43,6 +45,8 @@ const ContentForm = () => {
   }
 
   return (
+    <>
+    <Dashboard/>
     <div className="container">
       <form onSubmit={handleSubmit}>
             <FormGroup>
@@ -78,6 +82,7 @@ const ContentForm = () => {
         <Button type="submit">Publish</Button>
       </form>
     </div>
+    </>
   )
 }
 

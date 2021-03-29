@@ -1,5 +1,6 @@
 import { Card, CardTitle, CardSubtitle, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import {useState} from 'react'
+import NavBar from '../NavBar';
 
 const BestOfficerHistory = ({organization}) => {
 
@@ -7,6 +8,7 @@ const BestOfficerHistory = ({organization}) => {
     const toggle = () => setModal(!modal);
 
     return (
+        <>
         <div className="col-sm-2">
             <Card className="my-2 text-center"  onClick={toggle}>
                 <CardTitle >Best Officers</CardTitle>
@@ -28,6 +30,7 @@ const BestOfficerHistory = ({organization}) => {
                 </Modal>
             </Card>
         </div>
+        </>
     )
 }
 

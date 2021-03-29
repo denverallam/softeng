@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   Collapse,
   Navbar,
@@ -6,16 +7,21 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  NavLink,
   DropdownItem,
   Nav,
   NavItem
 } from 'reactstrap';
+
 import { Link } from 'react-router-dom';
+import { logout } from '../actions/userActions';
+
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggle = () => setIsOpen(!isOpen);
+  const dispatch = useDispatch()
+  const user = useSelector(state => state.user)
+  const localUser = JSON.parse(localStorage.getItem("admin"))
+
 
   return (
     <div>
@@ -23,9 +29,6 @@ const NavBar = () => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav navbar>
-            <NavItem className="mx-3 my-auto">
-              <Link to="/new">ADD</Link>
-            </NavItem>
             <NavItem className="mx-3 my-auto">
               <Link to="/">Home</Link>
             </NavItem>
@@ -84,6 +87,8 @@ const NavBar = () => {
           </Nav>
         </Collapse>
       </Navbar>
+
+
     </div>
   );
 }
