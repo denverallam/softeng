@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import api from '../../../api/server'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
+
 import {
     Card, CardText, CardBody,
     CardTitle, CardSubtitle, Button, CardImg
@@ -46,25 +48,27 @@ const Content = ({ content, deleteContent }) => {
         dispatch(updateContent(content._id, newContent))
     }
 
-    console.log(user)
+
     return (
-        <div className="container">
-            <Card>
-                <CardBody>
-                    <Button close onClick={() => deleteContent(content._id)} />
-                    <Link to={`post/${content._id}`}>
-                        <CardTitle className="display-4" tag="h5">{content.title}</CardTitle>
-                    </Link>
-                    <CardSubtitle tag="h6" className="mb-2 text-muted">By {content.author}</CardSubtitle>
-                    <CardText>{cutContent(content.content)}</CardText>
-                    <CardText>{moment(content.date).fromNow()}</CardText>
-                    <CardText>{content.views} views</CardText>
-                    <Link to={`/edit/${content._id}`}>
-                        <Button>Edit</Button>
-                    </Link>
-                </CardBody>
-            </Card>
-        </div >
+        <Card className="container border border-info">
+
+            <CardBody>
+                <Link to={`post/${content._id}`} >
+                    <CardTitle className="display-4" tag="h5">{content.title}</CardTitle>
+                </Link>
+                <CardSubtitle tag="h6" className="mb-2 text-muted">By {content.author}</CardSubtitle>
+                <CardText>{cutContent(content.content)}</CardText>
+                <CardText>{moment(content.date).fromNow()}</CardText>
+                <CardText>{content.views} views</CardText>
+
+            </CardBody>
+            <div className="ml-auto mb-2">
+                <Link to={`/edit/${content._id}`} className="text-dark">
+                    <EditIcon />
+                </Link>
+                <DeleteIcon onClick={() => deleteContent(content._id)} />
+            </div>
+        </Card>
     )
 }
 

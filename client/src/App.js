@@ -31,12 +31,8 @@ import ResponseList from './components/Admin/Response/ResponseList';
 const App = () => {
 
   const dispatch = useDispatch()
+  const localUser = JSON.parse(localStorage.getItem("admin"))
   const user = useSelector(state => state.user)
-  const localUser = JSON.parse(localStorage.getItem("admin")) || user
-
-  useEffect(() => {
-    dispatch(getAllContent());
-  }, [])
 
   return (
     <Router>
@@ -54,15 +50,17 @@ const App = () => {
           <Route path='/beyond-espana' exact component={BeyondEspanaList} />
           <Route path='/post/:id' exact component={ContentDetails} />
 
-          <PrivateRoute path='/edit/:id' isAdmin={localUser.isAdmin} exact component={ContentUpdate} />
-          <PrivateRoute path='/admin/new' isAdmin={localUser.isAdmin} exact component={ContentForm} />
-          <PrivateRoute path='/admin' isAdmin={localUser.isAdmin} exact component={ContentList} />
-          <PrivateRoute path='/admin/post/:id' isAdmin={localUser.isAdmin} exact component={ViewDetails} />
-          <PrivateRoute path='/admin/response' isAdmin={localUser.isAdmin} exact component={ResponseList} />
+          <PrivateRoute path='/edit/:id' user={localUser?.result} isAdmin={localUser?.result?.isAdmin } exact component={ContentUpdate} />
+          <PrivateRoute path='/admin/new' user={localUser?.result} isAdmin={localUser?.result?.isAdmin } exact component={ContentForm} />
+          <PrivateRoute path='/admin' user={localUser?.result} isAdmin={localUser?.result?.isAdmin }  exact component={ContentList} />
+          <PrivateRoute path='/admin/post/:id' user={localUser?.result} isAdmin={localUser?.result?.isAdmin} exact component={ViewDetails} />
+          <PrivateRoute path='/admin/response' user={localUser?.result} isAdmin={localUser?.result?.isAdmin} exact component={ResponseList} />
+          
           <Route path='/login' exact component={Login} />
           <Route path='/register' exact component={Register} />
           <Route path='/recover-password' exact component={RecoverPassword} />
           <Route path='/change-password' exact component={ChangePassword} />
+
 
           <Route component={Error} />
         </Switch>

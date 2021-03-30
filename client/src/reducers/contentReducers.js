@@ -12,7 +12,8 @@ const content = (state = initialState, action) => {
     switch (action.type) {
         case act.FETCH_REQUEST:
             return { ...initialState,  loading: true };
-        case act.GET_ALL_CONTENT:
+        case act.GET_ALL_CONTENT:            
+            return { ...state, contentList: action.payload, loading: false };
         case act.GET_CATEGORY_CONTENT:
             return { ...state, contentList: action.payload, loading: false };
         case act.GET_CONTENT:

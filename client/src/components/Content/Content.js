@@ -21,6 +21,7 @@ const Content = ({ content, deleteContent }) => {
         views: 0,
         title: ''
     })
+
     const useStyles = makeStyles({
         media: {
             height: 360
@@ -47,16 +48,17 @@ const Content = ({ content, deleteContent }) => {
     }
 
     return (
-        <div className="container">
+        <div className="container border border-dark">
             <Card>
                 <CardBody>
-                    <Link to={`/post/${content._id}`} onClick={increaseViews}>
-                        <CardTitle className="display-4" tag="h5">{content.title}</CardTitle>
-                    </Link>
+                    <CardTitle className="display-4" tag="h5">{content.title}</CardTitle>
                     <CardSubtitle tag="h6" className="mb-2 text-muted">By {content.author}</CardSubtitle>
                     <CardText>{cutContent(content.content)}</CardText>
                     <CardText>{moment(content.date).fromNow()}</CardText>
                     <CardText>{content.views} views</CardText>
+                    <Link to={`/post/${content._id}`} onClick={increaseViews}>
+                        <p className="text-center">READ FULL ARTICLE</p>
+                    </Link>
                 </CardBody>
             </Card>
         </div >

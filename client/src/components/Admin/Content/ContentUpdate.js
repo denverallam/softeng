@@ -7,6 +7,7 @@ import api from '../../../api/server'
 import NavBar from '../../NavBar';
 import Dashboard from '../Dashboard';
 
+
 const ContentUpdate = ({ match }) => {
 
   const dispatch = useDispatch()
@@ -33,45 +34,47 @@ const ContentUpdate = ({ match }) => {
       dispatch(updateContent(contentId, newContent));
       alert("Updated");
     }
-    else{
+    else {
       alert("Invalid Input")
     }
   }
 
   return (
     <>
-    <Dashboard/>
-    <div className="container">
-      <Form onSubmit={handleSubmit}>
-      <FormGroup>
-          <Label for="category">Section</Label>
-          <Input type="select" name="category" id="category" value={newContent.category} onChange={handleChange}>
-            <option value="">-</option>
-            <option value="news">News</option>
-            <option value="features">Features</option>
-            <option value="literary">Literary</option>
-            <option value="opinion">Opinion</option>
-            <option value="beyond-espana">Beyond Espana</option>
-          </Input>
-        </FormGroup>
-        <FormGroup>
-          <Label for="title">Title</Label>
-          <Input type="text" name="title" id="title" placeholder="Title" value={newContent.title} onChange={handleChange} />
-        </FormGroup>
-        <FormGroup>
-          <Label for="author">Author</Label>
-          <Input type="text" name="author" id="author" placeholder="Author" value={newContent.author} onChange={handleChange} />
-        </FormGroup>
-        <FormGroup>
-          <Label for="content">Body</Label>
-          <Input type="textarea" name="content" id="content" value={newContent.content} onChange={handleChange} />
-        </FormGroup>
-        <div>
-          <FileBase type="file" value={newContent.selectedFile} onDone={({ base64 }) => setNewContent({ ...newContent, selectedFile: base64 })} />
-        </div>
-        <Button>Publish</Button>
-      </Form>
-    </div>
+      <Dashboard />
+      {/* <ResponsiveDrawer/> */}
+      <div className="container my-5">
+        <Form onSubmit={handleSubmit}>
+          <FormGroup>
+            <Label for="category">Section</Label>
+            <Input type="select" name="category" id="category" value={newContent.category} onChange={handleChange}>
+              <option value="">-</option>
+              <option value="news">News</option>
+              <option value="features">Features</option>
+              <option value="literary">Literary</option>
+              <option value="opinion">Opinion</option>
+              <option value="beyond-espana">Beyond Espana</option>
+            </Input>
+          </FormGroup>
+          <FormGroup>
+            <Label for="title">Title</Label>
+            <Input type="text" name="title" id="title" placeholder="Title" value={newContent.title} onChange={handleChange} />
+          </FormGroup>
+          <FormGroup>
+            <Label for="author">Author</Label>
+            <Input type="text" name="author" id="author" placeholder="Author" value={newContent.author} onChange={handleChange} />
+          </FormGroup>
+          <FormGroup>
+            <Label for="content">Body</Label>
+            <Input type="textarea" name="content" id="content" value={newContent.content} onChange={handleChange} />
+          </FormGroup>
+          <div>
+            <FileBase type="file" value={newContent.selectedFile} onDone={({ base64 }) => setNewContent({ ...newContent, selectedFile: base64 })} />
+          </div>
+          <Button color="primary" className="my-4">Update</Button>
+
+        </Form>
+      </div>
     </>
   )
 }

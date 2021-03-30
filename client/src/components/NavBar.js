@@ -30,55 +30,59 @@ const NavBar = () => {
         <Collapse isOpen={isOpen} navbar>
           <Nav navbar>
             <NavItem className="mx-3 my-auto">
-              <Link to="/">Home</Link>
+              <Link to="/" className="text-light">
+              <span>
+                Home
+                </span>
+                </Link>
             </NavItem>
             <NavItem className="mx-3 my-auto">
-              <Link to="/news">
-                News
+              <Link to="/news" className="text-light">
+                <span>News</span>
               </Link>
             </NavItem>
             <NavItem className="mx-3 my-auto">
-              <Link to="/features">
-                Features
+              <Link to="/features" className="text-light">
+              <span>Features</span>
               </Link>
             </NavItem>
             <NavItem className="mx-3 my-auto">
-              <Link to="/literary">
-                Literary
+              <Link to="/literary" className="text-light">
+              <span>Literary</span>
               </Link>
             </NavItem >
             <NavItem className="mx-3 my-auto">
-              <Link to="/opinion">
-                Opinion
+              <Link to="/opinion" className="text-light">
+              <span> Opinion</span>
               </Link>
             </NavItem>
             <NavItem className="mx-3 my-auto">
-              <Link to="/beyond-espana">
-                Beyond Espana
+              <Link to="/beyond-espana" className="text-light">
+              <span> Beyond Espana</span>
               </Link>
             </NavItem>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                About
+            <UncontrolledDropdown nav inNavbar className="mx-3 my-auto">
+              <DropdownToggle nav caret className="text-light">
+              <span>About</span>
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem>
-                  <Link to="/about">
+                  <Link to="/about" className="text-dark">
                     Escolario
                   </Link>
                 </DropdownItem>
                 <DropdownItem>
-                  <Link to="/about-best">
+                  <Link to="/about-best" className="text-dark">
                     The BeST
                   </Link>
                 </DropdownItem>
                 <DropdownItem>
-                  <Link to="/about-best-officers-history">
+                  <Link to="/about-best-officers-history" className="text-dark">
                     BeST Officers History
                   </Link>
                 </DropdownItem>
                 <DropdownItem>
-                  <Link to="/about-projects">
+                  <Link to="/about-projects" className="text-dark">
                     Projects
                   </Link>
                 </DropdownItem>

@@ -40,6 +40,7 @@ export const getContent = async (req, res) => {
 
 export const createContent = async (req, res) => {
     const content = req.body;
+    
     const newContent = new Content(content);
 
     try{

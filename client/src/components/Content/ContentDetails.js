@@ -38,11 +38,13 @@ const ContentDetails = ({ match }) => {
         <div className="container-sm my-5">
             {loading ? <Load /> :
                 <div>
+                    <div className="border-bottom border-dark">
                     <h4 className="mb-3">{content.title}</h4>
                     <div className="my-3">By {content.author}. {moment(content.date).toString()}</div>
                     <CardImg src={content.selectedFile} />
                     <div className="my-4">
                         {printLine(content.content || "")}
+                    </div>
                     </div>
                     <div>
                         <ResponseList contentId={content._id} />

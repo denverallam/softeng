@@ -1,11 +1,11 @@
 import {Redirect, Route} from 'react-router-dom'
 
-const PrivateRoute = ({isAdmin, component: Component, ...rest}) => {
+const PrivateRoute = ({user, isAdmin, component: Component, ...rest}) => {
     return (
         <Route
             {...rest}
             render= {(props) => 
-                isAdmin ? (
+                user && isAdmin ? (
                     <Component {...props}/>
                 ) : (
                     <Redirect to={{

@@ -1,22 +1,22 @@
 import * as act from '../constants/userConstants';
 
-const initialState = {
-    isAdmin: false,
-    name: '',
-    email: '',
-    password: ''
-}
 
-const user = (state = initialState, action) => {
+const user = (state = { authData: null, isAdmin: false }, action) => {
     switch (action.type) {
         case act.LOG_IN:
-            return action.payload
-        case act.LOG_OUT:
-            return action.payload
+            localStorage.setItem('admin', JSON.stringify(action.payload))
+            return { ...state, authData: action.payload, loading: false, errors: null };
+        case act.REGISTER:
+            localStorage.setItem('admin', JSON.stringify(action.payload))
+            return { ...state, authData: action.payload, loading: false, errors: null };
         case act.CHANGE_PASSWORD:
-            return action.payload
+            localStorage.setItem('admin', JSON.stringify(action.payload))
+            return { ...state, authData: action.payload, loading: false, errors: null };
+        case act.LOG_OUT:
+            localStorage.removeItem('admin');
+            return { ...state, authData: null, loading: false, errors: null };
         default:
-            return state
+            return state;
     }
 };
 

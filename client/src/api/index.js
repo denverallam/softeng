@@ -14,3 +14,10 @@ export const createResponse = (contentId, newResponse) => api.post(`/response/${
 export const updateResponse = (id, newResponse) => api.patch(`/response/${id}`, newResponse)
 export const deleteResponse = (id) => api.patch(`/response/${id}`)
 
+export const register = (username, email, password) => api.post('/user/register', username, email, password)
+export const fetchAllUser = () => api.get('/user')
+export const login = (email, password) => api.post('/user/login', email, password);
+export const changePassword = (email, password, newPassword, confirmPassword) => api.patch('/user/changePassword', email, password, newPassword, confirmPassword);
+export const resetPassword = (email, password, confirmPassword) => api.patch('/user/resetPassword', email, password, confirmPassword);
+
+

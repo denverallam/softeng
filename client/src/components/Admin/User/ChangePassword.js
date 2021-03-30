@@ -1,34 +1,34 @@
 import React, { useState } from 'react';
-import {useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-// import { changePassword } from '../../../actions/userActions';
+import { changePassword } from '../../../actions/userActions';
 
-const ChangePassword = () => {
+const ChangePassword = ({ history }) => {
 
     const localUser = JSON.parse(localStorage.getItem("admin"))
     const dispatch = useDispatch()
 
-    const [password, setPassword] = useState({
-        newPassword: "",
-        oldPassword: "",
-        confirmPassword: "",
+    const [user, setUser] = useState({
+        email: localUser.result.email,
+        password: "",
+        newpassword: "",
+        confirmpassword: "",
     })
 
     const handleSubmit = (e) => {
         e.preventDefault()
-
-        if(localUser.password === password.oldPassword && password.newPassword === password.confirmPassword){
-            // dispatch(changePassword(password.newPassword))
-            alert("Password changed!")
+        if (user.newpassword === user.confirmpassword) { 
+            if(user.newpassword.length >= 7){
+                dispatch(changePassword(user, history)) 
+            }
+            else{
+                alert('Minimum of 7 characters!')
+            }
         }
-        else{
-            alert("Wrong password")
-        }
+        else alert('Passwords do not much!')
     }
 
-    const handleChange = (e) => {
-        setPassword({ ...password, [e.target.name]: e.target.value })
-    }
+
 
 
     return (
@@ -37,20 +37,21 @@ const ChangePassword = () => {
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label for="password">Old Password</Label>
-                    <Input type="password" name="oldPassword" id="oldpassword" value={password.oldPassword} placeholder="Old Password" onChange={handleChange} />
+
+                    <Input type="password" name="password" id="password" placeholder="Old Password" onChange={(e) => setUser({ ...user, password: e.target.value })} />
                 </FormGroup>
                 <FormGroup>
                     <Label for="password">New Password</Label>
-                    <Input type="password" name="newPassword" id="newpassword" value={password.newPassword} placeholder="New Password" onChange={handleChange} />
+                    <Input type="password" name="newpassword" id="newpassword" placeholder="New Password" onChange={(e) => setUser({ ...user, newpassword: e.target.value })} />
                 </FormGroup>
                 <FormGroup>
                     <Label for="password">Confirm Password</Label>
-                    <Input type="password" name="confirmPassword" id="repassword" value={password.confirmPassword} placeholder="Confirm Password" onChange={handleChange} />
+                    <Input type="password" name="confirmpassword" id="confirmpassword" placeholder="Confirm Password" onChange={(e) => setUser({ ...user, confirmpassword: e.target.value })} />
                 </FormGroup>
                 <Button>Change Password</Button>
             </Form>
         </div>
-    );
+    )
 }
 
 export default ChangePassword;

@@ -24,47 +24,46 @@ const Dashboard = () => {
 
   return (
     <div>
-      <Navbar color="dark" dark expand="sm">
+      <Navbar color="dark" dark expand="sm" >
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav navbar>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
+            <UncontrolledDropdown nav inNavbar className="mx-3 my-auto">
+              <DropdownToggle nav caret className="text-white">
                 Manage Articles
               </DropdownToggle>
               <DropdownMenu left>
                 <DropdownItem>
-                  <Link to="/admin/">
+                  <Link to="/admin/" className="text-dark">
                     View all articles
                   </Link>
                 </DropdownItem>
                 <DropdownItem>
-                  <Link to="/admin/new">
+                  <Link to="/admin/new" className="text-dark">
                     Add new article
                   </Link>
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
 
-          <NavItem className="my-auto mx-2">
-            <Link to='/admin/response'>
+          <NavItem className="mx-3 my-auto">
+            <Link to='/admin/response' className="text-white">
                 Manage Responses
             </Link>
           </NavItem>
-
-            <UncontrolledDropdown nav inNavbar className="mr-0">
-              <DropdownToggle nav caret>
+            <UncontrolledDropdown nav inNavbar className="mx-3 my-auto ">
+              <DropdownToggle nav caret className="text-white">
                 Account
               </DropdownToggle>
               <DropdownMenu left>
                 <DropdownItem>
-                  <Link to="/change-password">
+                  <Link to="/change-password" className="text-dark">
                     Change Password
                     </Link>
                 </DropdownItem>
                 <DropdownItem onClick={() => dispatch(logout())}>
                   Logout
-                  </DropdownItem>
+                </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>

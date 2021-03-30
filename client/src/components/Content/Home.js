@@ -41,7 +41,10 @@ const Home = (props) => {
   const content = useSelector(state => state.content.contentList)
   const loading = useSelector(state => state.content.loading)
 
-
+  useEffect(() => {
+    dispatch(getAllContent());
+  }, [])
+  
   const next = () => {
     if (animating) return;
     const nextIndex = activeIndex === content.length - 1 ? 0 : activeIndex + 1;
