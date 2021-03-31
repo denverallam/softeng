@@ -5,7 +5,7 @@ dotenv.config();
 const authenticationToken = async (req,res,next) => {
     const authHeader = req.headers['authorization']
     const token = authHeader && authHeader.split(' ')[1]
-    
+
     if (token == null) return res.status(401).json({message: "You don't have authorization!"})
 
     jwt.verify(token, process.env.SECRET, (err, user) => {

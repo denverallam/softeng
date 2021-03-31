@@ -20,4 +20,4 @@ export const login = (email, password) => api.post('/user/login', email, passwor
 export const changePassword = (email, password, newPassword, confirmPassword) => api.patch('/user/changePassword', email, password, newPassword, confirmPassword);
 export const resetPassword = (email, password, confirmPassword) => api.patch('/user/resetPassword', email, password, confirmPassword);
 
-
+export const viewerLogin = (username, email) => api.post('/viewer/login', username, email)

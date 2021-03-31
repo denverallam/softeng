@@ -35,7 +35,7 @@ const Login = ({ history }) => {
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label for="text">Email</Label>
-                    <Input type="text" name="email" id="email" placeholder="Email" onChange={handleChange} />
+                    <Input type="email" name="email" id="email" placeholder="Email" onChange={handleChange} />
                 </FormGroup>
                 <FormGroup>
                     <Label for="password">Password</Label>

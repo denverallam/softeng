@@ -35,12 +35,18 @@ export const createResponse = async (req, res) => {
     const {content_id} = req.params;
     const response = req.body;
 
+    //new response object
     const newResponse = new Response({...response, content_id: content_id});
 
     try{
+        // save the object to the database
         await newResponse.save();
+
+        // res.status isesend sa client
         res.status(201).json(newResponse);
+
     } catch(error) {
+        // res.status isesend sa client
         res.status(409).json({message: error});
     }
 }

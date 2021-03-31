@@ -5,7 +5,10 @@ const responseSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    author: String,
+    author: {
+        type: String,
+        required: true
+    },
     email: {
         type: String,
         required: true
@@ -21,5 +24,4 @@ const responseSchema = mongoose.Schema({
 });
 
 const Response = mongoose.model('Response', responseSchema);
-
 export default Response;
