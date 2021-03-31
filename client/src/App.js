@@ -27,6 +27,7 @@ import ChangePassword from './components/Admin/User/ChangePassword';
 import PrivateRoute from './components/Admin/PrivateRoute';
 import ContentList from './components/Admin/Content/ContentList';
 import ResponseList from './components/Admin/Response/ResponseList';
+import Header from './components/Header';
 
 const App = () => {
 
@@ -35,6 +36,8 @@ const App = () => {
   const user = useSelector(state => state.user.authData)
 
   return (
+    <>
+    <Header />
     <Router>
       <div>
         <Switch>
@@ -66,6 +69,7 @@ const App = () => {
         </Switch>
       </div>
     </Router>
+    </>
   )
 }
 export default App

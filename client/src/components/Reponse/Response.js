@@ -1,7 +1,9 @@
-import {useEffect} from 'react'
+import {useState} from 'react'
 import {
     Card, CardText, CardBody,
-    CardTitle, CardSubtitle, Button
+    CardTitle, CardSubtitle, Button,
+    Modal, ModalHeader, ModalBody, ModalFooter
+
 } from 'reactstrap';
 import moment from 'moment';
 import { useDispatch, useSelector } from 'react-redux'
@@ -12,6 +14,27 @@ const Response = ({ response, deleteResponse, setResponseId }) => {
 
     const viewer = useSelector(state => state.viewer.viewer)
     const user = JSON.parse(localStorage.getItem('user'))
+
+    const [modal, setModal] = useState(false);
+    const toggle = () => setModal(!modal);
+
+    const confirm = (id) => (
+        <Modal isOpen={modal} toggle={toggle}>
+            <ModalBody>
+                Delete Response?
+        </ModalBody>
+            <ModalFooter>
+                <Button color="danger" onClick={() => {
+                    toggle();
+                    deleteResponse(id);
+                }
+            }
+                >Yes
+                </Button>
+                <Button color="secondary" onClick={toggle}>No</Button>
+            </ModalFooter>
+        </Modal>
+    )
 
     return (
         <div className="container">
@@ -24,7 +47,8 @@ const Response = ({ response, deleteResponse, setResponseId }) => {
                 {viewer && response.email === viewer?.result?.email ?
                     <div className="ml-auto mb-2">
                         <EditIcon onClick={() => setResponseId(response._id)} />
-                        <DeleteIcon onClick={() => deleteResponse(response._id)} />
+                        <DeleteIcon onClick={toggle} />
+                        {confirm(response._id)}
                     </div>
                     : <> </>
                 }

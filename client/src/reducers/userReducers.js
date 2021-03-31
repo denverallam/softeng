@@ -10,12 +10,14 @@ const user = (state = { authData: null, isAdmin: false, message: null }, action)
             return { authData: action.payload, loading: false, message: null };
         case act.LOGIN_ERROR:
             return {  message:"Wrong username/password!" };
+        case act.CHANGE_ERROR:
+            return {  message:"Wrong password!" };
         case act.REGISTER:
             localStorage.setItem('admin', JSON.stringify(action.payload))
             return { authData: action.payload, loading: false, message: null };
         case act.CHANGE_PASSWORD:
             localStorage.setItem('admin', JSON.stringify(action.payload))
-            return {  authData: action.payload, loading: false, message: null };
+            return {  authData: action.payload, loading: false, message: null, success: true };
         case act.LOG_OUT:
             localStorage.removeItem('admin');
             return {  authData: null, loading: false, message: null };

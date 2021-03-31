@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux'
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { changePassword } from '../../../actions/userActions';
 
 const ChangePassword = ({ history }) => {
 
+    const message = useSelector(state => state.user.message)
+    const success = useSelector(state => state.user.success)
+
+    console.log(success)
     const localUser = JSON.parse(localStorage.getItem("admin"))
     const dispatch = useDispatch()
 
@@ -19,7 +23,10 @@ const ChangePassword = ({ history }) => {
         e.preventDefault()
         if (user.newpassword === user.confirmpassword) { 
             if(user.newpassword.length >= 7){
-                dispatch(changePassword(user, history)) 
+                dispatch(changePassword(user, history))
+                if(success){
+                    alert('Password Changed!')
+                }
             }
             else{
                 alert('Minimum of 7 characters!')
@@ -28,7 +35,12 @@ const ChangePassword = ({ history }) => {
         else alert('Passwords do not much!')
     }
 
+    useEffect(() => {
+        if (message) {
+            alert(message)
+        }
 
+    }, [message])
 
 
     return (

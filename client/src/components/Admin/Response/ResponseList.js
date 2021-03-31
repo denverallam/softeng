@@ -20,6 +20,7 @@ const ResponseList = () => {
 
     useEffect(() => {
         dispatch(getAllResponses());
+        setResponseList(response)
     }, [responseList])
 
     return (
@@ -30,7 +31,6 @@ const ResponseList = () => {
                     loading ? <Load /> :
                         response.length > 0 ?
                             <>
-
                                 <ListGroup>
                                     {
                                         response.map(res => (

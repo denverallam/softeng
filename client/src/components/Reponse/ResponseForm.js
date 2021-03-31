@@ -31,27 +31,18 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
     }, [responseId])
 
 
-    useEffect(() => {
-        localStorage.removeItem('user')
-    }, [])
-
-    const clear = () => {
-        setNewResponse({
-            ...newResponse,
-            content: ""
-        });
-        setResponseId("")
-    }
-
     const handleSubmit = (e) => {
         e.preventDefault();
         if (responseId) {
             updateResponse(responseId, newResponse)
+            setNewResponse({...newResponse, content:" "})
+            setResponseId("")
         }
         else {
             createResponse(contentId, newResponse)
+            setNewResponse({...newResponse, content:" "})
+            setResponseId("")
         }
-        clear()
     }
 
     const handleLogin = (e) => {
@@ -59,13 +50,13 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
         setNewResponse({ ...newResponse, email: viewer.email, author: viewer.username })
         if (viewer.email && viewer.username) {
             dispatch(viewLogin(viewer))
-            userLogin(viewer)
         }
         else {
             alert('Please fill the gago')
         }
     }
 
+    
     const login = () => {
         return <div className="container my-5 mt-10">
             <Form onSubmit={handleLogin}>
@@ -82,17 +73,9 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
         </div>
     }
 
-    const userLogin = (username, email) => {
-        viewerLogin(username, email)
-            .then(res => {
-                localStorage.setItem('user', JSON.stringify(res.data))
-                return res.data
-            })
-            .catch(err => {
-                console.log(err)
-                return err
-            })
-    }
+    useEffect( () => {
+        localStorage.removeItem('user')
+    }, [])
 
     const userLogout = () => {
         dispatch(logout())
@@ -105,7 +88,7 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
 
     return (
         <div className="container my-5 mt-10">
-            {newResponse.email && newResponse.author ?
+            { localViewer && localViewer?.result.email && localViewer?.result.username ?
                 <>
                     <Form onSubmit={handleSubmit}>
                         <FormGroup>

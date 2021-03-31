@@ -30,7 +30,7 @@ const Response = ({ response, deleteResponse }) => {
                 Delete Response?
         </ModalBody>
             <ModalFooter>
-                <Button color="primary" onClick={() => {
+                <Button color="danger" onClick={() => {
                     toggle();
                     deleteResponse(id);
                 }

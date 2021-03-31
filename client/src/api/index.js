@@ -1,7 +1,7 @@
 import api from './server'
 
 export const fetchAllContent = () => api.get('/content');
-export const fetchContent = (id) => api.get(`/content/${id}`);
+export const fetchContent = (id) => api.get(`/content/post/${id}`);
 export const fetchContentByCategory = (category) => api.get(`/content/${category}`);
 export const createContent = (newContent) => api.post('/content', newContent)
 export const updateContent = (id, newContent) => api.patch(`/content/${id}`, newContent)

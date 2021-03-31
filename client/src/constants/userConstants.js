@@ -7,3 +7,4 @@ export const REGISTER = 'REGISTER';
 export const RESET_PASSWORD = 'RESET_PASSWORD';
 export const CLEAR_ERROR = 'CLEAR_ERROR'
 export const LOGIN_ERROR = 'LOGIN_ERROR';
+export const CHANGE_ERROR = 'CHANGE_ERROR';

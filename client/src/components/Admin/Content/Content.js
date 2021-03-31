@@ -8,10 +8,9 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import {
     Card, CardText, CardBody,
     CardTitle, CardSubtitle, Button, CardImg,
-    Modal, ModalHeader, ModalBody, ModalFooter
+    Modal,  ModalBody, ModalFooter
 
 } from 'reactstrap';
-import { updateContent } from '../../../actions/contentActions'
 import moment from 'moment';
 
 
@@ -37,7 +36,7 @@ const Content = ({ content, deleteContent }) => {
                 Delete Article?
         </ModalBody>
             <ModalFooter>
-                <Button color="primary" onClick={() => {
+                <Button color="danger" onClick={() => {
                     toggle();
                     deleteContent(id)
                 }

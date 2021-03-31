@@ -59,7 +59,9 @@ export const changePassword = (formData, history) => async dispatch => {
         history.push('/admin')
 
     } catch (error) {
-        console.log(error);
+        dispatch({
+            type: actions.CHANGE_ERROR
+        });
     }
 }
 
