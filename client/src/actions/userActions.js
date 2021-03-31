@@ -22,7 +22,7 @@ export const register = (formData, history) => async dispatch => {
             type: actions.REGISTER,
             payload: data
         });
-        history.push('/admin')
+        history.push('/admin' )
 
     } catch (error) {
         console.log(error);
