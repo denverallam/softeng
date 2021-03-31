@@ -3,20 +3,33 @@ import * as API from '../api/index'
 
 export const login = (formData, state, history) => async dispatch => {
     try {
+
+        dispatch({
+            type: actions.USER_REQUEST
+        });
+
         const { data } = await API.login(formData);
         dispatch({
             type: actions.LOG_IN,
             payload: data
         });
+
         history.push(`${state?.from.pathname || '/admin'}`)
 
     } catch (error) {
-        console.log(error);
+        dispatch({
+            type: actions.LOGIN_ERROR
+        })
     }
 }
 
 export const register = (formData, history) => async dispatch => {
     try {
+
+        dispatch({
+            type: actions.USER_REQUEST
+        });
+
         const { data } = await API.register(formData);
         dispatch({
             type: actions.REGISTER,
@@ -31,6 +44,12 @@ export const register = (formData, history) => async dispatch => {
 
 export const changePassword = (formData, history) => async dispatch => {
     try {
+
+
+        dispatch({
+            type: actions.USER_REQUEST
+        });
+
         const { data } = await API.changePassword(formData);
 
         dispatch({
@@ -41,13 +60,17 @@ export const changePassword = (formData, history) => async dispatch => {
 
     } catch (error) {
         console.log(error);
-        alert("Wrong password!")
     }
 }
 
 
 export const logout = () => async dispatch => {
     try {
+
+        dispatch({
+            type: actions.USER_REQUEST
+        });
+
         dispatch({
             type: actions.LOG_OUT
         });

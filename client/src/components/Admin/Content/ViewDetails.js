@@ -6,7 +6,6 @@ import Load from '../../Content/Load'
 import { CardImg} from 'reactstrap'
 import moment from 'moment';
 import { getContent } from '../../../actions/contentActions';
-import NavBar from '../Dashboard';
 import Dashboard from '../Dashboard';
 
 

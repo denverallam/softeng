@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Content from './Content';
-import { Button, ButtonGroup, Input, ListGroup, ListGroupItem } from 'reactstrap';
+import {  Input, ListGroup, ListGroupItem } from 'reactstrap';
 import { getAllContent, deleteContent } from '../../../actions/contentActions';
 import Load from '../../Content/Load';
 import Dashboard from '../Dashboard';
@@ -13,7 +13,7 @@ const ContentList = () => {
     const content = useSelector(state => state.content.contentList)
     const loading = useSelector(state => state.content.loading)
     const [order, setOrder] = useState('')
-    const [contentList, setContentList] = useState([])
+    const [contentList, setContentList] = useState(content)
 
     const deleteItem = (id) => {
         setContentList(contentList.filter(content => content._id !== id))
@@ -71,22 +71,15 @@ const ContentList = () => {
     const handleChange = (e) => {
         setOrder(e.target.value)
         listSorter(order)
-        console.log(order)
     }
 
     useEffect(() => {
         dispatch(getAllContent());
-        setContentList(content)
-    }, [dispatch, contentList])
-
-    const [timer, setTimer] = useState(null);
-
-
+    }, [contentList])
 
     return (
         <>
             <Dashboard />
-            {/* <ResponsiveDrawer/> */}
             <div>
                 {
                     loading ? <Load /> :
@@ -94,12 +87,6 @@ const ContentList = () => {
                             <>
                                 {content.length > 1 ?
                                     <div className="container">
-                                        {/* <ButtonGroup>
-                                        <Button onClick={() => setOrder('ALPHABET')}>A-Z</Button>
-                                        <Button onClick={() => setOrder('VIEWS')}>Views</Button>
-                                        <Button onClick={() => setOrder('LATEST')}>Newest</Button>
-                                        <Button onClick={() => setOrder('OLDEST')}>Oldest</Button>
-                                    </ButtonGroup> */}
                                         <Input type="select" name="sort" id="sort" value={order} onChange={handleChange}>
                                             <option value="ALPHABET">A-Z</option>
                                             <option value="VIEWS">VIEWS</option>

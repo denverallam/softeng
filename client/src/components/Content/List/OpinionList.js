@@ -21,7 +21,7 @@ const OpinionList = () => {
     useEffect(() => {
         dispatch(getContentByCategory('opinion'));
         setContentList(content)
-    }, [dispatch, contentList])
+    }, [])
 
     return (
         <>

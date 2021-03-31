@@ -21,7 +21,7 @@ const BeyondEspanaList = () => {
     useEffect(() => {
         dispatch(getContentByCategory('beyond-espana'));
         setContentList(content)
-    }, [dispatch, contentList])
+    }, [])
 
     return (
         <>

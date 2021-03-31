@@ -21,7 +21,7 @@ const LiteraryList = () => {
     useEffect(() => {
         dispatch(getContentByCategory('literary'));
         setContentList(content)
-    }, [dispatch, contentList])
+    }, [])
 
     return (
         <>

@@ -3,9 +3,13 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import api from '../../api/server'
 import { viewerLogin } from '../../api/index'
+import {login as viewLogin, logout} from '../../actions/viewerActions'
 
 const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, updateResponse }) => {
 
+    const dispatch = useDispatch()
+
+    const localViewer  = useSelector(state=> state.viewer.viewer)
 
     const [newResponse, setNewResponse] = useState({
         author: "",
@@ -54,6 +58,7 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
         e.preventDefault();
         setNewResponse({ ...newResponse, email: viewer.email, author: viewer.username })
         if (viewer.email && viewer.username) {
+            dispatch(viewLogin(viewer))
             userLogin(viewer)
         }
         else {
@@ -90,7 +95,7 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
     }
 
     const userLogout = () => {
-        localStorage.removeItem('user')
+        dispatch(logout())
         setNewResponse({
             author: "",
             email: "",

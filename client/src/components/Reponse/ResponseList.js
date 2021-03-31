@@ -25,9 +25,6 @@ const ResponseList = ({ contentId }) => {
     },[responseList])
 
 
-    console.log('response', response)
-    console.log('responseList', responseList)
-
     const deleteItem = (id) => {
         setResponseList(response.filter(res => res._id !== id))
         dispatch(deleteResponse(id))

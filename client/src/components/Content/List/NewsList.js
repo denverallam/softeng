@@ -22,7 +22,7 @@ const NewsList = () => {
     useEffect(() => {
         dispatch(getContentByCategory('news'));
         setContentList(content)
-    }, [dispatch, contentList])
+    }, [])
 
     return (
         <>

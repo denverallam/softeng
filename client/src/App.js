@@ -32,7 +32,7 @@ const App = () => {
 
   const dispatch = useDispatch()
   const localUser = JSON.parse(localStorage.getItem("admin"))
-  const user = useSelector(state => state.user)
+  const user = useSelector(state => state.user.authData)
 
   return (
     <Router>
@@ -50,11 +50,11 @@ const App = () => {
           <Route path='/beyond-espana' exact component={BeyondEspanaList} />
           <Route path='/post/:id' exact component={ContentDetails} />
 
-          <PrivateRoute path='/edit/:id' user={localUser?.result} isAdmin={localUser?.result?.isAdmin } exact component={ContentUpdate} />
-          <PrivateRoute path='/admin/new' user={localUser?.result} isAdmin={localUser?.result?.isAdmin } exact component={ContentForm} />
-          <PrivateRoute path='/admin' user={localUser?.result} isAdmin={localUser?.result?.isAdmin }  exact component={ContentList} />
-          <PrivateRoute path='/admin/post/:id' user={localUser?.result} isAdmin={localUser?.result?.isAdmin} exact component={ViewDetails} />
-          <PrivateRoute path='/admin/response' user={localUser?.result} isAdmin={localUser?.result?.isAdmin} exact component={ResponseList} />
+          <PrivateRoute path='/edit/:id' user={user || localUser} isAdmin={user?.result?.isAdmin || localUser?.result?.isAdmin} exact component={ContentUpdate} />
+          <PrivateRoute path='/admin/new' user={user || localUser} isAdmin={user?.result?.isAdmin || localUser?.result?.isAdmin} exact component={ContentForm} />
+          <PrivateRoute path='/admin' user={user || localUser} isAdmin={user?.result?.isAdmin || localUser?.result?.isAdmin}  exact component={ContentList} />
+          <PrivateRoute path='/admin/post/:id' user={user || localUser} isAdmin={user?.result?.isAdmin || localUser?.result?.isAdmin} exact component={ViewDetails} />
+          <PrivateRoute path='/admin/response' user={user || localUser} isAdmin={user?.result?.isAdmin || localUser?.result?.isAdmin} exact component={ResponseList} />
           
           <Route path='/login' exact component={Login} />
           <Route path='/register' exact component={Register} />

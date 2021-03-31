@@ -7,7 +7,9 @@ import DeleteIcon from '@material-ui/icons/Delete';
 
 import {
     Card, CardText, CardBody,
-    CardTitle, CardSubtitle, Button, CardImg
+    CardTitle, CardSubtitle, Button, CardImg,
+    Modal, ModalHeader, ModalBody, ModalFooter
+
 } from 'reactstrap';
 import { updateContent } from '../../../actions/contentActions'
 import moment from 'moment';
@@ -15,21 +17,9 @@ import moment from 'moment';
 
 const Content = ({ content, deleteContent }) => {
 
-    const dispatch = useDispatch()
 
     const user = useSelector(state => state.user)
 
-    const [newContent, setNewContent] = useState({
-        views: 0,
-        title: ''
-    })
-    const useStyles = makeStyles({
-        media: {
-            height: 360
-        },
-    });
-
-    const classes = useStyles();
 
     const cutContent = (content) => {
         if (content.length > 150)
@@ -38,15 +28,26 @@ const Content = ({ content, deleteContent }) => {
     }
 
 
-    useEffect(() => {
-        setNewContent(content)
-    }, [content])
+    const [modal, setModal] = useState(false);
+    const toggle = () => setModal(!modal);
 
-
-    const increaseViews = () => {
-        setNewContent({ ...content, views: content.views += 1 })
-        dispatch(updateContent(content._id, newContent))
-    }
+    const confirm = (id) => (
+        <Modal isOpen={modal} toggle={toggle}>
+            <ModalBody>
+                Delete Article?
+        </ModalBody>
+            <ModalFooter>
+                <Button color="primary" onClick={() => {
+                    toggle();
+                    deleteContent(id)
+                }
+                }
+                >Yes
+                </Button>
+                <Button color="secondary" onClick={toggle}>No</Button>
+            </ModalFooter>
+        </Modal>
+    )
 
 
     return (
@@ -66,7 +67,8 @@ const Content = ({ content, deleteContent }) => {
                 <Link to={`/edit/${content._id}`} className="text-dark">
                     <EditIcon />
                 </Link>
-                <DeleteIcon onClick={() => deleteContent(content._id)} />
+                <DeleteIcon onClick={toggle} />
+                {confirm(content._id)}
             </div>
         </Card>
     )

@@ -1,5 +1,4 @@
 import * as actions from '../constants/contentConstants';
-import api from '../api/server'
 import * as API from '../api/index'
 
 export const getContentByCategory = (category) => async (dispatch) => {
@@ -11,13 +10,6 @@ export const getContentByCategory = (category) => async (dispatch) => {
         })
 
         const {data} = await API.fetchContentByCategory(category)
-        // let link = '/content/'
-
-        // if (category){
-        //     link = `/content/${category}`
-        // }
-
-        // const {data} = await api.get(link)
 
         dispatch({
             type: actions.GET_ALL_CONTENT,
@@ -70,7 +62,7 @@ export const getContent = (id) => async (dispatch) => {
             type: actions.FETCH_REQUEST
         })
 
-        const {data} = await api.get(`/content/post/${id}`)
+        const {data} = await API.fetchContent(id)
 
         dispatch({
             type: actions.GET_CONTENT,
@@ -125,7 +117,7 @@ export const updateContent = (id, newContent) => async (dispatch) => {
 
 export const deleteContent = (id) =>async (dispatch) => {
     try{
-        const {data} = await api.delete(`/content/${id}`)
+        const {data} = await API.deleteContent(id)
 
         dispatch({
             type: actions.DELETE_CONTENT,

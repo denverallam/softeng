@@ -6,9 +6,8 @@ import { login, getAllUser } from '../../../actions/userActions';
 
 const Login = ({ history }) => {
 
-    const localUser = JSON.parse(localStorage.getItem('admin'))
-    const stateUser = useSelector(state => state.user.authdata)
-
+    // const localUser = JSON.parse(localStorage.getItem('admin'))
+    const message = useSelector(state => state.user.message)
     const dispatch = useDispatch()
     const { state } = useLocation()
 
@@ -22,12 +21,16 @@ const Login = ({ history }) => {
         setUser({ ...user, [e.target.name]: e.target.value })
     }
 
-    const handleSubmit =  (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(login(user, state, history))
-
     }
 
+    useEffect(() => {
+        if (message) {
+            alert(message)
+        }
+    }, [message])
 
     return (
         <div className="container-sm my-5" >
@@ -35,7 +38,7 @@ const Login = ({ history }) => {
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label for="text">Email</Label>
-                    <Input type="email" name="email" id="email" placeholder="Email" onChange={handleChange} />
+                    <Input type="text" name="email" id="email" placeholder="Email" onChange={handleChange} />
                 </FormGroup>
                 <FormGroup>
                     <Label for="password">Password</Label>

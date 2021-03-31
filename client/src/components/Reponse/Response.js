@@ -4,13 +4,13 @@ import {
     CardTitle, CardSubtitle, Button
 } from 'reactstrap';
 import moment from 'moment';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 const Response = ({ response, deleteResponse, setResponseId }) => {
 
-
+    const viewer = useSelector(state => state.viewer.viewer)
     const user = JSON.parse(localStorage.getItem('user'))
 
     return (
@@ -21,7 +21,7 @@ const Response = ({ response, deleteResponse, setResponseId }) => {
                     <CardSubtitle>{moment(response.date).fromNow()}</CardSubtitle>
                     <CardText>{response.content}</CardText>
                 </CardBody>
-                {user && response.email === user?.result?.email ?
+                {viewer && response.email === viewer?.result?.email ?
                     <div className="ml-auto mb-2">
                         <EditIcon onClick={() => setResponseId(response._id)} />
                         <DeleteIcon onClick={() => deleteResponse(response._id)} />

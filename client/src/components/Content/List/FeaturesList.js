@@ -21,7 +21,7 @@ const FeaturesList = () => {
     useEffect(() => {
         dispatch(getContentByCategory('features'));
         setContentList(content)
-    }, [dispatch, contentList])
+    }, [])
 
     return (
         <>
