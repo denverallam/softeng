@@ -4,7 +4,9 @@ export const LOG_OUT = 'LOG_OUT';
 export const GET_ALL_USER = 'GET_ALL_USER';
 export const CHANGE_PASSWORD = 'CHANGE_PASSWORD';
 export const REGISTER = 'REGISTER';
+export const FORGOT_PASSWORD = 'FORGOT_PASSWORD'
 export const RESET_PASSWORD = 'RESET_PASSWORD';
+
 export const CLEAR_ERROR = 'CLEAR_ERROR'
 export const LOGIN_ERROR = 'LOGIN_ERROR';
 export const CHANGE_ERROR = 'CHANGE_ERROR';

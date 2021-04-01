@@ -7,13 +7,14 @@ const ChangePassword = ({ history }) => {
 
     const message = useSelector(state => state.user.message)
     const success = useSelector(state => state.user.success)
+    const stateUser = useSelector(state => state.user.authData)
 
     console.log(success)
     const localUser = JSON.parse(localStorage.getItem("admin"))
     const dispatch = useDispatch()
 
     const [user, setUser] = useState({
-        email: localUser.result.email,
+        email: stateUser?.result.email || localUser?.result.email || '',
         password: "",
         newpassword: "",
         confirmpassword: "",

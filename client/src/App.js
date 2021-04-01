@@ -22,13 +22,15 @@ import './App.css'
 import Login from './components/Admin/User/Login';
 import Register from './components/Admin/User/Register';
 
-import RecoverPassword from './components/Admin/User/RecoverPassword';
+import RecoverPassword from './components/Admin/User/ResetPassword';
 import ChangePassword from './components/Admin/User/ChangePassword';
 import PrivateRoute from './components/Admin/PrivateRoute';
 import ContentList from './components/Admin/Content/ContentList';
 import ResponseList from './components/Admin/Response/ResponseList';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ResetPassword from './components/Admin/User/ResetPassword';
+import ForgotPassword from './components/Admin/User/ForgotPassword';
 
 const App = () => {
 
@@ -64,6 +66,9 @@ const App = () => {
           <Route path='/register' exact component={Register} />
           <Route path='/recover-password' exact component={RecoverPassword} />
           <Route path='/change-password' exact component={ChangePassword} />
+          <Route path='/forgot-password' exact component={ForgotPassword} />
+          <Route path='/reset-password/:resetToken' exact component={ResetPassword} />
+
 
           <Route component={Error} />
         </Switch>

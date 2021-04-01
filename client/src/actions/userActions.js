@@ -65,6 +65,26 @@ export const changePassword = (formData, history) => async dispatch => {
     }
 }
 
+export const forgotPassword = (email) => async dispatch => {
+    try {
+
+        dispatch({
+            type: actions.USER_REQUEST
+        });
+
+        const { data } = await API.forgotPassword(email);
+
+        dispatch({
+            type: actions.FORGOT_PASSWORD,
+            payload: data
+        });
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
 
 export const logout = () => async dispatch => {
     try {

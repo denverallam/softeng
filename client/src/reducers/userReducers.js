@@ -4,7 +4,7 @@ import * as act from '../constants/userConstants';
 const user = (state = { authData: null, isAdmin: false, message: null }, action) => {
     switch (action.type) {
         case act.USER_REQUEST:
-            return {loading:true, message: null}
+            return {loading:true, message: null, error: null}
         case act.LOG_IN:
             localStorage.setItem('admin', JSON.stringify(action.payload))
             return { authData: action.payload, loading: false, message: null };
@@ -18,6 +18,8 @@ const user = (state = { authData: null, isAdmin: false, message: null }, action)
         case act.CHANGE_PASSWORD:
             localStorage.setItem('admin', JSON.stringify(action.payload))
             return {  authData: action.payload, loading: false, message: null, success: true };
+        case act.FORGOT_PASSWORD:
+            return {  message: action.payload, success: true };
         case act.LOG_OUT:
             localStorage.removeItem('admin');
             return {  authData: null, loading: false, message: null };

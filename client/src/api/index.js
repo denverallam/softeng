@@ -17,6 +17,7 @@ export const deleteResponse = (id) => api.delete(`/response/${id}`)
 export const register = (username, email, password) => api.post('/user/register', username, email, password)
 export const fetchAllUser = () => api.get('/user')
 export const login = (email, password) => api.post('/user/login', email, password);
+export const forgotPassword = (email) => api.post('/user/forgotPassword', email);
 export const changePassword = (email, password, newPassword, confirmPassword) => api.patch('/user/changePassword', email, password, newPassword, confirmPassword);
 export const resetPassword = (email, password, confirmPassword) => api.patch('/user/resetPassword', email, password, confirmPassword);
 

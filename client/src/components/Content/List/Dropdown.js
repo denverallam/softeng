@@ -1,26 +1,31 @@
 
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 import {
-    Button, ButtonGroup, ListGroup, ListGroupItem,
     Dropdown, DropdownToggle, DropdownMenu, DropdownItem
 }
     from 'reactstrap';
 
-const Order = ({setOrder}) => {
+const Order = ({setValue}) => {
+
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const toggle = () => setDropdownOpen(prevState => !prevState);
+
+    const handleChange = (e) => {
+        setValue(e.target.value)
+        console.log(e.target.value)
+    }
 
     return (
         <div className="my-2">
             <Dropdown isOpen={dropdownOpen} toggle={toggle} >
-                <DropdownToggle caret>
+                <DropdownToggle caret >
                     Sort
                 </DropdownToggle>
                 <DropdownMenu>
-                    <DropdownItem onClick={(e) => setOrder('OLDEST')} value='OLDEST'>By Date</DropdownItem>
-                    <DropdownItem onClick={(e) => setOrder('ALPHABET')}>Alphabetically</DropdownItem>
-                    <DropdownItem onClick={(e) => setOrder('VIEWS')}>By View Count</DropdownItem>
+                    <DropdownItem value='OLDEST' onClick={handleChange}>By Date</DropdownItem>
+                    <DropdownItem value='ALPHABET' onClick={handleChange}>Alphabetically</DropdownItem>
+                    <DropdownItem value='VIEWS' onClick={handleChange}>By View Count</DropdownItem>
                 </DropdownMenu>
             </Dropdown>
         </div>

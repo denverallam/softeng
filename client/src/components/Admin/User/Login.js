@@ -44,6 +44,11 @@ const Login = ({ history }) => {
                     <Label for="password">Password</Label>
                     <Input type="password" name="password" id="password" placeholder="Password" onChange={handleChange} />
                 </FormGroup>
+                <Link to='/forgot-password'>
+                    <div>
+                        Forgot password?
+                    </div>
+                </Link>
                 <Button >Login</Button>
             </Form>
         </div>

@@ -22,8 +22,6 @@ const Dashboard = () => {
   const user = useSelector(state => state.user.authData)
   const localUser = JSON.parse(localStorage.getItem("admin"))
 
-  console.log(user)
-
   return (
     <div>
       <Navbar color="dark" dark expand="sm" >
@@ -54,7 +52,7 @@ const Dashboard = () => {
             </Link>
           </NavItem>
             <UncontrolledDropdown nav inNavbar className="mx-3 my-auto ">
-              <DropdownToggle nav caret className="text-white">
+              <DropdownToggle nav caret className="text-white text-capitalize">
                 {user?.result.username || 'Account'}
               </DropdownToggle>
               <DropdownMenu left>
