@@ -35,17 +35,16 @@ const ViewDetails = ({ match }) => {
         <>
         <Dashboard/>
         <div className="container-sm my-5">
-            {loading ? <Load /> :
-                <div>
-                    <h4 className="mb-3">{content.title}</h4>
-                    <div className="my-3">By {content.author}. {moment(content.date).toString()}</div>
+        <div>
+                    <div className="border-bottom border-dark">
+                    <h5 className="mb-3">{content.title}</h5>
+                    <div className="mb-2 text-muted">By {content.author}. {moment(content.date).toString()}</div>
                     <CardImg src={content.selectedFile} />
-                    <div className="my-4">
+                    <div className="my-4 text2">
                         {printLine(content.content || "")}
                     </div>
-
+                    </div>
                 </div>
-            }
         </div>
         </>
     )

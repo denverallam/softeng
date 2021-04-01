@@ -53,12 +53,11 @@ const Content = ({ content, deleteContent }) => {
         <Card className="container border border-info">
 
             <CardBody>
-                <Link to={`post/${content._id}`} >
-                    <CardTitle className="display-4" tag="h5">{content.title}</CardTitle>
+                <Link to={`/admin/post/${content._id}`} >
+                    <CardTitle className="headline article-link" tag="h5">{content.title}</CardTitle>
                 </Link>
-                <CardSubtitle tag="h6" className="mb-2 text-muted">By {content.author}</CardSubtitle>
+                <CardSubtitle tag="h6" className="mb-2 text-muted">By {content.author} {moment(content.date).fromNow()}</CardSubtitle>
                 <CardText>{cutContent(content.content)}</CardText>
-                <CardText>{moment(content.date).fromNow()}</CardText>
                 <CardText>{content.views} views</CardText>
 
             </CardBody>

@@ -37,9 +37,8 @@ const ContentList = () => {
                         content.length > 0 ?
                             <>
                                 {content.length > 1 ?
-                                    <div className="container">
                                         <Order setValue={setOrder}/>
-                                    </div> :
+                                        :
                                     <></>
                                 }
                                 <ListGroup>

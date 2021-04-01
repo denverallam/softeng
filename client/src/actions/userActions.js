@@ -18,7 +18,8 @@ export const login = (formData, state, history) => async dispatch => {
 
     } catch (error) {
         dispatch({
-            type: actions.LOGIN_ERROR
+            type: actions.LOGIN_ERROR,
+            payload: error
         })
     }
 }
@@ -38,17 +39,15 @@ export const register = (formData, history) => async dispatch => {
         history.push('/admin' )
 
     } catch (error) {
-        console.log(error);
+        dispatch({
+            type: actions.REGISTER_ERROR,
+            payload: error
+        })
     }
 }
 
 export const changePassword = (formData, history) => async dispatch => {
     try {
-
-
-        dispatch({
-            type: actions.USER_REQUEST
-        });
 
         const { data } = await API.changePassword(formData);
         
@@ -64,7 +63,8 @@ export const changePassword = (formData, history) => async dispatch => {
         
     } catch (error) {
         dispatch({
-            type: actions.CHANGE_ERROR
+            type: actions.CHANGE_ERROR,
+            payload: error
         });
     }
 }
@@ -84,7 +84,10 @@ export const forgotPassword = (email) => async dispatch => {
         });
 
     } catch (error) {
-        console.log(error)
+        dispatch({
+            type: actions.FORGOT_ERROR,
+            payload: error
+        });
     }
 }
 export const resetPassword = (formData, history, token) => async dispatch => {
@@ -125,4 +128,10 @@ export const logout = () => async dispatch => {
     } catch (error) {
         console.log(error);
     }
+}
+
+export const clearErrors= () => async dispatch => {
+    dispatch({
+        type: actions.CLEAR_ERROR
+    })
 }

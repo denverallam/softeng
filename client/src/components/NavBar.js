@@ -57,27 +57,27 @@ const NavBar = () => {
               <span> Beyond Espana</span>
               </Link>
             </NavItem>
-            <UncontrolledDropdown nav inNavbar className="mx-3 my-auto li">
+            <UncontrolledDropdown nav inNavbar className="mx-3 my-auto li ">
               <DropdownToggle nav caret className="text-dark li">
               <span>About</span>
               </DropdownToggle>
               <DropdownMenu right>
-                <DropdownItem>
+                <DropdownItem className="dropdown-content1">
                   <Link to="/about" className="text-dark li">
                     Escolario
                   </Link>
                 </DropdownItem>
-                <DropdownItem>
+                <DropdownItem className="dropdown-content1">
                   <Link to="/about-best" className="text-dark li">
                     The BeST
                   </Link>
                 </DropdownItem>
-                <DropdownItem>
+                <DropdownItem className="dropdown-content1">
                   <Link to="/about-best-officers-history" className="text-dark li">
                     BeST Officers History
                   </Link>
                 </DropdownItem>
-                <DropdownItem>
+                <DropdownItem className="dropdown-content1">
                   <Link to="/about-projects" className="text-dark li">
                     Projects
                   </Link>

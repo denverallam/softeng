@@ -1,74 +1,93 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { resetPassword } from "../../../actions/userActions";
+import { useState, useEffect } from "react";
+import { resetPassword, clearErrors } from "../../../actions/userActions";
 import { useDispatch, useSelector } from 'react-redux';
+import { Button, Form, FormGroup, Alert, Input } from 'reactstrap';
 
 const ResetPassword = ({ match, history }) => {
-  const [password, setPassword] = useState("");
   const [error, setError] = useState('')
   const [user, setUser] = useState({
     password: '',
     confirmPassword: ''
   })
 
-const dispatch = useDispatch()
+  const localUser = useSelector(state => state.user)
+
   const [success, setSuccess] = useState("");
+  const dispatch = useDispatch()
 
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (user.password === user.confirmPassword) { 
-        if(user.password.length >= 7){
-            dispatch(resetPassword(user, history, match.params.resetToken))
-        }
-        else{
-            alert('Minimum of 7 characters!')
-        }
+    if (user.password === user.confirmPassword) {
+      if (user.password.length >= 7) {
+        dispatch(resetPassword(user, history, match.params.resetToken))
+      }
+      else {
+        setError('Password must contain at least 7 characters')
+        setTimeout(() => {
+          setError("");
+          dispatch(clearErrors())
+        }, 5000);
+      }
     }
-    else alert('Passwords do not much!')
-}
+    else {
+      setError('Passwords do not match')
+      setTimeout(() => {
+        setError("");
+        dispatch(clearErrors())
+      }, 5000);
+    }
+  }
+
+  useEffect(() => {
+    if (!localUser.success) {
+      setError(localUser.message)
+      setTimeout(() => {
+        setError("");
+        // dispatch(clearErrors())
+      }, 5000);
+    }
+    else {
+      setSuccess(localUser.success)
+      setTimeout(() => {
+        setSuccess(false)
+      }, 10000);
+    }
+  }, [localUser])
+
 
   return (
-    <div className="resetpassword-screen">
-      <form
-        onSubmit={handleSubmit}
-        className="resetpassword-screen__form"
-      >
-        <h3 className="resetpassword-screen__title">Forgot Password</h3>
-        {error && <span className="error-message">{error} </span>}
-        {success && (
-          <span className="success-message">
-            {success} <Link to="/login">Login</Link>
-          </span>
-        )}
-        <div className="form-group">
-          <label htmlFor="password">New Password:</label>
-          <input
+
+    <div className="body container-sm my-5 py-3 form" >
+      <h5 className="text-center">Change Password</h5>
+      <Form onSubmit={handleSubmit}>
+        <FormGroup>
+          <Input
             type="password"
             required
             id="password"
             placeholder="Enter new password"
             autoComplete="true"
             value={user.password}
-            onChange={(e) => setUser({...user, password: e.target.value})}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="confirmpassword">Confirm New Password:</label>
-          <input
+            onChange={(e) => setUser({ ...user, password: e.target.value })} />
+        </FormGroup>
+        <FormGroup>
+          <Input
             type="password"
             required
             id="confirmpassword"
             placeholder="Confirm new password"
             autoComplete="true"
             value={user.confirmPassword}
-            onChange={(e) => setUser({...user, confirmPassword: e.target.value})}
-          />
-        </div>
-        <button type="submit" className="btn btn-primary">
-          Reset Password
-        </button>
-      </form>
+            onChange={(e) => setUser({ ...user, confirmPassword: e.target.value })} />
+        </FormGroup>
+        {error ?
+          <Alert color="danger" className="text-center">
+            {error}
+          </Alert> : <> </>
+        }
+        <Button className="container text-center my-2" color="primary" outline>Change Password</Button>
+      </Form>
     </div>
   );
 };

@@ -30,7 +30,7 @@ export const login = async (req, res) => {
 
     const isPasswordCorrect = await bcrypt.compare(password, exisitingUser.password);
 
-    if (!isPasswordCorrect) return res.status(400).json({ message: "Invalid credentials" });
+    if (!isPasswordCorrect) return res.status(400).json({ message: "Wrong password!" });
 
     const token = jwt.sign({ email: exisitingUser.email, id: exisitingUser._id }, secret, { expiresIn: "1h" });
 
@@ -47,7 +47,7 @@ export const register = async (req, res) => {
   try {
     const oldUser = await User.findOne({ email });
 
-    if (oldUser) return res.status(400).json({ message: "User already exists" });
+    if (oldUser) return res.status(400).json({ message: "Account already exists" });
 
     const hashedPassword = await bcrypt.hash(password, 12);
 
@@ -71,10 +71,10 @@ export const changePassword = async (req, res) => {
         if(newpassword === confirmpassword){
           const hashedPassword = await bcrypt.hash(newpassword, 12);
           const result = await User.findOneAndUpdate({email},{password: hashedPassword})
-          res.status(201).json({ result });
+          res.status(201).json({ result, success: true });
         }
         else{
-          res.status(400).json({ message: "Password do not match" });
+          res.status(400).json({ message: "Passwords do not match" });
         }
 
 
@@ -93,13 +93,13 @@ export const resetPassword = async (req, res, next) => {
       })
 
       if(!user) {
-          res.status(400).json({ message: "Invalid Reset Token" })
+          res.status(400).json({ message: "The link has expired. Please try again." })
       }
 
       if(user){
         const hashedPassword = await bcrypt.hash(password, 12);
         const result = await User.findOneAndUpdate({resetPasswordToken},{password: hashedPassword, resetPassword:undefined, resetPasswordExpire: undefined})
-        res.status(201).json({ result, success:true, data:"Password Reset Success" });
+        res.status(201).json({ result, success:true, data:"Password successfully changed!" });
       }
 
   } catch (error) {
@@ -114,15 +114,15 @@ export const forgotPassword = async (req, res, next) => {
       const user = await User.findOne({email});
 
       if(!user) {
-          return res.status(404).json({ message: "Email could not be sent" });
+          return res.status(404).json({ message: "User doesn't exist" });
       }
 
       const resetToken = user.getResetPasswordToken();
 
       await user.save();
 
-      const resetUrl = `http://localhost:3000/reset-password/${resetToken}`;
-
+      // const resetUrl = `http://localhost:3000/reset-password/${resetToken}`;
+      const resetUrl = `https://best-escolario.netlify.app/reset-password/${resetToken}`;
       const message = `
           <h1>You have requested a password reset</h1>
           <p>Please go to this link to reset your password</p>
@@ -136,7 +136,7 @@ export const forgotPassword = async (req, res, next) => {
               text: message
           });
 
-          res.status(200).json({success: true,  data: "Email Sent"});
+          res.status(200).json({success: true,  data: `Email sent to ${email}`});
 
       } catch (error) {
           user.resetPasswordToken = undefined;

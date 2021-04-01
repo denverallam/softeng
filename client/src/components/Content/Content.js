@@ -48,14 +48,12 @@ const Content = ({ content, deleteContent }) => {
     }
 
     return (
-        <div className="container border border-dark">
+        <div className="container">
             <Card>
                 <CardBody>
-                    <CardTitle className="headline1" tag="h5">{content.title}</CardTitle>
-                    <CardSubtitle tag="h6" className="mb-2 text-muted">By {content.author}</CardSubtitle>
-                    <CardText>{cutContent(content.content)}</CardText>
-                    <CardText >{moment(content.date).fromNow()}</CardText>
-                    <CardText>{content.views} views</CardText>
+                    <CardTitle className="headline" tag="h5">{content.title}</CardTitle>
+                    <CardSubtitle tag="h6" className="mb-2 text-muted">By {content.author} {moment(content.date).fromNow()}</CardSubtitle>
+                    <CardText className="text2">{cutContent(content.content)}</CardText>
                     <Link to={`/post/${content._id}`} onClick={increaseViews}>
                         <p className="text-center article-link">READ FULL ARTICLE</p>
                     </Link>

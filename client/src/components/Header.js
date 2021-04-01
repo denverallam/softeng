@@ -1,7 +1,8 @@
+import header from './header.png'
 
 const Header = () => {
     return (
-        <img src='header.png' className="img-fluid sticky-lg-top"/>
+        <img src={header} className="img-fluid sticky-lg-top"/>
     )
 }
 
