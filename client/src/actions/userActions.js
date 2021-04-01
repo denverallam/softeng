@@ -51,13 +51,17 @@ export const changePassword = (formData, history) => async dispatch => {
         });
 
         const { data } = await API.changePassword(formData);
+        
 
         dispatch({
             type: actions.CHANGE_PASSWORD,
             payload: data
         });
+        dispatch({
+            type: actions.LOG_OUT
+        });
         history.push('/admin')
-
+        
     } catch (error) {
         dispatch({
             type: actions.CHANGE_ERROR
@@ -78,6 +82,28 @@ export const forgotPassword = (email) => async dispatch => {
             type: actions.FORGOT_PASSWORD,
             payload: data
         });
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+export const resetPassword = (formData, history, token) => async dispatch => {
+    try {
+
+        dispatch({
+            type: actions.USER_REQUEST
+        });
+
+        const { data } = await API.resetPassword(formData , token);
+
+        dispatch({
+            type: actions.RESET_PASSWORD,
+            payload: data
+        });
+        dispatch({
+            type: actions.LOG_OUT
+        });
+        history.push('/admin' )
 
     } catch (error) {
         console.log(error)

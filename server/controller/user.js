@@ -99,7 +99,7 @@ export const resetPassword = async (req, res, next) => {
       if(user){
         const hashedPassword = await bcrypt.hash(password, 12);
         const result = await User.findOneAndUpdate({resetPasswordToken},{password: hashedPassword, resetPassword:undefined, resetPasswordExpire: undefined})
-        res.status(201).json({ result, success:true, data:"Password Reset Success" });
+        res.status(201).json({ result });
       }
 
   } catch (error) {

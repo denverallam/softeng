@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { resetPassword } from "../../../actions/userActions";
+import { useDispatch, useSelector } from 'react-redux';
 
-const ResetPassword = ({ match }) => {
+const ResetPassword = ({ match, history }) => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState('')
   const [user, setUser] = useState({
@@ -10,51 +12,64 @@ const ResetPassword = ({ match }) => {
     confirmPassword: ''
   })
 
+const dispatch = useDispatch()
   const [success, setSuccess] = useState("");
 
-  const resetPasswordHandler = async (e) => {
-    e.preventDefault();
+  // const resetPasswordHandler = async (e) => {
+  //   e.preventDefault();
 
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
+  //   const config = {
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   };
 
-    if (user.password !== user.confirmPassword) {
-      setUser({
-        password: '',
-        confirmPassword: ''
-      });
+  //   if (user.password !== user.confirmPassword) {
+  //     setUser({
+  //       password: '',
+  //       confirmPassword: ''
+  //     });
       
-      setTimeout(() => {
-        setError("");
-      }, 5000);
-      return setError("Passwords do not match");
-    }
+  //     setTimeout(() => {
+  //       setError("");
+  //     }, 5000);
+  //     return setError("Passwords do not match");
+  //   }
 
-    try {
-      const { data } = await axios.put(
-        `/api/user/resetPassword/${match.params.resetToken}`,
-        {
-          password,
-        },
-        config
-      );
+  //   try {
+  //     const { data } = await axios.put(
+  //       `/api/user/reset-password/${match.params.resetToken}`,
+  //       {
+  //         password,
+  //       },
+  //       config
+  //     );
 
-      setSuccess(data.data);
-    } catch (error) {
-      setError(error.response.data.error);
-      setTimeout(() => {
-        setError("");
-      }, 5000);
+  //     setSuccess(data.data);
+  //   } catch (error) {
+  //     setError(error.response.data.error);
+  //     setTimeout(() => {
+  //       setError("");
+  //     }, 5000);
+  //   }
+  // };
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (user.password === user.confirmPassword) { 
+        if(user.password.length >= 7){
+            dispatch(resetPassword(user, history, match.params.resetToken))
+        }
+        else{
+            alert('Minimum of 7 characters!')
+        }
     }
-  };
+    else alert('Passwords do not much!')
+}
 
   return (
     <div className="resetpassword-screen">
       <form
-        onSubmit={resetPasswordHandler}
+        onSubmit={handleSubmit}
         className="resetpassword-screen__form"
       >
         <h3 className="resetpassword-screen__title">Forgot Password</h3>

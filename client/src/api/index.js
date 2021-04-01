@@ -19,6 +19,6 @@ export const fetchAllUser = () => api.get('/user')
 export const login = (email, password) => api.post('/user/login', email, password);
 export const forgotPassword = (email) => api.post('/user/forgotPassword', email);
 export const changePassword = (email, password, newPassword, confirmPassword) => api.patch('/user/changePassword', email, password, newPassword, confirmPassword);
-export const resetPassword = (email, password, confirmPassword) => api.patch('/user/resetPassword', email, password, confirmPassword);
+export const resetPassword = (password, resetToken) => api.patch(`/user/resetPassword/${resetToken}`, password);
 
 export const viewerLogin = (username, email) => api.post('/viewer/login', username, email)

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import { changePassword } from '../../../actions/userActions';
+import { changePassword, logout } from '../../../actions/userActions';
 
 const ChangePassword = ({ history }) => {
 
