@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer"
 
-const sendEmail =  (options) => {
+const sendEmail =  async (options) => {
     const transporter = nodemailer.createTransport({
         service: process.env.EMAIL_SERVICE,
         auth: {
@@ -16,10 +16,7 @@ const sendEmail =  (options) => {
         html: options.text
     }
 
-    transporter.sendMail(mailOptions, (err,info) => {
-        if(err) console.log(err)
-        else console.log(info)
-    })
+    await transporter.sendMail(mailOptions)
 }
 
 export default ("sendEmail", sendEmail);

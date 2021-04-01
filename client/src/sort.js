@@ -40,5 +40,7 @@ export const listSorter = (order, content) => {
                 }
                 return 0
             })
+        default:
+            return content
     }
 }

@@ -25,9 +25,6 @@ const ChangePassword = ({ history }) => {
         if (user.newpassword === user.confirmpassword) { 
             if(user.newpassword.length >= 7){
                 dispatch(changePassword(user, history))
-                if(success){
-                    alert('Password Changed!')
-                }
             }
             else{
                 alert('Minimum of 7 characters!')
