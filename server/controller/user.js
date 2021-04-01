@@ -85,7 +85,7 @@ export const changePassword = async (req, res) => {
 
 export const resetPassword = async (req, res, next) => {
   const resetPasswordToken = crypto.createHash("sha256").update(req.params.resetToken).digest("hex");
-  const {email, password} = req.body;
+  const { password} = req.body;
 
   try {
       const user = await User.findOne({

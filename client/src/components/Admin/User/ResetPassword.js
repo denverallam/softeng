@@ -52,12 +52,12 @@ const ResetPassword = ({ match }) => {
   };
 
   return (
-    <div className="resetpassword-screen">
+    <div className="container">
       <form
         onSubmit={resetPasswordHandler}
         className="resetpassword-screen__form"
       >
-        <h3 className="resetpassword-screen__title">Forgot Password</h3>
+        <h3 className="resetpassword-screen__title">Reset Password</h3>
         {error && <span className="error-message">{error} </span>}
         {success && (
           <span className="success-message">

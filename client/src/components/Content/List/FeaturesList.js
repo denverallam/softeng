@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Content from '../Content';
-import { Button, ButtonGroup, ListGroup, ListGroupItem } from 'reactstrap';
-import { getAllContent, deleteContent, getContentByCategory } from '../../../actions/contentActions';
+import { ListGroup, ListGroupItem, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { deleteContent, getContentByCategory } from '../../../actions/contentActions';
 import Load from '../Load';
 import NavBar from '../../NavBar';
+import { listSorter } from '../../../sort';
 
 const FeaturesList = () => {
 
@@ -12,6 +13,10 @@ const FeaturesList = () => {
     const content = useSelector(state => state.content.contentList)
     const loading = useSelector(state => state.content.loading)
     const [contentList, setContentList] = useState([])
+    const [order, setOrder] = useState('')
+
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+    const toggle = () => setDropdownOpen(prevState => !prevState);
 
     const deleteItem = (id) => {
         setContentList(contentList.filter(content => content._id !== id))
@@ -23,6 +28,7 @@ const FeaturesList = () => {
         setContentList(content)
     }, [])
 
+    listSorter(order, content)
     return (
         <>
             <NavBar />
@@ -34,20 +40,19 @@ const FeaturesList = () => {
                         content.length > 0 ?
                             <>
                                 {content.length > 1 ?
-                                    <div className="ml-5 my-5">
-                                    <div class="btn-group">
-                                        <button type="button" className="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Action
-                                        </button>
-                                        <ul className="dropdown-menu">
-                                            <li><a className="dropdown-item" href="#">Action</a></li>
-                                            <li><a className="dropdown-item" href="#">Another action</a></li>
-                                            <li><a className="dropdown-item" href="#">Something else here</a></li>
-                                            <li><hr className="dropdown-divider" /></li>
-                                            <li><a className="dropdown-item" href="#">Separated link</a></li>
-                                        </ul>
-                                    </div>
-                                </div> :
+                                    <div className="container">
+                                        <Dropdown isOpen={dropdownOpen} toggle={toggle} >
+                                            <DropdownToggle caret >
+                                                Sort
+                </DropdownToggle>
+                                            <DropdownMenu>
+                                                <DropdownItem onClick={() => setOrder('OLDEST')}>By Date (Oldest)</DropdownItem>
+                                                <DropdownItem onClick={() => setOrder('LATEST')}>By Date (Latest)</DropdownItem>
+                                                <DropdownItem onClick={() => setOrder('ALPHABET')}>Alphabetically</DropdownItem>
+                                                <DropdownItem onClick={() => setOrder('VIEWS')}>By View Count</DropdownItem>
+                                            </DropdownMenu>
+                                        </Dropdown>
+                                    </div> :
                                     <></>
                                 }
                                 <ListGroup>

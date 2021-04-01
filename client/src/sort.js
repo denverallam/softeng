@@ -28,5 +28,17 @@ export const listSorter = (order, content) => {
                 }
                 return 0
             })
+        case 'LATEST':
+            return content.sort((a, b) => {
+                let date1 = a.date.toLowerCase(),
+                    date2 = b.date.toLowerCase()
+                if (date1 < date2) {
+                    return 1
+                }
+                if (date1 > date2) {
+                    return -1
+                }
+                return 0
+            })
     }
 }

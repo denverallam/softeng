@@ -61,14 +61,13 @@ const App = () => {
           <PrivateRoute path='/admin' user={user || localUser} isAdmin={user?.result?.isAdmin || localUser?.result?.isAdmin}  exact component={ContentList} />
           <PrivateRoute path='/admin/post/:id' user={user || localUser} isAdmin={user?.result?.isAdmin || localUser?.result?.isAdmin} exact component={ViewDetails} />
           <PrivateRoute path='/admin/response' user={user || localUser} isAdmin={user?.result?.isAdmin || localUser?.result?.isAdmin} exact component={ResponseList} />
+          <PrivateRoute path='/change-password' user={user || localUser} isAdmin={user?.result?.isAdmin || localUser?.result?.isAdmin} exact component={ChangePassword} />
           
           <Route path='/login' exact component={Login} />
           <Route path='/register' exact component={Register} />
           <Route path='/recover-password' exact component={RecoverPassword} />
-          <Route path='/change-password' exact component={ChangePassword} />
           <Route path='/forgot-password' exact component={ForgotPassword} />
           <Route path='/reset-password/:resetToken' exact component={ResetPassword} />
-
 
           <Route component={Error} />
         </Switch>

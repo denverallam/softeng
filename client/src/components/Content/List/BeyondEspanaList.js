@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Content from '../Content';
-import { ListGroup, ListGroupItem } from 'reactstrap';
-import {deleteContent, getContentByCategory } from '../../../actions/contentActions';
+import { ListGroup, ListGroupItem, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { deleteContent, getContentByCategory } from '../../../actions/contentActions';
 import Load from '../Load';
 import NavBar from '../../NavBar';
 import Order from './Dropdown';
+import { listSorter } from '../../../sort';
 
 const BeyondEspanaList = () => {
 
@@ -15,84 +16,62 @@ const BeyondEspanaList = () => {
     const [contentList, setContentList] = useState(content)
     const [order, setOrder] = useState('')
 
-    const handleChange = (order) => {
-        setOrder(order)
-    }
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+    const toggle = () => setDropdownOpen(prevState => !prevState);
+
 
     const deleteItem = (id) => {
         setContentList(contentList.filter(content => content._id !== id))
         dispatch(deleteContent(id))
     }
 
+
     useEffect(() => {
         dispatch(getContentByCategory('beyond-espana'));
         setContentList(content)
     }, [])
 
-    const listSorter = (order) => {
-        switch (order) {
-            case 'ALPHABET':
-                return content.sort((a, b) => {
-                    let title1 = a.title.toLowerCase(),
-                        title2 = b.title.toLowerCase()
-                    if (title1 < title2) {
-                        return -1
-                    }
-                    if (title1 > title2) {
-                        return 1
-                    }
-                    return 0
-                })
-            case 'VIEWS':
-                return content.sort((a, b) => {
-                    return b.views - a.views
-                })
-            case 'OLDEST':
-                return content.sort((a, b) => {
-                    let date1 = a.date.toLowerCase(),
-                        date2 = b.date.toLowerCase()
-                    if (date1 < date2) {
-                        return -1
-                    }
-                    if (date1 > date2) {
-                        return 1
-                    }
-                    return 0
-                })
-        }
-    }
-
-    // listSorter(order)
+    listSorter(order, content)
 
     return (
         <>
-        <NavBar/>
-        <div>
-            <p className="text-center my-2 page-title">Beyond Espana</p>
+            <NavBar />
+            <div>
+                <p className="text-center my-2 page-title">Beyond Espana</p>
 
-            {
+                {
                     loading ? <Load /> :
-                    content.length > 0 ?
-                        <>
-                            {content.length > 1 ?
-                                <div className="container">
-                                    <Order setValue={handleChange()}/>
-                                </div> :
-                                <></>
-                            }
-                            <ListGroup>
-                                {
-                                    content.map(content => (
-                                        <ListGroupItem className="border-0" key={content._id}>
-                                            <Content content={content} deleteContent={deleteItem} />
-                                        </ListGroupItem>
-                                    ))
+                        content.length > 0 ?
+                            <>
+                                {content.length > 1 ?
+                                    <div className="container">
+                                        <Dropdown isOpen={dropdownOpen} toggle={toggle} >
+                                            <DropdownToggle caret >
+                                                Sort
+                </DropdownToggle>
+                                            <DropdownMenu>
+                                                <DropdownItem onClick={() => setOrder('OLDEST')}>By Date (Oldest)</DropdownItem>
+                                                <DropdownItem onClick={() => setOrder('LATEST')}>By Date (Latest)</DropdownItem>
+                                                <DropdownItem onClick={() => setOrder('ALPHABET')}>Alphabetically</DropdownItem>
+                                                <DropdownItem onClick={() => setOrder('VIEWS')}>By View Count</DropdownItem>
+                                            </DropdownMenu>
+                                        </Dropdown>
+                                    </div> :
+                                    <></>
                                 }
-                            </ListGroup>
-                        </> :
-                        <p className="text-center">No articles posted</p>
-            }
-        </div >
+                                <ListGroup>
+                                    {
+                                        content.map(content => (
+                                            <ListGroupItem className="border-0" key={content._id}>
+                                                <Content content={content} deleteContent={deleteItem} />
+                                            </ListGroupItem>
+                                        ))
+                                    }
+                                </ListGroup>
+                            </> :
+                            <p className="text-center">No articles posted</p>
+                }
+            </div >
         </>
     )
 }
