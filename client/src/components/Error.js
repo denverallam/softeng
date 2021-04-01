@@ -4,8 +4,8 @@ const Error = () => {
     return (
         <>
         <NavBar/>
-        <div className="text-center">
-            <h1>Error 404: Page not found</h1>
+        <div className="text-center my-2 page-title">
+            <p>Error 404: Page not found</p>
         </div>
         </>
     )

@@ -6,6 +6,7 @@ import { Button, ButtonGroup, ListGroup, ListGroupItem } from 'reactstrap';
 import { getAllContent, deleteContent, getContentByCategory } from '../../../actions/contentActions';
 import Load from '../Load';
 import NavBar from '../../NavBar';
+import Order from './Dropdown';
 
 const NewsList = () => {
 
@@ -28,7 +29,7 @@ const NewsList = () => {
         <>
         <NavBar/>
         <div>
-            <p  className="text-center">News</p>
+            <p  className="text-center my-2 page-title">News</p>
 
             {
                 loading ? <Load /> :
@@ -36,10 +37,11 @@ const NewsList = () => {
                         <>
                             {content.length > 1 ?
                                 <div className="ml-5 my-5">
-                                    <ButtonGroup>
+                                    <Order/>
+                                    {/* <ButtonGroup>
                                         <Button>Oldest</Button>
                                         <Button>Newest</Button>
-                                    </ButtonGroup>
+                                    </ButtonGroup> */}
                                 </div> :
                                 <></>
                             }

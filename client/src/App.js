@@ -17,7 +17,7 @@ import FeaturesList from './components/Content/List/FeaturesList';
 import LiteraryList from './components/Content/List/LiteraryList';
 import OpinionList from './components/Content/List/OpinionList';
 import BeyondEspanaList from './components/Content/List/BeyondEspanaList';
-import { getAllContent } from './actions/contentActions';
+import './App.css'
 
 import Login from './components/Admin/User/Login';
 import Register from './components/Admin/User/Register';
@@ -28,6 +28,7 @@ import PrivateRoute from './components/Admin/PrivateRoute';
 import ContentList from './components/Admin/Content/ContentList';
 import ResponseList from './components/Admin/Response/ResponseList';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 const App = () => {
 
@@ -64,11 +65,11 @@ const App = () => {
           <Route path='/recover-password' exact component={RecoverPassword} />
           <Route path='/change-password' exact component={ChangePassword} />
 
-
           <Route component={Error} />
         </Switch>
       </div>
     </Router>
+    {/* <Footer/> */}
     </>
   )
 }

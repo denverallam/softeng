@@ -27,7 +27,7 @@ const BeyondEspanaList = () => {
         <>
         <NavBar/>
         <div>
-            <p className="text-center my-2 fw-bold">Beyond Espana</p>
+            <p className="text-center my-2 page-title">Beyond Espana</p>
 
             {
                 loading ? <Load /> :

@@ -19,8 +19,10 @@ const Dashboard = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   const dispatch = useDispatch()
-  const user = useSelector(state => state.user)
+  const user = useSelector(state => state.user.authData)
   const localUser = JSON.parse(localStorage.getItem("admin"))
+
+  console.log(user)
 
   return (
     <div>
@@ -30,17 +32,17 @@ const Dashboard = () => {
           <Nav navbar>
             <UncontrolledDropdown nav inNavbar className="mx-3 my-auto">
               <DropdownToggle nav caret className="text-white">
-                Manage Articles
+                Articles
               </DropdownToggle>
               <DropdownMenu left>
                 <DropdownItem>
                   <Link to="/admin/" className="text-dark">
-                    View all articles
+                    View All
                   </Link>
                 </DropdownItem>
                 <DropdownItem>
                   <Link to="/admin/new" className="text-dark">
-                    Add new article
+                    Add new
                   </Link>
                 </DropdownItem>
               </DropdownMenu>
@@ -48,12 +50,12 @@ const Dashboard = () => {
 
           <NavItem className="mx-3 my-auto">
             <Link to='/admin/response' className="text-white">
-                Manage Responses
+                Responses
             </Link>
           </NavItem>
             <UncontrolledDropdown nav inNavbar className="mx-3 my-auto ">
               <DropdownToggle nav caret className="text-white">
-                Account
+                {user?.result.username || 'Account'}
               </DropdownToggle>
               <DropdownMenu left>
                 <DropdownItem>

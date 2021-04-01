@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import {
   Collapse,
   Navbar,
@@ -13,76 +12,73 @@ import {
 } from 'reactstrap';
 
 import { Link } from 'react-router-dom';
-import { logout } from '../actions/userActions';
+
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
-  const dispatch = useDispatch()
-  const user = useSelector(state => state.user)
-  const localUser = JSON.parse(localStorage.getItem("admin"))
 
 
   return (
     <div>
-      <Navbar color="dark" dark expand="sm">
+      <Navbar color="light" className="navbar-light" expand="md">
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav navbar>
-            <NavItem className="mx-3 my-auto">
-              <Link to="/" className="text-light">
+          <Nav navbar >
+            <NavItem className="mx-3 my-auto li">
+              <Link to="/" className="text-dark">
               <span>
                 Home
                 </span>
                 </Link>
             </NavItem>
-            <NavItem className="mx-3 my-auto">
-              <Link to="/news" className="text-light">
+            <NavItem className="mx-3 my-auto li">
+              <Link to="/news" className="text-dark">
                 <span>News</span>
               </Link>
             </NavItem>
-            <NavItem className="mx-3 my-auto">
-              <Link to="/features" className="text-light">
+            <NavItem className="mx-3 my-auto li">
+              <Link to="/features" className="text-dark">
               <span>Features</span>
               </Link>
             </NavItem>
-            <NavItem className="mx-3 my-auto">
-              <Link to="/literary" className="text-light">
+            <NavItem className="mx-3 my-auto li">
+              <Link to="/literary" className="text-dark">
               <span>Literary</span>
               </Link>
             </NavItem >
-            <NavItem className="mx-3 my-auto">
-              <Link to="/opinion" className="text-light">
+            <NavItem className="mx-3 my-auto li">
+              <Link to="/opinion" className="text-dark">
               <span> Opinion</span>
               </Link>
             </NavItem>
-            <NavItem className="mx-3 my-auto">
-              <Link to="/beyond-espana" className="text-light">
+            <NavItem className="mx-3 my-auto li">
+              <Link to="/beyond-espana" className="text-dark">
               <span> Beyond Espana</span>
               </Link>
             </NavItem>
-            <UncontrolledDropdown nav inNavbar className="mx-3 my-auto">
-              <DropdownToggle nav caret className="text-light">
+            <UncontrolledDropdown nav inNavbar className="mx-3 my-auto li">
+              <DropdownToggle nav caret className="text-dark li">
               <span>About</span>
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem>
-                  <Link to="/about" className="text-dark">
+                  <Link to="/about" className="text-dark li">
                     Escolario
                   </Link>
                 </DropdownItem>
                 <DropdownItem>
-                  <Link to="/about-best" className="text-dark">
+                  <Link to="/about-best" className="text-dark li">
                     The BeST
                   </Link>
                 </DropdownItem>
                 <DropdownItem>
-                  <Link to="/about-best-officers-history" className="text-dark">
+                  <Link to="/about-best-officers-history" className="text-dark li">
                     BeST Officers History
                   </Link>
                 </DropdownItem>
                 <DropdownItem>
-                  <Link to="/about-projects" className="text-dark">
+                  <Link to="/about-projects" className="text-dark li">
                     Projects
                   </Link>
                 </DropdownItem>

@@ -27,7 +27,7 @@ const FeaturesList = () => {
         <>
             <NavBar />
             <div>
-                <p className="text-center">Features</p>
+                <p className="text-center my-2 page-title">Features</p>
 
                 {
                     loading ? <Load /> :
@@ -35,11 +35,19 @@ const FeaturesList = () => {
                             <>
                                 {content.length > 1 ?
                                     <div className="ml-5 my-5">
-                                        <ButtonGroup>
-                                            <Button>Oldest</Button>
-                                            <Button>Newest</Button>
-                                        </ButtonGroup>
-                                    </div> :
+                                    <div class="btn-group">
+                                        <button type="button" className="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Action
+                                        </button>
+                                        <ul className="dropdown-menu">
+                                            <li><a className="dropdown-item" href="#">Action</a></li>
+                                            <li><a className="dropdown-item" href="#">Another action</a></li>
+                                            <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                            <li><hr className="dropdown-divider" /></li>
+                                            <li><a className="dropdown-item" href="#">Separated link</a></li>
+                                        </ul>
+                                    </div>
+                                </div> :
                                     <></>
                                 }
                                 <ListGroup>

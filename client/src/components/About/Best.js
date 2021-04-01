@@ -10,7 +10,7 @@ const Best = () => {
             
             <h4>MISSION</h4>
             <p>Becarios de Santo Tomas, the Sole Scholars Association of the University of Santo Tomas, a socio-civic organization, recognizes its role to instill academic competence, to enhance camaraderie, to promote social awareness and to mold Thomasian  scholars to be cognizant of their role in the University, in the country and in the whole world, under the guidance of our Almighty God.</p>
-            <h4>VISION</h4>
+            <h4 >VISION</h4>
             <p>Becarios de Santo Tomas, the Sole Scholars Association of the University of Santo Tomas, envisions itself to be a formative organization that produces scholars who are competitive and equipped with Thomasian virtues.</p>
         </div>
         </>

@@ -1,6 +1,7 @@
+
 const Header = () => {
     return (
-        <img src='header.png' className="container-fluid"/>
+        <img src='header.png' className="img-fluid sticky-lg-top"/>
     )
 }
 
