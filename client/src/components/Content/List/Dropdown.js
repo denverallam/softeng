@@ -19,7 +19,7 @@ const Order = ({setValue}) => {
     return (
         <div className="my-2 container">
             <Dropdown isOpen={dropdownOpen} toggle={toggle} light>
-                <DropdownToggle caret >
+            <DropdownToggle caret color="white">
                     Sort
                 </DropdownToggle>
                 <DropdownMenu>

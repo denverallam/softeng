@@ -48,7 +48,7 @@ const Content = ({ content }) => {
     }
 
     return (
-        <div className="container row border mx-auto">
+        <div className="container row border border-info mx-auto">
             <div className="col-sm-4">
                 <CardImg src={content.selectedFile || best} className="rounded img-fluid img-thumbnail rounded border-0" />
             </div>

@@ -16,7 +16,7 @@ const BoardOfficerList = () => {
             <div className="col-sm-2 container">    
             <Card className="my-2 text-center officer-container p-2" onClick={toggle}>
                 <CardTitle className="committee-title pt-3 officer-title"> {committee.position}</CardTitle>
-                <Modal isOpen={modal} toggle={toggle} className="modal-lg modal-dialog-centered modal-dialog-scrollable">
+                <Modal isOpen={modal} toggle={toggle} className="modal-md modal-dialog-centered modal-dialog-scrollable">
                     <ModalHeader toggle={toggle} className="committee-container p-2">
                         {committee.position}
                     </ModalHeader>

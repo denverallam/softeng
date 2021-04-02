@@ -47,9 +47,9 @@ const OpinionList = () => {
                                 {contentList.length > 1 ?
                                     <div className="container">
                                         <Dropdown isOpen={dropdownOpen} toggle={toggle} >
-                                            <DropdownToggle caret >
+                                        <DropdownToggle caret color="white">
                                                 Sort
-                </DropdownToggle>
+                                        </DropdownToggle>
                                             <DropdownMenu>
                                             <DropdownItem onClick={() => setOrder('OLDEST')}>By Date (Oldest)</DropdownItem>
                                                 <DropdownItem onClick={() => setOrder('LATEST')}>By Date (Latest)</DropdownItem>

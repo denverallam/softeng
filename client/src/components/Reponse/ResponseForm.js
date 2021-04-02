@@ -10,6 +10,7 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
     const dispatch = useDispatch()
 
     const localViewer  = useSelector(state=> state.viewer.viewer)
+    const locViewer = JSON.parse(localStorage.getItem('user')) 
 
     const [newResponse, setNewResponse] = useState({
         author: "",
@@ -69,9 +70,9 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
             <Alert color="info">
               Enter your email and name to access the comment section.
             </Alert> :
-                        <Alert color="danger">
+                    <Alert color="danger">
                         {error}
-                      </Alert>
+                    </Alert>
     }
                 <FormGroup>
                     <Input type="text" name="username" id="username" placeholder="Name" onChange={(e) => { setViewer({ ...viewer, username: e.target.value }) }} />
@@ -84,9 +85,6 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
         </div>
     }
 
-    useEffect( () => {
-        localStorage.removeItem('user')
-    }, [])
 
     const userLogout = () => {
         dispatch(logout())
@@ -99,15 +97,21 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
 
     return (
         <div className="container my-5">
-            { localViewer && localViewer?.result.email && localViewer?.result.username ?
+            { locViewer && locViewer?.result.email && locViewer?.result.username ?
                 <>
                     <Form onSubmit={handleSubmit}>
+                    {
+                        locViewer.result.username ?
+                        <b className="text-capitalize">{locViewer.result.username}</b>
+                        :<></>
+                    }    
+                    <p onClick={userLogout}>Not you? <a className="a">Change email</a></p>
+
                         <FormGroup>
                             <Input type="textarea" name="content" id="content" placeholder="Comment" value={newResponse.content} onChange={(e) => { setNewResponse({ ...newResponse, content: e.target.value }) }} />
                         </FormGroup>
                         <Button>Publish</Button>
                     </Form>
-                    <Button onClick={userLogout}>Logout</Button>
 
                 </>
                 : login()

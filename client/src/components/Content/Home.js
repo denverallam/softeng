@@ -61,7 +61,7 @@ const Home = (props) => {
   const contentSlides = content.map((content) => {
     return (
       <CarouselItem onExiting={() => setAnimating(true)} onExited={() => setAnimating(false)} key={content._id}>
-        <CardImg src={content.selectedFile || best} className="img-fluid "/>
+        <CardImg src={content.selectedFile || best} className="img-fluid"/>
         <Link to={`post/${content._id}`}>
           <CarouselCaption captionText={content.title} captionHeader={content.title} />
         </Link>

@@ -22,7 +22,7 @@ const ContentList = () => {
         dispatch(deleteContent(id))
     }
 
-    listSorter(order, content)
+    listSorter(order, content.contentList)
 
     useEffect(() => {
         dispatch(getAllContent());
@@ -40,9 +40,9 @@ const ContentList = () => {
             <div>
                 {
                     loading ? <Load /> :
-                    contentList.length > 0 ?
+                    content.contentList.length > 0 ?
                             <>
-                                {content.length > 1 ?
+                                {content.contentList.length > 1 ?
                                         <Order setValue={setOrder}/>
                                         :
                                     <></>

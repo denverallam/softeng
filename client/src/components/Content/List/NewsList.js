@@ -43,8 +43,8 @@ const NewsList = () => {
                             <>
                                 {contentList.length > 1 ?
                                     <div className="container">
-                                        <Dropdown isOpen={dropdownOpen} toggle={toggle} >
-                                            <DropdownToggle caret >
+                                        <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+                                        <DropdownToggle caret color="white">
                                                 Sort
                 </DropdownToggle>
                                             <DropdownMenu>

@@ -53,7 +53,7 @@ const Dashboard = () => {
           </NavItem>
             <UncontrolledDropdown nav inNavbar  className="mx-3 my-auto li">
               <DropdownToggle nav caret className="text-dark">
-                {user?.result.username || 'Account'}
+                { localUser && localUser?.result.username || 'Account'}
               </DropdownToggle>
               <DropdownMenu left>
                 <DropdownItem className="text-dark li">

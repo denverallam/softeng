@@ -46,7 +46,7 @@ const FeaturesList = () => {
                                 {contentList.length > 1 ?
                                     <div className="container">
                                         <Dropdown isOpen={dropdownOpen} toggle={toggle} >
-                                            <DropdownToggle caret>
+                                            <DropdownToggle caret color="white">
                                                 Sort
                                             </DropdownToggle>
                                             <DropdownMenu>
