@@ -61,7 +61,7 @@ const Home = (props) => {
   const contentSlides = content.map((content) => {
     return (
       <CarouselItem onExiting={() => setAnimating(true)} onExited={() => setAnimating(false)} key={content._id}>
-        <CardImg src={content.selectedFile || best} className="img-fluid"/>
+        <CardImg src={content.selectedFile || best} className="img-fluid rounded img-thumbnail border-0"/>
         <Link to={`post/${content._id}`}>
           <CarouselCaption captionText={content.title} captionHeader={content.title} />
         </Link>
@@ -72,7 +72,7 @@ const Home = (props) => {
   return (
     <>
       <NavBar />
-      <div className="container my-2">
+      <div className="container my-2 col-sm-4">
         {loading ? <Load /> :
           <Carousel
             activeIndex={activeIndex}

@@ -50,7 +50,7 @@ const Content = ({ content }) => {
     return (
         <div className="container row border border-info mx-auto">
             <div className="col-sm-4">
-                <CardImg src={content.selectedFile || best} className="rounded img-fluid img-thumbnail rounded border-0" />
+                <CardImg src={content.selectedFile || best} className="rounded img-fluid img-thumbnail border-0" />
             </div>
             <Card className="col-sm-8 border-0">
                 <CardBody>
@@ -58,10 +58,10 @@ const Content = ({ content }) => {
                     <CardSubtitle tag="h6" className="byline">By {content.author}. {moment(content.date).fromNow()}</CardSubtitle>
                     <CardText className="text2">{cutContent(content.content)}</CardText>
                 </CardBody>
-                <Link to={`/post/${content._id}`} onClick={increaseViews}>
-                    <p className="text-center article-link">READ FULL ARTICLE</p>
-                </Link>
             </Card>
+            <Link to={`/post/${content._id}`} onClick={increaseViews} className="mx-auto">
+                <p className="text-center article-link">READ FULL ARTICLE</p>
+            </Link>
         </div >
     )
 }
