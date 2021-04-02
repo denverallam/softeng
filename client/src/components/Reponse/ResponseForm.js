@@ -98,7 +98,7 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
     }
 
     return (
-        <div className="container my-5 mt-10">
+        <div className="container my-5">
             { localViewer && localViewer?.result.email && localViewer?.result.username ?
                 <>
                     <Form onSubmit={handleSubmit}>
@@ -111,7 +111,6 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
 
                 </>
                 : login()
-
             }
         </div>
     )

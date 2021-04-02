@@ -12,7 +12,7 @@ export const getContentByCategory = (category) => async (dispatch) => {
         const {data} = await API.fetchContentByCategory(category)
 
         dispatch({
-            type: actions.GET_ALL_CONTENT,
+            type: actions.GET_CATEGORY_CONTENT,
             payload: data
         })
 
@@ -33,13 +33,7 @@ export const getAllContent = () => async (dispatch) => {
         })
 
         const {data} = await API.fetchAllContent()
-        // let link = '/content/'
 
-        // if (category){
-        //     link = `/content/${category}`
-        // }
-
-        // const {data} = await api.get(link)
 
         dispatch({
             type: actions.GET_ALL_CONTENT,
@@ -80,7 +74,6 @@ export const getContent = (id) => async (dispatch) => {
 export const createContent = (newContent) => async (dispatch) => {
 
     try{
-        // const {data} = await api.post(`/content/`,newContent)
         const {data} = await API.createContent(newContent)
 
         dispatch({
@@ -99,9 +92,8 @@ export const createContent = (newContent) => async (dispatch) => {
 export const updateContent = (id, newContent) => async (dispatch) => {
 
     try{
-        // const {data} = await api.patch(`/content/${id}`, newContent)
         const {data} = await API.updateContent(id, newContent)
-
+        console.log(data)
         dispatch({
             type: actions.UPDATE_CONTENT,
             payload: data
@@ -115,10 +107,9 @@ export const updateContent = (id, newContent) => async (dispatch) => {
     }
 }
 
-export const deleteContent = (id) =>async (dispatch) => {
+export const deleteContent = (id) => async (dispatch) => {
     try{
         const {data} = await API.deleteContent(id)
-
         dispatch({
             type: actions.DELETE_CONTENT,
             payload: data

@@ -32,6 +32,8 @@ const ContentDetails = ({ match }) => {
         // dispatch(getResponses(contentId))
     }, [])
 
+    
+
     return (
         <>
         <NavBar/>

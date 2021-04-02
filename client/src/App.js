@@ -31,6 +31,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ResetPassword from './components/Admin/User/ResetPassword';
 import ForgotPassword from './components/Admin/User/ForgotPassword';
+import BoardOfficerList from './components/About/BoardOfficerList';
 
 const App = () => {
 
@@ -42,12 +43,13 @@ const App = () => {
     <>
       <Router>
         <div>
-      <Header />
+          <Header />
           <Switch>
             <Route path='/' exact component={Home} />
             <Route path='/about' exact component={Escolario} />
             <Route path='/about-best' exact component={Best} />
             <Route path='/about-best-officers-history' exact component={BestOfficerHistoryList} />
+            <Route path='/best-board' exact component={BoardOfficerList} />
             <Route path='/about-projects' exact component={Projects} />
             <Route path='/news' exact component={NewsList} />
             <Route path='/features' exact component={FeaturesList} />

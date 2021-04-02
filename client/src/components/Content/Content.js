@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import api from '../../api/server'
+import best from './best.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
@@ -11,7 +11,7 @@ import { updateContent } from '../../actions/contentActions'
 import moment from 'moment';
 
 
-const Content = ({ content, deleteContent }) => {
+const Content = ({ content }) => {
 
     const dispatch = useDispatch()
 
@@ -48,20 +48,22 @@ const Content = ({ content, deleteContent }) => {
     }
 
     return (
-        <div className="container">
-            <Card>
+        <div className="container row border mx-auto">
+            <div className="col-sm-4">
+                <CardImg src={content.selectedFile || best} className="rounded img-fluid img-thumbnail rounded border-0" />
+            </div>
+            <Card className="col-sm-8 border-0">
                 <CardBody>
                     <CardTitle className="headline" tag="h5">{content.title}</CardTitle>
-                    <CardSubtitle tag="h6" className="mb-2 text-muted">By {content.author} {moment(content.date).fromNow()}</CardSubtitle>
+                    <CardSubtitle tag="h6" className="byline">By {content.author}. {moment(content.date).fromNow()}</CardSubtitle>
                     <CardText className="text2">{cutContent(content.content)}</CardText>
-                    <Link to={`/post/${content._id}`} onClick={increaseViews}>
-                        <p className="text-center article-link">READ FULL ARTICLE</p>
-                    </Link>
                 </CardBody>
+                <Link to={`/post/${content._id}`} onClick={increaseViews}>
+                    <p className="text-center article-link">READ FULL ARTICLE</p>
+                </Link>
             </Card>
         </div >
     )
 }
-
 
 export default Content

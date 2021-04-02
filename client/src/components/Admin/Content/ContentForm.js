@@ -10,12 +10,16 @@ const ContentForm = () => {
 
   const dispatch = useDispatch()
 
+  const content = useSelector(state => state.content)
+
   const [newContent, setNewContent] = useState({
     title: '',
     content: '',
     selectedFile: '',
     author: ''
   });
+
+  const [error, setError] = useState('')
 
   const clear = () => {
     setNewContent({

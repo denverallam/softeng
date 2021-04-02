@@ -58,7 +58,7 @@ export const register = async (req, res) => {
     res.status(201).json({ result, token });
   } catch (error) {
     res.status(500).json({ message: "Something went wrong" });
-    
+
   }
 };
 export const changePassword = async (req, res) => {
@@ -121,8 +121,9 @@ export const forgotPassword = async (req, res, next) => {
 
       await user.save();
 
+      console.log(req)
       // const resetUrl = `http://localhost:3000/reset-password/${resetToken}`;
-      const resetUrl = `https://best-escolario.netlify.app/reset-password/${resetToken}`;
+      const resetUrl = `${req.get('origin')}/reset-password/${resetToken}`;
       const message = `
           <h1>You have requested a password reset</h1>
           <p>Please go to this link to reset your password</p>

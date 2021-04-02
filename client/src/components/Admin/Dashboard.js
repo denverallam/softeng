@@ -47,7 +47,7 @@ const Dashboard = () => {
             </UncontrolledDropdown>
 
           <NavItem className="mx-3 my-auto text-dark li">
-            <Link to='/admin/response' className="text-dark li">
+            <Link to='/admin/response' className="text-dark">
                 Responses
             </Link>
           </NavItem>

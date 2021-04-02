@@ -3,32 +3,33 @@ import { useDispatch, useSelector } from 'react-redux'
 import Content from '../Content';
 import { ListGroup, ListGroupItem, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 // import ContentForm from './ContentForm';
-import { getAllContent, deleteContent, getContentByCategory } from '../../../actions/contentActions';
+import {  getContentByCategory } from '../../../actions/contentActions';
 import Load from '../Load';
 import NavBar from '../../NavBar';
-import Order from './Dropdown';
 import { listSorter } from '../../../sort';
 
 const NewsList = () => {
 
     const dispatch = useDispatch()
     const content = useSelector(state => state.content.contentList)
+    
     const loading = useSelector(state => state.content.loading)
     const [contentList, setContentList] = useState([])
     const [order, setOrder] = useState('')
 
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const toggle = () => setDropdownOpen(prevState => !prevState);
-    const deleteItem = (id) => {
-        setContentList(contentList.filter(content => content._id !== id))
-        dispatch(deleteContent(id))
-    }
 
     useEffect(() => {
         dispatch(getContentByCategory('news'));
         setContentList(content)
     }, [])
-    listSorter(order, content)
+
+    useEffect(() => {
+        setContentList(content)
+    }, [content])
+
+    listSorter(order, contentList)
 
     return (
         <>
@@ -38,9 +39,9 @@ const NewsList = () => {
 
             {
                     loading ? <Load /> :
-                        content.length > 0 ?
+                    contentList.length > 0 ?
                             <>
-                                {content.length > 1 ?
+                                {contentList.length > 1 ?
                                     <div className="container">
                                         <Dropdown isOpen={dropdownOpen} toggle={toggle} >
                                             <DropdownToggle caret >
@@ -58,9 +59,9 @@ const NewsList = () => {
                                 }
                             <ListGroup>
                                 {
-                                    content.map(content => (
+                                    contentList.map(content => (
                                         <ListGroupItem className="border-0" key={content._id}>
-                                            <Content content={content} deleteContent={deleteItem} />
+                                            <Content content={content} />
                                         </ListGroupItem>
                                     ))
                                 }

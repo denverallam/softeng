@@ -33,6 +33,10 @@ const LiteraryList = () => {
         setContentList(content)
     }, [])
 
+    useEffect(() => {
+        setContentList(content)
+    }, [content])
+
     return (
         <>
             <NavBar />
@@ -41,9 +45,9 @@ const LiteraryList = () => {
 
                 {
                     loading ? <Load /> :
-                        content.length > 0 ?
+                    contentList.length > 0 ?
                             <>
-                                {content.length > 1 ?
+                                {contentList.length > 1 ?
                                     <div className="container">
                                         <Dropdown isOpen={dropdownOpen} toggle={toggle} >
                                             <DropdownToggle caret >
@@ -61,7 +65,7 @@ const LiteraryList = () => {
                                 }
                                 <ListGroup>
                                     {
-                                        content.map(content => (
+                                        contentList.map(content => (
                                             <ListGroupItem className="border-0" key={content._id}>
                                                 <Content content={content} deleteContent={deleteItem} />
                                             </ListGroupItem>

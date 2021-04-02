@@ -1,35 +1,35 @@
-import { Card, CardTitle, CardSubtitle, Modal, ModalHeader, ModalBody } from 'reactstrap';
-import {useState} from 'react'
-import NavBar from '../NavBar';
+import { Card, CardTitle, CardSubtitle, Modal, ModalHeader, ModalBody, CardBody } from 'reactstrap';
+import { useState } from 'react'
 
-const BestOfficerHistory = ({organization}) => {
+const BestOfficerHistory = ({ organization }) => {
 
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
 
     return (
         <>
-        <div className="col-sm-2">
-            <Card className="my-2 text-center"  onClick={toggle}>
-                <CardTitle >Best Officers</CardTitle>
-                <CardSubtitle>{organization.year}</CardSubtitle>
-                <Modal isOpen={modal} toggle={toggle} className="modal-lg modal-dialog-centered modal-dialog-scrollable">
-                    <ModalHeader toggle={toggle} className=" fs-4">
-                        {organization.name} ({organization.year})
+            <div className="col-sm-2">                
+                <Card className="my-2 text-center officer-container" onClick={toggle}>
+                    <CardTitle ><p className="officer-title pt-4">Best Officers <p>{organization.year} </p></p></CardTitle>
+                    <Modal isOpen={modal} toggle={toggle} className="modal-lg modal-dialog-centered modal-dialog-scrollable">
+                            <ModalHeader toggle={toggle} className="committee-container p-2">
+                                <p className="modal-title">
+                                    {organization.name} ({organization.year})
+                                </p>
                             </ModalHeader>
-                    <ModalBody>
-                        {
-                            organization.officers.map(officer => (
-                                <div>
-                                    <b className="fw-bold">{officer.position}</b>
-                                    : {officer.name}
-                                </div>
-                            ))
-                        }
-                    </ModalBody>
-                </Modal>
-            </Card>
-        </div>
+                            <ModalBody className="card-container">
+                                {
+                                    organization.officers.map(officer => (
+                                        <div>
+                                            <span className="position">{officer.position}: </span> 
+                                            <span className="name">{officer.name} </span>
+                                        </div>
+                                    ))
+                                }
+                            </ModalBody>
+                    </Modal>
+                </Card>
+            </div>
         </>
     )
 }

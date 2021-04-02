@@ -45,7 +45,7 @@ const ChangePassword = ({ history }) => {
         setError(localUser.message)
         setTimeout(() => {
             setError("");
-            dispatch(clearErrors())
+            // dispatch(clearErrors())
         }, 5000);
     }, [localUser])
 

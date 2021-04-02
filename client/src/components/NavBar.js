@@ -73,13 +73,13 @@ const NavBar = () => {
                   </Link>
                 </DropdownItem>
                 <DropdownItem className="dropdown-content1">
-                  <Link to="/about-best-officers-history" className="text-dark li">
-                    BeST Officers History
+                  <Link to="/best-board" className="text-dark li">
+                    BeST Board of Officers
                   </Link>
                 </DropdownItem>
                 <DropdownItem className="dropdown-content1">
-                  <Link to="/about-projects" className="text-dark li">
-                    Projects
+                  <Link to="/about-best-officers-history" className="text-dark li">
+                    BeST Officers History
                   </Link>
                 </DropdownItem>
               </DropdownMenu>

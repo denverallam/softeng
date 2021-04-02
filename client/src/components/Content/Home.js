@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import best from './best.png'
 import {
   CardImg,
   Carousel,
@@ -59,8 +60,8 @@ const Home = (props) => {
 
   const contentSlides = content.map((content) => {
     return (
-      <CarouselItem onExiting={() => setAnimating(true)} onExited={() => setAnimating(false)} key={content._id} >
-        <CardImg src={content.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} />
+      <CarouselItem onExiting={() => setAnimating(true)} onExited={() => setAnimating(false)} key={content._id}>
+        <CardImg src={content.selectedFile || best} className="img-fluid "/>
         <Link to={`post/${content._id}`}>
           <CarouselCaption captionText={content.title} captionHeader={content.title} />
         </Link>
@@ -71,7 +72,7 @@ const Home = (props) => {
   return (
     <>
       <NavBar />
-      <div className="container my-5">
+      <div className="container my-2">
         {loading ? <Load /> :
           <Carousel
             activeIndex={activeIndex}

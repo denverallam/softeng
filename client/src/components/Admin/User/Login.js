@@ -29,7 +29,6 @@ const Login = ({ history }) => {
             setError('Please enter email and password.')
             setTimeout(() => {
                 setError("");
-                // dispatch(clearErrors())
             }, 5000);
         }
         else {
@@ -41,7 +40,7 @@ const Login = ({ history }) => {
         setError(localUser.message)
         setTimeout(() => {
             setError("");
-            // dispatch(clearErrors())
+            dispatch(clearErrors())
         }, 5000);
     }, [localUser])
 

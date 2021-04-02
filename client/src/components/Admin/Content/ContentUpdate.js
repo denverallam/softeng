@@ -2,26 +2,30 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import FileBase from 'react-file-base64'
 import { Button, Form, FormGroup, Label, Input, Nav } from 'reactstrap';
-import { updateContent } from '../../../actions/contentActions'
+import { updateContent, getContent } from '../../../actions/contentActions'
 import api from '../../../api/server'
 import NavBar from '../../NavBar';
 import Dashboard from '../Dashboard';
+// import { getContent } from '../../../../../server/controller/content';
+import content from '../../../reducers/contentReducers';
 
 
 const ContentUpdate = ({ match }) => {
 
   const dispatch = useDispatch()
 
+  const content = useSelector(state => state.content.content)
   const [newContent, setNewContent] = useState({ title: "", author: "", content: "", selectedFile: "" });
   const contentId = match.params.id
 
   useEffect(() => {
-    const fetchData = async (id) => {
-      const { data } = await api.get(`/content/post/${id}`)
-      setNewContent(data)
-    }
-    fetchData(contentId)
-  }, [contentId])
+    dispatch(getContent(contentId))
+    setNewContent(content)
+  }, [])
+
+  useEffect(() => {
+    setNewContent(content)
+  }, [content])
 
   const handleChange = (e) => {
     setNewContent({ ...newContent, [e.target.name]: e.target.value })

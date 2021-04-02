@@ -26,7 +26,7 @@ const ResetPassword = ({ match, history }) => {
         setError('Password must contain at least 7 characters')
         setTimeout(() => {
           setError("");
-          dispatch(clearErrors())
+          // dispatch(clearErrors())
         }, 5000);
       }
     }
@@ -34,7 +34,7 @@ const ResetPassword = ({ match, history }) => {
       setError('Passwords do not match')
       setTimeout(() => {
         setError("");
-        dispatch(clearErrors())
+        // dispatch(clearErrors())
       }, 5000);
     }
   }

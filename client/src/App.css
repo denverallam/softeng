@@ -14,6 +14,7 @@
   font-family:'Raleway' , sans-serif;
   font-size: 11px;
   font-weight: bold;
+  color: #002e5d;
 }
 .a:link, .a:visited{
   text-decoration: none;
@@ -406,22 +407,19 @@ h1 {
 }
 
 .name{
-  position: absolute;
-  bottom: 18%;
-  left: 148px;
   font-family: 'Raleway', sans-serif;
   font-size: 12px;
   text-transform: capitalize;
-  color: #002e5d;
+  color: #ffffff;
+  font-weight: bold;
+
 }
 
 .position{
   font-weight: 400;
   font-family: 'Raleway', sans-serif;
   font-size: 15px;
-  padding-left: 1%;
-  margin-bottom: 30%;
-  color: #002e5d;
+  color: #efc011;
   font-weight: bold;
 }
 
@@ -440,71 +438,6 @@ h1 {
   filter: brightness(20%);
 }
 
-.name2{
-  position: absolute;
-  bottom: -7%;
-  left: 148px;
-  font-family: 'Raleway', sans-serif;
-  font-size: 12px;
-  text-transform: capitalize;
-  color: #002e5d;
-}
-
-.position2{
-  font-weight: 400;
-  font-family: 'Raleway', sans-serif;
-  font-size: 15px;
-  padding-left: 1%;
-  margin-bottom: 30%;
-  color: #002e5d;
-  font-weight: bold;
-}
-
-.sample-img3{
-  width: 130px;
-  height: 110px;
-  display: block;
-  margin-left: 500px;
-  margin-top: -270px;
-  cursor: pointer;
-  filter: brightness(100%);
-  transition: filter .3s ease;
-}
-
-.sample-img3:hover{
-  filter: brightness(20%);
-}
-
-.name3{
-  position: absolute;
-  top: 65%;
-  left: 624px;
-  font-family: 'Raleway', sans-serif;
-  font-size: 12px;
-  text-transform: capitalize;
-  color: #002e5d;
-}
-
-.position3{
-  font-weight: 400;
-  font-family: 'Raleway', sans-serif;
-  font-size: 15px;
-  padding-left: 1%;
-  margin-bottom: 30%;
-  color: #002e5d;
-  font-weight: bold;
-}
-
-.sample-img4{
-  width: 130px;
-  height: 110px;
-  display: block;
-  margin-left: 500px;
-  margin-top: 50px;
-  cursor: pointer;
-  filter: brightness(100%);
-  transition: filter .3s ease;
-}
 
 .sample-img4:hover{
   filter: brightness(20%);
@@ -775,14 +708,16 @@ h1 {
 }
 
 .grid-container{
-  width: 570px;
-  height: 600px;
-  overflow: hidden;
+  /* width: 570px;
+  height: 600px; */
+  /* overflow: hidden; */
   background: #002e5d;
-  margin: 20px auto;
-  padding: 20px;
-  margin-left: 60%;
-  margin-top: -59%;
+  /* margin-right: 10%;
+  margin-left: 10%; */
+  /* margin: 20px auto; */
+  padding: 40px;
+  /* margin-left: 60%;
+  margin-top: -59%; */
 }
 
 .content-about{
@@ -825,21 +760,67 @@ h1 {
   font-weight: bold;
   letter-spacing: 2px;
   text-transform: uppercase;
-  margin-right: 45%;
-  margin-top: 5%;
+  /* margin-right: 45%;
+  margin-top: 5%; */
 }
+
+.officer-header{
+  color: #002e5d;
+  font-size: 2rem;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  /* margin-right: 45%;
+  margin-top: 5%; */
+}
+
+.officer-container{
+  background: #002e5d;
+  padding-bottom: 0px;
+}
+
+.card-container{
+  background: #002e5d;
+}
+
+.officer-title{
+  color: #ffffff;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.modal-title{
+  color: #ffffff;
+  /* font-size: 1em; */
+  /* text-align: center; */
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.officer-title:hover{
+  color: #efc011;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 
 .text-mission{
   text-indent: 3em;
   color: white;
   font-family: 'Raleway', sans-serif;
   letter-spacing: 2px;
-  margin-top: 3%;  
   display: block;
   font-size: 11px;
   line-height: 1.6em;
   text-align: justify;
-  padding-right: 270px;
+  /* padding-right: 270px; */
 }
 
 .content-vision{
@@ -866,4 +847,37 @@ h1 {
   overflow-wrap: break-word;
   line-height: 1.6em;
   text-align: justify;
+}
+
+.board-name{
+  /* color: #ffffff; */
+  font-size: 14px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.board-position{
+  color:  #002e5d;
+  font-size: 11px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.committee-title{
+    color: #ffffff;
+    font-size: 15px;
+    font-family: 'Raleway', sans-serif;
+    padding: 0px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+
+.committee-container{
+  background: #002e5d;
+  padding: 0px;
+  font-size: 10px;
 }

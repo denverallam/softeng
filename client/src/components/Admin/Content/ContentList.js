@@ -12,13 +12,13 @@ import { listSorter } from '../../../sort';
 const ContentList = () => {
 
     const dispatch = useDispatch()
-    const content = useSelector(state => state.content.contentList)
+    const content = useSelector(state => state.content)
     const loading = useSelector(state => state.content.loading)
     const [order, setOrder] = useState('')
-    const [contentList, setContentList] = useState(content)
+    const [contentList, setContentList] = useState([])
 
     const deleteItem = (id) => {
-        setContentList(contentList.filter(content => content._id !== id))
+        setContentList(content.contentList.filter(content => content._id !== id))
         dispatch(deleteContent(id))
     }
 
@@ -26,7 +26,13 @@ const ContentList = () => {
 
     useEffect(() => {
         dispatch(getAllContent());
-    }, [contentList])
+        setContentList(content.contentList)
+    }, [])
+
+
+    useEffect(() => {
+        setContentList(content.contentList)
+    }, [content])
 
     return (
         <>
@@ -34,7 +40,7 @@ const ContentList = () => {
             <div>
                 {
                     loading ? <Load /> :
-                        content.length > 0 ?
+                    contentList.length > 0 ?
                             <>
                                 {content.length > 1 ?
                                         <Order setValue={setOrder}/>
@@ -43,7 +49,7 @@ const ContentList = () => {
                                 }
                                 <ListGroup>
                                     {
-                                        content.map(content => (
+                                        contentList.map(content => (
                                             <ListGroupItem className="border-0" key={content._id}>
                                                 <Content content={content} deleteContent={deleteItem} />
                                             </ListGroupItem>

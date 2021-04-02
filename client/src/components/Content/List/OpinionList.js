@@ -28,6 +28,11 @@ const OpinionList = () => {
         setContentList(content)
     }, [])
 
+    useEffect(() => {
+        setContentList(content)
+    }, [content])
+
+
     listSorter(order, content)
 
     return (
@@ -37,9 +42,9 @@ const OpinionList = () => {
                 <p className="text-center my-2 page-title">Opinion</p>
                 {
                     loading ? <Load /> :
-                        content.length > 0 ?
+                        contentList.length > 0 ?
                             <>
-                                {content.length > 1 ?
+                                {contentList.length > 1 ?
                                     <div className="container">
                                         <Dropdown isOpen={dropdownOpen} toggle={toggle} >
                                             <DropdownToggle caret >
@@ -57,7 +62,7 @@ const OpinionList = () => {
                                 }
                                 <ListGroup>
                                     {
-                                        content.map(content => (
+                                        contentList.map(content => (
                                             <ListGroupItem className="border-0" key={content._id}>
                                                 <Content content={content} deleteContent={deleteItem} />
                                             </ListGroupItem>
