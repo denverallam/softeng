@@ -23,9 +23,10 @@ const Order = ({setValue}) => {
                     Sort
                 </DropdownToggle>
                 <DropdownMenu>
-                    <DropdownItem value='OLDEST' onClick={handleChange}>By Date</DropdownItem>
+                    <DropdownItem value='OLDEST' onClick={handleChange}>By Date (Oldest)</DropdownItem>
+                    <DropdownItem value='LATEST' onClick={handleChange}>By Date (Latest)</DropdownItem>
                     <DropdownItem value='ALPHABET' onClick={handleChange}>Alphabetically</DropdownItem>
-                    <DropdownItem value='VIEWS' onClick={handleChange}>By View Count</DropdownItem>
+                    <DropdownItem value='VIEWS' onClick={handleChange}>By Views</DropdownItem>
                 </DropdownMenu>
             </Dropdown>
         </div>

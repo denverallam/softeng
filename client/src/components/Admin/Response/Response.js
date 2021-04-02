@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import api from '../../../api/server'
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -9,11 +9,10 @@ import {
 } from 'reactstrap';
 import moment from 'moment';
 import DeleteIcon from '@material-ui/icons/Delete';
+import { getContent } from '../../../actions/contentActions';
 
 
 const Response = ({ response, deleteResponse }) => {
-
-    const dispatch = useDispatch()
 
     const useStyles = makeStyles({
         media: {
@@ -34,7 +33,7 @@ const Response = ({ response, deleteResponse }) => {
                     toggle();
                     deleteResponse(id);
                 }
-            }
+                }
                 >Yes
                 </Button>
                 <Button color="secondary" onClick={toggle}>No</Button>
@@ -52,13 +51,16 @@ const Response = ({ response, deleteResponse }) => {
         <div className="container">
             <Card>
                 <CardBody>
-                    <CardTitle className="display-4" tag="h5">{response.author}</CardTitle>
-                    <CardText>{cutContent(response.content)}</CardText>
-                    <CardText>{moment(response.date).fromNow()}</CardText>
-                    <div className="ml-auto mb-2">
-                        <DeleteIcon onClick={toggle} />
+                    <div className="row">
+                        <Link to={`/admin/post/${response.content_id}`}>
+                            <CardTitle className="display-5 article-link"><span style={{ fontWeight: 'bold' }}>By {response.author}</span></CardTitle>
+
+                        </Link>
+                        <DeleteIcon onClick={toggle} className="ml-auto" />
                         {confirm(response._id)}
                     </div>
+
+                    <CardText>{cutContent(response.content)}</CardText>
                 </CardBody>
             </Card>
         </div >

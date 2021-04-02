@@ -7,14 +7,18 @@ const Register = ({ history }) => {
 
     const dispatch = useDispatch()
 
-    const localUser = useSelector(state => state.user)
+    useEffect(()=>{
+        localUser = ''
+    }, [])
+
+    let localUser = useSelector(state => state.user)
     const [newUser, setNewUser] = useState({
         username: '',
         email: '',
         password: ''
     })
 
-    console.log(localUser.message)
+
     const [error, setError] = useState("")
 
     const handleSubmit = (e) => {

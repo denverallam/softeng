@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Alert, Form, FormGroup, Input } from 'reactstrap';
-import {useLocation, Link } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { login, clearErrors } from '../../../actions/userActions';
 import './styles.css'
 
 const Login = ({ history }) => {
 
-    // const localUser = JSON.parse(localStorage.getItem('admin'))
-    const localUser = useSelector(state => state.user)
+
+    useEffect(()=>{
+        localUser = ''
+    }, [])
+
+    let localUser = useSelector(state => state.user)
     const dispatch = useDispatch()
     const { state } = useLocation()
 
@@ -18,6 +22,7 @@ const Login = ({ history }) => {
         email: "",
         password: ""
     })
+
 
     const handleChange = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value })
@@ -37,12 +42,13 @@ const Login = ({ history }) => {
     }
 
     useEffect(() => {
-        setError(localUser.message)
-        setTimeout(() => {
-            setError("");
-            dispatch(clearErrors())
-        }, 5000);
-    }, [localUser])
+        if(localUser.message){
+            setError(localUser.message)
+            setTimeout(() => {
+                setError("");
+            }, 3000);
+        }
+    }, [localUser.message])
 
     return (
         <div className="body container-sm my-5 py-3 form" >
@@ -54,7 +60,7 @@ const Login = ({ history }) => {
                 </FormGroup>
                 <FormGroup>
                     <Input type="password" name="password" id="password" placeholder="Password" onChange={handleChange} />
-                </FormGroup>           
+                </FormGroup>
                 {error ?
                     <Alert color="danger" className="text-center">
                         {error}

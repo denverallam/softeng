@@ -10,7 +10,10 @@ const ResetPassword = ({ match, history }) => {
     confirmPassword: ''
   })
 
-  const localUser = useSelector(state => state.user)
+  useEffect(()=>{
+    localUser = ''
+}, [])
+  let localUser = useSelector(state => state.user)
 
   const [success, setSuccess] = useState("");
   const dispatch = useDispatch()
@@ -26,7 +29,6 @@ const ResetPassword = ({ match, history }) => {
         setError('Password must contain at least 7 characters')
         setTimeout(() => {
           setError("");
-          // dispatch(clearErrors())
         }, 5000);
       }
     }
@@ -34,7 +36,6 @@ const ResetPassword = ({ match, history }) => {
       setError('Passwords do not match')
       setTimeout(() => {
         setError("");
-        // dispatch(clearErrors())
       }, 5000);
     }
   }
@@ -44,7 +45,6 @@ const ResetPassword = ({ match, history }) => {
       setError(localUser.message)
       setTimeout(() => {
         setError("");
-        // dispatch(clearErrors())
       }, 5000);
     }
     else {

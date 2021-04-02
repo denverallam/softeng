@@ -17,6 +17,8 @@ const Content = ({ content }) => {
 
     const user = useSelector(state => state.user)
 
+    
+
     const [newContent, setNewContent] = useState({
         views: 0,
         title: ''

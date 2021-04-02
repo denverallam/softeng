@@ -53,7 +53,7 @@ const FeaturesList = () => {
                                                 <DropdownItem onClick={() => setOrder('OLDEST')}>By Date (Oldest)</DropdownItem>
                                                 <DropdownItem onClick={() => setOrder('LATEST')}>By Date (Latest)</DropdownItem>
                                                 <DropdownItem onClick={() => setOrder('ALPHABET')}>Alphabetically</DropdownItem>
-                                                <DropdownItem onClick={() => setOrder('VIEWS')}>By View Count</DropdownItem>
+                                                <DropdownItem onClick={() => setOrder('VIEWS')}>By Views</DropdownItem>
                                             </DropdownMenu>
                                         </Dropdown>
                                     </div> :

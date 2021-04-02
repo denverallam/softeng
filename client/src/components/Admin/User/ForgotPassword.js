@@ -9,14 +9,15 @@ const ForgotPassword = () => {
     email: ""
   })
 
+  useEffect(() => {
+    localUser = ''
+  }, [])
+
   const dispatch = useDispatch()
 
-  const localUser = useSelector(state => state.user)
+  let localUser = useSelector(state => state.user)
   const [error, setError] = useState('')
   const [success, setSuccess] = useState(false)
-
-  console.log(localUser)
-  console.log(localUser)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -25,11 +26,12 @@ const ForgotPassword = () => {
 
   useEffect(() => {
     if (!localUser.success) {
-      setError(localUser.message)
-      setTimeout(() => {
-        setError("");
-        // dispatch(clearErrors())
-      }, 5000);
+      if (localUser.message) {
+        setError(localUser.message)
+        setTimeout(() => {
+          setError("");
+        }, 5000);
+      }
     }
     else {
       setSuccess(localUser.success)

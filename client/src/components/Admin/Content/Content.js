@@ -8,7 +8,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import {
     Card, CardText, CardBody,
     CardTitle, CardSubtitle, Button, CardImg,
-    Modal,  ModalBody, ModalFooter
+    Modal, ModalBody, ModalFooter
 
 } from 'reactstrap';
 import moment from 'moment';
@@ -53,21 +53,25 @@ const Content = ({ content, deleteContent }) => {
         <Card className="container border border-info">
 
             <CardBody>
-                <Link to={`/admin/post/${content._id}`} >
-                    <CardTitle className="headline article-link" tag="h5">{content.title}</CardTitle>
-                </Link>
+                <div className="row">
+                    <Link to={`/admin/post/${content._id}`} >
+                        <CardTitle className="headline article-link" tag="h5">{content.title}</CardTitle>
+                    </Link>
+                    <div className="ml-auto mb-2">
+                        <Link to={`/edit/${content._id}`} className="text-dark">
+                            <EditIcon />
+                        </Link>
+                        <DeleteIcon onClick={toggle} />
+                        {confirm(content._id)}
+                    </div>
+                </div>
+
                 <CardSubtitle tag="h6" className="mb-2 text-muted">By {content.author} {moment(content.date).fromNow()}</CardSubtitle>
                 <CardText>{cutContent(content.content)}</CardText>
                 <CardText>{content.views} views</CardText>
 
             </CardBody>
-            <div className="ml-auto mb-2">
-                <Link to={`/edit/${content._id}`} className="text-dark">
-                    <EditIcon />
-                </Link>
-                <DeleteIcon onClick={toggle} />
-                {confirm(content._id)}
-            </div>
+
         </Card>
     )
 }
