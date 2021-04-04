@@ -38,7 +38,8 @@ const OpinionList = () => {
     return (
         <>
             <NavBar />
-            <div>
+            <div className="container">
+
             <h1 className="page-title text-center mx-auto">Opinion</h1>
                 {
                     loading ? <Load /> :

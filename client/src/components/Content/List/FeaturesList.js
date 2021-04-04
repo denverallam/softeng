@@ -36,7 +36,8 @@ const FeaturesList = () => {
     return (
         <>
             <NavBar />
-            <div>
+            <div className="container">
+
             <h1 className="page-title text-center mx-auto">Features</h1>
 
                 {
