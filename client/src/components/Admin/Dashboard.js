@@ -29,40 +29,44 @@ const Dashboard = () => {
         <Collapse isOpen={isOpen} navbar>
           <Nav navbar>
             <UncontrolledDropdown nav inNavbar className="mx-3 my-auto li">
-              <DropdownToggle nav caret className="text-dark my-auto">
-                Articles
+              <DropdownToggle nav caret className=" my-auto">
+                <span className="li">
+                  Articles
+                </span>
               </DropdownToggle>
               <DropdownMenu left>
                 <DropdownItem>
-                  <Link to="/admin/" className="text-dark li">
+                  <Link to="/admin/" className="li">
                     View All
                   </Link>
                 </DropdownItem>
                 <DropdownItem>
-                  <Link to="/admin/new" className="text-dark li">
+                  <Link to="/admin/new" className="li">
                     Add new
                   </Link>
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
 
-          <NavItem className="mx-3 my-auto text-dark li">
-            <Link to='/admin/response' className="text-dark">
+            <NavItem className="mx-3 my-auto li">
+              <Link to='/admin/response' className="li">
                 Responses
             </Link>
-          </NavItem>
-            <UncontrolledDropdown nav inNavbar  className="mx-3 my-auto li">
-              <DropdownToggle nav caret className="text-dark">
-                { localUser && localUser?.result.username || 'Account'}
+            </NavItem>
+            <UncontrolledDropdown nav inNavbar className="mx-3 my-auto li">
+              <DropdownToggle nav caret className="">
+                <span className="li">
+                  {localUser && localUser?.result.username || 'Account'}
+                </span>
               </DropdownToggle>
               <DropdownMenu left>
-                <DropdownItem className="text-dark li">
-                  <Link to="/change-password" className="text-dark li">
+                <DropdownItem className="li">
+                  <Link to="/change-password" className="li">
                     Change Password
                   </Link>
                 </DropdownItem>
-                <DropdownItem onClick={() => dispatch(logout())} className="text-dark li">
-                  <p className="my-auto text-dark li">Logout</p>
+                <DropdownItem onClick={() => dispatch(logout())} className=" li">
+                  <p className="my-auto li">Logout</p>
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
