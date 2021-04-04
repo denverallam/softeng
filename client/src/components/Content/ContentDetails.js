@@ -47,7 +47,11 @@ const ContentDetails = ({ match }) => {
                             <div className="text mt-4">
                                 {printLine(content.description || "")}
                             </div>
-                            <CardImg src={content.selectedFile} />
+                            {
+                                content.selectedFile ?
+                                    <CardImg src={content.selectedFile} />
+                                    : <></>
+                            }
                             <div className="text mt-4">
                                 {printLine(content.content || "")}
                             </div>

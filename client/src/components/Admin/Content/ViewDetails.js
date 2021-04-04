@@ -34,7 +34,7 @@ const ViewDetails = ({ match }) => {
         <>
             <Dashboard />
             <div className="container-sm mb-5">
-            {loading ? <Load /> :
+                {loading ? <Load /> :
                     <div>
                         <div className="border-bottom border-dark">
                             <h1 className="page-title text-center mx-auto my-0">{content.category}</h1>
@@ -43,7 +43,11 @@ const ViewDetails = ({ match }) => {
                             <div className="text mt-4">
                                 {printLine(content.description || "")}
                             </div>
-                            <CardImg src={content.selectedFile} />
+                            {
+                                content.selectedFile ?
+                                    <CardImg src={content.selectedFile} />
+                                    : <></>
+                            }
                             <div className="text mt-4">
                                 {printLine(content.content || "")}
                             </div>
