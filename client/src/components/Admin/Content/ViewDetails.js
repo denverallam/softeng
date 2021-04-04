@@ -38,12 +38,12 @@ const ViewDetails = ({ match }) => {
                     <div className="container-sm my-5">
                         <div>
                             <div className="border-bottom border-dark">
-                                <h5 className="mb-3">{content.title}</h5>
-                                <div className="mb-2 text-muted">By {content.author}. {moment(content.date).toString()}</div>
+                                <h5 className="mb-3 headline">{content.title}</h5>
+                                <p className="mb-2 byline">By {content.author}. {moment(content.date).toString()}</p>
                                 <CardImg src={content.selectedFile} />
-                                <div className="my-4 text2">
+                                <p className="text">
                                     {printLine(content.content || "")}
-                                </div>
+                                </p>
                             </div>
                         </div>
                     </div> : <Load />

@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import { useState } from 'react'
 import {
     Card, CardText, CardBody,
     CardTitle, CardSubtitle, Button,
@@ -28,7 +28,7 @@ const Response = ({ response, deleteResponse, setResponseId }) => {
                     toggle();
                     deleteResponse(id);
                 }
-            }
+                }
                 >Yes
                 </Button>
                 <Button color="secondary" onClick={toggle}>No</Button>
@@ -37,22 +37,22 @@ const Response = ({ response, deleteResponse, setResponseId }) => {
     )
 
     return (
-        <div className="container">
-            <Card>
-                <CardBody>
-                    <CardTitle tag="h5">{response.author}</CardTitle>
-                    <CardSubtitle>{moment(response.date).fromNow()}</CardSubtitle>
-                    <CardText>{response.content}</CardText>
-                </CardBody>
-                {viewer && response.email === viewer?.result?.email ?
-                    <div className="ml-auto mb-2">
-                        <EditIcon onClick={() => setResponseId(response._id)} />
-                        <DeleteIcon onClick={toggle} />
+        <div className="container-fluid row border pt-2">
+            <div className="col-sm-10">
+                <p className="response-name">{response.author}<span className="text-muted date ml-sm-2">{moment(response.date).fromNow()}</span></p>
+                
+                <p>{response.content}</p>
+            </div>
+            <div className="ml-auto mb-2 row">
+                {user && response.email === user?.result?.email ?
+                    <div>
+                        <EditIcon onClick={() => setResponseId(response._id)} className="rounded" />
+                        <DeleteIcon onClick={toggle} className="" />
                         {confirm(response._id)}
                     </div>
                     : <> </>
                 }
-            </Card>
+            </div>
         </div>
     )
 }

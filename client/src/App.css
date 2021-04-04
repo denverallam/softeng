@@ -9,13 +9,17 @@
 
 .li{
   display: inline-block;
-  padding: 0px 25px 0px 15px;
   text-transform:uppercase;
   font-family:'Raleway' , sans-serif;
   font-size: 11px;
   font-weight: bold;
   color: #002e5d;
 }
+
+.li:hover{
+  color:#efc011;
+}
+
 .a:link, .a:visited{
   text-decoration: none;
   color: #ffffff;
@@ -53,6 +57,10 @@
   display: block;
 }
 
+.a:hover{
+  color:#efc011;
+}
+
 .a:hover, .dropdown:hover .dropbtn{
   color:#efc011;
 }
@@ -62,9 +70,11 @@
   text-decoration: none;
 }
 
-.li.dropdown {
+.li .dropdown {
   display: inline-block;
 }
+
+
 
 .dropdown-content {
   display: none;
@@ -99,9 +109,6 @@
 .page-title{
   font-family: 'Raleway', sans-serif;
   color:#002e5d;
-  font-size: 3em;
-  text-align: center;
-  /* margin: -2%; */
   text-transform: uppercase;
 }
 
@@ -178,7 +185,7 @@
 }
 
 .text{
-  /* text-align:justify; */
+  text-align:justify;
   font-family: 'Raleway', sans-serif;
 }
 
@@ -273,6 +280,16 @@
   font-weight: 400;
 }
 
+.response-name{
+  font-size: 30px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.date{
+  font-size: 15px;
+}
+
 /* style for text */
 .text-container{
   margin-right: 50px auto;
@@ -285,7 +302,6 @@
 .text{
   text-align:justify;
   font-family: 'Raleway', sans-serif;
-  margin-left: 3%;
 }
 
 

@@ -41,10 +41,10 @@ const ContentDetails = ({ match }) => {
             {loading ? <Load /> :
                 <div>
                     <div className="border-bottom border-dark">
-                    <h5 className="mb-3 headline1">{content.title}</h5>
-                    <div className="mb-2 text-muted">By {content.author}. {moment(content.date).toString()}</div>
+                    <h5 className="mb-3 headline">{content.title}</h5>
+                    <div className="mb-2 byline">By {content.author}. {moment(content.date).toString()}</div>
                     <CardImg src={content.selectedFile} />
-                    <div className="text2">
+                    <div className="text">
                         {printLine(content.content || "")}
                     </div>
                     </div>

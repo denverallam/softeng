@@ -67,6 +67,14 @@ const Login = ({ history }) => {
                     </Alert> : <> </>
                 }
                 <Button className="container text-center my-2" color="primary" outline> Login</Button>
+                    {/* if users > 1 show this, otherwise, dont */}
+
+                <Link to='/register' className="text-center">
+                    <div>
+                        Create an account
+                    </div>
+                </Link>
+
                 <Link to='/forgot-password' className="text-center">
                     <div>
                         Forgot password?
@@ -77,5 +85,4 @@ const Login = ({ history }) => {
 
     );
 }
-
 export default Login;

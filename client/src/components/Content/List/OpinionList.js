@@ -39,7 +39,7 @@ const OpinionList = () => {
         <>
             <NavBar />
             <div>
-                <p className="text-center my-2 page-title">Opinion</p>
+            <h1 className="page-title text-center mx-auto">Opinion</h1>
                 {
                     loading ? <Load /> :
                         contentList.length > 0 ?

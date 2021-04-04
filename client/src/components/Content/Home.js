@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import best from './best.png'
+import best from './escolariologo.png'
 import {
   CardImg,
   Carousel,
@@ -63,7 +63,7 @@ const Home = (props) => {
       <CarouselItem onExiting={() => setAnimating(true)} onExited={() => setAnimating(false)} key={content._id}>
         <CardImg src={content.selectedFile || best} className="img-fluid rounded img-thumbnail border-0"/>
         <Link to={`post/${content._id}`}>
-          <CarouselCaption captionText={content.title} captionHeader={content.title} />
+          <CarouselCaption captionText={content.title} captionHeader={content.title} className="a"/>
         </Link>
       </CarouselItem>
     )
@@ -72,7 +72,7 @@ const Home = (props) => {
   return (
     <>
       <NavBar />
-      <div className="container my-2 col-sm-4">
+      <div className="container mt-5 col-sm-6">
         {loading ? <Load /> :
           <Carousel
             activeIndex={activeIndex}

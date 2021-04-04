@@ -35,7 +35,7 @@ const NewsList = () => {
         <>
         <NavBar/>
         <div>
-            <p  className="text-center my-2 page-title">News</p>
+        <h1 className="page-title text-center mx-auto">News</h1>
 
             {
                     loading ? <Load /> :

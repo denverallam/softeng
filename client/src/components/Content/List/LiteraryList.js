@@ -41,7 +41,7 @@ const LiteraryList = () => {
         <>
             <NavBar />
             <div>
-                <p className="text-center my-2 page-title">Literary</p>
+            <h1 className="page-title text-center mx-auto">Literary</h1>
 
                 {
                     loading ? <Load /> :

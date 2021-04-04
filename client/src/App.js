@@ -32,6 +32,7 @@ import Footer from './components/Footer';
 import ResetPassword from './components/Admin/User/ResetPassword';
 import ForgotPassword from './components/Admin/User/ForgotPassword';
 import BoardOfficerList from './components/About/BoardOfficerList';
+import ErrorBoundary from './components/ErrorBoundary';
 
 const App = () => {
 
@@ -40,42 +41,39 @@ const App = () => {
   const user = useSelector(state => state.user.authData)
 
   return (
-    <>
-      <Router>
-        <div>
-          <Header />
-          <Switch>
-            <Route path='/' exact component={Home} />
-            <Route path='/about' exact component={Escolario} />
-            <Route path='/about-best' exact component={Best} />
-            <Route path='/about-best-officers-history' exact component={BestOfficerHistoryList} />
-            <Route path='/best-board' exact component={BoardOfficerList} />
-            <Route path='/about-projects' exact component={Projects} />
-            <Route path='/news' exact component={NewsList} />
-            <Route path='/features' exact component={FeaturesList} />
-            <Route path='/literary' exact component={LiteraryList} />
-            <Route path='/opinion' exact component={OpinionList} />
-            <Route path='/beyond-espana' exact component={BeyondEspanaList} />
-            <Route path='/post/:id' exact component={ContentDetails} />
+    <Router>
+      <Header />
+      <Switch>
+        <ErrorBoundary>
+          <Route path='/' exact component={Home} />
+          <Route path='/about' exact component={Escolario} />
+          <Route path='/about-best' exact component={Best} />
+          <Route path='/about-best-officers-history' exact component={BestOfficerHistoryList} />
+          <Route path='/best-board' exact component={BoardOfficerList} />
+          <Route path='/about-projects' exact component={Projects} />
+          <Route path='/news' exact component={NewsList} />
+          <Route path='/features' exact component={FeaturesList} />
+          <Route path='/literary' exact component={LiteraryList} />
+          <Route path='/opinion' exact component={OpinionList} />
+          <Route path='/beyond-espana' exact component={BeyondEspanaList} />
+          <Route path='/post/:id' exact component={ContentDetails} />
 
-            <Route path='/login' exact component={Login} />
-            <Route path='/reset-password/:resetToken' component={ResetPassword} />
-            <Route path='/register' exact component={Register} />
-            <Route path='/forgot-password' exact component={ForgotPassword} />
+          <Route path='/login' exact component={Login} />
+          <Route path='/reset-password/:resetToken' component={ResetPassword} />
+          <Route path='/register' exact component={Register} />
+          <Route path='/forgot-password' exact component={ForgotPassword} />
 
-            <PrivateRoute path='/edit/:id' user={user || localUser} isAdmin={user?.result?.isAdmin || localUser?.result?.isAdmin} exact component={ContentUpdate} />
-            <PrivateRoute path='/admin/new' user={user || localUser} isAdmin={user?.result?.isAdmin || localUser?.result?.isAdmin} exact component={ContentForm} />
-            <PrivateRoute path='/admin' user={user || localUser} isAdmin={user?.result?.isAdmin || localUser?.result?.isAdmin} exact component={ContentList} />
-            <PrivateRoute path='/admin/post/:id' user={user || localUser} isAdmin={user?.result?.isAdmin || localUser?.result?.isAdmin} exact component={ViewDetails} />
-            <PrivateRoute path='/admin/response' user={user || localUser} isAdmin={user?.result?.isAdmin || localUser?.result?.isAdmin} exact component={ResponseList} />
-            <PrivateRoute path='/change-password' user={user || localUser} isAdmin={user?.result?.isAdmin || localUser?.result?.isAdmin} exact component={ChangePassword} />
+          <PrivateRoute path='/edit/:id' user={user || localUser} isAdmin={user?.result?.isAdmin || localUser?.result?.isAdmin} exact component={ContentUpdate} />
+          <PrivateRoute path='/admin/new' user={user || localUser} isAdmin={user?.result?.isAdmin || localUser?.result?.isAdmin} exact component={ContentForm} />
+          <PrivateRoute path='/admin' user={user || localUser} isAdmin={user?.result?.isAdmin || localUser?.result?.isAdmin} exact component={ContentList} />
+          <PrivateRoute path='/admin/post/:id' user={user || localUser} isAdmin={user?.result?.isAdmin || localUser?.result?.isAdmin} exact component={ViewDetails} />
+          <PrivateRoute path='/admin/response' user={user || localUser} isAdmin={user?.result?.isAdmin || localUser?.result?.isAdmin} exact component={ResponseList} />
+          <PrivateRoute path='/change-password' user={user || localUser} isAdmin={user?.result?.isAdmin || localUser?.result?.isAdmin} exact component={ChangePassword} />
+        </ErrorBoundary>
 
-            <Route component={Error} />
-          </Switch>
-        </div>
-      </Router>
-      {/* <Footer/> */}
-    </>
+        <Route component={Error} />
+      </Switch>
+    </Router>
   )
 }
 export default App

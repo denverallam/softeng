@@ -41,7 +41,7 @@ const BeyondEspanaList = () => {
         <>
             <NavBar />
             <div>
-                <p className="text-center my-2 page-title">Beyond Espana</p>
+                    <h1 className="page-title text-center mx-auto">Beyond Espana</h1>
 
                 {
                     loading ? <Load /> :
@@ -50,7 +50,7 @@ const BeyondEspanaList = () => {
                                 {contentList.length > 1 ?
                                     <div className="container">
                                         <Dropdown isOpen={dropdownOpen} toggle={toggle} >
-                                        <DropdownToggle caret color="white">
+                                            <DropdownToggle caret color="white">
                                                 Sort
                 </DropdownToggle>
                                             <DropdownMenu>

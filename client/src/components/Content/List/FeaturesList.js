@@ -37,7 +37,7 @@ const FeaturesList = () => {
         <>
             <NavBar />
             <div>
-                <p className="text-center my-2 page-title">Features</p>
+            <h1 className="page-title text-center mx-auto">Features</h1>
 
                 {
                     loading ? <Load /> :

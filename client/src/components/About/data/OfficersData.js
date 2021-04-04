@@ -338,193 +338,6 @@ export const organization =
         },
         {
             name: "ESCOLARES",
-            year: "2000-2001",
-            officers: [
-                {
-                    position: "PRESIDENT",
-                    name: "Maria Theresa del Rosario"
-                },
-                {
-                    position: "VICE PRESIDENT FOR INTERNAL AFFAIRS",
-                    name: "Johanna Ann Santillan"
-                },
-                {
-                    position: "VICE PRESIDENT FOR EXTERNAL AFFAIRS",
-                    name: "Rosalle Cubillo"
-                },
-                {
-                    position: "SECRETARY",
-                    name: "Anna Marie Sheryl Garcia"
-                },
-                {
-                    position: "ASSISTANT SECRETARY:",
-                    name: "Lady Jay Gutierrez"
-                },
-                {
-                    position: "TREASURER",
-                    name: "Madelyn Leodones"
-                },
-                {
-                    position: "ASSISTANT TREASURER:",
-                    name: "Teddy Quizado"
-                },
-                {
-                    position: "AUDITOR",
-                    name: "Ian Rey Agaid"
-                },
-                {
-                    position: "PUBLIC RELATIONS OFFICER",
-                    name: "Vanessa Magsombol"
-                },
-                {
-                    position: "COMMITTEE HEAD FOR COMMUNITY SERVICE:",
-                    name: "Maria Salve Rubaya"
-                },
-                {
-                    position: "COMMITTEE HEAD FOR MEMBERSHIP",
-                    name: "Paul Torres"
-                },
-                {
-                    position: "COMMITTEE HEAD FOR EDUCATION AND RESEARCH",
-                    name: "Catherine Delos Reyes"
-                },
-                {
-                    position: "COMMITTEE HEAD FOR COMMUNICATIONS",
-                    name: "Mary Melody Llantero"
-                },
-                {
-                    position: "COMMITTEE HEAD FOR SOCIALS",
-                    name: "Jay Paul Ruiz"
-                }
-            ]
-        },
-        {
-            name: "ESCOLARES",
-            year: "2000-2001",
-            officers: [
-                {
-                    position: "PRESIDENT",
-                    name: "Maria Theresa del Rosario"
-                },
-                {
-                    position: "VICE PRESIDENT FOR INTERNAL AFFAIRS",
-                    name: "Johanna Ann Santillan"
-                },
-                {
-                    position: "VICE PRESIDENT FOR EXTERNAL AFFAIRS",
-                    name: "Rosalle Cubillo"
-                },
-                {
-                    position: "SECRETARY",
-                    name: "Anna Marie Sheryl Garcia"
-                },
-                {
-                    position: "ASSISTANT SECRETARY:",
-                    name: "Lady Jay Gutierrez"
-                },
-                {
-                    position: "TREASURER",
-                    name: "Madelyn Leodones"
-                },
-                {
-                    position: "ASSISTANT TREASURER:",
-                    name: "Teddy Quizado"
-                },
-                {
-                    position: "AUDITOR",
-                    name: "Ian Rey Agaid"
-                },
-                {
-                    position: "PUBLIC RELATIONS OFFICER",
-                    name: "Vanessa Magsombol"
-                },
-                {
-                    position: "COMMITTEE HEAD FOR COMMUNITY SERVICE:",
-                    name: "Maria Salve Rubaya"
-                },
-                {
-                    position: "COMMITTEE HEAD FOR MEMBERSHIP",
-                    name: "Paul Torres"
-                },
-                {
-                    position: "COMMITTEE HEAD FOR EDUCATION AND RESEARCH",
-                    name: "Catherine Delos Reyes"
-                },
-                {
-                    position: "COMMITTEE HEAD FOR COMMUNICATIONS",
-                    name: "Mary Melody Llantero"
-                },
-                {
-                    position: "COMMITTEE HEAD FOR SOCIALS",
-                    name: "Jay Paul Ruiz"
-                }
-            ]
-        },
-        {
-            name: "ESCOLARES",
-            year: "2000-2001",
-            officers: [
-                {
-                    position: "PRESIDENT",
-                    name: "Maria Theresa del Rosario"
-                },
-                {
-                    position: "VICE PRESIDENT FOR INTERNAL AFFAIRS",
-                    name: "Johanna Ann Santillan"
-                },
-                {
-                    position: "VICE PRESIDENT FOR EXTERNAL AFFAIRS",
-                    name: "Rosalle Cubillo"
-                },
-                {
-                    position: "SECRETARY",
-                    name: "Anna Marie Sheryl Garcia"
-                },
-                {
-                    position: "ASSISTANT SECRETARY:",
-                    name: "Lady Jay Gutierrez"
-                },
-                {
-                    position: "TREASURER",
-                    name: "Madelyn Leodones"
-                },
-                {
-                    position: "ASSISTANT TREASURER:",
-                    name: "Teddy Quizado"
-                },
-                {
-                    position: "AUDITOR",
-                    name: "Ian Rey Agaid"
-                },
-                {
-                    position: "PUBLIC RELATIONS OFFICER",
-                    name: "Vanessa Magsombol"
-                },
-                {
-                    position: "COMMITTEE HEAD FOR COMMUNITY SERVICE:",
-                    name: "Maria Salve Rubaya"
-                },
-                {
-                    position: "COMMITTEE HEAD FOR MEMBERSHIP",
-                    name: "Paul Torres"
-                },
-                {
-                    position: "COMMITTEE HEAD FOR EDUCATION AND RESEARCH",
-                    name: "Catherine Delos Reyes"
-                },
-                {
-                    position: "COMMITTEE HEAD FOR COMMUNICATIONS",
-                    name: "Mary Melody Llantero"
-                },
-                {
-                    position: "COMMITTEE HEAD FOR SOCIALS",
-                    name: "Jay Paul Ruiz"
-                }
-            ]
-        },
-
-        {
-            name: "ESCOLARES",
             year: "2003-2004",
             officers: [
                 {
@@ -681,7 +494,7 @@ export const organization =
                     position: "ASSISTANT SECRETARY:",
                     name: "Rajiv Eldon Abdullah"
                 },
-                
+
                 {
                     position: "AUDITOR",
                     name: "Mark Christian Sy"
@@ -725,7 +538,7 @@ export const organization =
                     position: "ASSISTANT SECRETARY:",
                     name: "Dennese Vyzmn Victoria"
                 },
-                
+
                 {
                     position: "TREASURER:",
                     name: "Sherlyn May Villamor"
@@ -801,7 +614,7 @@ export const organization =
                     position: "VICE PRESIDENT FOR FINANCE: ",
                     name: "Jeyo Leoncio and Suzanne Kaye Dolorito"
                 },
-                
+
                 {
                     position: "AUDITOR: ",
                     name: "Kevin Christopher Lao"
@@ -877,7 +690,7 @@ export const organization =
                     position: "ASSISTANT SECRETARY: ",
                     name: "Laisa Marie Gregorio"
                 },
-                
+
                 {
                     position: "TREASURER:",
                     name: "Marc Neil Cuaresma"
@@ -949,7 +762,7 @@ export const organization =
                     position: "ASSISTANT TO THE VICE PRESIDENT FOR ADMINISTRATIVE AFFAIRS: ",
                     name: "Mark Louise Ignacio"
                 },
-                
+
                 {
                     position: "VICE PRESIDENT FOR FINANCE: ",
                     name: "Jefferson Acala"
@@ -992,7 +805,7 @@ export const organization =
                 },
             ]
         },
-	{
+        {
             name: "ESCOLARES",
             year: "2013-2014",
             officers: [
@@ -1000,7 +813,7 @@ export const organization =
                     position: "PRESIDENT",
                     name: "Joshua Tricia Diaz"
                 },
-		{
+                {
                     position: "TRAINING DIRECTOR",
                     name: "Ma. Ninna Roem Bonsol"
                 },
@@ -1012,11 +825,11 @@ export const organization =
                     position: "EXECUTIVE VICE PRESIDENT FOR EXTERNAL AFFAIRS",
                     name: "Joanna Luz Magno"
                 },
-		{
+                {
                     position: "VICE PRESIDENT FOR ADMINISTRATIVE AFFAIRS",
                     name: "Dannielyn Zosa"
                 },
-		{
+                {
                     position: "ASSISTANT TO THE VICE PRESIDENT FOR ADMINISTRATIVE AFFAIRS",
                     name: "Medrell De Jesus"
                 },
@@ -1028,7 +841,7 @@ export const organization =
                     position: "ASSISTANT TO THE VICE PRESIDENT FOR FINANCE",
                     name: "Justin Benedict Arrojado"
                 },
-                
+
                 {
                     position: "VICE PRESIDENT FOR AUDIT AND LOGISTICS",
                     name: "Jean Claudette Galvez"
@@ -1041,65 +854,65 @@ export const organization =
                     position: "CHIEF-OF-STAFF",
                     name: "Jan Edrienne De Luis"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR ALUMNI AFFAIRS",
                     name: "Queen Desiree Dalisay"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR ALUMNI AFFAIRS",
                     name: "Reden Madrid"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR COMMUNITY SERVICE",
                     name: "Claire Angelique Tuvilla"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR COMMUNITY SERVICE",
                     name: "Rosette Ann Lea Zapata"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR EDUCATION AND RESEARCH",
                     name: "Ariel Joseph Nipas"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR EDUCATION AND RESEARCH",
                     name: "Marielle Joy Antonio"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR MEMBERSHIP AND COMMUNICATIONS",
                     name: "Iris Alipio"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR MEMBERSHIP AND COMMUNICATIONS",
                     name: "Joshua Dale Ablaza"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR PRODUCTIONS",
                     name: "Renz Erwin Gozum"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR PRODUCTIONS",
                     name: "Tricia Marie Cruz"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR PRODUCTIONS",
                     name: "Danielle Marie Vergara"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR PRODUCTIONS",
                     name: "Jenna Audrey Buenaventura"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR WAYS AND MEANS",
                     name: "Jenna Audrey Buenaventura"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR WAYS AND MEANS",
                     name: "Peter Rico Wong"
                 },
             ]
         },
-	{
+        {
             name: "ESCOLARES",
             year: "2014-2015",
             officers: [
@@ -1107,7 +920,7 @@ export const organization =
                     position: "PRESIDENT",
                     name: "Medrell De Jesus"
                 },
-		{
+                {
                     position: "TRAINING DIRECTOR",
                     name: "Jean Claudette Galvez"
                 },
@@ -1119,11 +932,11 @@ export const organization =
                     position: "EXECUTIVE VICE PRESIDENT FOR EXTERNAL AFFAIRS",
                     name: "Hazel Maye Reyes"
                 },
-		{
+                {
                     position: "VICE PRESIDENT FOR ADMINISTRATIVE AFFAIRS",
                     name: "Iris Alipio"
                 },
-		{
+                {
                     position: "ASSISTANT TO THE VICE PRESIDENT FOR ADMINISTRATIVE AFFAIRS",
                     name: "Sarah Denise Samson"
                 },
@@ -1135,7 +948,7 @@ export const organization =
                     position: "ASSISTANT TO THE VICE PRESIDENT FOR FINANCE",
                     name: "Ariel Joseph Nipas"
                 },
-                
+
                 {
                     position: "VICE PRESIDENT FOR AUDIT AND LOGISTICS",
                     name: "Rosette Ann Lea Zapata"
@@ -1148,82 +961,82 @@ export const organization =
                     position: "CHIEF-OF-STAFF",
                     name: "Tricia Marie Cruz"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR ALUMNI AFFAIRS",
                     name: "Terence Jay Piodos"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR ALUMNI AFFAIRS",
                     name: "Rose Ann Joy Gomez"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR COMMUNITY SERVICE",
                     name: "Viviene Grace Olaguer"
 
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR COMMUNITY SERVICE",
                     name: "Dianne Carlah Maligaya"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR COMMUNITY SERVICE",
                     name: "Rhett Spencer Tañada"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR EDUCATION AND RESEARCH",
                     name: "James Ladd Molina"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR EDUCATION AND RESEARCH",
                     name: "Queen Desiree Dalisay"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR EDUCATION AND RESEARCH",
                     name: "Claire Angelique Tuvilla"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR MEMBERSHIP AND COMMUNICATIONS",
                     name: "Marc Angelo Sanchez"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR MEMBERSHIP AND COMMUNICATIONS",
                     name: "Daryl Obciana"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR PRODUCTIONS",
                     name: "Ma. Sarah Perez"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR PRODUCTIONS",
                     name: "Christofher Leoneil Aquino"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR PRODUCTIONS",
                     name: "Dandrene Paul Tan"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR WAYS AND MEANS",
                     name: "Ma. Christina Abad"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR WAYS AND MEANS",
                     name: "Mark Angelo Amoroso"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR WAYS AND MEANS",
                     name: "Rennzy Louise Sanchez"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Madelyn Gabrieles"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Joshua Tricia Diaz"
                 },
             ]
         },
-	{
+        {
             name: "ESCOLARES",
             year: "2015-2016",
             officers: [
@@ -1231,7 +1044,7 @@ export const organization =
                     position: "PRESIDENT",
                     name: "Hazel Maye Reyes"
                 },
-		{
+                {
                     position: "TRAINING DIRECTOR",
                     name: "Rosette Ann Lea Zapata"
                 },
@@ -1243,11 +1056,11 @@ export const organization =
                     position: "EXECUTIVE VICE PRESIDENT FOR EXTERNAL AFFAIRS",
                     name: "Ma. Christina Abad"
                 },
-		{
+                {
                     position: "VICE PRESIDENT FOR ADMINISTRATIVE AFFAIRS",
                     name: "Marc Angelo Sanchez"
                 },
-		{
+                {
                     position: "ASSISTANT TO THE VICE PRESIDENT FOR ADMINISTRATIVE AFFAIRS",
                     name: "Alexandra Nocheseda"
                 },
@@ -1259,7 +1072,7 @@ export const organization =
                     position: "ASSISTANT TO THE VICE PRESIDENT FOR FINANCE",
                     name: "Queen Desiree Dalisay"
                 },
-                
+
                 {
                     position: "VICE PRESIDENT FOR AUDIT AND LOGISTICS",
                     name: "Dandrene Paul Tan"
@@ -1272,142 +1085,142 @@ export const organization =
                     position: "CHIEF-OF-STAFF",
                     name: "Ma. Sarah Perez"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR ALUMNI AFFAIRS",
                     name: "Rennzy Louise Sanchez"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR ALUMNI AFFAIRS",
                     name: "Sheree Mae Silvia"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR COMMUNITY SERVICE",
                     name: "Francis Christopher Paulo Prado"
 
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR COMMUNITY SERVICE",
                     name: "Dean Alan Recaña"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR COMMUNITY SERVICE",
                     name: "Jean Mae Lotardo"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR EDUCATION AND RESEARCH",
                     name: "Maria Imelda Umali"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR EDUCATION AND RESEARCH",
                     name: "Jody Paulino"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR EDUCATION AND RESEARCH",
                     name: "Rose Marie Jane Rementina"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR EDUCATION AND RESEARCH",
                     name: "Ruth Jamel Castillo"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR MEMBERSHIP AND COMMUNICATIONS",
                     name: "Rose Ann Joy Gomez"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR MEMBERSHIP AND COMMUNICATIONS",
                     name: "Vivien Sigrid Iñigo"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR MEMBERSHIP AND COMMUNICATIONS",
                     name: "Maria Betina Clarise Yap"
-                },	
-		{
+                },
+                {
                     position: "COMMITTEE HEAD FOR PRODUCTIONS",
                     name: "Ma. Guadalaine Baay"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR PRODUCTIONS",
                     name: "Sarah Denise Samson"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR PRODUCTIONS",
                     name: "Justine Reyes"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR PRODUCTIONS",
                     name: "Kate Nicole Diomampo"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR WAYS AND MEANS",
                     name: "James Ladd Molina"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR WAYS AND MEANS",
                     name: "Vina Maria Marin"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR WAYS AND MEANS",
                     name: "Mark Angelo Tolentino"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR WAYS AND MEANS",
                     name: "Cristine Erika Wong"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Raphael Thaddeus Bartolome"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Jenna Audrey Buenaventura"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Roland Roman Lim, Jr."
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Justin Benedict Arrojado"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Joshua Dale Ablaza"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Claire Angelique Tuvilla"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Ariel Joseph Nipas"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Marielle Joy Antonio"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Mark Angelo Amoroso"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Terence Jay Piodos"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Dianne Carlah Maligaya"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Christofher Leoneil Aquino"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Daryl Obciana"
                 },
             ]
         },
-	{
+        {
             name: "ESCOLARES",
             year: "2016-2017",
             officers: [
@@ -1415,7 +1228,7 @@ export const organization =
                     position: "PRESIDENT",
                     name: "Marc Angelo Sanchez"
                 },
-		{
+                {
                     position: "TRAINING DIRECTOR",
                     name: "Rose Marie Jane Rementina"
                 },
@@ -1427,11 +1240,11 @@ export const organization =
                     position: "EXECUTIVE VICE PRESIDENT FOR EXTERNAL AFFAIRS",
                     name: "Mark Angelo Tolentino"
                 },
-		{
+                {
                     position: "VICE PRESIDENT FOR ADMINISTRATIVE AFFAIRS",
                     name: "Jake Almeer Llerin"
                 },
-		{
+                {
                     position: "ASSISTANT TO THE VICE PRESIDENT FOR ADMINISTRATIVE AFFAIRS",
                     name: "Vivien Sigrid Iñigo"
                 },
@@ -1443,7 +1256,7 @@ export const organization =
                     position: "ASSISTANT TO THE VICE PRESIDENT FOR FINANCE",
                     name: "Ma. Guadalaine Baay"
                 },
-                
+
                 {
                     position: "VICE PRESIDENT FOR AUDIT AND LOGISTICS",
                     name: "Roland Roman Lim, Jr."
@@ -1456,102 +1269,102 @@ export const organization =
                     position: "CHIEF-OF-STAFF",
                     name: "Dean Alan Recaña"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR ALUMNI AFFAIRS",
                     name: "Lon Graciel Bautista"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR ALUMNI AFFAIRS",
                     name: "Cristine Erika Wong"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR COMMUNITY SERVICE",
                     name: "Nicholas Raphael Arcangel"
 
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR COMMUNITY SERVICE",
                     name: "Kyle Chanice Reyes"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR COMMUNITY SERVICE",
                     name: "James Carl Melgar"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR COMMUNITY SERVICE",
                     name: "John Dale Dela Peña"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR EDUCATION AND RESEARCH",
                     name: "Regine Charlotte Due"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR EDUCATION AND RESEARCH",
                     name: "Marie Faye Vanessa Alvarez"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR MEMBERSHIP AND COMMUNICATIONS",
                     name: "Nicole Ann Pascua"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR MEMBERSHIP AND COMMUNICATIONS",
                     name: "Jose Alberto Jimenez III"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR MEMBERSHIP AND COMMUNICATIONS",
                     name: "Bill Julius Ocampo"
-                },	
-		{
+                },
+                {
                     position: "COMMITTEE HEAD FOR PRODUCTIONS",
                     name: "Mary Angelique Tacata"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR PRODUCTIONS",
                     name: "Ma. Yvonne Victoria Bicera"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR WAYS AND MEANS",
                     name: "Louie Aldrei Alejandrino"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR WAYS AND MEANS",
                     name: "Harvie Barcellano"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR WAYS AND MEANS",
                     name: "Ma. Kassandra Tan"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Raphael Thaddeus Bartolome"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Jean Mae Lotardo"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Jody Paulino"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Francis Christopher Paulo Prado"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Queen Desiree Dalisay"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Rennzy Louise Sanchez"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Rhett Spencer Tañada"
                 },
             ]
         },
-	{
+        {
             name: "ESCOLARES",
             year: "2017-2018",
             officers: [
@@ -1559,7 +1372,7 @@ export const organization =
                     position: "PRESIDENT",
                     name: "Roland Roman Lim, Jr."
                 },
-		{
+                {
                     position: "TRAINING DIRECTOR",
                     name: "Alexandra Nocheseda"
                 },
@@ -1571,11 +1384,11 @@ export const organization =
                     position: "EXECUTIVE VICE PRESIDENT FOR EXTERNAL AFFAIRS",
                     name: "Dean Alan Recaña"
                 },
-		{
+                {
                     position: "VICE PRESIDENT FOR ADMINISTRATIVE AFFAIRS",
                     name: "James Carl Melgar"
                 },
-		{
+                {
                     position: "ASSISTANT TO THE VICE PRESIDENT FOR ADMINISTRATIVE AFFAIRS",
                     name: "Nicholas Raphael Arcangel"
                 },
@@ -1587,7 +1400,7 @@ export const organization =
                     position: "ASSISTANT TO THE VICE PRESIDENT FOR FINANCE",
                     name: "Kyle Chanice Reyes"
                 },
-                
+
                 {
                     position: "VICE PRESIDENT FOR AUDIT AND LOGISTICS",
                     name: "John Dale Dela Peña"
@@ -1600,129 +1413,129 @@ export const organization =
                     position: "CHIEF-OF-STAFF",
                     name: "John Dennhel Cruz"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR ALUMNI AFFAIRS",
                     name: "Louie Aldrei Alejandrino"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR COMMUNITY SERVICE",
                     name: "Patrica Mae Firmacion"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR COMMUNITY SERVICE",
                     name: "Lea Angela Pedro"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR COMMUNITY SERVICE",
                     name: "Deanne Coleen Fernandez"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR COMMUNITY SERVICE",
                     name: "Regine Charlotte Due"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR EDUCATION AND RESEARCH",
                     name: "Christianne Joyette Danan"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR EDUCATION AND RESEARCH",
                     name: "Jose Alberto Jimenez III"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR MEMBERSHIP AND COMMUNICATIONS",
                     name: "Judiel Faith Antonil"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR MEMBERSHIP AND COMMUNICATIONS",
                     name: "Dennice Marie Anquillano"
-                },	
-		{
+                },
+                {
                     position: "COMMITTEE HEAD FOR PRODUCTIONS",
                     name: "Darlene Dautel"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR PRODUCTIONS",
                     name: "Aljon De Pano"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR PRODUCTIONS",
                     name: "Marem De Jemel"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR PRODUCTIONS",
                     name: "Lizza Santiago"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR WAYS AND MEANS",
                     name: "Joan Ternio"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR WAYS AND MEANS",
                     name: "Jan Lucas Quilala"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR WAYS AND MEANS",
                     name: "Adolfo Enrico Escaño"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR WAYS AND MEANS",
                     name: "Marc Angelo Sanchez"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Maria Betina Clarise Yap"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Harvie Barcellano"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Marie Faye Vanessa Alvarez"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Mary Angelique Tacata"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Ruth Jamel Castillo"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "James Ladd Molina"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Ma. Kassandra Tan"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Kate Nicole Diomampo"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Sheree Mae Silvia"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Rennzy Louise Sanchez"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Vina Maria Marin"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Ma. Guadalaine Baay"
                 },
-		{
+                {
                     position: "TRAINING BOARD",
                     name: "Justine Reyes "
                 },
             ]
         },
-	{
+        {
             name: "ESCOLARES",
             year: "2018-2019",
             officers: [
@@ -1730,7 +1543,7 @@ export const organization =
                     position: "PRESIDENT",
                     name: "John Dennhel Cruz"
                 },
-		{
+                {
                     position: "TRAINING DIRECTOR",
                     name: "Regine Charlotte Due"
                 },
@@ -1742,11 +1555,11 @@ export const organization =
                     position: "EXECUTIVE VICE PRESIDENT FOR EXTERNAL AFFAIRS",
                     name: "Jan Lucas Quilala"
                 },
-		{
+                {
                     position: "VICE PRESIDENT FOR ADMINISTRATIVE AFFAIRS",
                     name: "Darlene Dautel"
                 },
-		{
+                {
                     position: "ASSISTANT TO THE VICE PRESIDENT FOR ADMINISTRATIVE AFFAIRS",
                     name: "Aljon De Pano"
                 },
@@ -1758,7 +1571,7 @@ export const organization =
                     position: "ASSISTANT TO THE VICE PRESIDENT FOR FINANCE",
                     name: "Deanne Coleen Fernandez"
                 },
-                
+
                 {
                     position: "VICE PRESIDENT FOR AUDIT AND LOGISTICS",
                     name: "Adolfo Enrico Escaño"
@@ -1771,66 +1584,66 @@ export const organization =
                     position: "CHIEF-OF-STAFF",
                     name: "Steven Ilagan"
                 },
-		{
+                {
                     position: "DIRECTOR FOR COMMUNITY SERVICE",
                     name: "Danvhar Nojara"
                 },
-		{
+                {
                     position: "CO-DIRECTOR FOR COMMUNITY SERVICE",
                     name: "Kristian Jemar Del Campo"
                 },
-		{
+                {
                     position: "DIRECTOR FOR EDUCATION AND RESEARCH",
                     name: "Marem De Jemel"
                 },
-		{
+                {
                     position: "CO-DIRECTOR FOR EDUCATION AND RESEARCH",
                     name: "Miguel Ivan Atienza"
                 },
-		{
+                {
                     position: "CO-DIRECTOR FOR EDUCATION AND RESEARCH",
                     name: "Mary Claire Raymundo"
                 },
-		{
+                {
                     position: "DIRECTOR FOR EXTERNAL RELATIONS",
                     name: "Xela Margarette Dagdagan"
                 },
-		{
+                {
                     position: "CO-DIRECTOR FOR EXTERNAL RELATIONS",
                     name: "Georgie Ann Cerbolles"
                 },
-		{
+                {
                     position: "CO-DIRECTOR FOR EXTERNAL RELATIONS",
                     name: "John Adrian Apalisoc"
                 },
-		{
+                {
                     position: "DIRECTOR FOR MEMBERSHIP AND COMMUNICATIONS",
                     name: "Patrizia Angelie Feliciano"
                 },
-		{
+                {
                     position: "DIRECTOR FOR MEMBERSHIP AND COMMUNICATIONS",
                     name: "Joan Ternio"
                 },
-		{
+                {
                     position: "CO-DIRECTOR FOR MEMBERSHIP AND COMMUNICATIONS",
                     name: "Mariel Alejandro"
                 },
-		{
+                {
                     position: "CO-DIRECTOR FOR MEMBERSHIP AND COMMUNICATIONS",
                     name: "Daryl Deanne Enriquez"
                 },
-		{
+                {
                     position: "DIRECTOR FOR PRODUCTIONS",
                     name: "John Wendell Sanchez"
                 },
-		{
+                {
                     position: "CO-DIRECTOR FOR PRODUCTIONS",
                     name: "Rendzborg Bautista"
                 },
-		
+
             ]
         },
-	{
+        {
             name: "ESCOLARES",
             year: "2019-2020",
             officers: [
@@ -1838,7 +1651,7 @@ export const organization =
                     position: "PRESIDENT",
                     name: "John Wendell Sanchez"
                 },
-		{
+                {
                     position: "TRAINING DIRECTOR",
                     name: "Xela Margarette Dagdagan"
                 },
@@ -1850,11 +1663,11 @@ export const organization =
                     position: "EXECUTIVE VICE PRESIDENT FOR EXTERNAL AFFAIRS",
                     name: "Shane Patrick Welba"
                 },
-		{
+                {
                     position: "VICE PRESIDENT FOR ADMINISTRATIVE AFFAIRS",
                     name: "Patrizia Angelie Feliciano"
                 },
-		{
+                {
                     position: "ASSISTANT TO THE VICE PRESIDENT FOR ADMINISTRATIVE AFFAIRS",
                     name: "Mary Jasmine Santos"
                 },
@@ -1866,7 +1679,7 @@ export const organization =
                     position: "ASSISTANT TO THE VICE PRESIDENT FOR FINANCE",
                     name: "Adel Lorenzo Tantay"
                 },
-                
+
                 {
                     position: "VICE PRESIDENT FOR AUDIT AND LOGISTICS",
                     name: "Rommeleen Estolano"
@@ -1879,42 +1692,42 @@ export const organization =
                     position: "CHIEF-OF-STAFF",
                     name: "Danvhar Nojara"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR ALUMNI AFFAIRS",
                     name: "Christian Jacob Gonzales"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR COMMUNITY SERVICE",
                     name: "Mary Claire Reymundo"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR CREATIVES",
                     name: "Jessica Laguitao"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR DOCUMENTATIONS",
                     name: "Rica Marie Uy"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR EDUCATION AND RESEARCH",
                     name: "Helen Mari Publico"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR MEMBERSHIP AND COMMUNICATIONS ",
                     name: "Bryan Cerezo"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR OPERATIONS",
                     name: "Philomena Rita Valera"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR WAYS AND MEANS",
                     name: "Joanna Mae Galabay"
                 },
-		
+
             ]
         },
-	{
+        {
             name: "ESCOLARES",
             year: "2020-2021",
             officers: [
@@ -1922,7 +1735,7 @@ export const organization =
                     position: "PRESIDENT",
                     name: "Rendzborg Bautista"
                 },
-		{
+                {
                     position: "TRAINING DIRECTOR",
                     name: "Philomena Rita Valera"
                 },
@@ -1934,11 +1747,11 @@ export const organization =
                     position: "EXECUTIVE VICE PRESIDENT FOR EXTERNAL AFFAIRS",
                     name: "Jessica Laguitao"
                 },
-		{
+                {
                     position: "VICE PRESIDENT FOR ADMINISTRATIVE AFFAIRS",
                     name: "Helen Mari Publico"
                 },
-		{
+                {
                     position: "ASSISTANT TO THE VICE PRESIDENT FOR ADMINISTRATIVE AFFAIRS",
                     name: "Maricris Pangilinan"
                 },
@@ -1950,7 +1763,7 @@ export const organization =
                     position: "ASSISTANT TO THE VICE PRESIDENT FOR FINANCE",
                     name: "Jacob Santillan"
                 },
-                
+
                 {
                     position: "VICE PRESIDENT FOR AUDIT AND LOGISTICS",
                     name: "Jerald Dale Llorente"
@@ -1963,71 +1776,71 @@ export const organization =
                     position: "CHIEF-OF-STAFF",
                     name: "Shane Patrick Welba"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR ALUMNI AFFAIRS",
                     name: "Denise Alyanna Bernardo"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR ALUMNI AFFAIRS",
                     name: "Rommeleen Estolano"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR ALUMNI AFFAIRS",
                     name: "Maria Althea Sulit"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR COMMUNITY SERVICE",
                     name: "Charles Kevin Mina"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR COMMUNITY SERVICE",
                     name: "Louie Rince Suyo"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR CREATIVES",
                     name: "John Mae Christian Paule"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR CREATIVES",
                     name: "Mary Claire Reymundo"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR DOCUMENTATIONS",
                     name: "Aberose Bio"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR EDUCATION AND RESEARCH",
                     name: "Abigail Cabucoy"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR EDUCATION AND RESEARCH",
                     name: "Criscelle Corpuz"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR MEMBERSHIP AND COMMUNICATIONS ",
                     name: "Lianne Daniele Flores"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR MEMBERSHIP AND COMMUNICATIONS ",
                     name: "Jaminah Muarip"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR OPERATIONS",
                     name: "Maria Juleah Hiluano"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR OPERATIONS",
                     name: "Micca Manuben"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR WAYS AND MEANS",
                     name: "Rainier Lance Balistoy"
                 },
-		{
+                {
                     position: "COMMITTEE HEAD FOR WAYS AND MEANS",
                     name: "Keanna Shatella Jardiolin"
                 },
-		
+
             ]
         },
 

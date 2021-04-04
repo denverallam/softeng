@@ -1,8 +1,11 @@
 import header from './header.png'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
     return (
-        <img src={header} className="img-fluid sticky-lg-top"/>
+        <Link to="/">
+            <img src={header} className="img-fluid sticky-lg-top" />
+        </Link>
     )
 }
 

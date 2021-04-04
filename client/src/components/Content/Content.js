@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import best from './best.png'
+import best from './escolariologo.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
