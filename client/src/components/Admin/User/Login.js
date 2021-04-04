@@ -2,15 +2,27 @@ import React, { useState, useEffect } from 'react';
 import { Button, Alert, Form, FormGroup, Input } from 'reactstrap';
 import { useLocation, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
+import api from '../../../api/server'
 import { login, clearErrors } from '../../../actions/userActions';
 import './styles.css'
 
 const Login = ({ history }) => {
 
+    const [count, setCount] = useState(0);
 
     useEffect(()=>{
         localUser = ''
     }, [])
+
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            const { data } = await api.get('/user/')
+            setCount(data.length)
+        }
+        fetchUser()
+    }, [])
+
 
     let localUser = useSelector(state => state.user)
     const dispatch = useDispatch()
@@ -67,13 +79,17 @@ const Login = ({ history }) => {
                     </Alert> : <> </>
                 }
                 <Button className="container text-center my-2" color="primary" outline> Login</Button>
-                    {/* if users > 1 show this, otherwise, dont */}
+                {/*  kung greater than 1 yung user, wag ipakita to */}
+                {
+                    count < 1 ?
+                                    <Link to='/register' className="text-center">
+                                    <div>
+                                        Create an account
+                                    </div>
+                                </Link>
+                                :<></>
+                }
 
-                <Link to='/register' className="text-center">
-                    <div>
-                        Create an account
-                    </div>
-                </Link>
 
                 <Link to='/forgot-password' className="text-center">
                     <div>

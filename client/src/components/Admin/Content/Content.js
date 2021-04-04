@@ -65,7 +65,7 @@ const Content = ({ content, deleteContent }) => {
                         {confirm(content._id)}
                     </div>
                 </div>
-                <p className="byline text-muted">by {content.author}. {moment(content.date).fromNow()}</p>
+                <p className="byline text-muted">by {content.author}. {moment(content.date).toString().substr(4, 11)}</p>
             </CardBody>
 
         </Card>

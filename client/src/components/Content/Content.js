@@ -57,7 +57,7 @@ const Content = ({ content }) => {
             <Card className="col-sm-8 border-0">
                 <CardBody>
                     <CardTitle className="headline">{content.title}</CardTitle>
-                    <CardSubtitle tag="h6" className="byline">By {content.author}. {moment(content.date).fromNow()}</CardSubtitle>
+                    <CardSubtitle tag="h6" className="byline">By {content.author}. {moment(content.date).toString().substr(4, 11)}</CardSubtitle>
                     <CardText className="text my-2">{cutContent(content.content)}</CardText>
                 </CardBody>
             </Card>

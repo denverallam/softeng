@@ -2,13 +2,11 @@ import { Button, Form, FormGroup, Label, Input, Alert } from 'reactstrap';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import api from '../../api/server'
-import { viewerLogin } from '../../api/index'
 import { login as viewLogin, logout } from '../../actions/viewerActions'
 
 const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, updateResponse }) => {
 
     const dispatch = useDispatch()
-
 
     useEffect(() => {
         dispatch(logout())
@@ -20,8 +18,10 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
     const [newResponse, setNewResponse] = useState({
         author: "",
         email: "",
-        content: ""
+        content: "",
+        date:  Date.now()
     });
+  
 
     const [viewer, setViewer] = useState({
         username: '',
@@ -42,11 +42,13 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
     const handleSubmit = (e) => {
         e.preventDefault();
         if (responseId) {
+            setNewResponse({...newResponse, date: Date.now()})
             updateResponse(responseId, newResponse)
-            setNewResponse({ ...newResponse, content: " " })
+            setNewResponse({ ...newResponse, content: "" })
             setResponseId("")
         }
         else {
+            setNewResponse({...newResponse, date: Date.now()})
             createResponse(contentId, newResponse)
             setNewResponse({ ...newResponse, content: " " })
             setResponseId("")

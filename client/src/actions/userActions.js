@@ -114,7 +114,6 @@ export const resetPassword = (formData, history, token) => async dispatch => {
 }
 
 
-
 export const logout = () => async dispatch => {
     try {
 
