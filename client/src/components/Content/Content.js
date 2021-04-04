@@ -33,9 +33,9 @@ const Content = ({ content }) => {
     const classes = useStyles();
 
     const cutContent = (content) => {
-        if (content.length > 150)
-            return content.substr(0, 150) + "..."
-        else return content.substr(0, 150)
+        if (content.length > 85)
+            return content.substr(0, 85) + "..."
+        else return content.substr(0, 85)
     }
 
 
@@ -51,14 +51,14 @@ const Content = ({ content }) => {
 
     return (
         <div className="container row border border-info mx-auto">
-            <div className="col-sm-4">
-                <CardImg src={content.selectedFile || best} className="rounded img-fluid img-thumbnail border-0" />
+            <div className="col-sm-4 my-auto">
+                <CardImg src={content.selectedFile || best} className="rounded img-fluid border-0" />
             </div>
             <Card className="col-sm-8 border-0">
                 <CardBody>
-                    <CardTitle className="headline" tag="h5">{content.title}</CardTitle>
+                    <CardTitle className="headline">{content.title}</CardTitle>
                     <CardSubtitle tag="h6" className="byline">By {content.author}. {moment(content.date).fromNow()}</CardSubtitle>
-                    <CardText className="text2">{cutContent(content.content)}</CardText>
+                    <CardText className="text my-2">{cutContent(content.content)}</CardText>
                 </CardBody>
             </Card>
             <Link to={`/post/${content._id}`} onClick={increaseViews} className="mx-auto">

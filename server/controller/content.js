@@ -40,9 +40,9 @@ export const getContent = async (req, res) => {
 
 export const createContent = async (req, res) => {
     const newcontent = req.body;
-    const {title, author, content, category} = req.body
+    const {title, author, content, category, description} = req.body
     try{
-        if(!title || !author || !content || !category){
+        if(!title || !author || !content || !category || !description){
             return res.status(409).json({message:"Please fill in the form"});
         }
         

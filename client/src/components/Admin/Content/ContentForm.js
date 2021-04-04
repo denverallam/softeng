@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { createContent } from '../../../actions/contentActions'
 import FileBase from 'react-file-base64'
-import NavBar from '../../NavBar';
 import Dashboard from '../Dashboard';
 
 const ContentForm = () => {
@@ -15,6 +14,7 @@ const ContentForm = () => {
   const [newContent, setNewContent] = useState({
     title: '',
     content: '',
+    description: '',
     selectedFile: '',
     author: ''
   });
@@ -26,7 +26,8 @@ const ContentForm = () => {
       ...newContent,
       title: "",
       author: "",
-      content: ""
+      content: "",
+      description: ''
     });
   }
 
@@ -37,8 +38,8 @@ const ContentForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (newContent.title && newContent.author && newContent.content && newContent.category) {
+    console.log(newContent)
+    if (newContent.title && newContent.author && newContent.content && newContent.category && newContent.description) {
       dispatch(createContent(newContent));
       alert("Added");
       clear()
@@ -73,6 +74,10 @@ const ContentForm = () => {
           <FormGroup>
             <Label for="content">Author</Label>
             <Input type="text" name="author" id="author" placeholder="Author" value={newContent.author} onChange={handleChange} />
+          </FormGroup>
+          <FormGroup>
+            <Label for="description">Lead</Label>
+            <Input type="textarea" name="description" id="description" value={newContent.description} onChange={handleChange} />
           </FormGroup>
           <FormGroup>
             <Label for="content">Body</Label>

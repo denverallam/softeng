@@ -46,10 +46,9 @@ const ContentUpdate = ({ match }) => {
   return (
     <>
       <Dashboard />
-      {/* <ResponsiveDrawer/> */}
       <div className="container my-5">
         <Form onSubmit={handleSubmit}>
-          <FormGroup>
+        <FormGroup>
             <Label for="category">Section</Label>
             <Input type="select" name="category" id="category" value={newContent.category} onChange={handleChange}>
               <option value="">-</option>
@@ -61,12 +60,16 @@ const ContentUpdate = ({ match }) => {
             </Input>
           </FormGroup>
           <FormGroup>
-            <Label for="title">Title</Label>
+            <Label for="content">Title</Label>
             <Input type="text" name="title" id="title" placeholder="Title" value={newContent.title} onChange={handleChange} />
           </FormGroup>
           <FormGroup>
-            <Label for="author">Author</Label>
+            <Label for="content">Author</Label>
             <Input type="text" name="author" id="author" placeholder="Author" value={newContent.author} onChange={handleChange} />
+          </FormGroup>
+          <FormGroup>
+            <Label for="description">Lead</Label>
+            <Input type="textarea" name="description" id="description" value={newContent.description} onChange={handleChange} />
           </FormGroup>
           <FormGroup>
             <Label for="content">Body</Label>
@@ -75,6 +78,10 @@ const ContentUpdate = ({ match }) => {
           <div>
             <FileBase type="file" value={newContent.selectedFile} onDone={({ base64 }) => setNewContent({ ...newContent, selectedFile: base64 })} />
           </div>
+          <FormGroup>
+            <Label for="date">Date</Label>
+            <Input type="date" name="date" id="date" value={newContent.date} onChange={handleChange} />
+          </FormGroup>
           <Button color="primary" className="my-4">Update</Button>
 
         </Form>

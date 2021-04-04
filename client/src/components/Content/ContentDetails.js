@@ -1,10 +1,10 @@
 
 
-import {useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import ResponseList from '../Reponse/ResponseList'
 import Load from './Load'
-import { CardImg} from 'reactstrap'
+import { CardImg } from 'reactstrap'
 import moment from 'moment';
 import { getContent } from '../../actions/contentActions';
 import NavBar from '../NavBar';
@@ -32,28 +32,32 @@ const ContentDetails = ({ match }) => {
         // dispatch(getResponses(contentId))
     }, [])
 
-    
+
 
     return (
         <>
-        <NavBar/>
-        <div className="container-sm my-5">
-            {loading ? <Load /> :
-                <div>
-                    <div className="border-bottom border-dark">
-                    <h5 className="mb-3 headline">{content.title}</h5>
-                    <div className="mb-2 byline">By {content.author}. {moment(content.date).toString()}</div>
-                    <CardImg src={content.selectedFile} />
-                    <div className="text">
-                        {printLine(content.content || "")}
-                    </div>
-                    </div>
+            <NavBar />
+            <div className="container-sm mb-5">
+                {loading ? <Load /> :
                     <div>
-                        <ResponseList contentId={content._id} />
+                        <div className="border-bottom border-dark">
+                            <h1 className="page-title text-center mx-auto my-0">{content.category}</h1>
+                            <h4 className="headline ">{content.title}</h4>
+                            <p className="byline ">By {content.author}. {moment(content.date).toString().substr(4, 11)}</p>
+                            <div className="text mt-4">
+                                {printLine(content.description || "")}
+                            </div>
+                            <CardImg src={content.selectedFile} />
+                            <div className="text mt-4">
+                                {printLine(content.content || "")}
+                            </div>
+                        </div>
+                        <div>
+                            <ResponseList contentId={content._id} />
+                        </div>
                     </div>
-                </div>
-            }
-        </div>
+                }
+            </div>
         </>
     )
 }

@@ -33,21 +33,24 @@ const ViewDetails = ({ match }) => {
     return (
         <>
             <Dashboard />
-            {
-                !loading  ?
-                    <div className="container-sm my-5">
-                        <div>
-                            <div className="border-bottom border-dark">
-                                <h5 className="mb-3 headline">{content.title}</h5>
-                                <p className="mb-2 byline">By {content.author}. {moment(content.date).toString()}</p>
-                                <CardImg src={content.selectedFile} />
-                                <p className="text">
-                                    {printLine(content.content || "")}
-                                </p>
+            <div className="container-sm mb-5">
+            {loading ? <Load /> :
+                    <div>
+                        <div className="border-bottom border-dark">
+                            <h1 className="page-title text-center mx-auto my-0">{content.category}</h1>
+                            <h4 className="headline ">{content.title}</h4>
+                            <p className="byline ">By {content.author}. {moment(content.date).toString().substr(4, 11)}</p>
+                            <div className="text mt-4">
+                                {printLine(content.description || "")}
+                            </div>
+                            <CardImg src={content.selectedFile} />
+                            <div className="text mt-4">
+                                {printLine(content.content || "")}
                             </div>
                         </div>
-                    </div> : <Load />
-            }
+                    </div>
+                }
+            </div>
 
         </>
     )
