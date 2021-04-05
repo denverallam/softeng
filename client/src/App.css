@@ -194,6 +194,16 @@
   color: #002e5d;
 }
 
+.link{
+  text-transform: uppercase;
+  font-family: 'Raleway', sans-serif;
+  color: #002e5d;
+}
+
+.link:hover{
+  color: #efc011;
+}
+
 .link-container{
   text-align: center;
   padding-top: 10px;
@@ -233,7 +243,7 @@
   /* margin-top: 7%;
   margin-left: 23.2%; */
   text-transform: uppercase;
-  font-size: 50px;
+  font-size: 40px;
 }
 
 .headline:hover{

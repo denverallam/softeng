@@ -63,7 +63,7 @@ const Home = (props) => {
       <CarouselItem onExiting={() => setAnimating(true)} onExited={() => setAnimating(false)} key={content._id}>
         <CardImg src={content.selectedFile || best} className="img-fluid rounded img-thumbnail border-0"/>
         <Link to={`post/${content._id}`}>
-          <CarouselCaption captionText={content.title} captionHeader={content.title} className="a"/>
+          <CarouselCaption captionHeader={content.title} className="a" />
         </Link>
       </CarouselItem>
     )

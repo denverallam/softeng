@@ -56,7 +56,7 @@ const Content = ({ content }) => {
             </div>
             <Card className="col-sm-8 border-0">
                 <CardBody className="container">
-                    <h5 className="headline article-link">{content.title}</h5>
+                    <h3 className="link">{content.title}</h3>
                     <CardSubtitle className="byline">By {content.author}. {moment(content.date).toString().substr(4, 11)}</CardSubtitle>
                     <CardText className="text my-2">{cutContent(content.content)}</CardText>
                 </CardBody>
