@@ -18,8 +18,8 @@ export const listSorter = (order, content) => {
             })
         case 'OLDEST':
             return content.sort((a, b) => {
-                let date1 = a.date.toLowerCase(),
-                    date2 = b.date.toLowerCase()
+                let date1 = a.date,
+                    date2 = b.date
                 if (date1 < date2) {
                     return -1
                 }
@@ -30,8 +30,8 @@ export const listSorter = (order, content) => {
             })
         case 'LATEST':
             return content.sort((a, b) => {
-                let date1 = a.date.toLowerCase(),
-                    date2 = b.date.toLowerCase()
+                let date1 = a.date,
+                    date2 = b.date
                 if (date1 < date2) {
                     return 1
                 }

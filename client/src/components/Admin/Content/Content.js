@@ -51,23 +51,19 @@ const Content = ({ content, deleteContent }) => {
 
     return (
         <Card className="container border border-info">
-
             <CardBody>
-                <div className="row">
-                    <Link to={`/admin/post/${content._id}`} >
-                        <CardTitle className="headline article-link">{content.title}</CardTitle>
-                    </Link>
-                    <div className="ml-auto mb-2">
-                        <Link to={`/edit/${content._id}`} className="text-dark">
-                            <EditIcon />
-                        </Link>
-                        <DeleteIcon onClick={toggle} />
-                        {confirm(content._id)}
-                    </div>
-                </div>
-                <p className="byline text-muted">by {content.author}. {moment(content.date).toString().substr(4, 11)}</p>
+                <Link to={`/admin/post/${content._id}`} >
+                    <h5 className="article-link">{content.title}</h5>
+                </Link>
+                <p className="text-muted">by {content.author}. {moment(content.date).toString().substr(4, 11)}</p>
             </CardBody>
-
+            <div className="row ml-auto m-2">
+                <Link to={`/edit/${content._id}`} className="text-dark">
+                    <Button color="info" outline>Edit</Button>
+                </Link>
+                <Button onClick={toggle} color="danger" outline>Delete</Button>
+                {confirm(content._id)}
+            </div>
         </Card>
     )
 }

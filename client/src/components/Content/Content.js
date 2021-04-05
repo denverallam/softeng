@@ -55,9 +55,9 @@ const Content = ({ content }) => {
                 <CardImg src={content.selectedFile || best} className="rounded img-fluid border-0" />
             </div>
             <Card className="col-sm-8 border-0">
-                <CardBody>
-                    <CardTitle className="headline">{content.title}</CardTitle>
-                    <CardSubtitle tag="h6" className="byline">By {content.author}. {moment(content.date).toString().substr(4, 11)}</CardSubtitle>
+                <CardBody className="container">
+                    <h5 className="headline article-link">{content.title}</h5>
+                    <CardSubtitle className="byline">By {content.author}. {moment(content.date).toString().substr(4, 11)}</CardSubtitle>
                     <CardText className="text my-2">{cutContent(content.content)}</CardText>
                 </CardBody>
             </Card>
