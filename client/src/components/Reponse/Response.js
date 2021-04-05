@@ -39,7 +39,7 @@ const Response = ({ response, deleteResponse, setResponseId }) => {
     return (
         <div className="container-fluid row border pt-2">
             <div className="col-sm-10">
-                <p className="response-name">{response.author}<span className="text-muted date ml-sm-2">{moment(response.date).fromNow()}</span></p>
+                <p className="response-name">{response.author}<span className="text-muted date ml-sm-2">{moment(response.date).toString().substr(4, 11)}</span></p>
                 
                 <p>{response.content}</p>
             </div>
