@@ -27,7 +27,8 @@ const ContentForm = () => {
       title: "",
       author: "",
       content: "",
-      description: ''
+      description: '',
+      selectedFile: '',
     });
   }
 
@@ -38,10 +39,10 @@ const ContentForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(newContent)
     if (newContent.title && newContent.author && newContent.content && newContent.category && newContent.description) {
       dispatch(createContent(newContent));
       alert("Added");
+      console.log(newContent)
       clear()
     }
     else {
