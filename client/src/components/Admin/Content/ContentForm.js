@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button, FormGroup, Label, Input } from 'reactstrap';
 import { createContent } from '../../../actions/contentActions'
 import FileBase from 'react-file-base64'
 import Dashboard from '../Dashboard';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 
 const ContentForm = () => {
 
@@ -18,8 +21,6 @@ const ContentForm = () => {
     selectedFile: '',
     author: ''
   });
-
-  const [error, setError] = useState('')
 
   const clear = () => {
     setNewContent({
@@ -39,10 +40,9 @@ const ContentForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (newContent.title && newContent.author && newContent.content && newContent.category && newContent.description) {
+    if (newContent.title && newContent.author && newContent.content && newContent.category) {
       dispatch(createContent(newContent));
       alert("Added");
-      console.log(newContent)
       clear()
     }
     else {
@@ -50,6 +50,7 @@ const ContentForm = () => {
     }
 
   }
+
 
   return (
     <>
@@ -80,10 +81,20 @@ const ContentForm = () => {
             <Label for="description">Lead</Label>
             <Input type="textarea" name="description" id="description" value={newContent.description} onChange={handleChange} />
           </FormGroup>
-          <FormGroup>
+          {/* <FormGroup>
             <Label for="content">Body</Label>
             <Input type="textarea" name="content" id="content" value={newContent.content} onChange={handleChange} />
-          </FormGroup>
+          </FormGroup> */}
+          <div className="my-2">
+            <Label for="content">Body</Label>
+            <CKEditor
+              name="content"
+              id="content"
+              data={newContent.content}
+              editor={ClassicEditor}
+              onChange={(e, editor) => { setNewContent({ ...newContent, content: editor.getData()}); console.log(editor) }}
+            />
+          </div>
           <div>
             <FileBase type="file" value={newContent.selectedFile} onDone={({ base64 }) => setNewContent({ ...newContent, selectedFile: base64 })} />
           </div>

@@ -7,7 +7,7 @@ import { CardImg } from 'reactstrap'
 import moment from 'moment';
 import { getContent } from '../../../actions/contentActions';
 import Dashboard from '../Dashboard';
-
+import ReactHtmlParser from 'react-html-parser';
 
 const ViewDetails = ({ match }) => {
 
@@ -49,7 +49,7 @@ const ViewDetails = ({ match }) => {
                                     : <></>
                             }
                             <div className="text mt-4">
-                                {printLine(content.content || "")}
+                                {ReactHtmlParser(content.content)}
                             </div>
                         </div>
                     </div>

@@ -5,10 +5,11 @@ import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import {
     Card, CardText, CardBody,
-    CardTitle, CardSubtitle, Button, CardImg
+    CardSubtitle, Button, CardImg
 } from 'reactstrap';
 import { updateContent } from '../../actions/contentActions'
 import moment from 'moment';
+import ReactHtmlParser from 'react-html-parser';
 
 
 const Content = ({ content }) => {
@@ -58,7 +59,7 @@ const Content = ({ content }) => {
                 <CardBody className="container">
                     <h3 className="link">{content.title}</h3>
                     <CardSubtitle className="byline">By {content.author}. {moment(content.date).toString().substr(4, 11)}</CardSubtitle>
-                    <CardText className="text my-2">{cutContent(content.content)}</CardText>
+                    <CardText className="text my-2">{ReactHtmlParser(cutContent(content.content))}</CardText>
                 </CardBody>
             </Card>
             <Link to={`/post/${content._id}`} onClick={increaseViews} className="mx-auto">
