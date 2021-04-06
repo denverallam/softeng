@@ -53,15 +53,15 @@ const Content = ({ content }) => {
     return (
         <div className="container row border border-info mx-auto">
             <div className="col-sm-4 my-auto">
-                <CardImg src={content.selectedFile || best} className="rounded img-fluid border-0" />
+                <img src={content.selectedFile || best} className="rounded img-fluid border-0" />
             </div>
-            <Card className="col-sm-8 border-0">
+            <div className="col-sm-8 border-0">
                 <CardBody className="container">
-                    <h3 className="link">{content.title}</h3>
-                    <CardSubtitle className="byline">By {content.author}. {moment(content.date).toString().substr(4, 11)}</CardSubtitle>
-                    <CardText className="text my-2">{ReactHtmlParser(cutContent(content.content))}</CardText>
+                    <h5 className="link">{content.title}</h5>
+                    {/* <p className="byline text-muted">By {content.author}. {moment(content.date).toString().substr(4, 11)}</p>
+                    <p className="text my-2">{ReactHtmlParser(cutContent(content.content))}</p> */}
                 </CardBody>
-            </Card>
+            </div>
             <Link to={`/post/${content._id}`} onClick={increaseViews} className="mx-auto">
                 <p className="text-center article-link">READ FULL ARTICLE</p>
             </Link>

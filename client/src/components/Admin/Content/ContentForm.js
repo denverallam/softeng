@@ -42,8 +42,16 @@ const ContentForm = () => {
     e.preventDefault();
     if (newContent.title && newContent.author && newContent.content && newContent.category) {
       dispatch(createContent(newContent));
-      alert("Added");
       clear()
+      alert("Added");
+      setNewContent({
+        ...newContent,
+        title: "",
+        author: "",
+        content: "",
+        description: '',
+        selectedFile: '',
+      });
     }
     else {
       alert("Invalid Input")

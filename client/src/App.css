@@ -61,6 +61,14 @@
   color:#efc011;
 }
 
+.home {
+  color:#002e5d;
+}
+
+.home:hover {
+  color:#efc011;
+}
+
 .a:hover, .dropdown:hover .dropbtn{
   color:#efc011;
 }
