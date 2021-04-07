@@ -58,8 +58,8 @@ const Content = ({ content }) => {
             <div className="col-sm-8 border-0">
                 <CardBody className="container">
                     <h5 className="link">{content.title}</h5>
-                    {/* <p className="byline text-muted">By {content.author}. {moment(content.date).toString().substr(4, 11)}</p>
-                    <p className="text my-2">{ReactHtmlParser(cutContent(content.content))}</p> */}
+                    <p className="byline text-muted">By {content.author}. {moment(content.date).fromNow()}</p>
+                    {/* <p className="text my-2">{ReactHtmlParser(cutContent(content.content))}</p> */}
                 </CardBody>
             </div>
             <Link to={`/post/${content._id}`} onClick={increaseViews} className="mx-auto">

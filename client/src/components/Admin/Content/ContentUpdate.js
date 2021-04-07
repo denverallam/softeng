@@ -8,7 +8,7 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 
-const ContentUpdate = ({ match }) => {
+const ContentUpdate = ({ match, history }) => {
 
   const dispatch = useDispatch()
 
@@ -35,6 +35,7 @@ const ContentUpdate = ({ match }) => {
     if (newContent.title && newContent.author && newContent.content && newContent.category) {
       dispatch(updateContent(contentId, newContent));
       alert("Updated");
+      history.push('/admin')
     }
     else {
       alert("Invalid Input")

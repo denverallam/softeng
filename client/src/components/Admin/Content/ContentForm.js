@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch} from 'react-redux'
 import { Button, FormGroup, Label, Input } from 'reactstrap';
 import { createContent } from '../../../actions/contentActions'
 import FileBase from 'react-file-base64'
@@ -11,8 +11,6 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 const ContentForm = () => {
 
   const dispatch = useDispatch()
-
-  const content = useSelector(state => state.content)
 
   const [newContent, setNewContent] = useState({
     title: '',
@@ -44,14 +42,6 @@ const ContentForm = () => {
       dispatch(createContent(newContent));
       clear()
       alert("Added");
-      setNewContent({
-        ...newContent,
-        title: "",
-        author: "",
-        content: "",
-        description: '',
-        selectedFile: '',
-      });
     }
     else {
       alert("Invalid Input")
@@ -89,10 +79,6 @@ const ContentForm = () => {
             <Label for="description">Lead</Label>
             <Input type="textarea" name="description" id="description" value={newContent.description} onChange={handleChange} />
           </FormGroup>
-          {/* <FormGroup>
-            <Label for="content">Body</Label>
-            <Input type="textarea" name="content" id="content" value={newContent.content} onChange={handleChange} />
-          </FormGroup> */}
           <div className="my-2">
             <Label for="content">Body</Label>
             <CKEditor

@@ -94,7 +94,7 @@ export const deleteResponse = (id) => async (dispatch) => {
 
         dispatch({
             type: actions.DELETE_RESPONSE,
-            payload: data
+            payload: id
         })
 
     } catch (error){

@@ -11,13 +11,13 @@ api.interceptors.request.use((req) => {
     return req;
 });
 
-// api.interceptors.request.use((req) => {
-//     if(localStorage.getItem('user')){
-//         req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('user')).token}`
-//         return req
-//     }
-//     return req;
-// });
+api.interceptors.request.use((req) => {
+    if(localStorage.getItem('user')){
+        req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('user')).token}`
+        return req
+    }
+    return req;
+});
 
 export default api
 

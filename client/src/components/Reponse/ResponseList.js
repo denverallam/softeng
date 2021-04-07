@@ -15,28 +15,25 @@ const ResponseList = ({ contentId }) => {
     const [responseId, setResponseId] = useState("")
 
     useEffect(() => {
-        setResponseList(response)
         dispatch(getResponses(contentId))
+        setResponseList(response)
     },[])
 
     useEffect(() => {
-        setResponseList(response)
         dispatch(getResponses(contentId))
+        setResponseList(response)
     },[responseList])
 
 
     const deleteItem = (id) => {
-        setResponseList(response.filter(res => res._id !== id))
         dispatch(deleteResponse(id))
     }
 
     const updateItem = (id, newItem) => {
-        setResponseList(response.map(res => res._id === id ? newItem : res))
         dispatch(updateResponse(id, newItem))
     }
 
     const addItem = (id, item) => {
-        setResponseList([...response, item])
         dispatch(createResponse(id, item))
     }
 

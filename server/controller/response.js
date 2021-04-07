@@ -39,11 +39,10 @@ export const createResponse = async (req, res) => {
     const newResponse = new Response({...response, content_id: content_id});
 
     try{
-        // save the object to the database
         await newResponse.save();
 
         // res.status isesend sa client
-        res.status(201).json(newResponse);
+        res.status(201).json({response:newResponse});
 
     } catch(error) {
         // res.status isesend sa client
@@ -59,7 +58,7 @@ export const updateResponse = async (req, res) => {
 
     const updateResponse = await Response.findByIdAndUpdate(id, {...response, id}, {new: true});
 
-    res.json(updateResponse);
+    res.json({response:updateResponse, id});
 }
 
 export const deleteResponse = async (req, res) => {

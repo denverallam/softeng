@@ -8,25 +8,34 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
 
     const dispatch = useDispatch()
 
-    useEffect(() => {
-        dispatch(logout())
-    }, [])
-
     const localViewer = useSelector(state => state.viewer.viewer)
     const locViewer = JSON.parse(localStorage.getItem('user'))
+    const response = useSelector(state => state.response)
+
 
     const [newResponse, setNewResponse] = useState({
         author: "",
         email: "",
-        content: "",
-        date:  Date.now()
+        content: ""
     });
-  
 
     const [viewer, setViewer] = useState({
         username: '',
         email: '',
     })
+
+    useEffect(() => {
+        if (locViewer) {
+            dispatch(viewLogin(locViewer?.result))
+            setViewer({ ...viewer, email: localViewer?.result.email, username: localViewer?.result.username })
+            setNewResponse({ ...newResponse, email: viewer.email, author: viewer.username })
+        }
+    }, [])
+
+    useEffect(() => {
+        setViewer({ ...viewer, email: localViewer?.result.email, username: localViewer?.result.username })
+        setNewResponse({ ...newResponse, email: viewer.email, author: viewer.username })
+    }, [localViewer?.result, response.error])
 
 
     useEffect(() => {
@@ -41,17 +50,24 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (responseId) {
-            setNewResponse({...newResponse, date: Date.now()})
-            updateResponse(responseId, newResponse)
-            setNewResponse({ ...newResponse, content: "" })
-            setResponseId("")
+        setNewResponse({ ...newResponse, email: localViewer?.result.email, author: localViewer?.result.username })
+        if (newResponse.content) {
+            if (responseId) {
+                updateResponse(responseId, newResponse)
+                setNewResponse({ ...newResponse, content: "" })
+                setResponseId("")
+            }
+            else {
+                createResponse(contentId, newResponse)
+                setNewResponse({ ...newResponse, content: "" })
+                setResponseId("")
+            }
         }
         else {
-            setNewResponse({...newResponse, date: Date.now()})
-            createResponse(contentId, newResponse)
-            setNewResponse({ ...newResponse, content: " " })
-            setResponseId("")
+            setError('Write something!')
+            setTimeout(() => {
+                setError("");
+            }, 5000);
         }
     }
 
@@ -77,7 +93,7 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
                     {!error ?
                         <Alert color="info">
                             Enter your email and name to access the comment section.
-            </Alert> :
+                        </Alert> :
                         <Alert color="danger">
                             {error}
                         </Alert>
@@ -97,6 +113,10 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
 
     const userLogout = () => {
         dispatch(logout())
+        setViewer({
+            username: "",
+            email: ""
+        })
         setNewResponse({
             author: "",
             email: "",
@@ -115,7 +135,12 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
                                 : <></>
                         }
                         <p onClick={userLogout}>Not you? <a className="a">Change email</a></p>
-
+                        {
+                            error ?
+                                <Alert>
+                                    {error}
+                                </Alert> : <></>
+                        }
                         <FormGroup>
                             <Input type="textarea" name="content" id="content" placeholder="Comment" value={newResponse.content} onChange={(e) => { setNewResponse({ ...newResponse, content: e.target.value }) }} />
                         </FormGroup>

@@ -12,9 +12,9 @@ import DeleteIcon from '@material-ui/icons/Delete';
 
 const Response = ({ response, deleteResponse, setResponseId }) => {
 
-    const viewer = useSelector(state => state.viewer.viewer)
     const user = JSON.parse(localStorage.getItem('user'))
-
+    const viewer = useSelector(state => state.viewer)
+console.log(viewer)
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
 
@@ -44,7 +44,7 @@ const Response = ({ response, deleteResponse, setResponseId }) => {
                 <p>{response.content}</p>
             </div>
             <div className="ml-auto mb-2 row">
-                {user && response.email === user?.result?.email ?
+                {user && viewer && response.email === user?.result?.email ?
                     <div>
                         <EditIcon onClick={() => setResponseId(response._id)} className="rounded" />
                         <DeleteIcon onClick={toggle} className="" />
