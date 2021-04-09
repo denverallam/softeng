@@ -1,7 +1,7 @@
 import NavBar from "../../NavBar"
 import BoardOfficerList from "./BoardOfficerList"
 import { Card, CardTitle, CardSubtitle, Modal, ModalHeader, ModalBody, CardBody } from 'reactstrap';
-import { useState } from 'react'
+import { useState, Fragment } from 'react'
 import { committee } from '../data/CommiteeData'
 
 const Best = () => {
@@ -36,13 +36,13 @@ const Best = () => {
 
 
     return (
-        <div>
+        <Fragment>
             <NavBar />
-            <div className="row container-fluid px-sm-5">
+            <div className="row px-sm-5">
                 <div className="col-sm-7">
                     <BoardOfficerList />
                 </div>
-                <div className="blue-bg col-sm-5 mt-4 p-sm-4">
+                <div className="container blue-bg col-sm-5 mt-4 p-4 ">
                     <h4 className="content-mission">HISTORY OF THE ORGANIZATION</h4>
                     <p className="text-mission">Becarios de Santo Tomas, the Sole Thomasian Scholars Association, is a university-wide organization composed of over 800 members duly recognized by the university. Established in 1994 under the provisions of the Office for Student Affairs, the organization works to produce competent and well-equipped Thomasian scholars over the years. Tracing back from its origin, the organization was formerly named as Ugnayang Tomasino na may Angking Kakayahan (U.T.A.K.) in 1994. A few years later, in 1997, it was then renamed into UST Scholars Association (UST SA). But by 2000, it had its name changed to Escolares. The final revision only took place by 2002 when Rev. Fr. Pompeyo De Mesa, O.P. suggested to change the organization’s name into Becarios de Santo Tomas.</p>
                     <h4 className="content-mission">MISSION</h4>
@@ -58,7 +58,7 @@ const Best = () => {
                     ))
                 }
             </div>
-        </div>
+        </Fragment>
     )
 }
 
