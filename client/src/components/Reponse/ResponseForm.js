@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import api from '../../api/server'
 import { login as viewLogin, logout } from '../../actions/viewerActions'
+import { getResponse } from '../../actions/responseActions';
 
 const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, updateResponse }) => {
 
@@ -24,10 +25,11 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
         email: '',
     })
 
+
     useEffect(() => {
         if (locViewer) {
             dispatch(viewLogin(locViewer?.result))
-            setViewer({ ...viewer, email: localViewer?.result.email, username: localViewer?.result.username })
+            setViewer({ ...viewer, email: locViewer?.result.email, username: locViewer?.result.username })
             setNewResponse({ ...newResponse, email: viewer.email, author: viewer.username })
         }
     }, [])
@@ -37,29 +39,30 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
         setNewResponse({ ...newResponse, email: viewer.email, author: viewer.username })
     }, [localViewer?.result, response.error])
 
+    useEffect(() => {
+        dispatch(getResponse(responseId))
+    }, [responseId])
 
     useEffect(() => {
-        const fetchData = async (id) => {
-            const { data } = await api.get(`/response/r/${id}`)
-            setNewResponse(data)
-        }
-        fetchData(responseId)
-    }, [responseId])
+        setNewResponse({ ...newResponse, content: response.response.content })
+        console.log(response.response.content)
+    }, [response.response])
 
     const [error, setError] = useState('')
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setNewResponse({ ...newResponse, email: localViewer?.result.email, author: localViewer?.result.username })
         if (newResponse.content) {
             if (responseId) {
                 updateResponse(responseId, newResponse)
                 setNewResponse({ ...newResponse, content: "" })
+                alert('Updated')
                 setResponseId("")
             }
             else {
                 createResponse(contentId, newResponse)
                 setNewResponse({ ...newResponse, content: "" })
+                alert('Posted')
                 setResponseId("")
             }
         }
@@ -73,7 +76,6 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
 
     const handleLogin = (e) => {
         e.preventDefault();
-        setNewResponse({ ...newResponse, email: viewer.email, author: viewer.username })
         if (viewer.email && viewer.username) {
             dispatch(viewLogin(viewer))
         }
@@ -142,7 +144,7 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
                                 </Alert> : <></>
                         }
                         <FormGroup>
-                            <Input type="textarea" name="content" id="content" placeholder="Comment" value={newResponse.content} onChange={(e) => { setNewResponse({ ...newResponse, content: e.target.value }) }} />
+                            <Input type="textarea" name="content" id="content" placeholder="Comment" value={newResponse.content} onChange={(e) => { setNewResponse({ ...newResponse, email: viewer.email, author: viewer.username, content: e.target.value }) }} />
                         </FormGroup>
                         <Button color="success" outline>Publish</Button>
                     </Form>

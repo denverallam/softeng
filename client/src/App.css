@@ -48,6 +48,19 @@
   text-align: left;
 }
 
+.blue-bg{
+  background-color: #002e5d;
+  height: 100%;
+}
+
+.board-header{
+  color: #002e5d;
+}
+
+.board-header:hover{
+  color:#efc011;
+}
+
 .dropdown-content1 .a:hover {
   background-color: #f1f1f1;
   color: #efc011;

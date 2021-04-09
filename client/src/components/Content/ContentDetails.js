@@ -49,16 +49,16 @@ const ContentDetails = ({ match }) => {
                             </div>
                             {
                                 content.selectedFile ?
-                                    <CardImg src={content.selectedFile} />
+                                    <CardImg src={content.selectedFile}/>
                                     : <></>
                             }
                             <div className="text mt-4">
                                 {ReactHtmlParser(content.content)}
                             </div>
                         </div>
-                        <div>
+                        {/* <div>
                             <ResponseList contentId={content._id} />
-                        </div>
+                        </div> */}
                     </div>
                 }
             </div>

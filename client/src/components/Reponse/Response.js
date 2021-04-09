@@ -14,7 +14,6 @@ const Response = ({ response, deleteResponse, setResponseId }) => {
 
     const user = JSON.parse(localStorage.getItem('user'))
     const viewer = useSelector(state => state.viewer)
-console.log(viewer)
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
 

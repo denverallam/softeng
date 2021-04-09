@@ -79,12 +79,7 @@ const NavBar = () => {
               </DropdownItem>
               <DropdownItem >
                 <Link to="/about-best" className=" li">
-                  The BeST
-                  </Link>
-              </DropdownItem>
-              <DropdownItem >
-                <Link to="/best-board" className="li">
-                  BeST Board of Officers
+                  Becarios De Santo Tomas
                   </Link>
               </DropdownItem>
               <DropdownItem >

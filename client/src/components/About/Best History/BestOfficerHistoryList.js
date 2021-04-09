@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { organization } from './data/OfficersData'
+import { organization } from '../data/OfficersData'
 import BestOfficerHistory from './BestOfficerHistory';
-import NavBar from '../NavBar';
+import NavBar from '../../NavBar';
 
 const BestOfficerHistoryList = () => {
 

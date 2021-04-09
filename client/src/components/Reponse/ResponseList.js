@@ -6,7 +6,9 @@ import { getResponses, updateResponse, createResponse } from '../../actions/resp
 import { deleteResponse } from '../../actions/responseActions'
 import ResponseForm from './ResponseForm';
 
-const ResponseList = ({ contentId }) => {
+const ResponseList = ({ match }) => {
+
+    const contentId = match.params.id
 
     const dispatch = useDispatch()
     const response = useSelector(state => state.response.responseList)

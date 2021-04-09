@@ -16,7 +16,7 @@ const response = (state = initialState, action) => {
         case act.GET_ALL_RESPONSES:
             return { ...state, responseList: action.payload, loading: false, message: null};
         case act.GET_RESPONSE:
-            return { ...state, response: action.payload };
+            return { ...state, response: action.payload, loading: false, message: null };
         case act.CREATE_RESPONSE:
             return { ...state, responseList: [action.payload.response, ...state.responseList], message: null}
         case act.UPDATE_RESPONSE:

@@ -12,7 +12,7 @@ const NewsList = () => {
 
     const dispatch = useDispatch()
     const content = useSelector(state => state.content.contentList)
-
+    const cnt =  useSelector(state => state.content)
     const loading = useSelector(state => state.content.loading)
     const [contentList, setContentList] = useState([])
     const [order, setOrder] = useState('')
@@ -22,8 +22,11 @@ const NewsList = () => {
 
     useEffect(() => {
         dispatch(getContentByCategory('news'));
-        setContentList(content)
     }, [])
+
+    useEffect(() => {
+        console.log(cnt)
+    }, [content])
 
     useEffect(() => {
         setContentList(content)

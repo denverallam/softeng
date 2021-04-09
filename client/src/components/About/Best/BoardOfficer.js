@@ -6,11 +6,11 @@ const BoardOfficer = ({ officer }) => {
     const toggle = () => setModal(!modal);
 
     return (
-            <div className=" row col-sm-3 mb-4 mx-auto">
-                <div className="col-sm-6">
+            <div className="row col-sm-6 mb-4">
+                <div className="col-sm-4">
                     <CardImg src={officer.image} className="img-fluid rounded" />
                 </div>
-                <Card className="my-2 col-sm-6 border-0" onClick={toggle}>
+                <Card className="my-2 col-sm-8 border-0" onClick={toggle}>
                     <CardTitle className="board-name">{officer.name}</CardTitle>
                     <CardSubtitle className="board-position">{officer.position}</CardSubtitle>
                 </Card>
