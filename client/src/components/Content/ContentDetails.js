@@ -1,6 +1,6 @@
 
 
-import { useEffect } from 'react';
+import { useEffect, Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import ResponseList from '../Reponse/ResponseList'
 import Load from './Load'
@@ -37,7 +37,7 @@ const ContentDetails = ({ match }) => {
     return (
         <>
             <NavBar />
-            <div className="container-sm mb-5">
+            <div className="container mb-5 p-4">
                 {loading ? <Load /> :
                     <div>
                         <div className="border-bottom border-dark">
@@ -47,18 +47,21 @@ const ContentDetails = ({ match }) => {
                             <div className="text mt-4">
                                 {printLine(content.description || "")}
                             </div>
+
+                             <div>
                             {
                                 content.selectedFile ?
-                                    <CardImg src={content.selectedFile}/>
+                                    <div className="container">
+                                        <img src={content.selectedFile} className="rounded img-fluid"/>
+                                    </div>
                                     : <></>
                             }
                             <div className="text mt-4">
                                 {ReactHtmlParser(content.content)}
                             </div>
+                            </div>   
+
                         </div>
-                        {/* <div>
-                            <ResponseList contentId={content._id} />
-                        </div> */}
                     </div>
                 }
             </div>

@@ -54,7 +54,6 @@ const Response = ({ response, deleteResponse }) => {
                     <div className="row">
                         <Link to={`/admin/post/${response.content_id}`}>
                             <CardTitle className="display-5 article-link"><span style={{ fontWeight: 'bold' }}>By {response.author}</span></CardTitle>
-
                         </Link>
                         <DeleteIcon onClick={toggle} className="ml-auto" />
                         {confirm(response._id)}

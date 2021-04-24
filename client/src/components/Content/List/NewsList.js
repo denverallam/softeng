@@ -7,12 +7,15 @@ import { getContentByCategory } from '../../../actions/contentActions';
 import Load from '../Load';
 import NavBar from '../../NavBar';
 import { listSorter } from '../../../sort';
+import moment from 'moment';
 
 const NewsList = () => {
 
+
+
     const dispatch = useDispatch()
     const content = useSelector(state => state.content.contentList)
-    const cnt =  useSelector(state => state.content)
+    const cnt = useSelector(state => state.content)
     const loading = useSelector(state => state.content.loading)
     const [contentList, setContentList] = useState([])
     const [order, setOrder] = useState('')
@@ -34,6 +37,7 @@ const NewsList = () => {
 
     listSorter(order, contentList)
 
+    const today = Date.now()
     return (
         <>
             <NavBar />
@@ -48,7 +52,7 @@ const NewsList = () => {
                                         <Dropdown isOpen={dropdownOpen} toggle={toggle}>
                                             <DropdownToggle caret color="white">
                                                 Sort
-                </DropdownToggle>
+                                            </DropdownToggle>
                                             <DropdownMenu>
                                                 <DropdownItem onClick={() => setOrder('OLDEST')}>By Date (Oldest)</DropdownItem>
                                                 <DropdownItem onClick={() => setOrder('LATEST')}>By Date (Latest)</DropdownItem>
@@ -63,7 +67,9 @@ const NewsList = () => {
                                     {
                                         contentList.map(content => (
                                             <ListGroupItem className="border-0" key={content._id}>
-                                                <Content content={content} />
+                                                {(moment(new Date()).toISOString() >= moment(content.date).toISOString() ?
+                                                    <Content content={content} /> : ''
+                                                )}
                                             </ListGroupItem>
                                         ))
                                     }

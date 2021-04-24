@@ -32,6 +32,10 @@
   text-decoration: none;
 }
 
+.response {
+  font-size: 12pt;
+}
+
 .dropdown-content1 {
   /* display: none; */
   /* position: absolute; */

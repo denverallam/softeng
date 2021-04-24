@@ -37,7 +37,7 @@ const NavBar = () => {
             </Link>
           </NavItem>
           <UncontrolledDropdown nav inNavbar className="mx-3  li ">
-            <DropdownToggle nav caret >
+            <DropdownToggle nav >
               <span className="li">
                 Features
                 </span>
@@ -65,8 +65,8 @@ const NavBar = () => {
               <span> Beyond Espana</span>
             </Link>
           </NavItem>
-          <UncontrolledDropdown nav inNavbar className="mx-3 li ">
-            <DropdownToggle nav caret >
+          <UncontrolledDropdown nav inNavbar className="mx-3 my-auto li ">
+            <DropdownToggle nav >
               <span className="li">
                 About
                 </span>

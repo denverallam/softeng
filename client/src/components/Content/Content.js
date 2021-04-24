@@ -18,7 +18,7 @@ const Content = ({ content }) => {
 
     const user = useSelector(state => state.user)
 
-    
+
 
     const [newContent, setNewContent] = useState({
         views: 0,
@@ -51,21 +51,21 @@ const Content = ({ content }) => {
     }
 
     return (
-        <div className="container row border border-info mx-auto">
-            <div className="col-sm-4 my-auto">
-                <img src={content.selectedFile || best} className="rounded img-fluid border-0"/>
-            </div>
-            <div className="col-sm-8 border-0">
-                <CardBody className="container">
-                    <h5 className="link">{content.title}</h5>
-                    <p className="byline text-muted">By {content.author}. {moment(content.date).toString().substr(4, 11)}</p>
-                    {/* <p className="text my-2">{ReactHtmlParser(cutContent(content.content))}</p> */}
-                </CardBody>
-            </div>
-            <Link to={`/post/${content._id}`} onClick={increaseViews} className="mx-auto">
-                <p className="text-center article-link">READ FULL ARTICLE</p>
-            </Link>
-        </div >
+            <div className="fragment row border border-info mx-auto">
+                <div className="col-sm-4 my-auto d-none d-sm-block">
+                    <CardImg src={content.selectedFile || best} className="rounded img-fluid border-0" />
+                </div>
+                <div className="col-sm-8 border-0 mt-2">
+                    <div className="container">
+                        <h5 className="link">{content.title}</h5>
+                        <p className="byline text-muted">By {content.author}. {moment(content.date).toString().substr(4, 11)}</p>
+                        {/* <p className="text my-2">{ReactHtmlParser(cutContent(content.content))}</p> */}
+                    </div>
+                </div>
+                <Link to={`/post/${content._id}`} onClick={increaseViews} className="mx-auto">
+                    <p className="text-center article-link">READ FULL ARTICLE</p>
+                </Link>
+            </div >
     )
 }
 

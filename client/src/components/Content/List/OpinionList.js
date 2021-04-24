@@ -7,6 +7,7 @@ import {  deleteContent, getContentByCategory } from '../../../actions/contentAc
 import Load from '../Load';
 import NavBar from '../../NavBar';
 import { listSorter } from '../../../sort';
+import moment from 'moment';
 
 const OpinionList = () => {
 
@@ -62,10 +63,12 @@ const OpinionList = () => {
                                     <></>
                                 }
                                 <ListGroup>
-                                    {
+                                {
                                         contentList.map(content => (
                                             <ListGroupItem className="border-0" key={content._id}>
-                                                <Content content={content} deleteContent={deleteItem} />
+                                                {(moment(new Date()).toISOString() >= moment(content.date).toISOString() ?
+                                                    <Content content={content} /> : ''
+                                                )}
                                             </ListGroupItem>
                                         ))
                                     }

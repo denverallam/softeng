@@ -3,57 +3,59 @@ import president from './president.png'
 export const boardOfficers = [
     {
         image: president,
-        name:'Rendzborg Bautista',
-        position: 'President'
+        position: "PRESIDENT",
+        name: "Rendzborg Bautista"
     },
     {
         image: president,
-        name:'Rendzborg Bautista',
-        position: 'President'
+        position: "TRAINING DIRECTOR",
+        name: "Philomena Rita Valera"
     },
     {
         image: president,
-        name:'Rendzborg Bautista',
-        position: 'President'
+        position: "EXECUTIVE VICE PRESIDENT FOR INTERNAL AFFAIRS",
+        name: "Adel Lorenzo Tantay"
     },
     {
         image: president,
-        name:'Rendzborg Bautista',
-        position: 'President'
+        position: "EXECUTIVE VICE PRESIDENT FOR EXTERNAL AFFAIRS",
+        name: "Jessica Laguitao"
     },
     {
         image: president,
-        name:'Rendzborg Bautista',
-        position: 'President'
+        position: "VICE PRESIDENT FOR ADMINISTRATIVE AFFAIRS",
+        name: "Helen Mari Publico"
     },
     {
         image: president,
-        name:'Rendzborg Bautista',
-        position: 'President'
+        position: "ASSISTANT TO THE VICE PRESIDENT FOR ADMINISTRATIVE AFFAIRS",
+        name: "Maricris Pangilinan"
     },
     {
         image: president,
-        name:'Rendzborg Bautista',
-        position: 'President'
+        position: "VICE PRESIDENT FOR FINANCE",
+        name: "Ephraim Justin Salvador"
     },
     {
         image: president,
-        name:'Rendzborg Bautista',
-        position: 'President'
+        position: "ASSISTANT TO THE VICE PRESIDENT FOR FINANCE",
+        name: "Jacob Santillan"
+    },
+
+    {
+        image: president,
+        position: "VICE PRESIDENT FOR AUDIT AND LOGISTICS",
+        name: "Jerald Dale Llorente"
     },
     {
         image: president,
-        name:'Rendzborg Bautista',
-        position: 'President'
+        position: "PUBLIC RELATIONS OFFICER",
+        name: "Dominique Gamboa"
     },
     {
         image: president,
-        name:'Rendzborg Bautista',
-        position: 'President'
+        position: "CHIEF-OF-STAFF",
+        name: "Shane Patrick Welba"
     },
-    {
-        image: president,
-        name:'Rendzborg Bautista',
-        position: 'President'
-    }
+
 ]

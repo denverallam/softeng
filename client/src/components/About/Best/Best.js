@@ -3,6 +3,7 @@ import BoardOfficerList from "./BoardOfficerList"
 import { Card, CardTitle, CardSubtitle, Modal, ModalHeader, ModalBody, CardBody } from 'reactstrap';
 import { useState, Fragment } from 'react'
 import { committee } from '../data/CommiteeData'
+import CommitteeList from "./CommitteeList";
 
 const Best = () => {
 
@@ -51,12 +52,13 @@ const Best = () => {
                     <p className="text-mission"> Becarios de Santo Tomas, the Sole Scholars Association of the University of Santo Tomas, envisions itself to be a formative organization that produces scholars who are competitive and equipped with Thomasian virtues.</p>
                 </div>
             </div>
-            <div className="container row mx-auto">
-                {
-                    committee.map((committee, index) => (
-                        comm(committee)
+            <div>
+                {/* {
+                    committee.map((com) => (
+                        comm(com)
                     ))
-                }
+                } */}
+                <CommitteeList committee={committee}/>
             </div>
         </Fragment>
     )

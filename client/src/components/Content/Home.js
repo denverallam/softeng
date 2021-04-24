@@ -61,7 +61,8 @@ const Home = (props) => {
   const contentSlides = content.map((content) => {
     return (
       <CarouselItem onExiting={() => setAnimating(true)} onExited={() => setAnimating(false)} key={content._id}>
-        <CardImg src={content.selectedFile || best} className="img-fluid rounded img-thumbnail border-0" />
+        {/* <CardImg src={content.selectedFile || best} className="img-fluid rounded img-thumbnail border-0" /> */}
+        <CardImg src={best} className="img-fluid rounded img-thumbnail border-0" />
         <Link to={`post/${content._id}`}>
           <CarouselCaption captionHeader={content.title} className="home" />
         </Link>
@@ -82,8 +83,8 @@ const Home = (props) => {
             {/* <CarouselIndicators items={items} contentList={contentList} activeIndex={activeIndex} onClickHandler={goToIndex} /> */}
             {contentSlides}
             <div>
-              <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} className="btn-warning" />
-              <CarouselControl direction="next" directionText="Next" onClickHandler={next} className="btn-warning" />
+              <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous}  />
+              <CarouselControl direction="next" directionText="Next" onClickHandler={next}  />
             </div>
           </Carousel>
         }

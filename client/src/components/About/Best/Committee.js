@@ -1,18 +1,16 @@
-
-import { boardOfficers } from '../data/BoardOfficerData'
-import { Card, CardTitle, Modal, ModalHeader, ModalBody } from 'reactstrap';
+import { Card, CardTitle, Modal, ModalHeader, ModalBody, CardBody } from 'reactstrap';
 import { useState } from 'react'
-import BoardOfficer from './BoardOfficer';
 
-const BoardOfficerList = () => {
+const Committee = ({comm}) => {
+
 
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
 
-    const comm = (committee) => {
+
+    const comms = (committee) => {
         return (
-            <div>
-                <Card className="my-2 text-center officer-container p-2" onClick={toggle}>
+                <Card className="text-center blue-bg p-4" onClick={toggle}>
                     <CardTitle className="committee-title pt-3 officer-title"> {committee.position}</CardTitle>
                     <Modal isOpen={modal} toggle={toggle} className="modal-md modal-dialog-centered modal-dialog-scrollable">
                         <ModalHeader toggle={toggle} className="committee-container p-2">
@@ -29,28 +27,14 @@ const BoardOfficerList = () => {
                         </ModalBody>
                     </Modal>
                 </Card>
-            </div>
-
         )
     }
 
-
     return (
-        <div className="container">
-            <div className="my-4 container">
-                <h4 className="board-header">BOARD OF OFFICERS</h4>
-                <h4 className="board-header">2020-2021</h4>
-            </div>
-
-            <div className="container-fluid row">
-                {
-                    boardOfficers.map((officer, index) => (
-                        <BoardOfficer officer={officer} key={index} />
-                    ))
-                }
-            </div>
+        <div className="col-sm-3 my-2">
+            {comms(comm)}
         </div>
     )
 }
 
-export default BoardOfficerList
+export default Committee
