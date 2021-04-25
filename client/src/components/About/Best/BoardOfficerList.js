@@ -1,6 +1,5 @@
 
 import { boardOfficers } from '../data/BoardOfficerData'
-import { Card, CardTitle, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import { useState } from 'react'
 import BoardOfficer from './BoardOfficer';
 
@@ -8,31 +7,6 @@ const BoardOfficerList = () => {
 
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
-
-    const comm = (committee) => {
-        return (
-            <div>
-                <Card className="my-2 text-center officer-container p-2" onClick={toggle}>
-                    <CardTitle className="committee-title pt-3 officer-title"> {committee.position}</CardTitle>
-                    <Modal isOpen={modal} toggle={toggle} className="modal-md modal-dialog-centered modal-dialog-scrollable">
-                        <ModalHeader toggle={toggle} className="committee-container p-2">
-                            {committee.position}
-                        </ModalHeader>
-                        <ModalBody className="committee-container p-2">
-                            {
-                                committee.names.map(name => (
-                                    <div>
-                                        <span className="name">{name} </span>
-                                    </div>
-                                ))
-                            }
-                        </ModalBody>
-                    </Modal>
-                </Card>
-            </div>
-
-        )
-    }
 
 
     return (

@@ -1,56 +1,71 @@
-scheme = ['Santo Tomas Scholar', 'San Lorenzo Ruiz Scholar', ]
-positions = ['Editor In Chief']
+import president from './president.png'
+
+export const positions = ['Editor In Chief']
 
 export const editorialBoard = [
     {
         name: 'Criscelle Corpuz',
-        position: positions[0]
+        position: positions[0],
+        image:president
     },
     {
         name: 'Criscelle Corpuz',
-        position: positions[0]
+        position: positions[0],
+        image:president
     },
     {
         name: 'Criscelle Corpuz',
-        position: positions[0]
+        position: positions[0],
+        image:president
+
     },
     {
         name: 'Criscelle Corpuz',
-        position: positions[0]
+        position: positions[0],
+        image:president
     }
+
 ]   
 
-export const secondEditor = [
+export const sectionEditors = [
     {
         name: 'Criscelle Corpuz',
-        position: positions[0]
+        position: positions[0],
+        image:president
     },
     {
         name: 'Criscelle Corpuz',
-        position: positions[0]
+        position: positions[0],
+        image:president
     },
     {
         name: 'Criscelle Corpuz',
-        position: positions[0]
+        position: positions[0],
+        image:president
     },
     {
         name: 'Criscelle Corpuz',
-        position: positions[0]
+        position: positions[0],
+        image:president
     },
     {
         name: 'Criscelle Corpuz',
-        position: positions[0]
+        position: positions[0],
+        image:president
     },
     {
         name: 'Criscelle Corpuz',
-        position: positions[0]
+        position: positions[0],
+        image:president
     },
     {
         name: 'Criscelle Corpuz',
-        position: positions[0]
+        position: positions[0],
+        image:president
     },
     {
         name: 'Criscelle Corpuz',
-        position: positions[0]
+        position: positions[0],
+        image:president
     }
 ]   
