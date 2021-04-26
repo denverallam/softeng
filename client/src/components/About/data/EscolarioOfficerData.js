@@ -1,4 +1,4 @@
-import president from './president.png'
+import president from './escolariologo.png'
 
 export const positions = ['Editor In Chief']
 

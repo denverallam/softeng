@@ -10,7 +10,6 @@ const Best = () => {
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
 
-
     return (
         <Fragment>
             <NavBar />

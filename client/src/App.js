@@ -32,6 +32,7 @@ import ForgotPassword from './components/Admin/User/ForgotPassword';
 import BoardOfficerList from './components/About/Best/BoardOfficerList';
 import ErrorBoundary from './components/ErrorBoundary';
 import { Container } from 'reactstrap';
+import Homepage from './components/Content/Homepage';
 
 const App = () => {
 
@@ -46,6 +47,7 @@ const App = () => {
         <Switch>
           <ErrorBoundary>
             <Route path='/' exact component={Home} />
+            <Route path='/home' exact component={Homepage} />
             <Route path='/about' exact component={Escolario} />
             <Route path='/about-best' exact component={Best} />
             <Route path='/about-best-officers-history' exact component={BestOfficerHistoryList} />

@@ -27,7 +27,7 @@ const ContentList = () => {
 
     const filterSearch = (input) => {
         setContentList(content.contentList.filter(content => {
-            return content.title.toLowerCase().includes(input.toLowerCase())
+            return content.title.toLowerCase().includes(input.toLowerCase()) || content.author.toLowerCase().includes(input.toLowerCase())
         }))
 
         if(!contentList){
@@ -68,7 +68,7 @@ const ContentList = () => {
                     loading ? <Load /> :
                         contentList.length > 0 ?
                             <>
-                                {contentList.length > 1 ?
+                                {(contentList.length > 1 && !isSearching)  ?
                                     <Order setValue={setOrder} />
                                     :
                                     <></>

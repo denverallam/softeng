@@ -28,7 +28,7 @@ const NavBar = () => {
             <Link to="/" className="li">
               <span>
                 Home
-                </span>
+              </span>
             </Link>
           </NavItem>
           <NavItem className="mx-3 my-auto li">
@@ -36,17 +36,17 @@ const NavBar = () => {
               <span>News</span>
             </Link>
           </NavItem>
-          <UncontrolledDropdown nav inNavbar className="mx-3  li ">
+          <UncontrolledDropdown nav inNavbar className="mx-3 my-auto li ">
             <DropdownToggle nav >
               <span className="li">
                 Features
-                </span>
+              </span>
             </DropdownToggle>
             <DropdownMenu left>
               <DropdownItem >
                 <Link to="/features" className="li">
-                  Features
-                  </Link>
+                  Feature Articles
+                </Link>
               </DropdownItem>
               <DropdownItem >
                 <Link to="/literary" className="li">

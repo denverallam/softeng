@@ -25,6 +25,10 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
         email: '',
     })
 
+    const validateEmail = (email) => {
+        const re = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum)\b/
+        return re.test(String(email).toLowerCase());
+    }
 
     useEffect(() => {
         if (locViewer) {
@@ -76,11 +80,21 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
 
     const handleLogin = (e) => {
         e.preventDefault();
-        if (viewer.email && viewer.username) {
-            dispatch(viewLogin(viewer))
+        console.log(validateEmail(viewer.email))
+        if (validateEmail(viewer.email) === true){
+            if (viewer.email && viewer.username) {
+            
+                dispatch(viewLogin(viewer))
+            }
+            else {
+                setError('Please enter your name and email')
+                setTimeout(() => {
+                    setError("");
+                }, 5000);
+            }
         }
-        else {
-            setError('Please enter your name and email')
+        else{
+            setError('Please enter a valid email')
             setTimeout(() => {
                 setError("");
             }, 5000);

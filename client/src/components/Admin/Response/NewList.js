@@ -42,12 +42,17 @@ const NewList = ({ response, deleteResponse }) => {
     }
 
     const link = (id) => (
-        <Link to={`/admin/post/${id}`}/>
+        <Link to={`/admin/post/${id}`} />
     )
 
     return (
         <ul className="list-group list-group-horizontal-sm row response text-center mt-2">
-            <li className="list-group-item col-sm-3">{response.author}</li>
+            <li className="list-group-item col-sm-3">
+                <Link target={"_blank"} to={`/admin/post/${response.content_id}`} className="li">
+                    {response.author}
+                </Link>
+            </li>
+
             <li className="list-group-item col-sm-5" onClick={expandToggle}>{
                 !expand ? cutContent(response.content) : response.content
             }</li>

@@ -49,7 +49,7 @@ const ResponseList = () => {
                                 } */}
                                 <ul className="list-group list-group-horizontal-sm row mb-2 text-center">
                                     <li className="list-group-item col-sm-3">Author</li>
-                                    <li className="list-group-item col-sm-5">Content</li>
+                                    <li className="list-group-item col-sm-5">Response</li>
                                     <li className="list-group-item col-sm-2">Date</li>
                                     <li className="list-group-item col-sm-2">Action</li>
                                 </ul>

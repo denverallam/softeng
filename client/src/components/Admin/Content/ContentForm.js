@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useDispatch} from 'react-redux'
+import { useState, useEffect, Fragment } from 'react';
+import { useDispatch, useSelector} from 'react-redux'
 import { Button, FormGroup, Label, Input } from 'reactstrap';
 import { createContent } from '../../../actions/contentActions'
 import FileBase from 'react-file-base64'
@@ -10,6 +10,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 const ContentForm = () => {
 
+  const content = useSelector(state => state.content)
   const dispatch = useDispatch()
 
   const [newContent, setNewContent] = useState({
@@ -31,6 +32,11 @@ const ContentForm = () => {
     });
   }
 
+  useEffect(()=> {
+    if(content.success){
+      alert('Added')
+    }
+  },[content])
 
   const handleChange = (e) => {
     setNewContent({ ...newContent, [e.target.name]: e.target.value })
@@ -38,10 +44,10 @@ const ContentForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (newContent.title && newContent.author && newContent.content && newContent.category) {
+    if (newContent.title && newContent.author && newContent.content && newContent.category && newContent.description) {
       dispatch(createContent(newContent));
       clear()
-      alert("Added");
+      // alert("Added");
     }
     else {
       alert("Invalid Input")
@@ -51,8 +57,7 @@ const ContentForm = () => {
 
 
   return (
-    <>
-      {/* <ResponsiveDrawer/> */}
+    <Fragment>
       <Dashboard />
       <div className="container my-5 border p-5 border-info">
         <form onSubmit={handleSubmit}>
@@ -86,7 +91,7 @@ const ContentForm = () => {
               id="content"
               data={newContent.content}
               editor={ClassicEditor}
-              onChange={(e, editor) => { setNewContent({ ...newContent, content: editor.getData()}); console.log(editor) }}
+              onChange={(e, editor) => { setNewContent({ ...newContent, content: editor.getData()})}}
             />
           </div>
           <div>
@@ -99,7 +104,7 @@ const ContentForm = () => {
           <Button type="submit" color="primary">Publish</Button>
         </form>
       </div>
-    </>
+    </Fragment>
   )
 }
 

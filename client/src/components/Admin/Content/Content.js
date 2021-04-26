@@ -50,7 +50,7 @@ const Content = ({ content, deleteContent }) => {
     return (
         <Card className="container border border-info">
             <CardBody>
-                <Link to={`/admin/post/${content._id}`} >
+                <Link to={`/admin/post/${content._id}`}  target={"_blank"}>
                     <h5 className="article-link">{content.title}</h5>
                 </Link>
                 <p className="text-muted">by {content.author}. {moment(content.date).toString().substr(4, 11)}</p>
