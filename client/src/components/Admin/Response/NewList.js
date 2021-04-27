@@ -48,7 +48,7 @@ const NewList = ({ response, deleteResponse }) => {
     return (
         <ul className="list-group list-group-horizontal-sm row response text-center mt-2">
             <li className="list-group-item col-sm-3">
-                <Link target={"_blank"} to={`/admin/post/${response.content_id}`} className="li">
+                <Link target={"_blank"} to={`/post/${response.content_id}`} className="li">
                     {response.author}
                 </Link>
             </li>

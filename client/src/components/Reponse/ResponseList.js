@@ -6,26 +6,25 @@ import { getResponses, updateResponse, createResponse } from '../../actions/resp
 import { deleteResponse } from '../../actions/responseActions'
 import ResponseForm from './ResponseForm';
 
-const ResponseList = ({ match }) => {
+const ResponseList = ({ contentId }) => {
 
-    const contentId = match.params.id
+    // const contentId = match.params.id
 
     const dispatch = useDispatch()
     const response = useSelector(state => state.response.responseList)
 
-    const [responseList, setResponseList] = useState(response)
+    const [responseList, setResponseList] = useState('')
     const [responseId, setResponseId] = useState("")
 
     useEffect(() => {
         dispatch(getResponses(contentId))
-        setResponseList(response)
+        setResponseList(response.reverse())
     },[])
 
     useEffect(() => {
         dispatch(getResponses(contentId))
-        setResponseList(response)
+        setResponseList(response.reverse())
     },[responseList])
-
 
     const deleteItem = (id) => {
         dispatch(deleteResponse(id))

@@ -39,6 +39,7 @@ const ContentDetails = ({ match }) => {
             <NavBar />
             <div className="container mb-5 p-4">
                 {loading ? <Load /> :
+                <>
                     <div>
                         <div className="border-bottom border-dark">
                             <h1 className="page-title text-center mx-auto my-0">{content.category}</h1>
@@ -63,6 +64,8 @@ const ContentDetails = ({ match }) => {
 
                         </div>
                     </div>
+                    <ResponseList contentId={contentId}/>
+                    </>
                 }
             </div>
         </>

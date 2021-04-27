@@ -3,10 +3,10 @@ import NavBar from "./NavBar"
 const Error = () => {
     return (
         <>
-        <NavBar/>
-        <div className="text-center my-2 page-title">
-            <p>Error 404: Page not found</p>
-        </div>
+            <div className="container text-center">
+                <p className="my-2 notfound">Page not found</p>
+                <a href="/" className="link ">Go back</a>
+            </div>
         </>
     )
 }

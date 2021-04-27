@@ -25,7 +25,7 @@ const Order = ({setValue}) => {
                 <DropdownMenu>
                     <DropdownItem value='OLDEST' onClick={handleChange}>By Date (Oldest)</DropdownItem>
                     <DropdownItem value='LATEST' onClick={handleChange}>By Date (Latest)</DropdownItem>
-                    <DropdownItem value='ALPHABET' onClick={handleChange}>Alphabetically</DropdownItem>
+                    <DropdownItem value='ALPHABET' onClick={handleChange}>By Title</DropdownItem>
                     <DropdownItem value='VIEWS' onClick={handleChange}>By Views</DropdownItem>
                 </DropdownMenu>
             </Dropdown>

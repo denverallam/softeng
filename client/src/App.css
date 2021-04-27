@@ -168,13 +168,21 @@
 
 .headline1{
   font-family: 'Raleway', sans-serif;
-  font-size: 25px;
+  font-size: 25pt;
   text-transform: uppercase;
+}
+
+.notfound{
+  font-family: 'Raleway', sans-serif;
+  font-size: 3rem;
+  text-transform: uppercase;
+  color: #002e5d;
+
 }
 
 .byline{
   font-family: 'Raleway', sans-serif;
-  font-size: 25px;
+  font-size: 15pt;
   text-align: left;
 }
 

@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import {editorialBoard, sectionEditors} from '../data/EscolarioOfficerData'
+import {editorialBoard, sectionEditors, sectionWriters} from '../data/EscolarioOfficerData'
 import EditorialBoard from './EditorialBoard';
 
 const EditorialBoardList = () => {
@@ -26,6 +26,16 @@ const EditorialBoardList = () => {
             <div className="container-fluid row">
                 {
                     sectionEditors.map((officer, index) => (
+                        <EditorialBoard officer={officer} key={index} />
+                    ))
+                }
+            </div>
+            <div className="my-4 container">
+                <h3 className="board-header text-center">SECTION WRITERS</h3>
+            </div>
+            <div className="container-fluid row">
+                {
+                    sectionWriters.map((officer, index) => (
                         <EditorialBoard officer={officer} key={index} />
                     ))
                 }

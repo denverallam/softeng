@@ -73,12 +73,13 @@ const Home = (props) => {
   return (
     <>
       <NavBar />
-      <div className="container mt-5 col-sm-6">
+      <div className="container mt-5">
         {loading ? <Load /> :
           <Carousel
             activeIndex={activeIndex}
             next={next}
             previous={previous}
+            className="border border-info rounded"
           >
             {/* <CarouselIndicators items={items} contentList={contentList} activeIndex={activeIndex} onClickHandler={goToIndex} /> */}
             {contentSlides}

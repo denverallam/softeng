@@ -42,10 +42,12 @@ const App = () => {
 
   return (
     <Fragment>
+
       <Router>
         <Header />
-        <Switch>
-          <ErrorBoundary>
+        <ErrorBoundary>
+
+          <Switch>
             <Route path='/' exact component={Home} />
             <Route path='/home' exact component={Homepage} />
             <Route path='/about' exact component={Escolario} />
@@ -57,7 +59,6 @@ const App = () => {
             <Route path='/opinion' exact component={OpinionList} />
             <Route path='/beyond-espana' exact component={BeyondEspanaList} />
             <Route path='/post/:id' exact component={ContentDetails} />
-            <Route path='/post/:id' exact component={Responses} />
 
             <Route path='/login' exact component={Login} />
             <Route path='/reset-password/:resetToken' component={ResetPassword} />
@@ -70,12 +71,16 @@ const App = () => {
             <PrivateRoute path='/admin/post/:id' user={user || localUser} isAdmin={user?.result?.isAdmin || localUser?.result?.isAdmin} exact component={ViewDetails} />
             <PrivateRoute path='/admin/response' user={user || localUser} isAdmin={user?.result?.isAdmin || localUser?.result?.isAdmin} exact component={ResponseList} />
             <PrivateRoute path='/change-password' user={user || localUser} isAdmin={user?.result?.isAdmin || localUser?.result?.isAdmin} exact component={ChangePassword} />
-          </ErrorBoundary>
 
-          <Route component={Error} />
-        </Switch>
+            <Route exact component={Error} />
+
+          </Switch>
+        </ErrorBoundary>
+
       </Router>
+
     </Fragment>
+
   )
 }
 export default App

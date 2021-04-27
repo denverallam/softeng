@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Content from './Content';
 import { Input, ListGroup, ListGroupItem } from 'reactstrap';
@@ -58,7 +58,7 @@ const ContentList = () => {
 
 
     return (
-        <>
+        <Fragment>
             <Dashboard />
             <div className="container mt-2">
                 <Input type="text" name="title" id="title" onChange={(e) => filterSearch(e.target.value)} />
@@ -88,7 +88,7 @@ const ContentList = () => {
                              <p className="text-center">{isSearching ? "No match found" : "No articles posted"}</p>
                 }
             </div >
-        </>
+        </Fragment>
     )
 }
 

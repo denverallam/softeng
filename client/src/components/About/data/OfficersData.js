@@ -337,7 +337,7 @@ export const organization =
             ]
         },
         {
-            name: "ESCOLARES",
+            name: "BECARIOS DE SANTO TOMAS",
             year: "2003-2004",
             officers: [
                 {
@@ -404,7 +404,7 @@ export const organization =
         },
 
         {
-            name: "ESCOLARES",
+            name: "BECARIOS DE SANTO TOMAS",
             year: "2007-2008",
             officers: [
                 {
@@ -467,7 +467,7 @@ export const organization =
         },
 
         {
-            name: "ESCOLARES",
+            name: "BECARIOS DE SANTO TOMAS",
             year: "2008-2009",
             officers: [
                 {
@@ -511,7 +511,7 @@ export const organization =
         },
 
         {
-            name: "ESCOLARES",
+            name: "BECARIOS DE SANTO TOMAS",
             year: "2009-2010",
             officers: [
                 {
@@ -587,7 +587,7 @@ export const organization =
         },
 
         {
-            name: "ESCOLARES",
+            name: "BECARIOS DE SANTO TOMAS",
             year: "2010-2011",
             officers: [
                 {
@@ -663,7 +663,7 @@ export const organization =
         },
 
         {
-            name: "ESCOLARES",
+            name: "BECARIOS DE SANTO TOMAS",
             year: "2011-2012",
             officers: [
                 {
@@ -735,7 +735,7 @@ export const organization =
         },
 
         {
-            name: "ESCOLARES",
+            name: "BECARIOS DE SANTO TOMAS",
             year: "2012-2013",
             officers: [
                 {
@@ -806,7 +806,7 @@ export const organization =
             ]
         },
         {
-            name: "ESCOLARES",
+            name: "BECARIOS DE SANTO TOMAS",
             year: "2013-2014",
             officers: [
                 {
@@ -913,7 +913,7 @@ export const organization =
             ]
         },
         {
-            name: "ESCOLARES",
+            name: "BECARIOS DE SANTO TOMAS",
             year: "2014-2015",
             officers: [
                 {
@@ -1037,7 +1037,7 @@ export const organization =
             ]
         },
         {
-            name: "ESCOLARES",
+            name: "BECARIOS DE SANTO TOMAS",
             year: "2015-2016",
             officers: [
                 {
@@ -1221,7 +1221,7 @@ export const organization =
             ]
         },
         {
-            name: "ESCOLARES",
+            name: "BECARIOS DE SANTO TOMAS",
             year: "2016-2017",
             officers: [
                 {
@@ -1365,7 +1365,7 @@ export const organization =
             ]
         },
         {
-            name: "ESCOLARES",
+            name: "BECARIOS DE SANTO TOMAS",
             year: "2017-2018",
             officers: [
                 {
@@ -1536,7 +1536,7 @@ export const organization =
             ]
         },
         {
-            name: "ESCOLARES",
+            name: "BECARIOS DE SANTO TOMAS",
             year: "2018-2019",
             officers: [
                 {
@@ -1644,7 +1644,7 @@ export const organization =
             ]
         },
         {
-            name: "ESCOLARES",
+            name: "BECARIOS DE SANTO TOMAS",
             year: "2019-2020",
             officers: [
                 {
@@ -1728,7 +1728,7 @@ export const organization =
             ]
         },
         {
-            name: "ESCOLARES",
+            name: "BECARIOS DE SANTO TOMAS",
             year: "2020-2021",
             officers: [
                 {

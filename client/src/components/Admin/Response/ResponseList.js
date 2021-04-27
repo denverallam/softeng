@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Response from './Response';
 import NewList from './NewList';
-import { Button, ButtonGroup, ListGroup, ListGroupItem } from 'reactstrap';
+import { Input } from 'reactstrap';
 import Load from '../../Content/Load';
 import Dashboard from '../Dashboard';
 import { getAllResponses, deleteResponse } from '../../../actions/responseActions';
@@ -22,31 +22,31 @@ const ResponseList = () => {
     useEffect(() => {
         dispatch(getAllResponses());
         setResponseList(response)
-    }, [responseList])
+    }, [])
+
+    useEffect(() => {
+        setResponseList(response)
+    }, [response])
+
+    const filterSearch = (input) => {
+        setResponseList(response.filter(response => {
+            return response.content.toLowerCase().includes(input.toLowerCase()) || response.author.toLowerCase().includes(input.toLowerCase())
+        }))
+    }
 
     return (
-        <>
+        <Fragment>
             <Dashboard />
+            <div className="container mt-2">
+                <Input type="text" name="title" id="title" onChange={(e) => filterSearch(e.target.value)} />
+            </div>
             <div>
                 {
                     loading ? <Load /> :
-                        response.length > 0 ?
+                        responseList.length > 0 ?
 
                             <div className="container my-5">
-                                {/* {response.length > 1 ?
-                                    <div className="container">
-                                        <Dropdown isOpen={dropdownOpen} toggle={toggle} >
-                                            <DropdownToggle caret color="white">
-                                                Sort
-                                        </DropdownToggle>
-                                            <DropdownMenu>
-                                                <DropdownItem onClick={() => setOrder('OLDEST')}>By Date (Oldest)</DropdownItem>
-                                                <DropdownItem onClick={() => setOrder('LATEST')}>By Date (Latest)</DropdownItem>
-                                            </DropdownMenu>
-                                        </Dropdown>
-                                    </div> :
-                                    <></>
-                                } */}
+
                                 <ul className="list-group list-group-horizontal-sm row mb-2 text-center">
                                     <li className="list-group-item col-sm-3">Author</li>
                                     <li className="list-group-item col-sm-5">Response</li>
@@ -63,7 +63,7 @@ const ResponseList = () => {
                                     }
                                 </ListGroup> */}
                                 {
-                                    response.map(res => (
+                                    responseList.map(res => (
                                         <NewList response={res} deleteResponse={deleteItem} />
                                     ))
                                 }
@@ -71,7 +71,7 @@ const ResponseList = () => {
                             <p className="text-center">No Responses</p>
                 }
             </div >
-        </>
+        </Fragment>
     )
 }
 
