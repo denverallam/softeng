@@ -31,12 +31,12 @@ const LiteraryList = () => {
 
     useEffect(() => {
         dispatch(getContentByCategory('literary'));
-        setContentList(content)
     }, [])
 
     useEffect(() => {
-        setContentList(content)
+        setContentList(content.reverse())
     }, [content])
+
 
     return (
         <>

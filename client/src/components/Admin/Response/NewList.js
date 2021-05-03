@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import {
-    Button, Modal, ModalHeader, ModalBody, ModalFooter
+    Button, Modal, ModalHeader, ModalBody, ModalFooter, Table 
 } from 'reactstrap';
 import moment from 'moment';
 

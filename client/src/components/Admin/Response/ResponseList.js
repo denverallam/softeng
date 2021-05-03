@@ -2,9 +2,10 @@ import React, { useState, useEffect, Fragment } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Response from './Response';
 import NewList from './NewList';
-import { Input } from 'reactstrap';
+import { Input, Table } from 'reactstrap';
 import Load from '../../Content/Load';
 import Dashboard from '../Dashboard';
+
 import { getAllResponses, deleteResponse } from '../../../actions/responseActions';
 
 const ResponseList = () => {
@@ -38,7 +39,7 @@ const ResponseList = () => {
         <Fragment>
             <Dashboard />
             <div className="container mt-2">
-                <Input type="text" name="title" id="title" onChange={(e) => filterSearch(e.target.value)} />
+                <Input type="text" name="title" id="title" placeholder='Search Author or Content' onChange={(e) => filterSearch(e.target.value)} />
             </div>
             <div>
                 {

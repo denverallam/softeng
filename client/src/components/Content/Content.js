@@ -8,8 +8,10 @@ import {
     CardSubtitle, Button, CardImg
 } from 'reactstrap';
 import { updateContent } from '../../actions/contentActions'
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import moment from 'moment';
 import ReactHtmlParser from 'react-html-parser';
+import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 
 
 const Content = ({ content }) => {
@@ -51,21 +53,23 @@ const Content = ({ content }) => {
     }
 
     return (
-            <div className="fragment row border border-info mx-auto">
-                <div className="col-sm-4 my-auto d-none d-sm-block">
-                    <CardImg src={content.selectedFile || best} className="rounded img-fluid border-0" />
-                </div>
-                <div className="col-sm-8 border-0 mt-2">
-                    <div className="container">
-                        <h5 className="link">{content.title}</h5>
-                        <p className="byline text-muted">By {content.author}. {moment(content.date).toString().substr(4, 11)}</p>
-                        {/* <p className="text my-2">{ReactHtmlParser(cutContent(content.content))}</p> */}
+        <div className="row border border-info mx-auto">
+            <div className="container col-sm-4 my-auto d-none d-sm-block">
+                <img src={content.selectedFile || best} className="border-0 my-auto" />
+            </div>
+            <div className="col-sm-8 border-0 mt-2">
+                <div className="container content-d">
+                    <p className="link">{content.title}</p>
+                    <div className="container row">
+                            <p className="byline">{moment(content.date).toString().substr(4, 11)}</p>
                     </div>
+                    {/* <p className="text d-none d-sm-block">{ReactHtmlParser(cutContent(content.description))}</p> */}
                 </div>
                 <Link to={`/post/${content._id}`} onClick={increaseViews} className="mx-auto">
                     <p className="text-center article-link">READ FULL ARTICLE</p>
                 </Link>
-            </div >
+            </div>
+        </div >
     )
 }
 

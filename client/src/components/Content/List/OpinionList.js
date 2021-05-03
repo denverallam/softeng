@@ -26,11 +26,10 @@ const OpinionList = () => {
 
     useEffect(() => {
         dispatch(getContentByCategory('opinion'));
-        setContentList(content)
     }, [])
 
     useEffect(() => {
-        setContentList(content)
+        setContentList(content.reverse())
     }, [content])
 
 

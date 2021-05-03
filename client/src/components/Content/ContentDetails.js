@@ -42,9 +42,9 @@ const ContentDetails = ({ match }) => {
                 <>
                     <div>
                         <div className="border-bottom border-dark">
-                            <h1 className="page-title text-center mx-auto my-0">{content.category}</h1>
+                            <p className="page-title text-center my-0">{content.category}</p>
                             <h4 className="headline ">{content.title}</h4>
-                            <p className="byline ">By {content.author}. {moment(content.date).toString().substr(4, 11)}</p>
+                            <p className="byline">By {content.author}. {moment(content.date).toString().substr(4, 11)}</p>
                             <div className="text mt-4">
                                 {printLine(content.description || "")}
                             </div>
@@ -53,11 +53,11 @@ const ContentDetails = ({ match }) => {
                             {
                                 content.selectedFile ?
                                     <div className="container">
-                                        <img src={content.selectedFile} className="rounded img-fluid"/>
+                                        <img src={content.selectedFile} className="rounded"/>
                                     </div>
                                     : <></>
                             }
-                            <div className="text mt-4">
+                            <div className="mt-4 content-text">
                                 {ReactHtmlParser(content.content)}
                             </div>
                             </div>   
@@ -67,6 +67,7 @@ const ContentDetails = ({ match }) => {
                     <ResponseList contentId={contentId}/>
                     </>
                 }
+                
             </div>
         </>
     )

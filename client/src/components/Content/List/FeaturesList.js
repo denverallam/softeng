@@ -26,12 +26,12 @@ const FeaturesList = () => {
 
     useEffect(() => {
         dispatch(getContentByCategory('features'));
-        setContentList(content)
     }, [])
 
     useEffect(() => {
-        setContentList(content)
+        setContentList(content.reverse())
     }, [content])
+
 
     listSorter(order, content)
     return (

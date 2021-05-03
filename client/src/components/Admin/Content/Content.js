@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-
+import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import {
     Card, CardText, CardBody,
     CardTitle, CardSubtitle, Button, CardImg,
@@ -53,7 +54,7 @@ const Content = ({ content, deleteContent }) => {
                 <Link to={`/admin/post/${content._id}`}  target={"_blank"}>
                     <h5 className="article-link">{content.title}</h5>
                 </Link>
-                <p className="text-muted">by {content.author}. {moment(content.date).toString().substr(4, 11)}</p>
+                <p className="byline text-muted">{content.author}. {moment(content.date).toString().substr(4, 11)}</p>
             </CardBody>
             <div className="row ml-auto m-2">
                 <Link to={`/edit/${content._id}`} className="text-dark">

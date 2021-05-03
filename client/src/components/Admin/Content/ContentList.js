@@ -46,22 +46,24 @@ const ContentList = () => {
 
     useEffect(() => {
         dispatch(getAllContent());
-        setContentList(content.contentList)
+        setContentList(content.contentList.reverse())
     }, [])
 
 
     useEffect(() => {
+        setContentList(content.contentList.reverse())
+    }, [content])
+
+
+    useEffect(() => {
         setContentList(content.contentList)
-    }, [content, listSorter,order])
-
-
-
+    }, [order])
 
     return (
         <Fragment>
             <Dashboard />
             <div className="container mt-2">
-                <Input type="text" name="title" id="title" onChange={(e) => filterSearch(e.target.value)} />
+                <Input type="text" name="title" id="title" placeholder='Search Author or Title' onChange={(e) => filterSearch(e.target.value)} />
             </div>
             <div>
                 {
@@ -83,6 +85,7 @@ const ContentList = () => {
                                             ))
                                         }
                                     </ListGroup>
+                                    <a href='#'>Back to top</a>
                                 </>
                             </> :
                              <p className="text-center">{isSearching ? "No match found" : "No articles posted"}</p>

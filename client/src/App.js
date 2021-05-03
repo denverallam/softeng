@@ -1,5 +1,5 @@
 
-import React, { useEffect, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import ContentForm from './components/Admin/Content/ContentForm';
 import ContentUpdate from './components/Admin/Content/ContentUpdate';
 import ContentDetails from './components/Content/ContentDetails';
@@ -17,26 +17,24 @@ import LiteraryList from './components/Content/List/LiteraryList';
 import OpinionList from './components/Content/List/OpinionList';
 import BeyondEspanaList from './components/Content/List/BeyondEspanaList';
 import './App.css'
-
 import Login from './components/Admin/User/Login';
 import Register from './components/Admin/User/Register';
-
 import ChangePassword from './components/Admin/User/ChangePassword';
 import PrivateRoute from './components/Admin/PrivateRoute';
 import ContentList from './components/Admin/Content/ContentList';
 import ResponseList from './components/Admin/Response/ResponseList';
 import Responses from './components/Reponse/ResponseList'
 import Header from './components/Header';
+import Footer from './components/Footer';
 import ResetPassword from './components/Admin/User/ResetPassword';
 import ForgotPassword from './components/Admin/User/ForgotPassword';
 import BoardOfficerList from './components/About/Best/BoardOfficerList';
 import ErrorBoundary from './components/ErrorBoundary';
-import { Container } from 'reactstrap';
 import Homepage from './components/Content/Homepage';
+import ResponsesList from './components/Admin/Response/Responses';
 
 const App = () => {
 
-  const dispatch = useDispatch()
   const localUser = JSON.parse(localStorage.getItem("admin"))
   const user = useSelector(state => state.user.authData)
 
@@ -69,17 +67,20 @@ const App = () => {
             <PrivateRoute path='/admin/new' user={user || localUser} isAdmin={user?.result?.isAdmin || localUser?.result?.isAdmin} exact component={ContentForm} />
             <PrivateRoute path='/admin' user={user || localUser} isAdmin={user?.result?.isAdmin || localUser?.result?.isAdmin} exact component={ContentList} />
             <PrivateRoute path='/admin/post/:id' user={user || localUser} isAdmin={user?.result?.isAdmin || localUser?.result?.isAdmin} exact component={ViewDetails} />
-            <PrivateRoute path='/admin/response' user={user || localUser} isAdmin={user?.result?.isAdmin || localUser?.result?.isAdmin} exact component={ResponseList} />
+            <PrivateRoute path='/admin/response' user={user || localUser} isAdmin={user?.result?.isAdmin || localUser?.result?.isAdmin} exact component={ResponsesList} />
             <PrivateRoute path='/change-password' user={user || localUser} isAdmin={user?.result?.isAdmin || localUser?.result?.isAdmin} exact component={ChangePassword} />
 
             <Route exact component={Error} />
 
           </Switch>
+
+
         </ErrorBoundary>
+        <Footer />
 
       </Router>
 
-    </Fragment>
+    </Fragment >
 
   )
 }

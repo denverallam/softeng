@@ -27,12 +27,9 @@ const NewsList = () => {
         dispatch(getContentByCategory('news'));
     }, [])
 
-    useEffect(() => {
-        console.log(cnt)
-    }, [content])
 
     useEffect(() => {
-        setContentList(content)
+        setContentList(content.reverse())
     }, [content])
 
     listSorter(order, contentList)

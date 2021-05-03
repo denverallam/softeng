@@ -29,11 +29,11 @@ const BeyondEspanaList = () => {
 
     useEffect(() => {
         dispatch(getContentByCategory('beyond-espana'));
-        setContentList(content)
+        setContentList(content.reverse())
     }, [])
 
     useEffect(() => {
-        setContentList(content)
+        setContentList(content.reverse())
     }, [content])
 
     listSorter(order, content)

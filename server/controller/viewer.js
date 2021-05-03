@@ -14,10 +14,10 @@ export const viewerLogin = async (req, res) => {
 
         if (!exisitingViewer) {
             const result = await Viewer.create({ email, username, isAdmin: false });
-            const token = jwt.sign({ email: result.email, id: result._id }, secret, { expiresIn: "1h" });
+            const token = jwt.sign({ email: result.email, id: result._id }, secret);
             res.status(201).json({ result, token });
         } else {
-            const token = jwt.sign({ email: exisitingViewer.email, id: exisitingViewer._id }, secret, { expiresIn: "1h" });
+            const token = jwt.sign({ email: exisitingViewer.email, id: exisitingViewer._id }, secret);
             res.status(200).json({ result: exisitingViewer, token });
         }
 
