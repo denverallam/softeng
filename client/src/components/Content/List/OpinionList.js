@@ -40,7 +40,7 @@ const OpinionList = () => {
             <NavBar />
             <div className="container">
 
-            <h1 className="page-title text-center mx-auto">Opinion</h1>
+            <h1 className="page-title text-center mx-auto ntxt">Opinion</h1>
                 {
                     loading ? <Load /> :
                         contentList.length > 0 ?
@@ -73,7 +73,7 @@ const OpinionList = () => {
                                     }
                                 </ListGroup>
                             </> :
-                            <p className="text-center">No articles posted</p>
+                            <p className="text-center ah">No articles posted</p>
                 }
             </div >
         </>

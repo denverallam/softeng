@@ -9,7 +9,7 @@ const BestOfficerHistoryList = () => {
         <>
         <NavBar/>
 
-        <h4 className="officer-header my-4">BEST OFFICER HISTORY</h4>
+        <h4 className="officer-header my-4 ntxt">BEST OFFICER HISTORY</h4>
         <div className="row mx-5">
             {
                 organization.map((org, index) => (

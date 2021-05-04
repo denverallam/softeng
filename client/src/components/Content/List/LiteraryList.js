@@ -43,7 +43,7 @@ const LiteraryList = () => {
             <NavBar />
             <div className="container">
 
-            <h1 className="page-title text-center mx-auto">Literary</h1>
+            <h1 className="page-title text-center mx-auto ntxt">Literary</h1>
 
                 {
                     loading ? <Load /> :
@@ -77,7 +77,7 @@ const LiteraryList = () => {
                                     }
                                 </ListGroup>
                             </> :
-                            <p className="text-center">No articles posted</p>
+                            <p className="text-center ah">No articles posted</p>
                 }
             </div >
         </>

@@ -43,7 +43,7 @@ const BeyondEspanaList = () => {
             <NavBar />
             <div className="container">
 
-                <h1 className="page-title text-center mx-auto">Beyond Espana</h1>
+                <h1 className="page-title text-center mx-auto ntxt">Beyond Espana</h1>
 
                 {
                     loading ? <Load /> :
@@ -77,7 +77,7 @@ const BeyondEspanaList = () => {
                                     }
                                 </ListGroup>
                             </> :
-                            <p className="text-center">No articles posted</p>
+                            <p className="text-center ah">No articles posted</p>
                 }
             </div >
         </>

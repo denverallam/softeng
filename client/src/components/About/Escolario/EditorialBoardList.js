@@ -4,15 +4,14 @@ import EditorialBoard from './EditorialBoard';
 
 const EditorialBoardList = () => {
 
-    const [modal, setModal] = useState(false);
 
     return (
         <div className="container">
             <div className="my-4 container">
-                <h3 className="board-header text-center">EDITORIAL BOARD</h3>
+                <h3 className="board-header text-center ntxt">EDITORIAL BOARD</h3>
             </div>
 
-            <div className="container-fluid row">
+            <div className="container row">
                 {
                     editorialBoard.map((officer, index) => (
                         <EditorialBoard officer={officer} key={index} />
@@ -20,7 +19,7 @@ const EditorialBoardList = () => {
                 }
             </div>
             <div className="my-4 container">
-                <h3 className="board-header text-center">SECTION EDITORS</h3>
+                <h3 className="board-header text-center ntxt">SECTION EDITORS</h3>
             </div>
 
             <div className="container-fluid row">
@@ -31,7 +30,7 @@ const EditorialBoardList = () => {
                 }
             </div>
             <div className="my-4 container">
-                <h3 className="board-header text-center">SECTION WRITERS</h3>
+                <h3 className="board-header text-center ntxt">SECTION WRITERS</h3>
             </div>
             <div className="container-fluid row">
                 {

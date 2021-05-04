@@ -11,12 +11,12 @@ const BoardOfficerList = () => {
 
     return (
         <div className="container">
-            <div className="my-4 container">
-                <h4 className="board-header">BOARD OF OFFICERS</h4>
-                <h4 className="board-header">2020-2021</h4>
+            <div className="my-4 container board-header text-center">
+                <h3 className="ntxt">BOARD OF OFFICERS</h3>
+                <h3 className="ntxt">2020-2021</h3>
             </div>
 
-            <div className="container-fluid row">
+            <div className="container row">
                 {
                     boardOfficers.map((officer, index) => (
                         <BoardOfficer officer={officer} key={index} />

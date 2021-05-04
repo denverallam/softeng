@@ -34,6 +34,22 @@
   min-height: 150px;
 }
 
+.fh{
+  max-height: 30vh;
+}
+
+.fi{
+  height: 100px;
+}
+
+.ntxt{
+  font-weight: bolder;
+}
+
+.ah{
+  min-height: 50vh;
+}
+
 .content-text{
   text-align: justify;
 }

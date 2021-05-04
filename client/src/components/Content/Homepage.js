@@ -4,6 +4,7 @@ import { useEffect, useState, Fragment } from 'react'
 import Load from './Load';
 import NavBar from '../NavBar';
 import image from './escolariologo.png'
+import { Link } from 'react-router-dom';
 
 
 const Homepage = () => {
@@ -25,6 +26,7 @@ const Homepage = () => {
     return (
 
         <Fragment>
+            <NavBar />
             {
                 (headline && !loading) ?
                     <div className="container grid-ish my-5">
@@ -33,57 +35,82 @@ const Homepage = () => {
 
                                 <div className="p-sm-4">
                                     <div>
-                                        <img src={image} className="rounded img-fluid border-0" />
-                                        {headline[0].title}
+                                        <img src={headline[0].selectedFile || image} className="rounded img-fluid border-0" />
+
+                                        <Link to={`post/${headline[0]._id}`}>
+                                            <p className="article-link">
+                                                {headline[0].title}
+                                            </p>
+                                        </Link>
                                     </div> </div> : ''
                             }
 
                         </div>
                         <div className=" try">
                             <div className="border border-info ">
-                            {headline[1] ?
-                                        <div className="p-sm-4">
-                                            <div className="">
-                                                <img src={image} className="rounded img-fluid border-0" />
-                                                {headline[1].title}
-                                            </div></div> : ''
-                                    }
+                                {headline[1] ?
+                                    <div className="p-sm-4">
+                                        <div className="">
+                                            <img src={headline[1].selectedFile || image} className="img-fluid border-0" />
+                                            <Link to={`post/${headline[1]._id}`}>
+                                                <p className="article-link">
+                                                    {headline[1].title}
+                                                </p>
+                                            </Link>
+                                        </div></div> : ''
+                                }
                             </div>
                             <div className="border border-info ">
-                            {headline[1] ?
-                                        <div className="p-sm-4">
-                                            <div className="">
-                                                <img src={image} className="rounded img-fluid border-0" />
-                                                {headline[2].title}
-                                            </div></div> : ''
-                                    }
+                                {headline[2] ?
+                                    <div className="p-sm-4">
+                                        <div className="">
+                                            <img src={headline[2].selectedFile || image} className="rounded img-fluid border-0" />
+                                            <Link to={`post/${headline[2]._id}`}>
+                                                <p className="article-link">
+                                                    {headline[2].title}
+                                                </p>
+                                            </Link>
+                                        </div></div> : ''
+                                }
                             </div>
                             <div className="border border-info ">
-                            {headline[1] ?
-                                        <div className="p-sm-4">
-                                            <div className="">
-                                                <img src={image} className="rounded img-fluid border-0" />
-                                                {headline[3].title}
-                                            </div></div> : ''
-                                    }
+                                {headline[3] ?
+                                    <div className="p-sm-4">
+                                        <div className="">
+                                            <img src={headline[3].selectedFile || image} className="rounded img-fluid border-0" />
+                                            <Link to={`post/${headline[3]._id}`}>
+                                                <p className="article-link">
+                                                    {headline[3].title}
+                                                </p>
+                                            </Link>
+                                        </div></div> : ''
+                                }
                             </div>
                             <div className="border border-info ">
-                            {headline[1] ?
-                                        <div className="p-sm-4">
-                                            <div className="">
-                                                <img src={image} className="rounded img-fluid border-0" />
-                                                {headline[4].title}
-                                            </div></div> : ''
-                                    }
+                                {headline[4] ?
+                                    <div className="p-sm-4">
+                                        <div className="">
+                                            <img src={headline[4].selectedFile || image} className="rounded img-fluid border-0" />
+                                            <Link to={`post/${headline[4]._id}`}>
+                                                <p className="article-link">
+                                                    {headline[4].title}
+                                                </p>
+                                            </Link>
+                                        </div></div> : ''
+                                }
                             </div>
                             <div className="border border-info ">
-                            {headline[1] ?
-                                        <div className="p-sm-4">
-                                            <div className="">
-                                                <img src={image} className="rounded img-fluid border-0" />
-                                                {headline[5].title}
-                                            </div></div> : ''
-                                    }
+                                {headline[5] ?
+                                    <div className="p-sm-4">
+                                        <div className="">
+                                            <img src={headline[5].selectedFile || image} className="rounded img-fluid border-0" />
+                                            <Link to={`post/${headline[5]._id}`}>
+                                                <p className="article-link">
+                                                    {headline[5].title}
+                                                </p>
+                                            </Link>
+                                        </div></div> : ''
+                                }
                             </div>
                         </div>
 

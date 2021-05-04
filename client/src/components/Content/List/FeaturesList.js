@@ -39,7 +39,7 @@ const FeaturesList = () => {
             <NavBar />
             <div className="container">
 
-            <h1 className="page-title text-center mx-auto">Feature Articles</h1>
+            <h1 className="page-title text-center mx-auto ntxt">Feature Articles</h1>
 
                 {
                     loading ? <Load /> :
@@ -73,7 +73,7 @@ const FeaturesList = () => {
                                     }
                                 </ListGroup>
                             </> :
-                            <p className="text-center">No articles posted</p>
+                            <p className="text-center ah">No articles posted</p>
                 }
             </div >
         </>

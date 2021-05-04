@@ -39,7 +39,7 @@ const NewsList = () => {
         <>
             <NavBar />
             <div className="container">
-                <h1 className="page-title text-center mx-auto">News</h1>
+                <h1 className="page-title text-center mx-auto ntxt">News</h1>
                 {
                     loading ? <Load /> :
                         contentList.length > 0 ?
@@ -72,7 +72,7 @@ const NewsList = () => {
                                     }
                                 </ListGroup>
                             </> :
-                            <p className="text-center">No articles posted</p>
+                            <p className="text-center ah">No articles posted</p>
                 }
             </div >
         </>
