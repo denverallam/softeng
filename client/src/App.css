@@ -1,3 +1,7 @@
+.txt{
+  font-family:'Raleway' , sans-serif;
+}
+
 .site-header{
   max-width: 100%;
 }
@@ -253,7 +257,7 @@ figcaption {
 
 .byline{
   font-family: 'Raleway', sans-serif;
-  font-size: 12pt;
+  font-size: 14pt;
   text-align: left;
 }
 
@@ -287,7 +291,7 @@ figcaption {
 }
 
 .text{
-  text-align:justify;
+  text-align: justify;
   font-family: 'Raleway', sans-serif;
 }
 

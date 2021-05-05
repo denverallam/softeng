@@ -5,9 +5,10 @@ import Load from '../../Content/Load';
 import Dashboard from '../Dashboard';
 import { getAllResponses, deleteResponse } from '../../../actions/responseActions';
 import moment from 'moment';
+import Pagination from '@material-ui/lab/Pagination';
 
 
-const ResponsesList = () => {
+const ResponseList = () => {
 
     const dispatch = useDispatch()
     const response = useSelector(state => state.response.responseList)
@@ -21,11 +22,10 @@ const ResponsesList = () => {
 
     useEffect(() => {
         dispatch(getAllResponses());
-        setResponseList(response)
     }, [])
 
     useEffect(() => {
-        setResponseList(response)
+        setResponseList(response.reverse())
     }, [response])
 
     const filterSearch = (input) => {
@@ -47,6 +47,8 @@ const ResponsesList = () => {
 
     }
 
+
+
     const confirm = (id) => (
         <Modal isOpen={modal} toggle={toggle}>
             <ModalBody>
@@ -66,7 +68,31 @@ const ResponsesList = () => {
 
     )
 
-    
+
+    const [pageNumber, setPageNumber] = useState(1)
+    const contentPerPage = 5;
+    const pagesVisited = (pageNumber - 1) * contentPerPage
+    const pageCount = Math.ceil(responseList.length / contentPerPage)
+
+    const changePage = (event, value) => {
+        setPageNumber(value)
+    }
+
+    const displayResponses = responseList.slice(pagesVisited, pagesVisited + contentPerPage).map(res => (
+        <tr>
+            <td>{res.author}</td>
+            <td onClick={expandToggle}>
+                {
+                    !expand ? cutContent(res.content) : res.content
+                }
+            </td>
+            <td>{moment(res.date).toString().substr(4, 11)}</td>
+            <td>
+                <Button onClick={toggle} color="danger" outline>Delete</Button>
+                {confirm(res._id)}
+            </td>
+        </tr>
+    ))
 
     return (
         <Fragment>
@@ -89,24 +115,29 @@ const ResponsesList = () => {
                                 </thead>
                                 <tbody>
                                     {
-                                        responseList.map(res => (
-                                            <tr>
-                                                <td>{res.author}</td>
-                                                <td onClick={expandToggle}>
-                                                    {
-                                                        !expand ? cutContent(res.content) : res.content
-                                                    }
-                                                </td>
-                                                <td>{moment(res.date).toString().substr(4, 11)}</td>
-                                                <td>
-                                                    <Button onClick={toggle} color="danger" outline>Delete</Button>
-                                                    {confirm(res._id)}
-                                                </td>
-                                            </tr>
-                                        ))
+                                        // responseList.map(res => (
+                                        //     <tr>
+                                        //         <td>{res.author}</td>
+                                        //         <td onClick={expandToggle}>
+                                        //             {
+                                        //                 !expand ? cutContent(res.content) : res.content
+                                        //             }
+                                        //         </td>
+                                        //         <td>{moment(res.date).toString().substr(4, 11)}</td>
+                                        //         <td>
+                                        //             <Button onClick={toggle} color="danger" outline>Delete</Button>
+                                        //             {confirm(res._id)}
+                                        //         </td>
+                                        //     </tr>
+                                        // ))
+                                        displayResponses
                                     }
                                 </tbody>
                             </Table>
+                            <div className="container d-flex flex-column align-items-center mb-4">
+                                <p className="text">Page: {pageNumber}</p>
+                                <Pagination count={pageCount} page={pageNumber} onChange={changePage} />
+                            </div>
                         </div>
                         : <p className="text-center">No Responses</p>
             }
@@ -114,4 +145,4 @@ const ResponsesList = () => {
     )
 }
 
-export default ResponsesList
+export default ResponseList

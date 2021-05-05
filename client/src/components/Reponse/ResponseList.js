@@ -12,19 +12,18 @@ const ResponseList = ({ contentId }) => {
 
     const dispatch = useDispatch()
     const response = useSelector(state => state.response.responseList)
-
-    const [responseList, setResponseList] = useState('')
+    const [responseList, setResponseList] = useState([])
     const [responseId, setResponseId] = useState("")
 
     useEffect(() => {
         dispatch(getResponses(contentId))
-        setResponseList(response.reverse())
+        setResponseList(response)
     },[])
 
     useEffect(() => {
-        dispatch(getResponses(contentId))
-        setResponseList(response.reverse())
-    },[responseList])
+        setResponseList(response)
+    },[response])
+
 
     const deleteItem = (id) => {
         dispatch(deleteResponse(id))
@@ -43,7 +42,7 @@ const ResponseList = ({ contentId }) => {
             <ResponseForm contentId={contentId} setResponseId={setResponseId} responseId={responseId} createResponse={addItem} updateResponse={updateItem} />
             <ListGroup className="container">
                 {
-                    response.map(response => (
+                    responseList.map(response => (
                         <ListGroupItem key={response._id} className="border-0">
                             <Response response={response} deleteResponse={deleteItem} setResponseId={setResponseId} />
                         </ListGroupItem>

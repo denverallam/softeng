@@ -57,7 +57,7 @@ const ContentDetails = ({ match }) => {
                                     </div>
                                     : <></>
                             }
-                            <div className="mt-4 content-text">
+                            <div className="mt-4 text">
                                 {ReactHtmlParser(content.content)}
                             </div>
                             </div>   

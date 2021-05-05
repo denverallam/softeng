@@ -22,7 +22,7 @@ import Register from './components/Admin/User/Register';
 import ChangePassword from './components/Admin/User/ChangePassword';
 import PrivateRoute from './components/Admin/PrivateRoute';
 import ContentList from './components/Admin/Content/ContentList';
-import ResponseList from './components/Admin/Response/ResponseList';
+import ResponseList from './components/Admin/Response/Unused/ResponseList';
 import Responses from './components/Reponse/ResponseList'
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -76,7 +76,7 @@ const App = () => {
 
 
         </ErrorBoundary>
-        <Footer />
+        {/* <Footer /> */}
 
       </Router>
 

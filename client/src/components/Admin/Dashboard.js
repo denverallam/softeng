@@ -30,43 +30,47 @@ const Dashboard = () => {
           <Nav navbar>
             <UncontrolledDropdown nav inNavbar className="mx-3 my-auto li">
               <DropdownToggle nav caret className=" my-auto">
-                <span className="li">
+                <span className="ntxt li">
                   Articles
                 </span>
               </DropdownToggle>
               <DropdownMenu left>
                 <DropdownItem>
-                  <Link to="/admin/" className="li">
+                  <Link to="/admin/" className="ntxt li">
+                  <span className="ntxt">
                     View All
+                    </span>
                   </Link>
                 </DropdownItem>
                 <DropdownItem>
                   <Link to="/admin/new" className="li">
+                    <span className="ntxt">
                     Add new
+                    </span>
                   </Link>
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
 
             <NavItem className="mx-3 my-auto li">
-              <Link to='/admin/response' className="li">
+              <Link to='/admin/response' className="ntxt li">
                 Responses
             </Link>
             </NavItem>
             <UncontrolledDropdown nav inNavbar className="mx-3 my-auto li">
-              <DropdownToggle nav caret className="">
-                <span className="li">
+              <DropdownToggle nav caret>
+                <span className="ntxt li">
                   {localUser && localUser?.result.username || 'Account'}
                 </span>
               </DropdownToggle>
               <DropdownMenu left>
                 <DropdownItem className="li">
-                  <Link to="/change-password" className="li">
+                  <Link to="/change-password" className="li ntxt">
                     Change Password
                   </Link>
                 </DropdownItem>
-                <DropdownItem onClick={() => dispatch(logout())} className=" li">
-                  <p className="my-auto li">Logout</p>
+                <DropdownItem onClick={() => dispatch(logout())} className=" li ntxt">
+                  <p className="my-auto li ntxt">Logout</p>
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>

@@ -7,9 +7,8 @@ import {
     CardTitle, CardSubtitle, Button, CardImg,
     Modal, ModalHeader, ModalBody, ModalFooter
 } from 'reactstrap';
-import moment from 'moment';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { getContent } from '../../../actions/contentActions';
+import { getContent } from '../../../../actions/contentActions';
 
 
 const Response = ({ response, deleteResponse }) => {

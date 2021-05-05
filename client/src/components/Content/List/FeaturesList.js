@@ -7,6 +7,8 @@ import Load from '../Load';
 import NavBar from '../../NavBar';
 import { listSorter } from '../../../sort';
 import moment from 'moment';
+import Typography from '@material-ui/core/Typography';
+import Pagination from '@material-ui/lab/Pagination';
 
 const FeaturesList = () => {
 
@@ -32,6 +34,23 @@ const FeaturesList = () => {
         setContentList(content.reverse())
     }, [content])
 
+    const [pageNumber, setPageNumber] = useState(1)
+    const contentPerPage = 3;
+    const pagesVisited = (pageNumber-1) * contentPerPage
+    const pageCount = Math.ceil(contentList.length / contentPerPage)
+
+    const changePage = (event, value) => {
+        setPageNumber(value)
+    }
+
+
+    const displayArticles = contentList.slice(pagesVisited, pagesVisited + contentPerPage).map(content => (
+        <ListGroupItem className="border-0" key={content._id}>
+            {(moment(new Date()).toISOString() >= moment(content.date).toISOString() ?
+                <Content content={content} /> : ''
+            )}
+        </ListGroupItem>
+    ))
 
     listSorter(order, content)
     return (
@@ -63,15 +82,20 @@ const FeaturesList = () => {
                                 }
                                 <ListGroup>
                                 {
-                                        contentList.map(content => (
-                                            <ListGroupItem className="border-0" key={content._id}>
-                                                {(moment(new Date()).toISOString() >= moment(content.date).toISOString() ?
-                                                    <Content content={content} /> : ''
-                                                )}
-                                            </ListGroupItem>
-                                        ))
+                                        // contentList.map(content => (
+                                        //     <ListGroupItem className="border-0" key={content._id}>
+                                        //         {(moment(new Date()).toISOString() >= moment(content.date).toISOString() ?
+                                        //             <Content content={content} /> : ''
+                                        //         )}
+                                        //     </ListGroupItem>
+                                        // ))
+                                        displayArticles
                                     }
-                                </ListGroup>
+                                    </ListGroup>
+                                <div className="container d-flex flex-column align-items-center mb-4">
+                                <p className="text">Page: {pageNumber}</p>
+                                    <Pagination count={pageCount} page={pageNumber} onChange={changePage} />
+                                </div>
                             </> :
                             <p className="text-center ah">No articles posted</p>
                 }

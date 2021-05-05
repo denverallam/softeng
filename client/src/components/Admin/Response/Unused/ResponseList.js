@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import Response from './Response';
 import NewList from './NewList';
 import { Input, Table } from 'reactstrap';
-import Load from '../../Content/Load';
-import Dashboard from '../Dashboard';
-
-import { getAllResponses, deleteResponse } from '../../../actions/responseActions';
+import Load from '../../../Content/Load';
+import Dashboard from '../../Dashboard';
+import Pagination from '@material-ui/lab/Pagination';
+import { getAllResponses, deleteResponse } from '../../../../actions/responseActions';
 
 const ResponseList = () => {
 
@@ -34,6 +34,21 @@ const ResponseList = () => {
             return response.content.toLowerCase().includes(input.toLowerCase()) || response.author.toLowerCase().includes(input.toLowerCase())
         }))
     }
+
+    const [pageNumber, setPageNumber] = useState(1)
+    const contentPerPage = 10;
+    const pagesVisited = (pageNumber - 1) * contentPerPage
+    const pageCount = Math.ceil(responseList.length / contentPerPage)
+
+    const changePage = (event, value) => {
+        setPageNumber(value)
+    }
+
+    const displayResponses = responseList.slice(pagesVisited, pagesVisited + contentPerPage).map(res => (
+
+        <NewList response={res} deleteResponse={deleteItem} />
+
+    ))
 
     return (
         <Fragment>
@@ -64,10 +79,15 @@ const ResponseList = () => {
                                     }
                                 </ListGroup> */}
                                 {
-                                    responseList.map(res => (
-                                        <NewList response={res} deleteResponse={deleteItem} />
-                                    ))
+                                    // responseList.map(res => (
+                                    //     <NewList response={res} deleteResponse={deleteItem} />
+                                    // ))
+                                    displayResponses
                                 }
+                                <div className="container d-flex flex-column align-items-center mb-4">
+                                    <p className="text">Page: {pageNumber}</p>
+                                    <Pagination count={pageCount} page={pageNumber} onChange={changePage} />
+                                </div>
                             </div> :
                             <p className="text-center">No Responses</p>
                 }
