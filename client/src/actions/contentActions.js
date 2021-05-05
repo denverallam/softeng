@@ -48,6 +48,29 @@ export const getAllContent = () => async (dispatch) => {
     }
 }
 
+export const getLatestNews = () => async (dispatch) => {
+    
+    try{
+
+        dispatch({
+            type: actions.FETCH_REQUEST
+        })
+
+        const {data} = await API.fetchAllContent()
+
+
+        dispatch({
+            type: actions.GET_LATEST_NEWS,
+            payload: data
+        })
+
+    } catch (error){
+        dispatch({
+            type: actions.REQUEST_ERROR,
+            payload: error
+        })
+    }
+}
 
 export const getContent = (id) => async (dispatch) => {
     try{
@@ -70,6 +93,7 @@ export const getContent = (id) => async (dispatch) => {
         })
     }
 }
+
 
 export const createContent = (newContent) => async (dispatch) => {
 

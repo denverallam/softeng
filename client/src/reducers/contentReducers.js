@@ -3,6 +3,8 @@ import * as act from '../constants/contentConstants';
 
 const initialState = {
     contentList: [],
+    mostViewed: [],
+    latestNews: [],
     content: {},
     error: '',
     loading: false
@@ -11,15 +13,17 @@ const initialState = {
 const content = (state = initialState, action) => {
     switch (action.type) {
         case act.FETCH_REQUEST:
-            return { ...initialState,  loading: true };
-        case act.GET_ALL_CONTENT:            
+            return { ...initialState, loading: true, viewLoading: true, latestLoading: true };
+        case act.GET_ALL_CONTENT:
             return { ...state, contentList: action.payload.contentList, loading: false };
+        case act.GET_LATEST_NEWS:
+            return { ...state, latestNews: action.payload.contentList, latestLoading: false };
         case act.GET_CATEGORY_CONTENT:
             return { ...state, contentList: action.payload.contentList, loading: false };
         case act.GET_CONTENT:
             return { ...state, content: action.payload.content, loading: false };
         case act.CREATE_CONTENT:
-            return { ...state, contentList: [action.payload.content, ...state.contentList], success:true }
+            return { ...state, contentList: [action.payload.content, ...state.contentList], success: true }
         case act.UPDATE_CONTENT:
             return { ...state, contentList: state.contentList.map(content => content._id === action.payload.id ? action.payload.content : content) };
         case act.DELETE_CONTENT:

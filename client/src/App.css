@@ -2,6 +2,11 @@
   font-family:'Raleway' , sans-serif;
 }
 
+.txt2{
+  text-transform: capitalize;
+  font-family:'Raleway' , sans-serif;
+}
+
 .site-header{
   max-width: 100%;
 }
@@ -58,8 +63,8 @@
   text-align: justify;
 }
 
-img {
 
+img {
   max-width: 100%;
   height: auto;
 }
@@ -421,94 +426,6 @@ figcaption {
 }
 
 
-/* style for buttons */
-
-.batch1, .batch5, .batch9, .batch13, .batch17, .batch21 {
-  position: relative;
-  border: none;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 600;
-  background-color: #002e5d;
-  color: #f1f1f1;
-  font-size: 15px;
-  padding: 20px;
-  padding-bottom: 40px;
-  width: 120px;
-  margin-top: 5%;
-  margin-left: 10%;
-  text-align: left;
-  -webkit-transition-duration: 0.4s; 
-  transition-duration: 0.4s;
-  text-decoration: none;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.batch2, .batch3, .batch4, .batch6, .batch7, .batch8, .batch10, .batch11, 
-.batch12, .batch14, .batch15, .batch16, .batch18, .batch19, .batch20, .batch22, .batch23, 
-.batch24 {
-  position: relative;
-  border: none;
-  background-color: #002e5d;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 600;
-  color: #f1f1f1;
-  font-size: 15px;
-  padding: 20px;
-  padding-bottom: 40px;
-  width: 120px;
-  margin-top: 5%;
-  margin-left: 10%;
-  text-align: left;
-  -webkit-transition-duration: 0.4s; 
-  transition-duration: 0.4s;
-  text-decoration: none;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.batch25{
-  position: relative;
-  border: none;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 600;
-  background-color: #002e5d;
-  color: #f1f1f1;
-  font-size: 15px;
-  padding: 20px;
-  padding-bottom: 40px;
-  width: 120px;
-  margin-top: 5%;
-  margin-left: 27%;
-  text-align: left;
-  -webkit-transition-duration: 0.4s; 
-  transition-duration: 0.4s;
-  text-decoration: none;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.batch26, .batch27{
-  position: relative;
-  border: none;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 600;
-  background-color: #002e5d;
-  color: #f1f1f1;
-  font-size: 15px;
-  padding: 20px;
-  padding-bottom: 40px;
-  width: 120px;
-  margin-top: 5%;
-  margin-left: 10%;
-  margin-bottom: 5%;
-  text-align: left;
-  -webkit-transition-duration: 0.4s; 
-  transition-duration: 0.4s;
-  text-decoration: none;
-  overflow: hidden;
-  cursor: pointer;
-}
 
 /* editoria board */
 h1 {
