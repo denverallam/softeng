@@ -16,10 +16,6 @@ const content = (state = initialState, action) => {
             return { ...initialState, loading: true, viewLoading: true, latestLoading: true };
         case act.GET_ALL_CONTENT:
             return { ...state, contentList: action.payload.contentList, loading: false };
-        case act.GET_LATEST_NEWS:
-            return { ...state, latestNews: action.payload.contentList, latestLoading: false };
-        case act.GET_CATEGORY_CONTENT:
-            return { ...state, contentList: action.payload.contentList, loading: false };
         case act.GET_CONTENT:
             return { ...state, content: action.payload.content, loading: false };
         case act.CREATE_CONTENT:

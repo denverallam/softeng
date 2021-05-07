@@ -13,43 +13,25 @@ import LatestNews from '../LatestNews';
 
 const BeyondEspanaList = () => {
 
-    const dispatch = useDispatch()
     const content = useSelector(state => state.content.contentList)
-    const loading = useSelector(state => state.content.loading)
-    const [contentList, setContentList] = useState([])
-    const [order, setOrder] = useState('')
+    const articles = content.filter(content => content.category === 'beyond-espana')
 
+    const [order, setOrder] = useState('LATEST')
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const toggle = () => setDropdownOpen(prevState => !prevState);
 
-    listSorter(order, content)
-
-    const deleteItem = (id) => {
-        setContentList(contentList.filter(content => content._id !== id))
-        dispatch(deleteContent(id))
-    }
-
-    useEffect(() => {
-        dispatch(getContentByCategory('beyond-espana'));
-        setContentList(content.reverse())
-    }, [])
-
-    useEffect(() => {
-        setContentList(content.reverse())
-    }, [content])
-
+    listSorter(order, articles)
 
     const [pageNumber, setPageNumber] = useState(1)
     const contentPerPage = 3;
     const pagesVisited = (pageNumber - 1) * contentPerPage
-    const pageCount = Math.ceil(contentList.length / contentPerPage)
+    const pageCount = Math.ceil(articles.length / contentPerPage)
 
     const changePage = (event, value) => {
         setPageNumber(value)
     }
 
-
-    const displayArticles = contentList.slice(pagesVisited, pagesVisited + contentPerPage).map(content => (
+    const displayArticles = articles.slice(pagesVisited, pagesVisited + contentPerPage).map(content => (
         <ListGroupItem className="border-0" key={content._id}>
             {(moment(new Date()).toISOString() >= moment(content.date).toISOString() ?
                 <Content content={content} /> : ''
@@ -64,10 +46,9 @@ const BeyondEspanaList = () => {
                 <div className="container col-sm-8 px-sm-5">
                     <h1 className="page-title text-center mx-auto ntxt">Beyond Espana</h1>
                     {
-                        loading ? <Load /> :
-                            contentList.length > 0 ?
+                       (articles.length  < 1) ? <Load /> :
                                 <>
-                                    {contentList.length > 1 ?
+                                    {articles.length > 1 ?
                                         <div className="container">
                                             <Dropdown isOpen={dropdownOpen} toggle={toggle}>
                                                 <DropdownToggle caret color="white">
@@ -91,8 +72,7 @@ const BeyondEspanaList = () => {
                                         <Pagination count={pageCount} page={pageNumber} onChange={changePage} />
                                     </div>
 
-                                </> :
-                                <p className="text-center ah">No articles posted</p>
+                                </>
                     }
                 </div >
                 <div className="container col-sm-3 my-5">

@@ -1,5 +1,5 @@
 
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import ContentForm from './components/Admin/Content/ContentForm';
 import ContentUpdate from './components/Admin/Content/ContentUpdate';
 import ContentDetails from './components/Content/ContentDetails';
@@ -32,11 +32,20 @@ import BoardOfficerList from './components/About/Best/BoardOfficerList';
 import ErrorBoundary from './components/ErrorBoundary';
 import Homepage from './components/Content/Homepage';
 import ResponsesList from './components/Admin/Response/Responses';
+import { getAllContent } from './actions/contentActions';
+import { getAllResponses } from './actions/responseActions';
 
 const App = () => {
 
   const localUser = JSON.parse(localStorage.getItem("admin"))
   const user = useSelector(state => state.user.authData)
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getAllContent())
+    dispatch(getAllResponses());
+  }, [])
 
   return (
     <Fragment>

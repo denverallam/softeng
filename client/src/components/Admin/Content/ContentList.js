@@ -14,7 +14,7 @@ const ContentList = () => {
     const dispatch = useDispatch()
     const content = useSelector(state => state.content)
     const loading = useSelector(state => state.content.loading)
-    const [order, setOrder] = useState('')
+    const [order, setOrder] = useState('LATEST')
     const [contentList, setContentList] = useState([])
     const [isSearching, setIsSearching] = useState(false)
 
@@ -42,22 +42,17 @@ const ContentList = () => {
     }
 
 
-    listSorter(order, content.contentList)
+    listSorter(order, contentList)
 
     useEffect(() => {
-        dispatch(getAllContent());
         setContentList(content.contentList.reverse())
     }, [])
 
 
     useEffect(() => {
-        setContentList(content.contentList.reverse())
+        setContentList(content.contentList)
     }, [content])
 
-
-    useEffect(() => {
-        setContentList(content.contentList)
-    }, [order])
 
     const [pageNumber, setPageNumber] = useState(1)
     const contentPerPage = 3;

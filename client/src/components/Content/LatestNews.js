@@ -11,21 +11,18 @@ import moment from 'moment';
 const LatestNews = () => {
 
 
-    const content = useSelector(state => state.content.latestNews)
+    const content = useSelector(state => state.content.contentList.filter(content => content.category === 'news'))
     const loading = useSelector(state => state.content.latestLoading)
-    
+
     listSorter('LATEST', content)
 
     const posted = content.filter(cnt => moment(new Date()).toISOString() >= moment(cnt.date).toISOString())
 
     const [contentList, setContentList] = useState([])
-    const dispatch = useDispatch()
-
 
     useEffect(() => {
-        dispatch(getLatestNews());
+        setContentList(posted.slice(0, 3))
     }, [])
-
 
     useEffect(() => {
         setContentList(posted.slice(0, 3))
@@ -43,8 +40,9 @@ const LatestNews = () => {
                             contentList.map(content => (
                                 <ListGroupItem>
                                     <div className="row">
-                                        <img src={content.selectedFile || best} className="col-sm-4" />
-
+                                        <div className="col-sm-4" >
+                                            <img src={content.selectedFile || best} className="img-fluid" />
+                                        </div>
                                         <Link to={`/post/${content._id}`} className="txt li col-sm-8">
                                             <p className="txt li">{content.title}</p>
                                         </Link>

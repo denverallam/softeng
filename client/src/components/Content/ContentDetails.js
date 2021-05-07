@@ -6,13 +6,10 @@ import ResponseList from '../Reponse/ResponseList'
 import Load from './Load'
 import { CardImg } from 'reactstrap'
 import moment from 'moment';
-import { getContent } from '../../actions/contentActions';
 import NavBar from '../NavBar';
 import ReactHtmlParser from 'react-html-parser';
 
 const ContentDetails = ({ match }) => {
-
-    const dispatch = useDispatch()
 
     const contentId = match.params.id
 
@@ -24,21 +21,14 @@ const ContentDetails = ({ match }) => {
         ))
     )
 
-    const content = useSelector(state => state.content.content)
+    const content = useSelector(state => state.content.contentList.filter(content => content._id === contentId)[0])
     const loading = useSelector(state => state.content.loading)
-
-    useEffect(() => {
-        dispatch(getContent(contentId));
-        // dispatch(getResponses(contentId))
-    }, [])
-
-
 
     return (
         <>
             <NavBar />
             <div className="container mb-5 p-4">
-                {loading ? <Load /> :
+                {!content ? <Load /> :
                 <>
                     <div>
                         <div className="border-bottom border-dark">

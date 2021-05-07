@@ -28,9 +28,9 @@ export const getAllContent = () => async (dispatch) => {
     
     try{
 
-        dispatch({
-            type: actions.FETCH_REQUEST
-        })
+        // dispatch({
+        //     type: actions.FETCH_REQUEST
+        // })
 
         const {data} = await API.fetchAllContent()
 
@@ -52,9 +52,9 @@ export const getLatestNews = () => async (dispatch) => {
     
     try{
 
-        dispatch({
-            type: actions.FETCH_REQUEST
-        })
+        // dispatch({
+        //     type: actions.FETCH_REQUEST
+        // })
 
         const {data} = await API.fetchAllContent()
 

@@ -6,6 +6,7 @@ import Dashboard from '../Dashboard';
 import { getAllResponses, deleteResponse } from '../../../actions/responseActions';
 import moment from 'moment';
 import Pagination from '@material-ui/lab/Pagination';
+import { listSorter } from '../../../sort';
 
 
 const ResponseList = () => {
@@ -20,13 +21,13 @@ const ResponseList = () => {
         dispatch(deleteResponse(id))
     }
 
-    useEffect(() => {
-        dispatch(getAllResponses());
-    }, [])
 
     useEffect(() => {
-        setResponseList(response.reverse())
+        setResponseList(response)
     }, [response])
+
+    listSorter('LATEST', responseList)
+
 
     const filterSearch = (input) => {
         setResponseList(response.filter(response => {

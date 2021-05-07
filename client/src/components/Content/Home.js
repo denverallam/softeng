@@ -9,9 +9,9 @@ import {
   CarouselCaption
 } from 'reactstrap';
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllContent } from '../../actions/contentActions';
 import Load from './Load';
 import NavBar from '../NavBar';
+import moment from 'moment';
 
 const items = [
   {
@@ -38,13 +38,8 @@ const Home = (props) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
-  const dispatch = useDispatch()
-  const content = useSelector(state => state.content.contentList)
+  const content = useSelector(state => state.content.contentList.filter(cnt => moment(new Date()).toISOString() >= moment(cnt.date).toISOString()))
   const loading = useSelector(state => state.content.loading)
-
-  useEffect(() => {
-    dispatch(getAllContent());
-  }, [])
 
   const next = () => {
     if (animating) return;

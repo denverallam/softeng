@@ -10,7 +10,7 @@ import moment from 'moment';
 
 const MostViewed = () => {
 
-    const content = useSelector(state => state.content.latestNews)
+    const content = useSelector(state => state.content.contentList)
     const loading = useSelector(state => state.content.latestLoading)
 
     listSorter('VIEWS', content)
@@ -22,7 +22,7 @@ const MostViewed = () => {
         setContentList(posted.slice(0, 3))
     }, [content])
 
-    
+
     return (
         <Fragment>
             {!loading ?
@@ -32,8 +32,10 @@ const MostViewed = () => {
                         {
                             contentList.map(content => (
                                 <ListGroupItem>
-                                    <div className="row">
-                                        <img src={content.selectedFile || best} className="col-sm-4" />
+                                    <div className="row" >
+                                        <div className="col-sm-4" >
+                                            <img src={content.selectedFile || best} className="img-fluid"/>
+                                        </div>
                                         <Link to={`/post/${content._id}`} className="txt li col-sm-8">
                                             <p className="txt li text-cente">{content.title}</p>
                                         </Link>
@@ -43,7 +45,7 @@ const MostViewed = () => {
                         }
                     </ListGroup>
                 </div>
-                : <Load/>
+                : <Load />
             }
 
         </Fragment>
