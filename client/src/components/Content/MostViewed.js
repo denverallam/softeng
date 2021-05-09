@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import React, { useState, useEffect, Fragment } from 'react'
 import Load from './Load';
 import { Link } from 'react-router-dom';
-import { ListGroup, ListGroupItem } from 'reactstrap';
+import { ListGroup, ListGroupItem, Container } from 'reactstrap';
 import { listSorter } from '../../sort';
 import best from './escolariologo.png'
 import moment from 'moment';
@@ -23,7 +23,7 @@ const MostViewed = () => {
 
 
     return (
-        <div>
+        <Container>
             <p className="text-center ntxt mt-2">MOST READ</p>
             <ListGroup>
                 {
@@ -46,7 +46,7 @@ const MostViewed = () => {
                     ))
                 }
             </ListGroup>
-        </div>
+        </Container>
     )
 }
 

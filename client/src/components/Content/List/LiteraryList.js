@@ -78,7 +78,7 @@ const LiteraryList = () => {
                                 </>
                     }
                 </div >
-                <div className="container col-sm-3 my-5">
+                <div className="col-sm-3 my-5">
                     <LatestNews />
                     <MostViewed />
                 </div>

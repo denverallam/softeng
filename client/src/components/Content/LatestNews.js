@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import React, { useState, useEffect, Fragment } from 'react'
 import { getLatestNews } from '../../actions/contentActions';
 import { Link } from 'react-router-dom';
-import { ListGroup, ListGroupItem } from 'reactstrap';
+import { ListGroup, ListGroupItem, Container } from 'reactstrap';
 import { listSorter } from '../../sort';
 import best from './escolariologo.png'
 import Load from './Load';
@@ -32,7 +32,7 @@ const LatestNews = ({count}) => {
 
 
     return (
-        <div>
+        <Container>
             <p className="text-center ntxt mt-2">LATEST NEWS</p>
             <ListGroup>
                 {
@@ -55,7 +55,7 @@ const LatestNews = ({count}) => {
                     ))
                 }
             </ListGroup>
-        </div>
+        </Container>
     )
 }
 
