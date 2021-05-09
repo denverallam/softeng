@@ -12,7 +12,7 @@ import Pagination from '@material-ui/lab/Pagination';
 const ContentList = () => {
 
     const dispatch = useDispatch()
-    const content = useSelector(state => state.content)
+    const content = useSelector(state => state.content.contentList)
     const loading = useSelector(state => state.content.loading)
     const [order, setOrder] = useState('LATEST')
     const [contentList, setContentList] = useState([])
@@ -20,13 +20,14 @@ const ContentList = () => {
 
     const [countMessage, setCountMessage] = useState("")
 
+
     const deleteItem = (id) => {
-        setContentList(content.contentList.filter(content => content._id !== id))
+        setContentList(content.filter(content => content._id !== id))
         dispatch(deleteContent(id))
     }
 
     const filterSearch = (input) => {
-        setContentList(content.contentList.filter(content => {
+        setContentList(content.filter(content => {
             return content.title.toLowerCase().includes(input.toLowerCase()) || content.author.toLowerCase().includes(input.toLowerCase())
         }))
 
@@ -45,12 +46,12 @@ const ContentList = () => {
     listSorter(order, contentList)
 
     useEffect(() => {
-        setContentList(content.contentList.reverse())
+        setContentList(content)
     }, [])
 
 
     useEffect(() => {
-        setContentList(content.contentList)
+        setContentList(content)
     }, [content])
 
 
@@ -80,7 +81,6 @@ const ContentList = () => {
             </div>
             <div>
                 {
-                    loading ? <Load /> :
                         contentList.length > 0 ?
                             <>
                                 {(contentList.length > 1 && !isSearching) ?
@@ -91,11 +91,6 @@ const ContentList = () => {
                                 <>
                                     <ListGroup>
                                         {
-                                            // contentList.map(content => (
-                                            //     <ListGroupItem className="border-0" key={content._id}>
-                                            //         <Content content={content} deleteContent={deleteItem} />
-                                            //     </ListGroupItem>
-                                            // ))
                                             displayArticles
                                         }
                                     </ListGroup>

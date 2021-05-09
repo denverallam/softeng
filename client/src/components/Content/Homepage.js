@@ -1,181 +1,127 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllContent } from '../../actions/contentActions';
-import { useEffect, useState, Fragment } from 'react'
+import { useEffect, useState } from 'react'
 import Load from './Load';
 import NavBar from '../NavBar';
 import image from './escolariologo.png'
 import { Link } from 'react-router-dom';
-
+import { Container } from 'reactstrap';
+import LatestNews from './LatestNews';
+import MostViewed from './MostViewed';
+import moment from 'moment'
+import { listSorter } from '../../sort';
+import Grid from '@material-ui/core/Grid';
 
 const Homepage = () => {
 
+
     const dispatch = useDispatch()
-    const content = useSelector(state => state.content.contentList)
-    const loading = useSelector(state => state.content.loading)
+    const content = useSelector(state => state.content.contentList.filter(cnt => moment(new Date()).toISOString() >= moment(cnt.date).toISOString()))
+    listSorter('LATEST', content)
 
-    const [headline, setHeadline] = useState(content)
+    const [headline, setHeadline] = useState(content.slice(0, 6))
 
-    useEffect(() => {
-        dispatch(getAllContent());
-    }, [])
+    const articleCount = headline.length
 
     useEffect(() => {
-        setHeadline(content.slice(content.length - 6, content.length).reverse())
+        setHeadline(content.slice(0, 6))
     }, [content])
 
+
     return (
-
-        <Fragment>
+        <Container>
             <NavBar />
-            {
-                (headline && !loading) ?
-                    <div className="container grid-ish my-5">
-                        <div className="border border-info">
+            {headline ?
+                <div className='row'>
+                    <div className="col-md-8 my-4 text-center ">
+                        <Grid container spacing={1} className="homepage-container">
                             {headline[0] ?
-
-                                <div className="p-sm-4">
-                                    <div>
-                                        <img src={headline[0].selectedFile || image} className="rounded img-fluid border-0" />
-
-                                        <Link to={`post/${headline[0]._id}`}>
-                                            <p className="article-link">
+                                <Grid item lg={12} md={12} className=" d-flex " style={headline[0].selectedFile ? { backgroundImage: `url(${headline[0].selectedFile})`, backgroundSize: 'cover', backgroundPosition: 'center center' ,  } :
+                                    { backgroundColor: '#002e5d', backgroundImage: `url(${image})`, backgroundRepeat: 'no-repeat', backgroundSize: '75%', backgroundPosition: 'top',   }}>
+                                    <div className="align-self-end mx-auto">
+                                        <Link to={`post/${headline[0]._id}`} className="">
+                                            <p className="homepage-link">
                                                 {headline[0].title}
                                             </p>
                                         </Link>
-                                    </div> </div> : ''
+                                    </div>
+                                </Grid> : ''
                             }
 
-                        </div>
-                        <div className=" try">
-                            <div className="border border-info ">
-                                {headline[1] ?
-                                    <div className="p-sm-4">
-                                        <div className="">
-                                            <img src={headline[1].selectedFile || image} className="img-fluid border-0" />
+                            {
+                                headline[1] ?
+                                    <Grid item lg={4} md={12} className="d-flex" style={headline[1].selectedFile ? { backgroundImage: `url(${headline[1].selectedFile})`, backgroundSize: 'cover', backgroundPosition: 'center center',   } :
+                                        { backgroundColor: '#002e5d', backgroundImage: `url(${image})`, backgroundRepeat: 'no-repeat', backgroundSize: '75%', backgroundPosition: 'top',   }
+                                    } >
+                                        <div className="align-self-end mx-auto">
                                             <Link to={`post/${headline[1]._id}`}>
-                                                <p className="article-link">
+                                                <p className="homepage-link">
                                                     {headline[1].title}
                                                 </p>
                                             </Link>
-                                        </div></div> : ''
-                                }
-                            </div>
-                            <div className="border border-info ">
-                                {headline[2] ?
-                                    <div className="p-sm-4">
-                                        <div className="">
-                                            <img src={headline[2].selectedFile || image} className="rounded img-fluid border-0" />
+                                        </div>
+                                    </Grid> : ''
+                            }
+                            {headline[2] ?
+                                <Grid item lg={4} md={12} className=" d-flex" style={headline[2].selectedFile ? { backgroundImage: `url(${headline[2].selectedFile})`, backgroundSize: 'cover', backgroundPosition: 'center center'   } :
+                                    { backgroundColor: '#002e5d', backgroundImage: `url(${image})`, backgroundRepeat: 'no-repeat', backgroundSize: '75%', backgroundPosition: 'top',   }}>
+
+                                    <div className="align-self-end mx-auto">
+                                        <div>
                                             <Link to={`post/${headline[2]._id}`}>
-                                                <p className="article-link">
+                                                <p className="homepage-link">
                                                     {headline[2].title}
                                                 </p>
                                             </Link>
-                                        </div></div> : ''
-                                }
-                            </div>
-                            <div className="border border-info ">
-                                {headline[3] ?
-                                    <div className="p-sm-4">
-                                        <div className="">
-                                            <img src={headline[3].selectedFile || image} className="rounded img-fluid border-0" />
-                                            <Link to={`post/${headline[3]._id}`}>
-                                                <p className="article-link">
-                                                    {headline[3].title}
-                                                </p>
-                                            </Link>
-                                        </div></div> : ''
-                                }
-                            </div>
-                            <div className="border border-info ">
-                                {headline[4] ?
-                                    <div className="p-sm-4">
-                                        <div className="">
-                                            <img src={headline[4].selectedFile || image} className="rounded img-fluid border-0" />
-                                            <Link to={`post/${headline[4]._id}`}>
-                                                <p className="article-link">
-                                                    {headline[4].title}
-                                                </p>
-                                            </Link>
-                                        </div></div> : ''
-                                }
-                            </div>
-                            <div className="border border-info ">
-                                {headline[5] ?
-                                    <div className="p-sm-4">
-                                        <div className="">
-                                            <img src={headline[5].selectedFile || image} className="rounded img-fluid border-0" />
+                                        </div> </div>
+                                </Grid> : ''
+                            }
+                            {headline[3] ?
+                                <Grid item lg={4} md={12} className=" d-flex" style={headline[3].selectedFile ? { backgroundImage: `url(${headline[3].selectedFile})`, backgroundSize: 'cover', backgroundPosition: 'center center'  } :
+                                    { backgroundColor: '#002e5d', backgroundImage: `url(${image})`, backgroundRepeat: 'no-repeat', backgroundSize: '75%', backgroundPosition: 'top',   }}>
+                                    <div className="align-self-end mx-auto">
+                                        <Link to={`post/${headline[3]._id}`}>
+                                            <p className="homepage-link">
+                                                {headline[3].title}
+                                            </p>
+                                        </Link>
+                                    </div>
+                                </Grid> : ''
+                            }
+                            {headline[4] ?
+                                <Grid item lg={6} md={12} className="d-flex" style={headline[4].selectedFile ? { backgroundImage: `url(${headline[4].selectedFile})`, backgroundSize: 'cover', backgroundPosition: 'center center' ,  } :
+                                    { backgroundColor: '#002e5d', backgroundImage: `url(${image})`, backgroundRepeat: 'no-repeat', backgroundSize: '75%', backgroundPosition: 'top',   }}>
+                                    <div className="align-self-end mx-auto">
+
+                                        <Link to={`post/${headline[4]._id}`}>
+                                            <p className="homepage-link">
+                                                {headline[4].title}
+                                            </p>
+                                        </Link>
+                                    </div>
+                                </Grid>
+                                : ''
+                            }
+                            {headline[5] ?
+                                <Grid item lg={6} md={12} className="d-flex" style={headline[5].selectedFile ? { backgroundImage: `url(${headline[5].selectedFile})`, backgroundSize: 'cover', backgroundPosition: 'center center' ,  } :
+                                    { backgroundColor: '#002e5d', backgroundImage: `url(${image})`, backgroundRepeat: 'no-repeat', backgroundSize: '75%', backgroundPosition: 'top',   }}>
+                                        <div className="align-self-end mx-auto">
                                             <Link to={`post/${headline[5]._id}`}>
-                                                <p className="article-link">
+                                                <p className="homepage-link">
                                                     {headline[5].title}
                                                 </p>
                                             </Link>
-                                        </div></div> : ''
-                                }
-                            </div>
-                        </div>
-
-                        {/* <div className="col-sm-4  mx-auto border border-info rounded text-center ">
-                            {headline[0] ?
-
-                                <div className="p-sm-4">
-                                    <div>
-                                        <img src={image} className="rounded img-fluid border-0" />
-                                        {headline[0].title}
-                                    </div> </div> : ''
+                                        </div>
+                                </Grid>
+                                : ''
                             }
-                        </div>
-                        <div className="col-sm-8  mx-auto">
-                            <div className="row ">
-                                <div className="col-sm-4 border border-info rounded text-center">
-                                    {headline[1] ?
-                                        <div className="p-sm-4">
-                                            <div className="">
-                                                <img src={image} className="rounded img-fluid border-0" />
-                                                {headline[1].title}
-                                            </div></div> : ''
-                                    }
-                                </div>
-                                <div className="col-sm-4 border border-info rounded text-center">
-                                    {headline[2] ?
-                                        <div className=" ">
-                                            <img src={image} className="rounded img-fluid border-0 " />
-                                            {headline[2].title}
-                                        </div> : ''
-                                    }
-                                </div>
-                                <div className="col-sm-4 border border-info rounded text-center">
-                                    {headline[3] ?
-                                        <div className=" ">
-                                            <img src={image} className="rounded img-fluid border-0" />
-                                            {headline[3].title}
-                                        </div> : ''
-                                    }
-                                </div>
-                            </div>
-                            <div className="row  ">
-                                <div className="col-sm-6 border border-info rounded text-center">
-                                    {headline[4] ?
-                                        <div className=" ">
-                                            <img src={image} className="rounded img-fluid border-0" />
-                                            {headline[4].title}
-                                        </div> : ''
-                                    }
-                                </div>
-                                <div className="col-sm-6 border border-info rounded text-center">
-                                    {headline[5] ?
-                                        <div className=" ">
-                                            <img src={image} className="rounded img-fluid border-0" />
-                                            {headline[5].title}
-                                        </div> : ''
-                                    }
-                                </div>
-                            </div>
-                        </div> */}
+                        </Grid>
                     </div>
-                    : <Load />
+                    <div className="container col-sm-3 d-none d-md-block">
+                        <LatestNews count={4}/>
+                    </div>
+                </div> : ''
             }
-
-        </Fragment>
+        </Container >
     )
 }
 

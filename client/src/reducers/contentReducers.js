@@ -25,7 +25,7 @@ const content = (state = initialState, action) => {
         case act.DELETE_CONTENT:
             return { ...state, contentList: state.contentList.filter(content => content._id !== action.payload.id) };
         case act.REQUEST_ERROR:
-            return { ...state, error: action.payload.response.data.message };
+            return { ...state, error: 'Something went wrong' };
         default:
             return state;
     }

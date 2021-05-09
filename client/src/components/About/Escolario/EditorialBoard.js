@@ -7,7 +7,7 @@ const EditorialBoard = ({ officer }) => {
     const toggle = () => setModal(!modal);
 
     return (
-            <div className="row col-sm-6 mb-4">
+            <div className="row col-sm-6 mb-4 mx-auto text-center">
                 <div className="col-sm-4">
                     <CardImg src={officer.image} className="img-fluid rounded" />
                 </div>

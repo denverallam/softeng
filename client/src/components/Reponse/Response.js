@@ -36,17 +36,16 @@ const Response = ({ response, deleteResponse, setResponseId }) => {
     )
 
     return (
-        <div className="container-fluid row border pt-2">
+        <div className="border p-2">
             <div className="col-sm-10">
                 <p className="response-name">{response.author}<span className="text-muted date ml-sm-2">{moment(response.date).toString().substr(4, 11)}</span></p>
-                
-                <p>{response.content}</p>
+                <p className="text-break">{response.content}</p>
             </div>
-            <div className="ml-auto mb-2 row">
+            <div className="row ml-auto">
                 {user && viewer && response.email === user?.result?.email ?
-                    <div>
-                        <EditIcon onClick={() => setResponseId(response._id)} className="rounded" />
-                        <DeleteIcon onClick={toggle} className="" />
+                    <div className="ml-auto mx-2">
+                        <Button onClick={() => setResponseId(response._id)} color="info">Edit</Button>
+                        <Button onClick={toggle} color="danger">Delete</Button>
                         {confirm(response._id)}
                     </div>
                     : <> </>

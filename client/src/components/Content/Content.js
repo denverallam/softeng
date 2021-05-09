@@ -53,15 +53,21 @@ const Content = ({ content }) => {
     }
 
     return (
-        <div className="row border border-info mx-auto">
-            <div className="container col-sm-4 my-auto d-none d-sm-block">
-                <img src={content.selectedFile || best} className="border-0 my-auto" />
-            </div>
-            <div className="col-sm-8 border-0 mt-2">
+        <div className="row mx-auto" style={{ minWidth: '200px' }}>
+            {
+                content.selectedFile ?
+                    <div className="col-md-4 d-none d-md-block" style={{ backgroundImage: `url(${content.selectedFile})`, backgroundSize: 'cover', backgroundPosition: 'center center' }}>
+                    </div>
+                    :
+                    <div className="col-md-4 d-none d-md-block" style={{ backgroundColor:'#002e5d', backgroundImage: `url(${best})`, backgroundRepeat:'no-repeat', backgroundSize:'100%', backgroundPosition: 'center center' }}>
+                    </div>
+            }
+
+            <div className="col-md-8 border-0 mt-2">
                 <div className="container content-d">
                     <p className="link">{content.title}</p>
                     <div className="container row">
-                            <p className="byline">{moment(content.date).toString().substr(4, 11)}</p>
+                        <p className="byline">{moment(content.date).toString().substr(4, 11)}</p>
                     </div>
                     {/* <p className="text d-none d-sm-block">{ReactHtmlParser(cutContent(content.description))}</p> */}
                 </div>

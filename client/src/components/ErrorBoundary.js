@@ -12,8 +12,6 @@ class ErrorBoundary extends Component {
     componentDidCatch(error, info) {
         if (error) {
             this.setState({ hasError: true })
-            console.log(error)
-            console.log(info)
         }
 
     }

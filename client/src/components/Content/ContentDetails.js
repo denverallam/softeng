@@ -4,10 +4,12 @@ import { useEffect, Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import ResponseList from '../Reponse/ResponseList'
 import Load from './Load'
-import { CardImg } from 'reactstrap'
+import { CardImg, Container } from 'reactstrap'
 import moment from 'moment';
 import NavBar from '../NavBar';
 import ReactHtmlParser from 'react-html-parser';
+import LatestNews from './LatestNews';
+import MostViewed from './MostViewed';
 
 const ContentDetails = ({ match }) => {
 
@@ -21,45 +23,40 @@ const ContentDetails = ({ match }) => {
         ))
     )
 
-    const content = useSelector(state => state.content.contentList.filter(content => content._id === contentId)[0])
+    const content = useSelector(state => state.content.contentList.find(content => content._id === contentId))
     const loading = useSelector(state => state.content.loading)
 
     return (
-        <>
+        <Container>
             <NavBar />
-            <div className="container mb-5 p-4">
+            <div className="container mb-5">
                 {!content ? <Load /> :
-                <>
-                    <div>
-                        <div className="border-bottom border-dark">
-                            <p className="page-title text-center my-0">{content.category}</p>
-                            <h4 className="headline ">{content.title}</h4>
-                            <p className="byline">By {content.author}. {moment(content.date).toString().substr(4, 11)}</p>
-                            <div className="text mt-4">
-                                {printLine(content.description || "")}
-                            </div>
+                    <div className="row">
+                        <div className="col-sm-8">
+                            <div className="p-sm-4">
+                                <div className="border-bottom border-dark">
+                                    <p className="page-title text-center my-0">{content.category}</p>
+                                    <p className="headline ">{content.title}</p>
+                                    <p className="byline">By {content.author}. {moment(content.date).toString().substr(4, 11)}</p>
 
-                             <div>
-                            {
-                                content.selectedFile ?
-                                    <div className="container">
-                                        <img src={content.selectedFile} className="rounded"/>
+                                    <div>
+                                        <div className="mt-4 body-text">
+                                            {ReactHtmlParser(content.content)}
+                                        </div>
                                     </div>
-                                    : <></>
-                            }
-                            <div className="mt-4 text">
-                                {ReactHtmlParser(content.content)}
-                            </div>
-                            </div>   
 
+                                </div>
+                            </div>
+                            <ResponseList contentId={contentId} />
+                        </div>
+                        <div className="container col-sm-3 my-5 d-none d-sm-block">
+                            <LatestNews />
+                            <MostViewed />
                         </div>
                     </div>
-                    <ResponseList contentId={contentId}/>
-                    </>
                 }
-                
             </div>
-        </>
+        </Container>
     )
 }
 

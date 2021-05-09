@@ -6,7 +6,8 @@ import {
   Carousel,
   CarouselItem,
   CarouselControl,
-  CarouselCaption
+  CarouselCaption,
+  Container
 } from 'reactstrap';
 import { useDispatch, useSelector } from 'react-redux'
 import Load from './Load';
@@ -30,8 +31,6 @@ const items = [
     caption: 'Slide 3'
   }
 ];
-
-
 
 
 const Home = (props) => {
@@ -66,9 +65,9 @@ const Home = (props) => {
   })
 
   return (
-    <>
+    <Container>
       <NavBar />
-      <div className="container mt-5">
+      <div className="container my-5">
         {loading ? <Load /> :
           <Carousel
             activeIndex={activeIndex}
@@ -85,7 +84,7 @@ const Home = (props) => {
           </Carousel>
         }
       </div>
-    </>
+    </Container>
 
   );
 }

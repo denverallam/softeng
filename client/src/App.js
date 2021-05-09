@@ -34,6 +34,7 @@ import Homepage from './components/Content/Homepage';
 import ResponsesList from './components/Admin/Response/Responses';
 import { getAllContent } from './actions/contentActions';
 import { getAllResponses } from './actions/responseActions';
+import { Container } from 'reactstrap';
 
 const App = () => {
 
@@ -48,15 +49,14 @@ const App = () => {
   }, [])
 
   return (
-    <Fragment>
+    <div>
 
       <Router>
         <Header />
         <ErrorBoundary>
 
           <Switch>
-            <Route path='/' exact component={Home} />
-            <Route path='/home' exact component={Homepage} />
+            <Route path='/' exact component={Homepage} />
             <Route path='/about' exact component={Escolario} />
             <Route path='/about-best' exact component={Best} />
             <Route path='/about-best-officers-history' exact component={BestOfficerHistoryList} />
@@ -89,7 +89,7 @@ const App = () => {
 
       </Router>
 
-    </Fragment >
+    </div >
 
   )
 }

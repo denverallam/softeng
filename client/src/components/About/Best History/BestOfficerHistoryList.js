@@ -2,11 +2,12 @@ import { useState } from 'react'
 import { organization } from '../data/OfficersData'
 import BestOfficerHistory from './BestOfficerHistory';
 import NavBar from '../../NavBar';
+import { Container } from 'reactstrap';
 
 const BestOfficerHistoryList = () => {
 
     return (
-        <>
+        <Container>
         <NavBar/>
 
         <h4 className="officer-header my-4 ntxt">BEST OFFICER HISTORY</h4>
@@ -17,7 +18,7 @@ const BestOfficerHistoryList = () => {
                 ))
             }
         </div>
-        </>
+        </Container>
     )
 }
 

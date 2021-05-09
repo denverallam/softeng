@@ -1,7 +1,6 @@
 import { Button, Form, FormGroup, Label, Input, Alert } from 'reactstrap';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import api from '../../api/server'
 import { login as viewLogin, logout } from '../../actions/viewerActions'
 import { getResponse } from '../../actions/responseActions';
 
@@ -11,7 +10,7 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
 
     const localViewer = useSelector(state => state.viewer.viewer)
     const locViewer = JSON.parse(localStorage.getItem('user'))
-    const response = useSelector(state => state.response)
+    const response = useSelector(state => state.response.responseList.find(res => res._id === responseId))
 
 
     const [newResponse, setNewResponse] = useState({
@@ -19,6 +18,8 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
         email: "",
         content: ""
     });
+
+
 
     const [viewer, setViewer] = useState({
         username: '',
@@ -31,26 +32,17 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
     }
 
     useEffect(() => {
-        if (locViewer) {
-            dispatch(viewLogin(locViewer?.result))
             setViewer({ ...viewer, email: locViewer?.result.email, username: locViewer?.result.username })
             setNewResponse({ ...newResponse, email: viewer.email, author: viewer.username })
-        }
     }, [])
 
-    useEffect(() => {
-        setViewer({ ...viewer, email: localViewer?.result.email, username: localViewer?.result.username })
-        setNewResponse({ ...newResponse, email: viewer.email, author: viewer.username })
-    }, [localViewer?.result, response.error])
 
     useEffect(() => {
-        dispatch(getResponse(responseId))
+        if(responseId){
+            setNewResponse({ ...newResponse, content: response.content })
+        }
     }, [responseId])
 
-    useEffect(() => {
-        setNewResponse({ ...newResponse, content: response.response.content })
-        console.log(response.response.content)
-    }, [response.response])
 
     const [error, setError] = useState('')
 
@@ -80,7 +72,6 @@ const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, up
 
     const handleLogin = (e) => {
         e.preventDefault();
-        console.log(validateEmail(viewer.email))
         if (validateEmail(viewer.email) === true){
             if (viewer.email && viewer.username) {
             

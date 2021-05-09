@@ -1,6 +1,6 @@
 import { useState, useEffect, Fragment } from 'react';
-import { useDispatch, useSelector} from 'react-redux'
-import { Button, FormGroup, Label, Input } from 'reactstrap';
+import { useDispatch, useSelector } from 'react-redux'
+import { Button, FormGroup, Label, Input, Modal, ModalBody, ModalFooter } from 'reactstrap';
 import { createContent } from '../../../actions/contentActions'
 import FileBase from 'react-file-base64'
 import Dashboard from '../Dashboard';
@@ -8,35 +8,54 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 
-const ContentForm = () => {
 
-  const content = useSelector(state => state.content)
+
+const ContentForm = ({ history }) => {
+
+  const [modal, setModal] = useState(false);
+  const toggle = () => setModal(!modal);
+
+  const addMore =  (
+    <Modal isOpen={modal} toggle={toggle}>
+      <ModalBody>
+        Add More?
+    </ModalBody>
+      <ModalFooter>
+        <Button color="success" onClick={() => {toggle(); clear()}}>Yes</Button>
+        <Button color="danger" onClick={() => {
+          toggle();
+          history.push('/admin')
+          }}>
+            No
+          </Button>
+      </ModalFooter>
+    </Modal>
+  )
+
   const dispatch = useDispatch()
 
   const [newContent, setNewContent] = useState({
     title: '',
     content: '',
+    category: '',
     description: '',
     selectedFile: '',
     author: ''
   });
 
-  const clear = () => {
-    setNewContent({
-      ...newContent,
-      title: "",
-      author: "",
-      content: "",
-      description: '',
-      selectedFile: '',
-    });
+  const blank = {
+    title: '',
+    content: '',
+    category: '',
+    description: '',
+    selectedFile: '',
+    author: ''
   }
 
-  useEffect(()=> {
-    if(content.success){
-      alert('Added')
-    }
-  },[content])
+  const clear = () => (
+    setNewContent(blank)
+  )
+
 
   const handleChange = (e) => {
     setNewContent({ ...newContent, [e.target.name]: e.target.value })
@@ -47,7 +66,8 @@ const ContentForm = () => {
     if (newContent.title && newContent.author && newContent.content && newContent.category && newContent.description) {
       dispatch(createContent(newContent));
       clear()
-      // alert("Added");
+      alert("Added");
+      toggle()
     }
     else {
       alert("Invalid Input")
@@ -91,7 +111,7 @@ const ContentForm = () => {
               id="content"
               data={newContent.content}
               editor={ClassicEditor}
-              onChange={(e, editor) => { setNewContent({ ...newContent, content: editor.getData()})}}
+              onChange={(e, editor) => { setNewContent({ ...newContent, content: editor.getData() }) }}
             />
           </div>
           <div>
@@ -102,6 +122,7 @@ const ContentForm = () => {
             <Input type="date" name="date" id="date" value={newContent.date} onChange={handleChange} />
           </FormGroup>
           <Button type="submit" color="primary">Publish</Button>
+          {addMore}
         </form>
       </div>
     </Fragment>

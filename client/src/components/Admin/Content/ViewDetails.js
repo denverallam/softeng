@@ -1,9 +1,7 @@
 
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import Load from '../../Content/Load'
-import { CardImg } from 'reactstrap'
 import moment from 'moment';
-import { getContent } from '../../../actions/contentActions';
 import Dashboard from '../Dashboard';
 import ReactHtmlParser from 'react-html-parser';
 
@@ -21,7 +19,6 @@ const ViewDetails = ({ match }) => {
 
     // const content = useSelector(state => state.content.content)
     const content = useSelector(state => state.content.contentList.filter(content => content._id === contentId)[0])
-    const loading = useSelector(state => state.content.loading)
 
 
     return (
@@ -35,19 +32,8 @@ const ViewDetails = ({ match }) => {
                             <p className="page-title text-center my-0">{content.category}</p>
                             <h4 className="headline ">{content.title}</h4>
                             <p className="byline">By {content.author}. {moment(content.date).toString().substr(4, 11)}</p>
-                            <div className="text mt-4">
-                                {printLine(content.description || "")}
-                            </div>
-
                              <div>
-                            {
-                                content.selectedFile ?
-                                    <div className="container">
-                                        <img src={content.selectedFile} className="rounded"/>
-                                    </div>
-                                    : <></>
-                            }
-                            <div className="mt-4 text">
+                            <div className="mt-4 body-text">
                                 {ReactHtmlParser(content.content)}
                             </div>
                             </div>   

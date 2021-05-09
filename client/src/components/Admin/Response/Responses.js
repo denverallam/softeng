@@ -7,6 +7,7 @@ import { getAllResponses, deleteResponse } from '../../../actions/responseAction
 import moment from 'moment';
 import Pagination from '@material-ui/lab/Pagination';
 import { listSorter } from '../../../sort';
+import { Link } from 'react-router-dom';
 
 
 const ResponseList = () => {
@@ -81,13 +82,20 @@ const ResponseList = () => {
 
     const displayResponses = responseList.slice(pagesVisited, pagesVisited + contentPerPage).map(res => (
         <tr>
-            <td>{res.author}</td>
-            <td onClick={expandToggle}>
+            <td>
+                {res.author}
+            </td>
+            <td onClick={expandToggle} style={{maxWidth:'30ch'}} className="text-break">
                 {
                     !expand ? cutContent(res.content) : res.content
                 }
             </td>
             <td>{moment(res.date).toString().substr(4, 11)}</td>
+            <td>
+                <Link target={"_blank"} to={`/post/${res.content_id}`} className="li">
+                    <Button color="info" outline>View</Button>
+                </Link>
+            </td>
             <td>
                 <Button onClick={toggle} color="danger" outline>Delete</Button>
                 {confirm(res._id)}
@@ -116,21 +124,6 @@ const ResponseList = () => {
                                 </thead>
                                 <tbody>
                                     {
-                                        // responseList.map(res => (
-                                        //     <tr>
-                                        //         <td>{res.author}</td>
-                                        //         <td onClick={expandToggle}>
-                                        //             {
-                                        //                 !expand ? cutContent(res.content) : res.content
-                                        //             }
-                                        //         </td>
-                                        //         <td>{moment(res.date).toString().substr(4, 11)}</td>
-                                        //         <td>
-                                        //             <Button onClick={toggle} color="danger" outline>Delete</Button>
-                                        //             {confirm(res._id)}
-                                        //         </td>
-                                        //     </tr>
-                                        // ))
                                         displayResponses
                                     }
                                 </tbody>

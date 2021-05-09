@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Content from '../Content';
-import { ListGroup, ListGroupItem, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { ListGroup, ListGroupItem, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Container } from 'reactstrap';
 import Pagination from '@material-ui/lab/Pagination';
 import Load from '../Load';
 import NavBar from '../../NavBar';
@@ -42,10 +42,10 @@ const OpinionList = () => {
 
 
     return (
-        <>
+        <Container>
             <NavBar />
             <div className="row">
-                <div className="container col-sm-8 px-sm-5">
+                <div className="container col-sm-8">
                     <h1 className="page-title text-center mx-auto ntxt">Opinion</h1>
                     {
                        (articles.length  < 1) ? 
@@ -83,7 +83,7 @@ const OpinionList = () => {
                     <MostViewed />
                 </div>
             </div>
-        </>
+        </Container>
     )
 }
 

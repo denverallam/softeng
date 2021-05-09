@@ -1,4 +1,20 @@
 import president from './escolariologo.png'
+import bio from '../pics/bio.png'
+import cabucoy from '../pics/cabucoy.png'
+import jacoba from '../pics/jacoba.png'
+import corpuz from '../pics/corpuz.png'
+import foster from '../pics/fosterr.png'
+import sandoval from '../pics/sandoval.png'
+import ringor from '../pics/ringor.png'
+import monica from '../pics/stamonica.png'
+import ravela from '../pics/ravela.png'
+import velasco from '../pics/velasco.png'
+import muniz from '../pics/muniz.png'
+import delmundo from '../pics/delmundo.png'
+import viray from '../pics/viray.png'
+import cusipag from '../pics/cusipag.png'
+import cortez from '../pics/cortez.png'
+import naculangga from '../pics/naculangga.png'
 
 export const positions = ['Editor In Chief', 'Associate Editor in Chief', 'Managing Editor']
 export const editorspositions = ['Feature & Literary Editor','News Editor', 'Opinion Editor', 'Chief Photojournalist','Layout Artist',]
@@ -9,17 +25,17 @@ export const editorialBoard = [
     {
         name: 'Criscelle Corpuz',
         position: positions[0],
-        image:president
+        image:corpuz
     },
     {
         name: 'Abegail Cabucoy',
         position: positions[1],
-        image:president
+        image:cabucoy
     },
     {
         name: 'Khate Nichole Jacoba',
         position: positions[2],
-        image:president
+        image:jacoba
 
     },
     {
@@ -39,27 +55,27 @@ export const sectionEditors = [
     {
         name: 'Djulienne Flor Foster',
         position: editorspositions[0],
-        image:president
+        image:foster
     },
     {
         name: 'Rene Sandoval',
         position: editorspositions[1],
-        image:president
+        image:sandoval
     },
     {
         name: 'Adora Mae Ringor',
         position: editorspositions[2],
-        image:president
+        image:ringor
     },
     {
         name: 'Aberose Bio',
         position: editorspositions[3],
-        image:president
+        image:bio
     },
     {
         name: 'Zedwin Sta. Monica',
         position: editorspositions[4],
-        image:president
+        image:monica
     }
 ]
 
@@ -67,41 +83,41 @@ export const sectionWriters = [
     {
         name: 'Gillaine Ravela',
         position: secpositions[0],
-        image:president
+        image:ravela
     },
     {
         name: 'Mikka Kay Naculangga',
         position: secpositions[0],
-        image:president
+        image:naculangga
     },
     {
         name: 'Raheema Velasco',
         position: secpositions[0],
-        image:president
+        image:velasco
     },
     {
         name: 'Richard Muniz',
         position: secpositions[0],
-        image:president
+        image:muniz
     },
     {
         name: 'Ruth Cortez',
         position: secpositions[0],
-        image:president
+        image:cortez
     },
     {
         name: 'Ellicia Del Mundo',
         position: secpositions[0],
-        image:president
+        image:delmundo
     },
     {
         name: 'John Dave Cusipag',
         position: secpositions[1],
-        image:president
+        image:cusipag
     },
     {
         name: 'Kriscia Viray',
         position: secpositions[2],
-        image:president
+        image:viray
     }
 ]   

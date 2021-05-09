@@ -13,17 +13,9 @@ const ContentUpdate = ({ match, history }) => {
   const dispatch = useDispatch()
 
   const content = useSelector(state => state.content.content)
-  const [newContent, setNewContent] = useState({ title: "", author: "", content: "", selectedFile: "" });
   const contentId = match.params.id
-
-  useEffect(() => {
-    dispatch(getContent(contentId))
-    setNewContent(content)
-  }, [])
-
-  useEffect(() => {
-    setNewContent(content)
-  }, [content])
+  const cnt =  useSelector(state => state.content.contentList.find(cnt => cnt._id === contentId))
+  const [newContent, setNewContent] = useState(cnt);
 
   const handleChange = (e) => {
     setNewContent({ ...newContent, [e.target.name]: e.target.value })
@@ -42,7 +34,7 @@ const ContentUpdate = ({ match, history }) => {
     }
   }
 
-  console.log(content)
+
 
   return (
     <>
@@ -72,10 +64,6 @@ const ContentUpdate = ({ match, history }) => {
             <Label for="description">Lead</Label>
             <Input type="textarea" name="description" id="description" value={newContent.description} onChange={handleChange} />
           </FormGroup>
-          {/* <FormGroup>
-            <Label for="content">Body</Label>
-            <Input type="textarea" name="content" id="content" value={newContent.content} onChange={handleChange} />
-          </FormGroup> */}
           <div className="my-2">
             <Label for="content">Body</Label>
             <CKEditor
@@ -83,7 +71,7 @@ const ContentUpdate = ({ match, history }) => {
               id="content"
               data={content.content}
               editor={ClassicEditor}
-              onChange={(e, editor) => { setNewContent({ ...newContent, content: editor.getData() }); console.log(editor) }}
+              onChange={(e, editor) => { setNewContent({ ...newContent, content: editor.getData() })}}
             />
           </div>
           <div>
@@ -93,8 +81,7 @@ const ContentUpdate = ({ match, history }) => {
             <Label for="date">Date</Label>
             <Input type="date" name="date" id="date" value={newContent.date} onChange={handleChange} />
           </FormGroup>
-          <Button color="primary" className="my-4">Update</Button>
-
+          <Button type="submit" color="primary" className="my-4">Update</Button>
         </Form>
       </div>
     </>

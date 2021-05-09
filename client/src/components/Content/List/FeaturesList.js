@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Content from '../Content';
-import { ListGroup, ListGroupItem, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { ListGroup, ListGroupItem, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Container } from 'reactstrap';
 import { deleteContent, getContentByCategory } from '../../../actions/contentActions';
 import Load from '../Load';
 import NavBar from '../../NavBar';
@@ -40,10 +40,10 @@ const FeaturesList = () => {
     ))
 
     return (
-        <>
+        <Container>
             <NavBar />
             <div className="row">
-                <div className="container col-sm-8 px-sm-5">
+                <div className="container col-sm-8">
                     <h1 className="page-title text-center mx-auto ntxt">Feature Articles</h1>
                     {
                        (articles.length  < 1) ? <Load /> :
@@ -80,7 +80,7 @@ const FeaturesList = () => {
                     <MostViewed />
                 </div>
             </div>
-        </>
+        </Container>
     )
 }
 

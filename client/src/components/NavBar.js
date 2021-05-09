@@ -20,7 +20,7 @@ const NavBar = () => {
 
 
   return (
-    <Navbar color="light" className="navbar-light" expand="md">
+    <Navbar className="navbar-light" expand="md">
       <NavbarToggler onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
         <Nav navbar >

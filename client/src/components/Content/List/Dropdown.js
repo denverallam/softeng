@@ -13,7 +13,6 @@ const Order = ({setValue}) => {
 
     const handleChange = (e) => {
         setValue(e.target.value)
-        console.log(e.target.value)
     }
 
     return (

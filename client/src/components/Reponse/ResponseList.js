@@ -11,19 +11,8 @@ const ResponseList = ({ contentId }) => {
     // const contentId = match.params.id
 
     const dispatch = useDispatch()
-    const response = useSelector(state => state.response.responseList)
-    const [responseList, setResponseList] = useState([])
+    const response = useSelector(state => state.response.responseList.filter(response => response.content_id === contentId))
     const [responseId, setResponseId] = useState("")
-
-    useEffect(() => {
-        dispatch(getResponses(contentId))
-        setResponseList(response)
-    },[])
-
-    useEffect(() => {
-        setResponseList(response)
-    },[response])
-
 
     const deleteItem = (id) => {
         dispatch(deleteResponse(id))
@@ -42,7 +31,7 @@ const ResponseList = ({ contentId }) => {
             <ResponseForm contentId={contentId} setResponseId={setResponseId} responseId={responseId} createResponse={addItem} updateResponse={updateItem} />
             <ListGroup className="container">
                 {
-                    responseList.map(response => (
+                    response.map(response => (
                         <ListGroupItem key={response._id} className="border-0">
                             <Response response={response} deleteResponse={deleteItem} setResponseId={setResponseId} />
                         </ListGroupItem>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Content from '../Content';
-import { ListGroup, ListGroupItem, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { ListGroup, ListGroupItem, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Container } from 'reactstrap';
 import Typography from '@material-ui/core/Typography';
 import Pagination from '@material-ui/lab/Pagination';
 import { getAllContent, deleteContent, getContentByCategory } from '../../../actions/contentActions';
@@ -43,10 +43,10 @@ const LiteraryList = () => {
     ))
 
     return (
-        <>
+        <Container>
             <NavBar />
             <div className="row">
-                <div className="container col-sm-8 px-sm-5">
+                <div className="container col-sm-8">
                     <h1 className="page-title text-center mx-auto ntxt">Literary</h1>
                     {
                        (articles.length  < 1) ? <Load /> :
@@ -83,7 +83,7 @@ const LiteraryList = () => {
                     <MostViewed />
                 </div>
             </div>
-        </>
+        </Container>
     )
 }
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Content from '../Content';
-import { ListGroup, ListGroupItem, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, } from 'reactstrap';
+import { ListGroup, ListGroupItem, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Container, } from 'reactstrap';
 import { getContentByCategory } from '../../../actions/contentActions';
 import Load from '../Load';
 import NavBar from '../../NavBar';
@@ -48,13 +48,15 @@ const NewsList = () => {
     const today = Date.now()
 
     return (
-        <>
+        <Container>
             <NavBar />
             <div className="row">
-                <div className="container col-sm-8 px-sm-5">
+                <div className="container col-sm-8">
                     <h1 className="page-title text-center mx-auto ntxt">News</h1>
                     {
-                       (articles.length  < 1) ? <Load /> :
+                       (articles.length  < 1) ? 
+                       <Load/> 
+                       :
                                 <>
                                     {articles.length > 1 ?
                                         <div className="container">
@@ -79,7 +81,6 @@ const NewsList = () => {
                                         <p className="text">Page: {pageNumber}</p>
                                         <Pagination count={pageCount} page={pageNumber} onChange={changePage} />
                                     </div>
-
                                 </>
                     }
                 </div >
@@ -88,7 +89,7 @@ const NewsList = () => {
                     <MostViewed />
                 </div>
             </div>
-        </>
+        </Container>
     )
 }
 

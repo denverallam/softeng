@@ -75,10 +75,6 @@ export const getLatestNews = () => async (dispatch) => {
 export const getContent = (id) => async (dispatch) => {
     try{
 
-        dispatch({
-            type: actions.FETCH_REQUEST
-        })
-
         const {data} = await API.fetchContent(id)
 
         dispatch({
@@ -117,7 +113,6 @@ export const updateContent = (id, newContent) => async (dispatch) => {
 
     try{
         const {data} = await API.updateContent(id, newContent)
-        console.log(data)
         dispatch({
             type: actions.UPDATE_CONTENT,
             payload: data
