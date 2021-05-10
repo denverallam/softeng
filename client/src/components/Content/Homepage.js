@@ -21,7 +21,7 @@ const Homepage = () => {
         <Container>
             <NavBar />
             {headline ?
-                <div className='row'>
+                <div className='row my-2'>
                     <div className="col-md-8 my-4 text-center ">
                         <Grid container spacing={1} className="homepage-container">
                             {headline[0] ?
@@ -106,7 +106,7 @@ const Homepage = () => {
                             }
                         </Grid>
                     </div>
-                    <div className="container col-sm-3 d-none d-md-block">
+                    <div className="container col-sm-4 d-none d-md-block my-4 ">
                         <LatestNews count={4}/>
                     </div>
                 </div> : ''

@@ -46,7 +46,7 @@ const ContentDetails = ({ match }) => {
                             </div>
                             <ResponseList contentId={contentId} />
                         </div>
-                        <div className="container col-sm-3 my-5 d-none d-sm-block">
+                        <div className="col-sm-4 my-5 d-none d-sm-block sticky-lg-top">
                             <LatestNews />
                             <MostViewed />
                         </div>

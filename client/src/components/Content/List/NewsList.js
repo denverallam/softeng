@@ -46,7 +46,7 @@ const NewsList = () => {
         <Container>
             <NavBar />
             <div className="row">
-                <div className="container col-sm-8">
+                <div className="container col-sm-8 ">
                     <h1 className="page-title text-center mx-auto ntxt">News</h1>
                     {
                        (articles.length  < 1) ? 
@@ -79,9 +79,9 @@ const NewsList = () => {
                                 </>
                     }
                 </div >
-                <div className="col-sm-3 my-5">
-                    <LatestNews />
-                    <MostViewed />
+                <div className="col-sm-4 my-5">
+                        <LatestNews />
+                        <MostViewed />
                 </div>
             </div>
         </Container>
