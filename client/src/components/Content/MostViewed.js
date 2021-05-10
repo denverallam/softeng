@@ -1,8 +1,7 @@
-import { useDispatch, useSelector } from 'react-redux'
-import React, { useState, useEffect, Fragment } from 'react'
-import Load from './Load';
+import {  useSelector } from 'react-redux'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import { ListGroup, ListGroupItem, Container } from 'reactstrap';
+import { ListGroup, Container } from 'reactstrap';
 import { listSorter } from '../../sort';
 import best from './escolariologo.png'
 import moment from 'moment';
@@ -12,15 +11,10 @@ const MostViewed = () => {
     const content = useSelector(state => state.content.contentList)
     const loading = useSelector(state => state.content.latestLoading)
 
-    listSorter('VIEWS', content)
     const posted = content.filter(cnt => moment(new Date()).toISOString() >= moment(cnt.date).toISOString())
-    const [contentList, setContentList] = useState([])
+    const contentList = posted.slice(0,3)
 
-
-    useEffect(() => {
-        setContentList(posted.slice(0, 2))
-    }, [content])
-
+    listSorter('VIEWS', contentList)
 
     return (
         <Container>

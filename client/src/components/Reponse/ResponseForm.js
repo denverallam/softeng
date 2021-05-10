@@ -1,14 +1,12 @@
-import { Button, Form, FormGroup, Label, Input, Alert } from 'reactstrap';
+import { Button, Form, FormGroup,  Input, Alert } from 'reactstrap';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login as viewLogin, logout } from '../../actions/viewerActions'
-import { getResponse } from '../../actions/responseActions';
 
 const ResponseForm = ({ contentId, responseId, setResponseId, createResponse, updateResponse }) => {
 
     const dispatch = useDispatch()
 
-    const localViewer = useSelector(state => state.viewer.viewer)
     const locViewer = JSON.parse(localStorage.getItem('user'))
     const response = useSelector(state => state.response.responseList.find(res => res._id === responseId))
 

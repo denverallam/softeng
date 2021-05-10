@@ -1,14 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useState } from 'react'
+import {  useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
-import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import {
-    Card, CardText, CardBody,
-    CardTitle, CardSubtitle, Button, CardImg,
+    Card, CardBody, Button,
     Modal, ModalBody, ModalFooter
-
 } from 'reactstrap';
 import moment from 'moment';
 
@@ -16,14 +11,11 @@ import moment from 'moment';
 const Content = ({ content, deleteContent }) => {
 
 
-    const user = useSelector(state => state.user)
-
-
-    const cutContent = (content) => {
-        if (content.length > 80)
-            return content.substr(0, 80) + "..."
-        else return content.substr(0, 80)
-    }
+    // const cutContent = (content) => {
+    //     if (content.length > 80)
+    //         return content.substr(0, 80) + "..."
+    //     else return content.substr(0, 80)
+    // }
 
 
     const [modal, setModal] = useState(false);

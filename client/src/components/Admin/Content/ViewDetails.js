@@ -9,13 +9,13 @@ const ViewDetails = ({ match }) => {
 
     const contentId = match.params.id
 
-    const printLine = (text) => (
-        text.split('\n').map(value => (
-            <div className="mb-4">
-                {value}
-            </div>
-        ))
-    )
+    // const printLine = (text) => (
+    //     text.split('\n').map(value => (
+    //         <div className="mb-4">
+    //             {value}
+    //         </div>
+    //     ))
+    // )
 
     // const content = useSelector(state => state.content.content)
     const content = useSelector(state => state.content.contentList.filter(content => content._id === contentId)[0])

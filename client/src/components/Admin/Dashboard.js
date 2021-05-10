@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
   Collapse,
   Navbar,
@@ -19,7 +19,6 @@ const Dashboard = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   const dispatch = useDispatch()
-  const user = useSelector(state => state.user.authData)
   const localUser = JSON.parse(localStorage.getItem("admin"))
 
   return (

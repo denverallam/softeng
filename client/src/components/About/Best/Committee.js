@@ -1,4 +1,4 @@
-import { Card, CardTitle, Modal, ModalHeader, ModalBody, CardBody } from 'reactstrap';
+import { Card, CardTitle, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import { useState } from 'react'
 
 const Committee = ({comm}) => {

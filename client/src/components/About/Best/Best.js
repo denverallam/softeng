@@ -1,14 +1,11 @@
 import NavBar from "../../NavBar"
 import BoardOfficerList from "./BoardOfficerList"
-import { Card, CardTitle, CardSubtitle, Modal, ModalHeader, ModalBody, CardBody, Container } from 'reactstrap';
-import { useState, Fragment } from 'react'
+import { Container } from 'reactstrap';
 import { committee } from '../data/CommiteeData'
 import CommitteeList from "./CommitteeList";
 
 const Best = () => {
 
-    const [modal, setModal] = useState(false);
-    const toggle = () => setModal(!modal);
 
     return (
         <Container>

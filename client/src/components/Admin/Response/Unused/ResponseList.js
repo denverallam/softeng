@@ -1,8 +1,7 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import Response from './Response';
 import NewList from './NewList';
-import { Input, Table } from 'reactstrap';
+import { Input } from 'reactstrap';
 import Load from '../../../Content/Load';
 import Dashboard from '../../Dashboard';
 import Pagination from '@material-ui/lab/Pagination';

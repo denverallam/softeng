@@ -1,4 +1,4 @@
-import { Card, CardTitle, CardSubtitle, CardImg, Modal, ModalHeader, ModalBody, CardBody } from 'reactstrap';
+import { Card, CardTitle, CardSubtitle, CardImg } from 'reactstrap';
 import { useState } from 'react'
 
 const BoardOfficer = ({ officer }) => {

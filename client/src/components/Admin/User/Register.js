@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { Button, Form, Alert, FormGroup, Input } from 'reactstrap';
-import { register, clearErrors } from '../../../actions/userActions';
+import { register } from '../../../actions/userActions';
 import api from '../../../api/server'
 
 const Register = ({ history }) => {

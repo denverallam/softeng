@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { Button, Form, FormGroup, Alert, Input } from 'reactstrap';
+import { Button, FormGroup, Alert, Input } from 'reactstrap';
 import { useDispatch, useSelector } from 'react-redux'
-import { forgotPassword, clearErrors } from "../../../actions/userActions";
+import { forgotPassword } from "../../../actions/userActions";
 
 
 const ForgotPassword = () => {

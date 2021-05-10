@@ -1,35 +1,17 @@
-import { useDispatch, useSelector } from 'react-redux'
-import React, { useState, useEffect, Fragment } from 'react'
-import { getLatestNews } from '../../actions/contentActions';
+import {  useSelector } from 'react-redux'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import { ListGroup, ListGroupItem, Container } from 'reactstrap';
+import { ListGroup, Container } from 'reactstrap';
 import { listSorter } from '../../sort';
 import best from './escolariologo.png'
-import Load from './Load';
 import moment from 'moment';
 
 const LatestNews = ({count}) => {
 
-    const content = useSelector(state => state.content.contentList.filter(content => content.category === 'news'))
-    const loading = useSelector(state => state.content.latestLoading)
+    const content = useSelector(state => state.content.contentList.filter(content => (content.category === 'news' &&  moment(new Date()).toISOString() >= moment(content.date).toISOString())))
+    const contentList = content.slice(0,count || 3)
 
-    listSorter('LATEST', content)
-
-    const posted = content.filter(cnt => moment(new Date()).toISOString() >= moment(cnt.date).toISOString())
-
-    const [contentList, setContentList] = useState([])
-
-    useEffect(() => {
-        setContentList(posted.slice(0, count|| 2))
-    }, [])
-
-    useEffect(() => {
-        if (posted.slice(0, 2) !== contentList) {
-            setContentList(posted.slice(0, count || 2))
-        }
-    }, [content])
-
-
+    listSorter('LATEST', contentList)
 
     return (
         <Container>

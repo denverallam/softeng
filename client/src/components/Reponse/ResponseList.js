@@ -1,8 +1,8 @@
 import Response from './Response'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { ListGroup, ListGroupItem } from 'reactstrap';
-import { getResponses, updateResponse, createResponse } from '../../actions/responseActions';
+import {  updateResponse, createResponse } from '../../actions/responseActions';
 import { deleteResponse } from '../../actions/responseActions'
 import ResponseForm from './ResponseForm';
 

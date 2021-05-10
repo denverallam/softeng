@@ -20,7 +20,7 @@ const response = (state = initialState, action) => {
         case act.CREATE_RESPONSE:
             return { ...state, responseList: [action.payload.response, ...state.responseList], success:true, message: null}
         case act.UPDATE_RESPONSE:
-            return { ...state, responseList: state.responseList.map(response => response._id === action.payload.id ? action.payload.response : response), message: null, success:true, message: null };
+            return { ...state, responseList: state.responseList.map(response => response._id === action.payload.id ? action.payload.response : response), message: null, success:true};
         case act.DELETE_RESPONSE:
             return { ...state, responseList: state.responseList.filter(response => response._id !== action.payload), message: null };
         case act.REQUEST_ERROR:

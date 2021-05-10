@@ -1,5 +1,5 @@
 
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import ContentForm from './components/Admin/Content/ContentForm';
 import ContentUpdate from './components/Admin/Content/ContentUpdate';
 import ContentDetails from './components/Content/ContentDetails';
@@ -9,7 +9,6 @@ import Escolario from './components/About/Escolario/Escolario';
 import { useDispatch, useSelector } from 'react-redux'
 import BestOfficerHistoryList from './components/About/Best History/BestOfficerHistoryList';
 import Best from './components/About/Best/Best';
-import Home from './components/Content/Home';
 import Error from './components/Error';
 import NewsList from './components/Content/List/NewsList';
 import FeaturesList from './components/Content/List/FeaturesList';
@@ -22,19 +21,14 @@ import Register from './components/Admin/User/Register';
 import ChangePassword from './components/Admin/User/ChangePassword';
 import PrivateRoute from './components/Admin/PrivateRoute';
 import ContentList from './components/Admin/Content/ContentList';
-import ResponseList from './components/Admin/Response/Unused/ResponseList';
-import Responses from './components/Reponse/ResponseList'
 import Header from './components/Header';
-import Footer from './components/Footer';
 import ResetPassword from './components/Admin/User/ResetPassword';
 import ForgotPassword from './components/Admin/User/ForgotPassword';
-import BoardOfficerList from './components/About/Best/BoardOfficerList';
 import ErrorBoundary from './components/ErrorBoundary';
 import Homepage from './components/Content/Homepage';
 import ResponsesList from './components/Admin/Response/Responses';
 import { getAllContent } from './actions/contentActions';
 import { getAllResponses } from './actions/responseActions';
-import { Container } from 'reactstrap';
 
 const App = () => {
 
@@ -47,6 +41,7 @@ const App = () => {
     dispatch(getAllContent())
     dispatch(getAllResponses());
   }, [])
+
 
   return (
     <div>

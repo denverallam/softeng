@@ -1,6 +1,6 @@
 import NavBar from "../../NavBar"
 import EditorialBoardList from "./EditorialBoardList"
-import { editorialBoard, sectionEditors, sectionWriters } from '../data/EscolarioOfficerData'
+import { sectionWriters } from '../data/EscolarioOfficerData'
 import { Container } from "reactstrap"
 import EditorialBoard from "./EditorialBoard"
 

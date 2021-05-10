@@ -1,46 +1,26 @@
 import React, { useState, useEffect } from 'react'
 import best from './escolariologo.png'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
-import {
-    Card, CardText, CardBody,
-    CardSubtitle, Button, CardImg
-} from 'reactstrap';
 import { updateContent } from '../../actions/contentActions'
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import moment from 'moment';
-import ReactHtmlParser from 'react-html-parser';
-import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 
 
 const Content = ({ content }) => {
 
     const dispatch = useDispatch()
 
-    const user = useSelector(state => state.user)
-
-
-
     const [newContent, setNewContent] = useState({
         views: 0,
         title: ''
     })
 
-    const useStyles = makeStyles({
-        media: {
-            height: 360
-        },
-    });
 
-    const classes = useStyles();
-
-    const cutContent = (content) => {
-        if (content.length > 85)
-            return content.substr(0, 85) + "..."
-        else return content.substr(0, 85)
-    }
-
+    // const cutContent = (content) => {
+    //     if (content.length > 85)
+    //         return content.substr(0, 85) + "..."
+    //     else return content.substr(0, 85)
+    // }
 
     useEffect(() => {
         setNewContent(content)

@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useState, } from 'react'
+import { useSelector } from 'react-redux'
 import Content from '../Content';
 import { ListGroup, ListGroupItem, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Container } from 'reactstrap';
-import Typography from '@material-ui/core/Typography';
 import Pagination from '@material-ui/lab/Pagination';
-import { getAllContent, deleteContent, getContentByCategory } from '../../../actions/contentActions';
 import Load from '../Load';
 import NavBar from '../../NavBar';
 import { listSorter } from '../../../sort';

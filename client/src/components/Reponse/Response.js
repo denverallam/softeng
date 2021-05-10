@@ -1,14 +1,8 @@
 import { useState } from 'react'
-import {
-    Card, CardText, CardBody,
-    CardTitle, CardSubtitle, Button,
-    Modal, ModalHeader, ModalBody, ModalFooter
-
-} from 'reactstrap';
+import {Button,Modal,  ModalBody, ModalFooter} from 'reactstrap';
 import moment from 'moment';
-import { useDispatch, useSelector } from 'react-redux'
-import EditIcon from '@material-ui/icons/Edit';
-import DeleteIcon from '@material-ui/icons/Delete';
+import { useSelector } from 'react-redux'
+
 
 const Response = ({ response, deleteResponse, setResponseId }) => {
 

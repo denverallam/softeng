@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles';
 import {
     Card, CardText, CardBody,
-    CardTitle, CardSubtitle, Button, CardImg,
-    Modal, ModalHeader, ModalBody, ModalFooter
+    CardTitle,  Button, 
+    Modal, ModalBody, ModalFooter
 } from 'reactstrap';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { getContent } from '../../../../actions/contentActions';
 
 
 const Response = ({ response, deleteResponse }) => {

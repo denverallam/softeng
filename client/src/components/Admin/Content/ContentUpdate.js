@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import FileBase from 'react-file-base64'
-import { Button, Form, FormGroup, Label, Input, Nav } from 'reactstrap';
-import { updateContent, getContent } from '../../../actions/contentActions'
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { updateContent } from '../../../actions/contentActions'
 import Dashboard from '../Dashboard';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';

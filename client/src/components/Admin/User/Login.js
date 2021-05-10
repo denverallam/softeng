@@ -3,7 +3,7 @@ import { Button, Alert, Form, FormGroup, Input } from 'reactstrap';
 import { useLocation, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import api from '../../../api/server'
-import { login, clearErrors } from '../../../actions/userActions';
+import { login } from '../../../actions/userActions';
 import './styles.css'
 
 const Login = ({ history }) => {

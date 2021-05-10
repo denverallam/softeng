@@ -1,24 +1,19 @@
-import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useState, useEffect} from 'react'
+import { useSelector } from 'react-redux'
 import Content from '../Content';
-import { ListGroup, ListGroupItem, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Container, } from 'reactstrap';
-import { getContentByCategory } from '../../../actions/contentActions';
+import { ListGroup, ListGroupItem, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Container } from 'reactstrap';
+import Pagination from '@material-ui/lab/Pagination';
 import Load from '../Load';
 import NavBar from '../../NavBar';
 import { listSorter } from '../../../sort';
 import moment from 'moment';
-import Pagination from '@material-ui/lab/Pagination';
 import MostViewed from '../MostViewed';
 import LatestNews from '../LatestNews';
 
 
 const NewsList = () => {
 
-
-
-    const content = useSelector(state => state.content.contentList)
-    const articles = content.filter(content => content.category === 'news')
-    const loading = useSelector(state => state.content.loading)
+    const articles = useSelector(state => state.content.contentList.filter(content => content.category === 'news'))
 
     const [order, setOrder] = useState('LATEST')
 

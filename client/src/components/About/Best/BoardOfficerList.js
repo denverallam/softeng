@@ -1,13 +1,8 @@
 
 import { boardOfficers } from '../data/BoardOfficerData'
-import { useState } from 'react'
 import BoardOfficer from './BoardOfficer';
 
 const BoardOfficerList = () => {
-
-    const [modal, setModal] = useState(false);
-    const toggle = () => setModal(!modal);
-
 
     return (
         <>

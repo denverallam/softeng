@@ -1,9 +1,8 @@
-import React, { useState, useEffect, Fragment } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Content from './Content';
-import { Input, ListGroup, ListGroupItem } from 'reactstrap';
-import { getAllContent, deleteContent } from '../../../actions/contentActions';
-import Load from '../../Content/Load';
+import { Input, ListGroup, ListGroupItem, Container } from 'reactstrap';
+import { deleteContent } from '../../../actions/contentActions';
 import Dashboard from '../Dashboard';
 import Order from '../../Content/List/Dropdown';
 import { listSorter } from '../../../sort';
@@ -13,9 +12,8 @@ const ContentList = () => {
 
     const dispatch = useDispatch()
     const content = useSelector(state => state.content.contentList)
-    const loading = useSelector(state => state.content.loading)
     const [order, setOrder] = useState('LATEST')
-    const [contentList, setContentList] = useState([])
+    const [contentList, setContentList] = useState(content)
     const [isSearching, setIsSearching] = useState(false)
 
     const [countMessage, setCountMessage] = useState("")
@@ -47,11 +45,6 @@ const ContentList = () => {
 
     useEffect(() => {
         setContentList(content)
-    }, [])
-
-
-    useEffect(() => {
-        setContentList(content)
     }, [content])
 
 
@@ -74,7 +67,7 @@ const ContentList = () => {
 
 
     return (
-        <Fragment>
+        <Container>
             <Dashboard />
             <div className="container mt-2">
                 <Input type="text" name="title" id="title" placeholder='Search Author or Title' onChange={(e) => filterSearch(e.target.value)} />
@@ -105,7 +98,7 @@ const ContentList = () => {
                 }
             </div >
 
-        </Fragment>
+        </Container>
     )
 }
 

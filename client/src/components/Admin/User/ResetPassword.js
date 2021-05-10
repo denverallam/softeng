@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { resetPassword, clearErrors } from "../../../actions/userActions";
+import { resetPassword } from "../../../actions/userActions";
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Form, FormGroup, Alert, Input } from 'reactstrap';
 

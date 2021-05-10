@@ -1,12 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
-import Load from './Load';
 import NavBar from '../NavBar';
 import image from './escolariologo.png'
 import { Link } from 'react-router-dom';
 import { Container } from 'reactstrap';
 import LatestNews from './LatestNews';
-import MostViewed from './MostViewed';
 import moment from 'moment'
 import { listSorter } from '../../sort';
 import Grid from '@material-ui/core/Grid';
@@ -15,16 +13,8 @@ const Homepage = () => {
 
 
     const dispatch = useDispatch()
-    const content = useSelector(state => state.content.contentList.filter(cnt => moment(new Date()).toISOString() >= moment(cnt.date).toISOString()))
-    listSorter('LATEST', content)
-
-    const [headline, setHeadline] = useState(content.slice(0, 6))
-
-    const articleCount = headline.length
-
-    useEffect(() => {
-        setHeadline(content.slice(0, 6))
-    }, [content])
+    const headline = useSelector(state => state.content.contentList.filter(cnt => moment(new Date()).toISOString() >= moment(cnt.date).toISOString()))
+    listSorter('LATEST', headline)
 
 
     return (

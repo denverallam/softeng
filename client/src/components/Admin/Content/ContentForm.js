@@ -1,5 +1,5 @@
-import { useState, useEffect, Fragment } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
+import { useState, Fragment } from 'react';
+import { useDispatch } from 'react-redux'
 import { Button, FormGroup, Label, Input, Modal, ModalBody, ModalFooter } from 'reactstrap';
 import { createContent } from '../../../actions/contentActions'
 import FileBase from 'react-file-base64'

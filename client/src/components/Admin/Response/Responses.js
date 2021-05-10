@@ -1,9 +1,9 @@
-import { Input, Table, Button, Modal, ModalHeader, ModalBody, ModalFooter, } from 'reactstrap';
+import { Input, Table, Button, Modal,  ModalBody, ModalFooter, Container, } from 'reactstrap';
 import React, { useState, useEffect, Fragment } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Load from '../../Content/Load';
 import Dashboard from '../Dashboard';
-import { getAllResponses, deleteResponse } from '../../../actions/responseActions';
+import { deleteResponse } from '../../../actions/responseActions';
 import moment from 'moment';
 import Pagination from '@material-ui/lab/Pagination';
 import { listSorter } from '../../../sort';
@@ -104,7 +104,7 @@ const ResponseList = () => {
     ))
 
     return (
-        <Fragment>
+        <Container>
             <Dashboard />
             <div className="container my-2">
                 <Input type="text" name="title" id="title" placeholder='Search Author or Content' onChange={(e) => filterSearch(e.target.value)} />
@@ -135,7 +135,7 @@ const ResponseList = () => {
                         </div>
                         : <p className="text-center">No Responses</p>
             }
-        </Fragment>
+        </Container>
     )
 }
 

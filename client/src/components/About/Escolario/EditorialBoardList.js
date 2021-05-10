@@ -1,5 +1,4 @@
-import {useState} from 'react'
-import {editorialBoard, sectionEditors, sectionWriters} from '../data/EscolarioOfficerData'
+import {editorialBoard, sectionEditors} from '../data/EscolarioOfficerData'
 import EditorialBoard from './EditorialBoard';
 
 const EditorialBoardList = () => {

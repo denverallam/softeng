@@ -1,10 +1,7 @@
-
-
-import { useEffect, Fragment } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
+import {  useSelector } from 'react-redux'
 import ResponseList from '../Reponse/ResponseList'
 import Load from './Load'
-import { CardImg, Container } from 'reactstrap'
+import {  Container } from 'reactstrap'
 import moment from 'moment';
 import NavBar from '../NavBar';
 import ReactHtmlParser from 'react-html-parser';
