@@ -14,9 +14,10 @@ const Footer = () => {
     // </a>
 
     <footer className="page-footer font-small pt-sm-4 py-sm-3 row mx-auto my-auto" style={{ backgroundSize: 'cover', backgroundColor: '#020826', backgroundRepeat: 'no-repeat', backgroundSize: '100%', backgroundPosition: 'center center' }}>
-
+      
       <div className="container col-sm-4 my-auto" style={{ backgroundImage: `url(${logo})`, backgroundSize: 'cover', backgroundPosition: '50% 33%', minHeight: '10vh', maxHeight: '20vh', maxWidth: '40vw', }}>
       </div>
+
       <div className="container col-sm-4 my-auto text-center mx-auto">
         <ul className="list-unstyled list-inline">
           <li className="list-inline-item">

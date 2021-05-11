@@ -63,7 +63,7 @@ const Login = ({ history }) => {
     }, [localUser.message])
 
     return (
-        <div className="body container-sm my-5 py-3 form" >
+        <div className="body container-sm my-5 py-3 form">
 
             <h5 className="text-center">Login</h5>
             <Form onSubmit={handleSubmit}>

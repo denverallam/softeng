@@ -36,7 +36,7 @@ const NavBar = () => {
               <span className="ntxt">News</span>
             </Link>
           </NavItem>
-          <UncontrolledDropdown nav inNavbar className="mx-3 my-auto li ">
+          <UncontrolledDropdown inNavbar className="mx-3 my-auto li ">
             <DropdownToggle nav>
               <span className="li ntxt">
                 Features
@@ -44,7 +44,7 @@ const NavBar = () => {
             </DropdownToggle>
             <DropdownMenu left>
               <DropdownItem >
-                <Link to="/features" className="li ntxt">
+                <Link to="/features" className="ntxt li">
                   <span className="ntxt li">
                     Feature Articles
                   </span>
@@ -69,7 +69,7 @@ const NavBar = () => {
               <span className="ntxt"> Beyond Espana</span>
             </Link>
           </NavItem>
-          <UncontrolledDropdown nav inNavbar className="mx-3 my-auto li ">
+          <UncontrolledDropdown inNavbar className="mx-3 my-auto li ">
             <DropdownToggle nav >
               <span className="ntxt li">
                 About
@@ -77,21 +77,21 @@ const NavBar = () => {
             </DropdownToggle>
             <DropdownMenu left>
               <DropdownItem >
-                <Link to="/about" className="li">
+                <Link to="/about" className="ntxt li">
                   <span className="ntxt li">
                     Escolario
                   </span>
                 </Link>
               </DropdownItem>
               <DropdownItem >
-                <Link to="/about-best" className=" li">
+                <Link to="/about-best" className="ntxt li">
                   <span className="ntxt li">
                     Becarios De Santo Tomas
                   </span>
                 </Link>
               </DropdownItem>
               <DropdownItem >
-                <Link to="/about-best-officers-history" className=" li">
+                <Link to="/about-best-officers-history" className="ntxt li">
                   <span className="ntxt li">
                     BeST Officers History
                   </span>
