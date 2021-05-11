@@ -4,6 +4,7 @@ import Load from '../../Content/Load'
 import moment from 'moment';
 import Dashboard from '../Dashboard';
 import ReactHtmlParser from 'react-html-parser';
+import { Container } from 'reactstrap';
 
 const ViewDetails = ({ match }) => {
 
@@ -22,7 +23,7 @@ const ViewDetails = ({ match }) => {
 
 
     return (
-        <>
+        <Container>
             <Dashboard />
             <div className="container mb-5 p-4">
                 {!content ? <Load /> :
@@ -44,7 +45,7 @@ const ViewDetails = ({ match }) => {
                 }
                 
             </div>
-        </>
+        </Container>
     )
 }
 

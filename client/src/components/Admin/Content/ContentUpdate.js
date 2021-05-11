@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import FileBase from 'react-file-base64'
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Container } from 'reactstrap';
 import { updateContent } from '../../../actions/contentActions'
 import Dashboard from '../Dashboard';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
@@ -37,7 +37,7 @@ const ContentUpdate = ({ match, history }) => {
 
 
   return (
-    <>
+    <Container>
       <Dashboard />
       <div className="container my-5">
         <Form onSubmit={handleSubmit}>
@@ -84,7 +84,7 @@ const ContentUpdate = ({ match, history }) => {
           <Button type="submit" color="primary" className="my-4">Update</Button>
         </Form>
       </div>
-    </>
+    </Container>
   )
 }
 

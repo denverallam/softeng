@@ -1,6 +1,6 @@
 import { useState, Fragment } from 'react';
 import { useDispatch } from 'react-redux'
-import { Button, FormGroup, Label, Input, Modal, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, FormGroup, Label, Input, Modal, ModalBody, ModalFooter, Container } from 'reactstrap';
 import { createContent } from '../../../actions/contentActions'
 import FileBase from 'react-file-base64'
 import Dashboard from '../Dashboard';
@@ -77,7 +77,7 @@ const ContentForm = ({ history }) => {
 
 
   return (
-    <Fragment>
+    <Container>
       <Dashboard />
       <div className="container my-5 border p-5 border-info">
         <form onSubmit={handleSubmit}>
@@ -125,7 +125,7 @@ const ContentForm = ({ history }) => {
           {addMore}
         </form>
       </div>
-    </Fragment>
+    </Container>
   )
 }
 

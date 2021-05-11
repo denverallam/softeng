@@ -29,6 +29,7 @@ import Homepage from './components/Content/Homepage';
 import ResponsesList from './components/Admin/Response/Responses';
 import { getAllContent } from './actions/contentActions';
 import { getAllResponses } from './actions/responseActions';
+import Footer from './components/Footer';
 
 const App = () => {
 
@@ -80,7 +81,7 @@ const App = () => {
 
 
         </ErrorBoundary>
-        {/* <Footer /> */}
+        <Footer />
 
       </Router>
 

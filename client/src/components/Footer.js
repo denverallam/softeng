@@ -1,23 +1,18 @@
-
-import { useSelector } from 'react-redux'
-import logo from './escolariologo.png'
+import footer from './footer.png'
+import { Link } from 'react-router-dom'
 
 
 const Footer = () => {
 
-    const loading = useSelector(state => state.content.loading)
 
     return (
-        <div className="container-fluid p-0 fh">
-            {
-                loading ? <></> :
-                    <footer class="footer mt-5 py-3 footer-bg p-5">
-                        <div class="container">
-                            <img src={logo} className="fi"/>
-                        </div>
-                    </footer>
-            }
-        </div>
+        // <a href="#">
+        //     <img src={footer} className="img-fluid sticky-lg-top" />
+        // </a>
+        <>
+            <div className="container-fluid" style={{  backgroundImage: `url(${footer})`, backgroundRepeat: 'no-repeat', backgroundSize: '100%', backgroundPosition: 'bottom', height:'15vh'}}>
+            </div>
+        </>
     )
 }
 
