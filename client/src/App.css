@@ -74,6 +74,16 @@ figcaption {
   
 }
 
+.footer-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.footer-container > * {
+  flex: 1 1 33vh;
+  max-width: 33v;
+}
+
 
 .homepage-container{
   display: flex;
@@ -275,6 +285,10 @@ figcaption {
 
 }
 
+.footer-text{
+  font-family: 'Raleway', sans-serif;
+  font-size: .5rem;
+}
 
 
 .byline{
